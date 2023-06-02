@@ -1,4 +1,4 @@
-Installation
+安装教程
 ===========================
 
 The library can be run at Linux, Windows, MacOS, and EulerOS, etc. It is easy to be installed.
@@ -40,7 +40,9 @@ Install the **XuanPolicy** with MindSpore_:
     pip install xuanpolicy[mindspore]
 
 Install the **XuanPolicy** with all dependencies:
+
 ::
+
     pip install xuanpolicy[all]
 
 Note: Some extra packages should be installed manually for further usage. 

@@ -1,7 +1,7 @@
-Quick Start
+快速开始
 =======================
 
-Run a DRL agent
+运行一个DRL算法
 -----------------------
 
 In XuanPolicy, it is easy to build a DRL agent. First you need to create a *runner* 
@@ -15,7 +15,7 @@ Finally, execute ``runner.run`` and the agent's model is training.
 
 After training the agent, you can test and view the model by the following codes:
 
-Run an MARL agent
+运行一个MARL算法
 -----------------------
 
 XuanPolicy support MARL algorithms with both cooperative and competitive tasks. 
@@ -37,7 +37,7 @@ For competitve tasks in which agents can be divided to two or more sides, you ca
 In this demo, the agents in `mpe/simple_push <https://pettingzoo.farama.org/environments/mpe/simple_push/>`_ environment are divided into two sides, named "adversary_0" and "agent_0".
 The "adversary"s are MADDPG agents, and the "agent"s are IDDPG agents. 
 
-Test
+测试
 -----------------------
 
 :: 
@@ -48,7 +48,7 @@ Test
 
 
 
-Logger
+日志
 -----------------------
 
 You can use tensorboard to visualize what happened in the training process. After training, the log file will be automatically generated in the directory ".results/" and you should be able to see some training data after running the command.

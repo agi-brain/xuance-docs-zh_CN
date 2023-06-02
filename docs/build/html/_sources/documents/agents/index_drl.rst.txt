@@ -1,4 +1,4 @@
-Deep Reinforcement Learning
+深度强化学习(单智能体)
 ===============================
 
 .. toctree::

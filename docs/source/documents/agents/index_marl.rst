@@ -1,4 +1,4 @@
-Multi-Agent Reinforcement Learning
+多智能体强化学习
 ==================================
 
 .. toctree::
