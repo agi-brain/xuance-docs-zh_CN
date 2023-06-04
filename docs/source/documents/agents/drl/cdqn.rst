@@ -13,7 +13,7 @@ CNN算法在图像和语音识别方面的优势很大，再使用DQN算法对�
 输出使Q值最大的动作给环境，得到新的状态。
 
 论文链接: `Convolutional neural network-based deep Q-network (CNN-DQN) resource management in cloud radio access network
- <https://ieeexplore.ieee.org/abstract/document/9867958/>`_
+<https://ieeexplore.ieee.org/abstract/document/9867958/>`_
 
 论文引用信息:
 
