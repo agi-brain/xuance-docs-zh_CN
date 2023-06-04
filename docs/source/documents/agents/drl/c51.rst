@@ -13,6 +13,9 @@ C51 DQN（Categorical DQN，全称Categorical 51-Atom DQN）是对原始DQN算�
 每个头对应一个动作，输出对应动作的原子概率分布。在训练过程中，C51 DQN使用类似于原始DQN的损失函数，
 但用KL散度（Kullback-Leibler divergence）来衡量预测概率分布与目标概率分布之间的差异。
 
+算法出处
+----------------------
+
 论文链接: `A distributional perspective on reinforcement learning 
 <http://proceedings.mlr.press/v70/bellemare17a/bellemare17a.pdf>`_
 

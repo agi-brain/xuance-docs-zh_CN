@@ -12,6 +12,9 @@ Double DQN的主要思想是将动作选择和动作评估分离，使用两个�
 在每一步更新中，智能体会利用估计Q网络Q_e来选择最优动作，然后用目标Q网络Q_t来评估该动作的价值。
 这样可以减小单一Q网络在选择和评估过程中可能产生的过高估计偏差。
 
+算法出处
+----------------------
+
 论文链接: `Deep reinforcement learning with double q-learning 
 <https://ojs.aaai.org/index.php/AAAI/article/view/10295>`_
 

@@ -12,6 +12,9 @@ CDQN将CNN算法和DQN相结合，通过卷积神经网络对网络的输入进�
 CNN算法在图像和语音识别方面的优势很大，再使用DQN算法对整个网络进行训练，
 输出使Q值最大的动作给环境，得到新的状态。
 
+算法出处
+----------------------
+
 论文链接: `Convolutional neural network-based deep Q-network (CNN-DQN) resource management in cloud radio access network
 <https://ieeexplore.ieee.org/abstract/document/9867958/>`_
 

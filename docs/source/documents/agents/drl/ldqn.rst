@@ -10,6 +10,9 @@ LDQN使用神经网络来逼近行为值函数，使用了target Q network来更
 可以有效的传递和表达长时间序列中的信息并且不会导致长时间前的有用信息被忽略，
 再使用DQN算法对整个网络进行训练，输出使Q值最大的动作给环境，得到新的状态。
 
+算法出处
+----------------------
+
 论文链接: `UAV target following in complex occluded environments with adaptive multi-modal fusion 
 <https://link.springer.com/article/10.1007/s10489-022-04317-2>`_
 

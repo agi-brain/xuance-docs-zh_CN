@@ -17,6 +17,9 @@ representation由包含单隐层的多层感知器（Multi-Layer Perception, MLP
 选择价值最大对应的动作作为决策信息。此外，DQN还包含target_Q作为目标Q网络，其结构和eval_Q相同，
 参数和eval_Q保持周期性一致。
 
+算法出处
+-------------------------------
+
 论文链接: `Human-level control through deep reinforcement learning 
 <https://www.nature.com/articles/nature14236/>`_
 
