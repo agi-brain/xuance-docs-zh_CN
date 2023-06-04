@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="QMIX" href="qmix.html" />
-    <link rel="prev" title="VDN: Value Decomposition Networks" href="vdn.html" /> 
+    <link rel="prev" title="VDN" href="vdn.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,19 +42,35 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">如何使用:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">Professional Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">安装教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Included algorithms:</span></p>
+<p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/common.html">通用基础模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/agents.html">Agent类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/learners.html">学习器Learner类</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API详细介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_tutorial/common.html">common toolboxes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index_drl.html">Deep Reinforcement Learning</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index_marl.html">Multi-Agent Reinforcement Learning</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index_drl.html">深度强化学习(单智能体)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index_marl.html">多智能体强化学习</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="iql.html">IQL: Independent Q-Learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vdn.html">VDN: Value Decomposition Networks</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">QTRAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vdn.html">VDN</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">QTRAN</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">算法描述</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="qmix.html">QMIX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wqmix.html">Weighted QMIX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wqmix.html">WQMIX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dcg.html">DCG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mfq.html">MFQ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mfac.html">MFAC</a></li>
@@ -69,13 +85,9 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Benchmark</span></p>
+<p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../benchmark/environments.html">Environments</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">API tutorials:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../components/configs.html">configs setting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/environments.html">仿真环境</a></li>
 </ul>
 
         </div>
@@ -92,7 +104,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="../index_marl.html">Multi-Agent Reinforcement Learning</a></li>
+          <li class="breadcrumb-item"><a href="../index_marl.html">多智能体强化学习</a></li>
       <li class="breadcrumb-item active">QTRAN</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/documents/agents/marl/qtran.rst.txt" rel="nofollow"> View page source</a>
@@ -105,13 +117,30 @@
              
   <section id="qtran">
 <h1>QTRAN<a class="headerlink" href="#qtran" title="Permalink to this headline">¶</a></h1>
+<section id="id1">
+<h2>算法描述<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>QTRAN算法的全称是Q-transformation，该算法认为VDN的加和约束严重限制了值函数的函数表达能力，无法解决非单调协作任务。
+QTRAN算法指出，更加通用的方法应该要满足独立-全局最大化（Independent-Global-Max, IGM）条件，
+为了满足该条件，QTRAN算法将原始的整体值函数映射至新的值函数，使得它们在IGM条件下是等价的。</p>
+<p>论文链接: <a class="reference external" href="http://proceedings.mlr.press/v97/son19a/son19a.pdf">Qtran: Learning to factorize with transformation for cooperative multi-agent reinforcement learning</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@inproceedings</span><span class="p">{</span><span class="n">son2019qtran</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Qtran</span><span class="p">:</span> <span class="n">Learning</span> <span class="n">to</span> <span class="n">factorize</span> <span class="k">with</span> <span class="n">transformation</span> <span class="k">for</span> <span class="n">cooperative</span> <span class="n">multi</span><span class="o">-</span><span class="n">agent</span> <span class="n">reinforcement</span> <span class="n">learning</span><span class="p">},</span>
+    <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Son</span><span class="p">,</span> <span class="n">Kyunghwan</span> <span class="ow">and</span> <span class="n">Kim</span><span class="p">,</span> <span class="n">Daewoo</span> <span class="ow">and</span> <span class="n">Kang</span><span class="p">,</span> <span class="n">Wan</span> <span class="n">Ju</span> <span class="ow">and</span> <span class="n">Hostallero</span><span class="p">,</span> <span class="n">David</span> <span class="n">Earl</span> <span class="ow">and</span> <span class="n">Yi</span><span class="p">,</span> <span class="n">Yung</span><span class="p">},</span>
+    <span class="n">booktitle</span><span class="o">=</span><span class="p">{</span><span class="n">International</span> <span class="n">conference</span> <span class="n">on</span> <span class="n">machine</span> <span class="n">learning</span><span class="p">},</span>
+    <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">5887</span><span class="o">--</span><span class="mi">5896</span><span class="p">},</span>
+    <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2019</span><span class="p">},</span>
+    <span class="n">organization</span><span class="o">=</span><span class="p">{</span><span class="n">PMLR</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="vdn.html" class="btn btn-neutral float-left" title="VDN: Value Decomposition Networks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vdn.html" class="btn btn-neutral float-left" title="VDN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="qmix.html" class="btn btn-neutral float-right" title="QMIX" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

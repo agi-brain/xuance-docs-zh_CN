@@ -46,18 +46,27 @@
 <li class="toctree-l1"><a class="reference internal" href="basic_usage.html">快速开始</a></li>
 <li class="toctree-l1"><a class="reference internal" href="professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Included algorithms:</span></p>
+<p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../agents/index_drl.html">Deep Reinforcement Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agents/index_marl.html">Multi-Agent Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/common.html">通用基础模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/agents.html">Agent类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/learners.html">学习器Learner类</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Benchmark</span></p>
+<p class="caption" role="heading"><span class="caption-text">API详细介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_tutorial/common.html">common toolboxes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../agents/index_drl.html">深度强化学习(单智能体)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agents/index_marl.html">多智能体强化学习</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/environments.html">仿真环境</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">API tutorials:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../components/configs.html">configs setting</a></li>
 </ul>
 
         </div>
@@ -86,39 +95,44 @@
              
   <section id="id1">
 <h1>安装教程<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p>The library can be run at Linux, Windows, MacOS, and EulerOS, etc. It is easy to be installed.</p>
-<p>Before installing <strong>XuanPolicy</strong>, you should install <a class="reference external" href="https://www.anaconda.com/download">Anaconda</a> to prepare a python environment.</p>
-<p>After that, open a terminal and install <strong>XuanPolicy</strong> by the following steps.</p>
-<p><strong>Step 1</strong>: Create a new conda environment (python&gt;=3.7 is suggested):</p>
+<p>玄策算法库能够在Linux，Windows，MacOS等操作系统上运行，并且易于安装。</p>
+<p>安装玄策之前，需首先安装 <a class="reference external" href="https://www.anaconda.com/download">Anaconda</a> 来配置Python运行环境。</p>
+<p>安装完 Anaconda 后，推荐通过以下步骤安装玄策：</p>
+<p><strong>步骤 1</strong>: 打开终端窗口程序，创建新的 conda 环境（Python版本推荐3.7及以上），名称自定义（这里命名为’xpolicy’）:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">xpolicy</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.7</span>
 </pre></div>
 </div>
-<p><strong>Step 2</strong>: Activate conda environment:</p>
+<p><strong>步骤 2</strong>: conda 环境创建成功后，激活该环境:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">xpolicy</span>
 </pre></div>
 </div>
-<p><strong>Step 3</strong>: Install the library:</p>
+<p><strong>步骤 3</strong>: 安装玄策:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">xuanpolicy</span>
 </pre></div>
 </div>
-<p>This command does not include the dependencies of deep learning toolboxes.</p>
-<p>Install the <strong>XuanPolicy</strong> with <a class="reference external" href="https://pytorch.org/get-started/locally/">PyTorch</a>:</p>
+<p>由于没有指定特定的深度学习框架，上面的安装指令没有安装深度学习工具包。用户可通过以下指令按需求安装：</p>
+<p>仅安装 <a class="reference external" href="https://pytorch.org/get-started/locally/">PyTorch</a> 版玄策:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">xuanpolicy</span><span class="p">[</span><span class="n">torch</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Install the <strong>XuanPolicy</strong> with <a class="reference external" href="https://www.tensorflow.org/install">TensorFlow2</a>:</p>
+<p>仅安装 <a class="reference external" href="https://www.tensorflow.org/install">TensorFlow2</a> 版玄策:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">xuanpolicy</span><span class="p">[</span><span class="n">tensorflow</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Install the <strong>XuanPolicy</strong> with <a class="reference external" href="https://www.mindspore.cn/install/en">MindSpore</a>:</p>
+<p>仅安装 <a class="reference external" href="https://www.mindspore.cn/install/en">MindSpore</a> 版玄策:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">xuanpolicy</span><span class="p">[</span><span class="n">mindspore</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Install the <strong>XuanPolicy</strong> with all dependencies:</p>
+<p>安装同时支持 <a class="reference external" href="https://pytorch.org/get-started/locally/">PyTorch</a>，<a class="reference external" href="https://www.tensorflow.org/install">TensorFlow2</a>，和 <a class="reference external" href="https://www.mindspore.cn/install/en">MindSpore</a> 三种深度学习框架的玄策：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">xuanpolicy</span><span class="p">[</span><span class="nb">all</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Note: Some extra packages should be installed manually for further usage.</p>
+<p>提示: 完成以上步骤后，即可运行大部分玄策中的DRL和MARL算法。个别算法需要安装特殊的python依赖库，用户可根据实际的需求来手动安装。</p>
+<p>安装完玄策后，在终端输入python进入python运行环境，输入</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span>
+</pre></div>
+</div>
+<p>如果没有发出报错或警告，则表示已成功安装玄策，下一步就可以使用了。</p>
 </section>
 
 

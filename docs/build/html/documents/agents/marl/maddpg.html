@@ -42,19 +42,32 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">如何使用:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">Professional Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">安装教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Included algorithms:</span></p>
+<p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/common.html">通用基础模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/agents.html">Agent类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/learners.html">学习器Learner类</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API详细介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_tutorial/common.html">common toolboxes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index_drl.html">Deep Reinforcement Learning</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index_marl.html">Multi-Agent Reinforcement Learning</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index_drl.html">深度强化学习(单智能体)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index_marl.html">多智能体强化学习</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="iql.html">IQL: Independent Q-Learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vdn.html">VDN: Value Decomposition Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vdn.html">VDN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtran.html">QTRAN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qmix.html">QMIX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wqmix.html">Weighted QMIX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wqmix.html">WQMIX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dcg.html">DCG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mfq.html">MFQ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mfac.html">MFAC</a></li>
@@ -63,19 +76,19 @@
 <li class="toctree-l2"><a class="reference internal" href="isac.html">ISAC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="masac.html">MASAC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iddpg.html">IDDPG</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">MADDPG</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">MADDPG</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">算法描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">算法出处</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="matd3.html">MATD3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vdac.html">VDAC</a></li>
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Benchmark</span></p>
+<p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../benchmark/environments.html">Environments</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">API tutorials:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../components/configs.html">configs setting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/environments.html">仿真环境</a></li>
 </ul>
 
         </div>
@@ -92,7 +105,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="../index_marl.html">Multi-Agent Reinforcement Learning</a></li>
+          <li class="breadcrumb-item"><a href="../index_marl.html">多智能体强化学习</a></li>
       <li class="breadcrumb-item active">MADDPG</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/documents/agents/marl/maddpg.rst.txt" rel="nofollow"> View page source</a>
@@ -105,6 +118,31 @@
              
   <section id="maddpg">
 <h1>MADDPG<a class="headerlink" href="#maddpg" title="Permalink to this headline">¶</a></h1>
+<section id="id1">
+<h2>算法描述<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>MADDPG算法全称为Multi-agent Deep Deterministic Policy Gradient，是一种基于Actor-Critic的多智能体强化学习算法。
+MADDPG由IDDPG算法发展而来，其基本结构和网络的更新原理和IDDPG相同，
+不同之处在于该算法中的Critic网络将所有智能体的局部观测、动作、OneHot标识作为输入并输出Q值，
+通过获取全局的观测和动作信息实现算法性能的提升。</p>
+</section>
+<section id="id2">
+<h2>算法出处<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>该算法的编写参考以下文献：</p>
+<ul class="simple">
+<li></li>
+</ul>
+<p><a class="reference external" href="https://proceedings.neurips.cc/paper/2017/file/68a9750337a418a86fe06c1991a1d64c-Paper.pdf">Multi-agent actor-critic for mixed cooperative-competitive environments</a></p>
+<p>论文引用信息：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">lowe2017multi</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Multi</span><span class="o">-</span><span class="n">agent</span> <span class="n">actor</span><span class="o">-</span><span class="n">critic</span> <span class="k">for</span> <span class="n">mixed</span> <span class="n">cooperative</span><span class="o">-</span><span class="n">competitive</span> <span class="n">environments</span><span class="p">},</span>
+    <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Lowe</span><span class="p">,</span> <span class="n">Ryan</span> <span class="ow">and</span> <span class="n">Wu</span><span class="p">,</span> <span class="n">Yi</span> <span class="n">I</span> <span class="ow">and</span> <span class="n">Tamar</span><span class="p">,</span> <span class="n">Aviv</span> <span class="ow">and</span> <span class="n">Harb</span><span class="p">,</span> <span class="n">Jean</span> <span class="ow">and</span> <span class="n">Pieter</span> <span class="n">Abbeel</span><span class="p">,</span> <span class="n">OpenAI</span> <span class="ow">and</span> <span class="n">Mordatch</span><span class="p">,</span> <span class="n">Igor</span><span class="p">},</span>
+    <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">Advances</span> <span class="ow">in</span> <span class="n">neural</span> <span class="n">information</span> <span class="n">processing</span> <span class="n">systems</span><span class="p">},</span>
+    <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">30</span><span class="p">},</span>
+    <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2017</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 

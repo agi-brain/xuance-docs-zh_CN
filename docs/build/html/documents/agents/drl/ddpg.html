@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DDPG: Deep Deterministic Policy Gradient &mdash; 玄策 v0.1.7 documentation</title>
+  <title>DDPG &mdash; 玄策 v0.1.7 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
@@ -20,7 +20,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Multi-Agent Reinforcement Learning" href="../index_marl.html" />
+    <link rel="next" title="多智能体强化学习" href="../index_marl.html" />
     <link rel="prev" title="TD3" href="td3.html" /> 
 </head>
 
@@ -42,44 +42,58 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">如何使用:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">Professional Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">安装教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Included algorithms:</span></p>
+<p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/common.html">通用基础模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/agents.html">Agent类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/learners.html">学习器Learner类</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API详细介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_tutorial/common.html">common toolboxes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index_drl.html">Deep Reinforcement Learning</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index_drl.html">深度强化学习(单智能体)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dqn.html">DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cdqn.html">Convolutional DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="c51.html">C51</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cldqn.html">CLDQN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ddqn.html">DDQN: Double Deep Q-Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ddqn.html">Double DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dueldqn.html">Duel DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ldqn.html">LDQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="noisydqn.html">Noisy DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="perdqn.html">Per DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qrdqn.html">QRDQN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vpg.html">Vanilla Policy Gradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pg.html">Policy Gradient</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ppg.html">PPG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ppo.html">PPO: Proximal Policy Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppo.html">PPO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pdqn.html">PDQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spdqn.html">SPDQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mpdqn.html">MPDQN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="a2c.html">A2C: Advantage Actor-Critic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sac.html">Soft Actor-Critic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a2c.html">A2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sac.html">SAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sac_dis.html">SAC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="td3.html">TD3</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">DDPG: Deep Deterministic Policy Gradient</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DDPG</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">算法描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">算法出处</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../index_marl.html">Multi-Agent Reinforcement Learning</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Benchmark</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../benchmark/environments.html">Environments</a></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../index_marl.html">多智能体强化学习</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API tutorials:</span></p>
+<p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../components/configs.html">configs setting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/environments.html">仿真环境</a></li>
 </ul>
 
         </div>
@@ -96,8 +110,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="../index_drl.html">Deep Reinforcement Learning</a></li>
-      <li class="breadcrumb-item active">DDPG: Deep Deterministic Policy Gradient</li>
+          <li class="breadcrumb-item"><a href="../index_drl.html">深度强化学习(单智能体)</a></li>
+      <li class="breadcrumb-item active">DDPG</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/documents/agents/drl/ddpg.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -107,8 +121,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="ddpg-deep-deterministic-policy-gradient">
-<h1>DDPG: Deep Deterministic Policy Gradient<a class="headerlink" href="#ddpg-deep-deterministic-policy-gradient" title="Permalink to this headline">¶</a></h1>
+  <section id="ddpg">
+<h1>DDPG<a class="headerlink" href="#ddpg" title="Permalink to this headline">¶</a></h1>
+<section id="id1">
+<h2>算法描述<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>DDPG（Deep Deterministic Policy Gradient，深度确定性策略梯度）
+算法是一种基于执行-评价（Actor-Critic）框架的深度强化学习算法，适用于连续动作空间的问题。
+DDPG结合了深度学习和确定性策略梯度方法，以实现高维状态空间和连续动作空间下的高效学习。
+DDPG算法的主要步骤如下：
+#. 初始化演员网络（Actor）和评论家网络（Critic）以及他们的目标网络。
+#. 使用演员网络在环境中采集轨迹（trajectory）。
+#. 根据采集到的轨迹，使用评论家网络计算状态-动作对的Q值。
+#. 使用确定性策略梯度方法更新演员网络的参数。具体来说，通过最大化期望Q值来更新策略。
+#. 使用均方误差损失（Mean Squared Error Loss）更新评论家网络的参数，使其能够更准确地估计状态-动作对的价值。
+#. 使用软更新策略更新目标网络的参数，确保学习过程的稳定性。软更新通过线性插值的方式平滑地更新目标网络的参数，而非直接复制。</p>
+</section>
+<section id="id2">
+<h2>算法出处<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>论文链接：</p>
+<ul class="simple">
+<li></li>
+</ul>
+<p><a class="reference external" href="https://arxiv.org/pdf/1509.02971.pdf">Continuous control with deep reinforcement learning</a></p>
+<p>论文引用信息：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">lillicrap2015continuous</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Continuous</span> <span class="n">control</span> <span class="k">with</span> <span class="n">deep</span> <span class="n">reinforcement</span> <span class="n">learning</span><span class="p">},</span>
+    <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Lillicrap</span><span class="p">,</span> <span class="n">Timothy</span> <span class="n">P</span> <span class="ow">and</span> <span class="n">Hunt</span><span class="p">,</span> <span class="n">Jonathan</span> <span class="n">J</span> <span class="ow">and</span> <span class="n">Pritzel</span><span class="p">,</span> <span class="n">Alexander</span> <span class="ow">and</span> <span class="n">Heess</span><span class="p">,</span> <span class="n">Nicolas</span> <span class="ow">and</span> <span class="n">Erez</span><span class="p">,</span> <span class="n">Tom</span> <span class="ow">and</span> <span class="n">Tassa</span><span class="p">,</span> <span class="n">Yuval</span> <span class="ow">and</span> <span class="n">Silver</span><span class="p">,</span> <span class="n">David</span> <span class="ow">and</span> <span class="n">Wierstra</span><span class="p">,</span> <span class="n">Daan</span><span class="p">},</span>
+    <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">arXiv</span> <span class="n">preprint</span> <span class="n">arXiv</span><span class="p">:</span><span class="mf">1509.02971</span><span class="p">},</span>
+    <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2015</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -116,7 +160,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="td3.html" class="btn btn-neutral float-left" title="TD3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../index_marl.html" class="btn btn-neutral float-right" title="Multi-Agent Reinforcement Learning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index_marl.html" class="btn btn-neutral float-right" title="多智能体强化学习" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

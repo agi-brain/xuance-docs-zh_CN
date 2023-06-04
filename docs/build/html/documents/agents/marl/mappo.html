@@ -42,23 +42,40 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">如何使用:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">Professional Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">安装教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Included algorithms:</span></p>
+<p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/common.html">通用基础模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/agents.html">Agent类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/learners.html">学习器Learner类</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API详细介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_tutorial/common.html">common toolboxes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index_drl.html">Deep Reinforcement Learning</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index_marl.html">Multi-Agent Reinforcement Learning</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index_drl.html">深度强化学习(单智能体)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index_marl.html">多智能体强化学习</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="iql.html">IQL: Independent Q-Learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vdn.html">VDN: Value Decomposition Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vdn.html">VDN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtran.html">QTRAN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qmix.html">QMIX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wqmix.html">Weighted QMIX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wqmix.html">WQMIX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dcg.html">DCG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mfq.html">MFQ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mfac.html">MFAC</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">MAPPO</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">MAPPO</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">算法描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">算法出处</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="coma.html">COMA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="isac.html">ISAC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="masac.html">MASAC</a></li>
@@ -69,13 +86,9 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Benchmark</span></p>
+<p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../benchmark/environments.html">Environments</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">API tutorials:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../components/configs.html">configs setting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/environments.html">仿真环境</a></li>
 </ul>
 
         </div>
@@ -92,7 +105,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="../index_marl.html">Multi-Agent Reinforcement Learning</a></li>
+          <li class="breadcrumb-item"><a href="../index_marl.html">多智能体强化学习</a></li>
       <li class="breadcrumb-item active">MAPPO</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/documents/agents/marl/mappo.rst.txt" rel="nofollow"> View page source</a>
@@ -105,6 +118,32 @@
              
   <section id="mappo">
 <h1>MAPPO<a class="headerlink" href="#mappo" title="Permalink to this headline">¶</a></h1>
+<section id="id1">
+<h2>算法描述<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>MAPPO算法全称为Multi-agent Proximal Policy Optimization
+是从PPO算法发展而来的多智能体强化学习算法，它的基本结构和PPO算法类似，
+不同之处在于其策略网络和值函数网络均加上One-Hot向量作为智能体身份标识，以区分各不同智能体的决策信息。
+MAPPO的整体值函数采用加和的方式获取，同VDN类似。</p>
+</section>
+<section id="id2">
+<h2>算法出处<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>论文链接：</p>
+<ul class="simple">
+<li><p><a href="#id3"><span class="problematic" id="id4">`</span></a>The surprising effectiveness of ppo in cooperative multi-agent games</p></li>
+</ul>
+<p>&lt;<a class="reference external" href="https://proceedings.neurips.cc/paper_files/paper/2022/file/9c1535a02f0ce079433344e14d910597-Paper-Datasets_and_Benchmarks.pdf">https://proceedings.neurips.cc/paper_files/paper/2022/file/9c1535a02f0ce079433344e14d910597-Paper-Datasets_and_Benchmarks.pdf</a>&gt;`_</p>
+<p>论文引用信息：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">yu2022surprising</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">The</span> <span class="n">surprising</span> <span class="n">effectiveness</span> <span class="n">of</span> <span class="n">ppo</span> <span class="ow">in</span> <span class="n">cooperative</span> <span class="n">multi</span><span class="o">-</span><span class="n">agent</span> <span class="n">games</span><span class="p">},</span>
+    <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Yu</span><span class="p">,</span> <span class="n">Chao</span> <span class="ow">and</span> <span class="n">Velu</span><span class="p">,</span> <span class="n">Akash</span> <span class="ow">and</span> <span class="n">Vinitsky</span><span class="p">,</span> <span class="n">Eugene</span> <span class="ow">and</span> <span class="n">Gao</span><span class="p">,</span> <span class="n">Jiaxuan</span> <span class="ow">and</span> <span class="n">Wang</span><span class="p">,</span> <span class="n">Yu</span> <span class="ow">and</span> <span class="n">Bayen</span><span class="p">,</span> <span class="n">Alexandre</span> <span class="ow">and</span> <span class="n">Wu</span><span class="p">,</span> <span class="n">Yi</span><span class="p">},</span>
+    <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">Advances</span> <span class="ow">in</span> <span class="n">Neural</span> <span class="n">Information</span> <span class="n">Processing</span> <span class="n">Systems</span><span class="p">},</span>
+    <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">35</span><span class="p">},</span>
+    <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">24611</span><span class="o">--</span><span class="mi">24624</span><span class="p">},</span>
+    <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2022</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DDQN: Double Deep Q-Networks &mdash; 玄策 v0.1.7 documentation</title>
+  <title>Double DQN &mdash; 玄策 v0.1.7 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
@@ -42,44 +42,58 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">如何使用:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">Professional Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">安装教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Included algorithms:</span></p>
+<p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/common.html">通用基础模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/agents.html">Agent类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/learners.html">学习器Learner类</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API详细介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_tutorial/common.html">common toolboxes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index_drl.html">Deep Reinforcement Learning</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index_drl.html">深度强化学习(单智能体)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dqn.html">DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cdqn.html">Convolutional DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="c51.html">C51</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cldqn.html">CLDQN</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">DDQN: Double Deep Q-Networks</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Double DQN</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">算法描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">算法出处</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="dueldqn.html">Duel DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ldqn.html">LDQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="noisydqn.html">Noisy DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="perdqn.html">Per DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qrdqn.html">QRDQN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vpg.html">Vanilla Policy Gradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pg.html">Policy Gradient</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ppg.html">PPG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ppo.html">PPO: Proximal Policy Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppo.html">PPO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pdqn.html">PDQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spdqn.html">SPDQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mpdqn.html">MPDQN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="a2c.html">A2C: Advantage Actor-Critic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sac.html">Soft Actor-Critic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a2c.html">A2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sac.html">SAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sac_dis.html">SAC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="td3.html">TD3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ddpg.html">DDPG: Deep Deterministic Policy Gradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ddpg.html">DDPG</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../index_marl.html">Multi-Agent Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index_marl.html">多智能体强化学习</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Benchmark</span></p>
+<p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../benchmark/environments.html">Environments</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">API tutorials:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../components/configs.html">configs setting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/environments.html">仿真环境</a></li>
 </ul>
 
         </div>
@@ -96,8 +110,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="../index_drl.html">Deep Reinforcement Learning</a></li>
-      <li class="breadcrumb-item active">DDQN: Double Deep Q-Networks</li>
+          <li class="breadcrumb-item"><a href="../index_drl.html">深度强化学习(单智能体)</a></li>
+      <li class="breadcrumb-item active">Double DQN</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/documents/agents/drl/ddqn.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -107,8 +121,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="ddqn-double-deep-q-networks">
-<h1>DDQN: Double Deep Q-Networks<a class="headerlink" href="#ddqn-double-deep-q-networks" title="Permalink to this headline">¶</a></h1>
+  <section id="double-dqn">
+<h1>Double DQN<a class="headerlink" href="#double-dqn" title="Permalink to this headline">¶</a></h1>
+<section id="id1">
+<h2>算法描述<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Double DQN (Deep reinforcement learning with double q-learning) 算法是对原始DQN算法的一种改进，
+用于解决DQN算法在估计动作价值时可能出现的过高估计问题。
+Double DQN的主要思想是将动作选择和动作评估分离，使用两个不同的Q网络来分别处理这两个过程，降低过高估计对学习过程的影响。
+在Double DQN算法中，有两个Q网络，一个是估计Q网络（Evaluation Q-network，记为Q_e），
+另一个是目标Q网络（Target Q-network，记为Q_t）。这两个网络的结构相同，但参数更新的方式有所不同。
+在每一步更新中，智能体会利用估计Q网络Q_e来选择最优动作，然后用目标Q网络Q_t来评估该动作的价值。
+这样可以减小单一Q网络在选择和评估过程中可能产生的过高估计偏差。</p>
+</section>
+<section id="id2">
+<h2>算法出处<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>论文链接: <a class="reference external" href="https://ojs.aaai.org/index.php/AAAI/article/view/10295">Deep reinforcement learning with double q-learning</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@inproceedings</span><span class="p">{</span><span class="n">van2016deep</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Deep</span> <span class="n">reinforcement</span> <span class="n">learning</span> <span class="k">with</span> <span class="n">double</span> <span class="n">q</span><span class="o">-</span><span class="n">learning</span><span class="p">},</span>
+    <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Van</span> <span class="n">Hasselt</span><span class="p">,</span> <span class="n">Hado</span> <span class="ow">and</span> <span class="n">Guez</span><span class="p">,</span> <span class="n">Arthur</span> <span class="ow">and</span> <span class="n">Silver</span><span class="p">,</span> <span class="n">David</span><span class="p">},</span>
+    <span class="n">booktitle</span><span class="o">=</span><span class="p">{</span><span class="n">Proceedings</span> <span class="n">of</span> <span class="n">the</span> <span class="n">AAAI</span> <span class="n">conference</span> <span class="n">on</span> <span class="n">artificial</span> <span class="n">intelligence</span><span class="p">},</span>
+    <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">30</span><span class="p">},</span>
+    <span class="n">number</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span>
+    <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2016</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 

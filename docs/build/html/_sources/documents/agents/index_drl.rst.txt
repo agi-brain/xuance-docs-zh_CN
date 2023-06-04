@@ -15,7 +15,7 @@
    drl/noisydqn
    drl/perdqn
    drl/qrdqn
-   drl/vpg
+   drl/pg
    drl/ppg
    drl/ppo
    drl/pdqn
@@ -23,5 +23,6 @@
    drl/mpdqn
    drl/a2c
    drl/sac
+   drl/sac_dis
    drl/td3
    drl/ddpg

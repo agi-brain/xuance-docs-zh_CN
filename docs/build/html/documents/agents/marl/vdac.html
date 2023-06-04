@@ -20,7 +20,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Environments" href="../../benchmark/environments.html" />
+    <link rel="next" title="仿真环境" href="../../benchmark/environments.html" />
     <link rel="prev" title="MATD3" href="matd3.html" /> 
 </head>
 
@@ -42,19 +42,32 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">如何使用:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">Professional Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">安装教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Included algorithms:</span></p>
+<p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/common.html">通用基础模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/agents.html">Agent类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/learners.html">学习器Learner类</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API详细介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_tutorial/common.html">common toolboxes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index_drl.html">Deep Reinforcement Learning</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index_marl.html">Multi-Agent Reinforcement Learning</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index_drl.html">深度强化学习(单智能体)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index_marl.html">多智能体强化学习</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="iql.html">IQL: Independent Q-Learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vdn.html">VDN: Value Decomposition Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vdn.html">VDN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtran.html">QTRAN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qmix.html">QMIX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wqmix.html">Weighted QMIX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wqmix.html">WQMIX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dcg.html">DCG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mfq.html">MFQ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mfac.html">MFAC</a></li>
@@ -65,17 +78,17 @@
 <li class="toctree-l2"><a class="reference internal" href="iddpg.html">IDDPG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="maddpg.html">MADDPG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="matd3.html">MATD3</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">VDAC</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">VDAC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">算法描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">算法出处</a></li>
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Benchmark</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../benchmark/environments.html">Environments</a></li>
+</li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API tutorials:</span></p>
+<p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../components/configs.html">configs setting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/environments.html">仿真环境</a></li>
 </ul>
 
         </div>
@@ -92,7 +105,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="../index_marl.html">Multi-Agent Reinforcement Learning</a></li>
+          <li class="breadcrumb-item"><a href="../index_marl.html">多智能体强化学习</a></li>
       <li class="breadcrumb-item active">VDAC</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/documents/agents/marl/vdac.rst.txt" rel="nofollow"> View page source</a>
@@ -105,6 +118,32 @@
              
   <section id="vdac">
 <h1>VDAC<a class="headerlink" href="#vdac" title="Permalink to this headline">¶</a></h1>
+<section id="id1">
+<h2>算法描述<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>VDAC算法全称为Value Decomposition Actor-Critic，是一种基于Actor-Critic的多智能体强化学习算法。
+VDAC算法发扬了VDN算法和A2C算法的优势，将值函数分解思想引入Actor-Critic结构中，实现多智能体分布式策略的优化。</p>
+<p>在本算法库中，VDAC的结构和A2C相同，不同之处在于VDAC将各智能体独立的Q值经过VDN mixer得到整体Q值，进而实现端到端训练。</p>
+</section>
+<section id="id2">
+<h2>算法出处<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>该算法的编写参考如下论文：</p>
+<ul class="simple">
+<li></li>
+</ul>
+<p><a class="reference external" href="https://ojs.aaai.org/index.php/AAAI/article/view/17353">Value-decomposition multi-agent actor-critics</a></p>
+<p>论文引用信息：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@inproceedings</span><span class="p">{</span><span class="n">su2021value</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Value</span><span class="o">-</span><span class="n">decomposition</span> <span class="n">multi</span><span class="o">-</span><span class="n">agent</span> <span class="n">actor</span><span class="o">-</span><span class="n">critics</span><span class="p">},</span>
+    <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Su</span><span class="p">,</span> <span class="n">Jianyu</span> <span class="ow">and</span> <span class="n">Adams</span><span class="p">,</span> <span class="n">Stephen</span> <span class="ow">and</span> <span class="n">Beling</span><span class="p">,</span> <span class="n">Peter</span><span class="p">},</span>
+    <span class="n">booktitle</span><span class="o">=</span><span class="p">{</span><span class="n">Proceedings</span> <span class="n">of</span> <span class="n">the</span> <span class="n">AAAI</span> <span class="n">conference</span> <span class="n">on</span> <span class="n">artificial</span> <span class="n">intelligence</span><span class="p">},</span>
+    <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">35</span><span class="p">},</span>
+    <span class="n">number</span><span class="o">=</span><span class="p">{</span><span class="mi">13</span><span class="p">},</span>
+    <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">11352</span><span class="o">--</span><span class="mi">11360</span><span class="p">},</span>
+    <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2021</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -112,7 +151,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="matd3.html" class="btn btn-neutral float-left" title="MATD3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../benchmark/environments.html" class="btn btn-neutral float-right" title="Environments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../benchmark/environments.html" class="btn btn-neutral float-right" title="仿真环境" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

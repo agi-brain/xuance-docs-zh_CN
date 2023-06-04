@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PPO: Proximal Policy Optimization &mdash; 玄策 v0.1.7 documentation</title>
+  <title>PPO &mdash; 玄策 v0.1.7 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
@@ -42,44 +42,58 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">如何使用:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">Professional Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">安装教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Included algorithms:</span></p>
+<p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/common.html">通用基础模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/agents.html">Agent类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/learners.html">学习器Learner类</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API详细介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_tutorial/common.html">common toolboxes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index_drl.html">Deep Reinforcement Learning</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index_drl.html">深度强化学习(单智能体)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dqn.html">DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cdqn.html">Convolutional DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="c51.html">C51</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cldqn.html">CLDQN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ddqn.html">DDQN: Double Deep Q-Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ddqn.html">Double DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dueldqn.html">Duel DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ldqn.html">LDQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="noisydqn.html">Noisy DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="perdqn.html">Per DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qrdqn.html">QRDQN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vpg.html">Vanilla Policy Gradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pg.html">Policy Gradient</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ppg.html">PPG</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">PPO: Proximal Policy Optimization</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PPO</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">算法描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">算法出处</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="pdqn.html">PDQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spdqn.html">SPDQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mpdqn.html">MPDQN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="a2c.html">A2C: Advantage Actor-Critic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sac.html">Soft Actor-Critic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a2c.html">A2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sac.html">SAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sac_dis.html">SAC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="td3.html">TD3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ddpg.html">DDPG: Deep Deterministic Policy Gradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ddpg.html">DDPG</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../index_marl.html">Multi-Agent Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index_marl.html">多智能体强化学习</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Benchmark</span></p>
+<p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../benchmark/environments.html">Environments</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">API tutorials:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../components/configs.html">configs setting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/environments.html">仿真环境</a></li>
 </ul>
 
         </div>
@@ -96,8 +110,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="../index_drl.html">Deep Reinforcement Learning</a></li>
-      <li class="breadcrumb-item active">PPO: Proximal Policy Optimization</li>
+          <li class="breadcrumb-item"><a href="../index_drl.html">深度强化学习(单智能体)</a></li>
+      <li class="breadcrumb-item active">PPO</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/documents/agents/drl/ppo.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -107,8 +121,37 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="ppo-proximal-policy-optimization">
-<h1>PPO: Proximal Policy Optimization<a class="headerlink" href="#ppo-proximal-policy-optimization" title="Permalink to this headline">¶</a></h1>
+  <section id="ppo">
+<h1>PPO<a class="headerlink" href="#ppo" title="Permalink to this headline">¶</a></h1>
+<section id="id1">
+<h2>算法描述<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>PPO-CLIP（Proximal Policy Optimization with Clipped Objective，带截断目标的近端策略优化）
+是一种基于策略梯度的深度强化学习算法，用于解决策略优化问题。
+PPO-CLIP的主要优点是稳定性和样本效率，它通过限制策略更新幅度来避免过大的策略改进，从而确保在训练过程中策略的稳定性。
+PPO-CLIP算法的核心思想是在策略更新时限制策略概率比率的变化范围。</p>
+<p>PPO-KL（Proximal Policy Optimization with Kullback-Leibler Divergence Constraint，带Kullback-Leibler散度约束的近端策略优化）
+是一种基于策略梯度的深度强化学习算法，用于解决策略优化问题。
+PPO-KL通过限制策略更新的幅度来确保训练过程中策略的稳定性，从而提高学习性能。
+PPO-KL算法的核心思想是在策略更新时限制新策略与旧策略之间的Kullback-Leibler (KL)散度。
+为了实现这一目标，PPO-KL引入了一个带KL散度约束的目标函数。</p>
+</section>
+<section id="id2">
+<h2>算法出处<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><strong>论文链接</strong>：</p>
+<ul class="simple">
+<li></li>
+</ul>
+<p><a class="reference external" href="https://arxiv.org/pdf/1707.06347.pdf">Proximal policy optimization algorithms</a></p>
+<p><strong>论文引用信息</strong>：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">schulman2017proximal</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Proximal</span> <span class="n">policy</span> <span class="n">optimization</span> <span class="n">algorithms</span><span class="p">},</span>
+    <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Schulman</span><span class="p">,</span> <span class="n">John</span> <span class="ow">and</span> <span class="n">Wolski</span><span class="p">,</span> <span class="n">Filip</span> <span class="ow">and</span> <span class="n">Dhariwal</span><span class="p">,</span> <span class="n">Prafulla</span> <span class="ow">and</span> <span class="n">Radford</span><span class="p">,</span> <span class="n">Alec</span> <span class="ow">and</span> <span class="n">Klimov</span><span class="p">,</span> <span class="n">Oleg</span><span class="p">},</span>
+    <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">arXiv</span> <span class="n">preprint</span> <span class="n">arXiv</span><span class="p">:</span><span class="mf">1707.06347</span><span class="p">},</span>
+    <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2017</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 

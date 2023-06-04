@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="IQL: Independent Q-Learning" href="marl/iql.html" />
-    <link rel="prev" title="DDPG: Deep Deterministic Policy Gradient" href="drl/ddpg.html" /> 
+    <link rel="prev" title="DDPG" href="drl/ddpg.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,15 +46,28 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage/basic_usage.html">快速开始</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Included algorithms:</span></p>
+<p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../structure/common.html">通用基础模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/agents.html">Agent类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/learners.html">学习器Learner类</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API详细介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_tutorial/common.html">common toolboxes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index_drl.html">深度强化学习(单智能体)</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">多智能体强化学习</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="marl/iql.html">IQL: Independent Q-Learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="marl/vdn.html">VDN: Value Decomposition Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marl/vdn.html">VDN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="marl/qtran.html">QTRAN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="marl/qmix.html">QMIX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="marl/wqmix.html">Weighted QMIX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marl/wqmix.html">WQMIX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="marl/dcg.html">DCG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="marl/mfq.html">MFQ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="marl/mfac.html">MFAC</a></li>
@@ -69,13 +82,9 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Benchmark</span></p>
+<p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/environments.html">仿真环境</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">API tutorials:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../components/configs.html">configs setting</a></li>
 </ul>
 
         </div>
@@ -108,10 +117,10 @@
 <p class="caption" role="heading"><span class="caption-text">Included Algorithms</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="marl/iql.html">IQL: Independent Q-Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="marl/vdn.html">VDN: Value Decomposition Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="marl/vdn.html">VDN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="marl/qtran.html">QTRAN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="marl/qmix.html">QMIX</a></li>
-<li class="toctree-l1"><a class="reference internal" href="marl/wqmix.html">Weighted QMIX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="marl/wqmix.html">WQMIX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="marl/dcg.html">DCG</a></li>
 <li class="toctree-l1"><a class="reference internal" href="marl/mfq.html">MFQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="marl/mfac.html">MFAC</a></li>
@@ -131,7 +140,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="drl/ddpg.html" class="btn btn-neutral float-left" title="DDPG: Deep Deterministic Policy Gradient" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="drl/ddpg.html" class="btn btn-neutral float-left" title="DDPG" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="marl/iql.html" class="btn btn-neutral float-right" title="IQL: Independent Q-Learning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

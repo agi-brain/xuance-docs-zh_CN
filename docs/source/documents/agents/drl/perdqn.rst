@@ -8,7 +8,7 @@ Per DQN: Prioritized Replay Buffer DQN（基于优先级的经验回放的DQN）
 旨在更高效地从经验回放缓存中采样有价值的经验，从而提高学习效率。
 这种方法的主要思想是为经验回放缓冲区中的每个转换分配一个优先级，并根据优先级进行采样，而不是进行均匀随机采样。
 在Prioritized Replay Buffer DQN中，每个经验元组
-（状态 :math:`s`、动作 :math:`a`、奖励 :math:`r`、下一个状态 :math:`s'`）的优先级计算方法如下：
+（状态 :math:`s` 、动作 :math:`a`、奖励 :math:`r`、下一个状态 :math:`s'`）的优先级计算方法如下：
 
 .. math:: p = |\delta| + \epsilon，
 

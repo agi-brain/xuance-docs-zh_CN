@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>configs setting &mdash; 玄策 v0.1.7 documentation</title>
+  <title>学习器Learner类 &mdash; 玄策 v0.1.7 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
@@ -20,7 +20,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Environments" href="../benchmark/environments.html" /> 
+    <link rel="next" title="common toolboxes" href="../api_tutorial/common.html" />
+    <link rel="prev" title="Agent类" href="agents.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,22 +42,34 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">如何使用:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/basic_usage.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/professional_usage.html">Professional Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">安装教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/basic_usage.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Included algorithms:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../agents/index_drl.html">Deep Reinforcement Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agents/index_marl.html">Multi-Agent Reinforcement Learning</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Benchmark</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmark/environments.html">Environments</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">API tutorials:</span></p>
+<p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">configs setting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common.html">通用基础模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agents.html">Agent类</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">学习器Learner类</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">学习器功能介绍</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API详细介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_tutorial/common.html">common toolboxes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../agents/index_drl.html">深度强化学习(单智能体)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agents/index_marl.html">多智能体强化学习</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/environments.html">仿真环境</a></li>
 </ul>
 
         </div>
@@ -73,9 +86,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">configs setting</li>
+      <li class="breadcrumb-item active">学习器Learner类</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/documents/components/configs.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/documents/structure/learners.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -83,15 +96,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="configs-setting">
-<h1>configs setting<a class="headerlink" href="#configs-setting" title="Permalink to this headline">¶</a></h1>
+  <section id="learner">
+<h1>学习器Learner类<a class="headerlink" href="#learner" title="Permalink to this headline">¶</a></h1>
+<section id="id1">
+<h2>学习器功能介绍<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Learner类是每个DRL算法优化模型参数的关键部分，其初始化输入包含策略网络（policy），优化器（optimizer），
+学习率衰减模块（scheduler），日志模块（summary_writer），模型存储地址（modeldir）等。
+Learner类的主要功能是更新网络参数，在成员函数update()中加以实现，具体内容因各种算法的不同而异。</p>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../benchmark/environments.html" class="btn btn-neutral float-left" title="Environments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="agents.html" class="btn btn-neutral float-left" title="Agent类" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../api_tutorial/common.html" class="btn btn-neutral float-right" title="common toolboxes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

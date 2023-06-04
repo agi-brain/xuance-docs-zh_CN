@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>通用基础模块 &mdash; 玄策 v0.1.7 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="环境封装" href="environments.html" />
+    <link rel="prev" title="专业教程" href="../usage/professional_usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> 玄策
+            <img src="../../_static/logo_2.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">如何使用:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">安装教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/basic_usage.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/professional_usage.html">专业教程</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">通用基础模块</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">数学工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">基础算子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">日志工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">经验回放池</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">参数配置工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">统计工具</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agents.html">Agent类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="learners.html">学习器Learner类</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API详细介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_tutorial/common.html">common toolboxes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../agents/index_drl.html">深度强化学习(单智能体)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agents/index_marl.html">多智能体强化学习</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/environments.html">仿真环境</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">玄策</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">通用基础模块</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/documents/structure/common.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>通用基础模块<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>为了方便开发人员扩展模块功能，节约开发成本，玄策定义了六个主要的通用基础模块，
+即数学工具、基础算子、日志工具、经验池、配置工具、统计工具。
+这些基础模块在不同的算法中共享，具有很好的兼容性。下面针对这五个模块分别加以介绍。</p>
+<section id="id2">
+<h2>数学工具<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>算法库中需要用到的数学工具和基础算子定义在“./common/common_tools.py”文件中，
+目前包含一个用于计算累积折扣回报的滤波器函数disount_cumsum()。
+该函数输入为一个回合的奖励值序列和折扣因子 <span class="math notranslate nohighlight">\(\gamma\)</span> ，输出为每一时刻的累计回报序列。
+用户可在该模块中根据自己开发需要，增加其它数学工具。</p>
+</section>
+<section id="id3">
+<h2>基础算子<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>基础算子主要涉及对神经网络权重参数和梯度相关的操作，
+包含get_flat_grad，get_flat_params，assign_from_flat_grads，assign_from_flat_params。
+这些基础算子分别在“./xuance_torch/utils/operators.py”和“./xuance_mindspore/utils/operators.py”中实现定义，
+分别用于实现PyTorch和MindSpore两种框架下的强化学习算法设计。用户可根据所设计算法的需求，在该文件中扩展基础算子。</p>
+</section>
+<section id="id4">
+<h2>日志工具<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>玄策利用tensorboard.writer模块中的SummaryWriter类对算法训练过程中产生的中间结果进行存储，并实现训练数据的可视化。</p>
+</section>
+<section id="id5">
+<h2>经验回放池<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>经验池是强化学习算法的重要组成部分，主要存储智能体同环境交互的原始数据以及参与模型训练的其它数据。
+根据在轨策略和离轨策略的不同，经验池分为基于on policy和基于off policy两大类。
+单智能体DRL和MARL的经验池类定义分别位于./common/memory_tools.py和./common/memory_tools_marl.py两个文件中。
+具体用法请参加算法设计部分。</p>
+</section>
+<section id="id6">
+<h2>参数配置工具<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>针对不同算法的参数配置，该软件采用.yaml文件格式进行设置和存储，并利用yaml工具对配置文件进行读取。
+同时结合sys.argv工具对命令行参数进行解析，并整合到最终的算法的参数字典变量中。</p>
+</section>
+<section id="id7">
+<h2>统计工具<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>强化学习算法所需要的概率统计学工具在./common/statistic_tools.py及./xuance_torch/utils/distributions.py文件中定义，
+其中包括数据归一化工具类RunningMeanStd，动作噪声类OUNoise，概率分布基类Distribution等。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../usage/professional_usage.html" class="btn btn-neutral float-left" title="专业教程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="environments.html" class="btn btn-neutral float-right" title="环境封装" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, 柳文章, 蔡文哲, 蒋坤, 王远大, 程光冉, 王嘉伟, 操菁瑜, 徐乐玏, 穆朝絮, 孙长银.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -20,8 +20,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="VDN: Value Decomposition Networks" href="vdn.html" />
-    <link rel="prev" title="Multi-Agent Reinforcement Learning" href="../index_marl.html" /> 
+    <link rel="next" title="VDN" href="vdn.html" />
+    <link rel="prev" title="多智能体强化学习" href="../index_marl.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,19 +42,32 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">如何使用:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">Professional Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">安装教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Included algorithms:</span></p>
+<p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/common.html">通用基础模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/agents.html">Agent类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/learners.html">学习器Learner类</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API详细介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_tutorial/common.html">common toolboxes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index_drl.html">Deep Reinforcement Learning</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index_marl.html">Multi-Agent Reinforcement Learning</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index_drl.html">深度强化学习(单智能体)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index_marl.html">多智能体强化学习</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">IQL: Independent Q-Learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vdn.html">VDN: Value Decomposition Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vdn.html">VDN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtran.html">QTRAN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qmix.html">QMIX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wqmix.html">Weighted QMIX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wqmix.html">WQMIX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dcg.html">DCG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mfq.html">MFQ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mfac.html">MFAC</a></li>
@@ -69,13 +82,9 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Benchmark</span></p>
+<p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../benchmark/environments.html">Environments</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">API tutorials:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../components/configs.html">configs setting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/environments.html">仿真环境</a></li>
 </ul>
 
         </div>
@@ -92,7 +101,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="../index_marl.html">Multi-Agent Reinforcement Learning</a></li>
+          <li class="breadcrumb-item"><a href="../index_marl.html">多智能体强化学习</a></li>
       <li class="breadcrumb-item active">IQL: Independent Q-Learning</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/documents/agents/marl/iql.rst.txt" rel="nofollow"> View page source</a>
@@ -105,14 +114,35 @@
              
   <section id="iql-independent-q-learning">
 <h1>IQL: Independent Q-Learning<a class="headerlink" href="#iql-independent-q-learning" title="Permalink to this headline">¶</a></h1>
+<p>IQL算法全称为Independent Q-leanring, 是一种基于值函数的多智能体强化学习算法。
+IQL采用独立学习的方法实现各智能体的决策，智能体的Q网络参数共享，并在输入端以One-Hot向量区分各智能体标识。
+算法整体采用集中式训练和分布式执行的框架，实现端到端训练。
+IQL是一种实现多智能体强化学习最直接的方式，虽然它存在环境不稳定、局部观测等问题，
+但是其结构简单，容易在简单的多智能体协作问题中快速部署。</p>
+<p>在本算法库中，IQL的网络分为representation和eval_Q两部分，其网络结构和DQN算法相似。
+不同之处在于，IQL的representation模块输入信息中包含该智能体的局部观测和身份标识。</p>
+<p>参考论文链接: <a class="reference external" href="https://hal.science/file/index/docid/720669/filename/Matignon2012independent.pdf">Independent reinforcement learners in cooperative markov games: a survey regarding coordination problems</a></p>
+<p>参考论文引用信息:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">matignon2012independent</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Independent</span> <span class="n">reinforcement</span> <span class="n">learners</span> <span class="ow">in</span> <span class="n">cooperative</span> <span class="n">markov</span> <span class="n">games</span><span class="p">:</span> <span class="n">a</span> <span class="n">survey</span> <span class="n">regarding</span> <span class="n">coordination</span> <span class="n">problems</span><span class="p">},</span>
+    <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Matignon</span><span class="p">,</span> <span class="n">Laetitia</span> <span class="ow">and</span> <span class="n">Laurent</span><span class="p">,</span> <span class="n">Guillaume</span> <span class="n">J</span> <span class="ow">and</span> <span class="n">Le</span> <span class="n">Fort</span><span class="o">-</span><span class="n">Piat</span><span class="p">,</span> <span class="n">Nadine</span><span class="p">},</span>
+    <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">The</span> <span class="n">Knowledge</span> <span class="n">Engineering</span> <span class="n">Review</span><span class="p">},</span>
+    <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">27</span><span class="p">},</span>
+    <span class="n">number</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span>
+    <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="o">--</span><span class="mi">31</span><span class="p">},</span>
+    <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2012</span><span class="p">},</span>
+    <span class="n">publisher</span><span class="o">=</span><span class="p">{</span><span class="n">Cambridge</span> <span class="n">University</span> <span class="n">Press</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index_marl.html" class="btn btn-neutral float-left" title="Multi-Agent Reinforcement Learning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="vdn.html" class="btn btn-neutral float-right" title="VDN: Value Decomposition Networks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index_marl.html" class="btn btn-neutral float-left" title="多智能体强化学习" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vdn.html" class="btn btn-neutral float-right" title="VDN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

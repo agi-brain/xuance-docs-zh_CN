@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="DQN" href="drl/dqn.html" />
-    <link rel="prev" title="专业教程" href="../usage/professional_usage.html" /> 
+    <link rel="prev" title="common toolboxes" href="../api_tutorial/common.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,40 +46,50 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage/basic_usage.html">快速开始</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Included algorithms:</span></p>
+<p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../structure/common.html">通用基础模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/agents.html">Agent类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/learners.html">学习器Learner类</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API详细介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_tutorial/common.html">common toolboxes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">深度强化学习(单智能体)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="drl/dqn.html">DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drl/cdqn.html">Convolutional DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drl/c51.html">C51</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drl/cldqn.html">CLDQN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="drl/ddqn.html">DDQN: Double Deep Q-Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drl/ddqn.html">Double DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drl/dueldqn.html">Duel DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drl/ldqn.html">LDQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drl/noisydqn.html">Noisy DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drl/perdqn.html">Per DQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drl/qrdqn.html">QRDQN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="drl/vpg.html">Vanilla Policy Gradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drl/pg.html">Policy Gradient</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drl/ppg.html">PPG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="drl/ppo.html">PPO: Proximal Policy Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drl/ppo.html">PPO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drl/pdqn.html">PDQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drl/spdqn.html">SPDQN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drl/mpdqn.html">MPDQN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="drl/a2c.html">A2C: Advantage Actor-Critic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="drl/sac.html">Soft Actor-Critic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drl/a2c.html">A2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drl/sac.html">SAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drl/sac_dis.html">SAC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drl/td3.html">TD3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="drl/ddpg.html">DDPG: Deep Deterministic Policy Gradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drl/ddpg.html">DDPG</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="index_marl.html">多智能体强化学习</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Benchmark</span></p>
+<p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/environments.html">仿真环境</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">API tutorials:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../components/configs.html">configs setting</a></li>
 </ul>
 
         </div>
@@ -115,22 +125,23 @@
 <li class="toctree-l1"><a class="reference internal" href="drl/cdqn.html">Convolutional DQN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drl/c51.html">C51</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drl/cldqn.html">CLDQN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="drl/ddqn.html">DDQN: Double Deep Q-Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drl/ddqn.html">Double DQN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drl/dueldqn.html">Duel DQN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drl/ldqn.html">LDQN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drl/noisydqn.html">Noisy DQN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drl/perdqn.html">Per DQN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drl/qrdqn.html">QRDQN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="drl/vpg.html">Vanilla Policy Gradient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drl/pg.html">Policy Gradient</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drl/ppg.html">PPG</a></li>
-<li class="toctree-l1"><a class="reference internal" href="drl/ppo.html">PPO: Proximal Policy Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drl/ppo.html">PPO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drl/pdqn.html">PDQN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drl/spdqn.html">SPDQN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drl/mpdqn.html">MPDQN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="drl/a2c.html">A2C: Advantage Actor-Critic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="drl/sac.html">Soft Actor-Critic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drl/a2c.html">A2C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drl/sac.html">SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drl/sac_dis.html">SAC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drl/td3.html">TD3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="drl/ddpg.html">DDPG: Deep Deterministic Policy Gradient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drl/ddpg.html">DDPG</a></li>
 </ul>
 </div>
 </section>
@@ -139,7 +150,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../usage/professional_usage.html" class="btn btn-neutral float-left" title="专业教程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../api_tutorial/common.html" class="btn btn-neutral float-left" title="common toolboxes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="drl/dqn.html" class="btn btn-neutral float-right" title="DQN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
