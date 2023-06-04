@@ -1,0 +1,60 @@
+安装教程
+===========================
+
+玄策算法库能够在Linux，Windows，MacOS等操作系统上运行，并且易于安装。
+
+安装玄策之前，需首先安装 Anaconda_ 来配置Python运行环境。
+
+安装完 Anaconda 后，推荐通过以下步骤安装玄策：
+
+**步骤 1**: 打开终端窗口程序，创建新的 conda 环境（Python版本推荐3.7及以上），名称自定义（这里命名为'xpolicy'）:
+::
+
+    conda create -n xpolicy python=3.7
+
+**步骤 2**: conda 环境创建成功后，激活该环境:
+::
+    
+    conda activate xpolicy
+
+**步骤 3**: 安装玄策:
+::
+    
+    pip install xuanpolicy
+
+由于没有指定特定的深度学习框架，上面的安装指令没有安装深度学习工具包。用户可通过以下指令按需求安装：
+
+仅安装 PyTorch_ 版玄策:
+::
+    
+    pip install xuanpolicy[torch]
+
+仅安装 TensorFlow2_ 版玄策:
+::
+    
+    pip install xuanpolicy[tensorflow]
+
+仅安装 MindSpore_ 版玄策:
+::
+    
+    pip install xuanpolicy[mindspore]
+
+安装同时支持 PyTorch_，TensorFlow2_，和 MindSpore_ 三种深度学习框架的玄策：
+::
+
+    pip install xuanpolicy[all]
+
+提示: 完成以上步骤后，即可运行大部分玄策中的DRL和MARL算法。个别算法需要安装特殊的python依赖库，用户可根据实际的需求来手动安装。 
+
+.. _Anaconda: https://www.anaconda.com/download
+.. _PyTorch: https://pytorch.org/get-started/locally/
+.. _TensorFlow2: https://www.tensorflow.org/install
+.. _MindSpore: https://www.mindspore.cn/install/en
+
+安装完玄策后，在终端输入python进入python运行环境，输入
+
+::
+
+    import xuanpolicy
+
+如果没有发出报错或警告，则表示已成功安装玄策，下一步就可以使用了。

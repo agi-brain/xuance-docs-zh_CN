@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PPG &mdash; 玄策 v0.1.7 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="PPO" href="ppo.html" />
+    <link rel="prev" title="Policy Gradient" href="pg.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> 玄策
+            <img src="../../../_static/logo_2.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">如何使用:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">安装教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">专业教程</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/common.html">通用基础模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/agents.html">Agent类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/learners.html">学习器Learner类</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API详细介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_tutorial/common.html">common toolboxes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index_drl.html">深度强化学习(单智能体)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dqn.html">DQN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdqn.html">Convolutional DQN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c51.html">C51</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cldqn.html">CLDQN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ddqn.html">Double DQN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dueldqn.html">Duel DQN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ldqn.html">LDQN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="noisydqn.html">Noisy DQN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perdqn.html">Per DQN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qrdqn.html">QRDQN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pg.html">Policy Gradient</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PPG</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">算法描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">算法出处</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ppo.html">PPO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdqn.html">PDQN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spdqn.html">SPDQN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpdqn.html">MPDQN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a2c.html">A2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sac.html">SAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sac_dis.html">SAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="td3.html">TD3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ddpg.html">DDPG</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../index_marl.html">多智能体强化学习</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/toy.html">Toy运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/mujoco.html">MuJoCo运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/atari.html">Atari运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/mpe.html">MPE运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/magent.html">Magent运行结果</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">玄策</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index_drl.html">深度强化学习(单智能体)</a></li>
+      <li class="breadcrumb-item active">PPG</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/documents/agents/drl/ppg.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ppg">
+<h1>PPG<a class="headerlink" href="#ppg" title="Permalink to this headline">¶</a></h1>
+<section id="id1">
+<h2>算法描述<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>PPG（Phasic Policy Gradient）是一种基于策略梯度的深度强化学习算法，
+用于进一步通过加入辅助任务来提升强化学习的数据效率。
+具体来说，由于在这类算法中，为了降低策略更新的期望偏差，
+策略网络往往在更新次数较少的时候收益较大，而实际应用的时候，
+策略网络往往会跟网络中的其它部分共享一些参数，那么为了对表征网络建立更高效的学习，
+这一部分应该进行更多次的更新。
+因此，在PPG算法中，网络的优化目标被划分成了三个部分，其一是策略梯度损失，其二是辅助任务损失，其三是值函数损失。
+由于辅助任务与策略部分共享一部分参数，因此，在进行辅助任务损失更新的时候，加入了KL散度的限制保证更新前后策略差别不会太大。
+然后通过调整策略更新和其它网络部分更新的频率，取长补短，最终提升了数据效率。</p>
+</section>
+<section id="id2">
+<h2>算法出处<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><strong>论文链接</strong>:
+<a class="reference external" href="http://proceedings.mlr.press/v139/cobbe21a/cobbe21a.pdf">Phasic policy gradient</a></p>
+<p><strong>论文引用信息</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@inproceedings</span><span class="p">{</span><span class="n">cobbe2021phasic</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Phasic</span> <span class="n">policy</span> <span class="n">gradient</span><span class="p">},</span>
+    <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Cobbe</span><span class="p">,</span> <span class="n">Karl</span> <span class="n">W</span> <span class="ow">and</span> <span class="n">Hilton</span><span class="p">,</span> <span class="n">Jacob</span> <span class="ow">and</span> <span class="n">Klimov</span><span class="p">,</span> <span class="n">Oleg</span> <span class="ow">and</span> <span class="n">Schulman</span><span class="p">,</span> <span class="n">John</span><span class="p">},</span>
+    <span class="n">booktitle</span><span class="o">=</span><span class="p">{</span><span class="n">International</span> <span class="n">Conference</span> <span class="n">on</span> <span class="n">Machine</span> <span class="n">Learning</span><span class="p">},</span>
+    <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">2020</span><span class="o">--</span><span class="mi">2027</span><span class="p">},</span>
+    <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2021</span><span class="p">},</span>
+    <span class="n">organization</span><span class="o">=</span><span class="p">{</span><span class="n">PMLR</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pg.html" class="btn btn-neutral float-left" title="Policy Gradient" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ppo.html" class="btn btn-neutral float-right" title="PPO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, 柳文章, 蔡文哲, 蒋坤, 王远大, 程光冉, 王嘉伟, 操菁瑜, 徐乐玏, 穆朝絮, 孙长银.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

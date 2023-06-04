@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QMIX &mdash; 玄策 v0.1.7 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="WQMIX" href="wqmix.html" />
+    <link rel="prev" title="QTRAN" href="qtran.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> 玄策
+            <img src="../../../_static/logo_2.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">如何使用:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">安装教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">专业教程</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/common.html">通用基础模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/agents.html">Agent类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../structure/learners.html">学习器Learner类</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API详细介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_tutorial/common.html">common toolboxes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index_drl.html">深度强化学习(单智能体)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index_marl.html">多智能体强化学习</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="iql.html">IQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vdn.html">VDN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qtran.html">QTRAN</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">QMIX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">算法描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">算法出处</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wqmix.html">WQMIX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dcg.html">DCG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mfq.html">MFQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mfac.html">MFAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mappo.html">MAPPO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coma.html">COMA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isac.html">ISAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="masac.html">MASAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iddpg.html">IDDPG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maddpg.html">MADDPG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matd3.html">MATD3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vdac.html">VDAC</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/toy.html">Toy运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/mujoco.html">MuJoCo运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/atari.html">Atari运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/mpe.html">MPE运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/magent.html">Magent运行结果</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">玄策</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index_marl.html">多智能体强化学习</a></li>
+      <li class="breadcrumb-item active">QMIX</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/documents/agents/marl/qmix.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="qmix">
+<h1>QMIX<a class="headerlink" href="#qmix" title="Permalink to this headline">¶</a></h1>
+<section id="id1">
+<h2>算法描述<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>QMIX算法全称为Q-Mixing networks，该算法同样是在VDN算法基础上发展而来。
+由于VDN利用加和约束优化各智能体的值函数，极大地限制了算法在复杂问题上的决策能力。
+为了解决该问题，QMIX算法将VDN的加和性约束放宽至单调性约束。
+QMIX算法将各智能体的独立Q值经过qmixer模块，得到整体Q值，该整体Q值和独立Q值保持单调性关系。
+QMIX的更新方式同VDN一样，使用端到端训练。</p>
+</section>
+<section id="id2">
+<h2>算法出处<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><strong>论文链接</strong>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://proceedings.mlr.press/v80/rashid18a/rashid18a.pdf">QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning</a></p></li>
+<li><p><a class="reference external" href="https://www.jmlr.org/papers/volume21/20-081/20-081.pdf">Monotonic value function factorisation for deep multi-agent reinforcement learning</a></p></li>
+</ul>
+<p><strong>引用信息</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@InProceedings</span><span class="p">{</span><span class="n">pmlr</span><span class="o">-</span><span class="n">v80</span><span class="o">-</span><span class="n">rashid18a</span><span class="p">,</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="p">{{</span><span class="n">QMIX</span><span class="p">}:</span> <span class="n">Monotonic</span> <span class="n">Value</span> <span class="n">Function</span> <span class="n">Factorisation</span> <span class="k">for</span> <span class="n">Deep</span> <span class="n">Multi</span><span class="o">-</span><span class="n">Agent</span> <span class="n">Reinforcement</span> <span class="n">Learning</span><span class="p">},</span>
+    <span class="n">author</span> <span class="o">=</span> <span class="p">{</span><span class="n">Rashid</span><span class="p">,</span> <span class="n">Tabish</span> <span class="ow">and</span> <span class="n">Samvelyan</span><span class="p">,</span> <span class="n">Mikayel</span> <span class="ow">and</span> <span class="n">Schroeder</span><span class="p">,</span> <span class="n">Christian</span> <span class="ow">and</span> <span class="n">Farquhar</span><span class="p">,</span> <span class="n">Gregory</span> <span class="ow">and</span> <span class="n">Foerster</span><span class="p">,</span> <span class="n">Jakob</span> <span class="ow">and</span> <span class="n">Whiteson</span><span class="p">,</span> <span class="n">Shimon</span><span class="p">},</span>
+    <span class="n">booktitle</span> <span class="o">=</span> <span class="p">{</span><span class="n">Proceedings</span> <span class="n">of</span> <span class="n">the</span> <span class="mi">35</span><span class="n">th</span> <span class="n">International</span> <span class="n">Conference</span> <span class="n">on</span> <span class="n">Machine</span> <span class="n">Learning</span><span class="p">},</span>
+    <span class="n">pages</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4295</span><span class="o">--</span><span class="mi">4304</span><span class="p">},</span>
+    <span class="n">year</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2018</span><span class="p">},</span>
+    <span class="n">editor</span> <span class="o">=</span> <span class="p">{</span><span class="n">Dy</span><span class="p">,</span> <span class="n">Jennifer</span> <span class="ow">and</span> <span class="n">Krause</span><span class="p">,</span> <span class="n">Andreas</span><span class="p">},</span>
+    <span class="n">volume</span> <span class="o">=</span> <span class="p">{</span><span class="mi">80</span><span class="p">},</span>
+    <span class="n">series</span> <span class="o">=</span> <span class="p">{</span><span class="n">Proceedings</span> <span class="n">of</span> <span class="n">Machine</span> <span class="n">Learning</span> <span class="n">Research</span><span class="p">},</span>
+    <span class="n">month</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="o">--</span><span class="mi">15</span> <span class="n">Jul</span><span class="p">},</span>
+    <span class="n">publisher</span> <span class="o">=</span> <span class="p">{</span><span class="n">PMLR</span><span class="p">},</span>
+    <span class="n">pdf</span> <span class="o">=</span> <span class="p">{</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">proceedings</span><span class="o">.</span><span class="n">mlr</span><span class="o">.</span><span class="n">press</span><span class="o">/</span><span class="n">v80</span><span class="o">/</span><span class="n">rashid18a</span><span class="o">/</span><span class="n">rashid18a</span><span class="o">.</span><span class="n">pdf</span><span class="p">},</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="p">{</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">proceedings</span><span class="o">.</span><span class="n">mlr</span><span class="o">.</span><span class="n">press</span><span class="o">/</span><span class="n">v80</span><span class="o">/</span><span class="n">rashid18a</span><span class="o">.</span><span class="n">html</span><span class="p">},</span>
+    <span class="n">abstract</span> <span class="o">=</span> <span class="p">{</span><span class="n">In</span> <span class="n">many</span> <span class="n">real</span><span class="o">-</span><span class="n">world</span> <span class="n">settings</span><span class="p">,</span> <span class="n">a</span> <span class="n">team</span> <span class="n">of</span> <span class="n">agents</span> <span class="n">must</span> <span class="n">coordinate</span> <span class="n">their</span> <span class="n">behaviour</span> <span class="k">while</span> <span class="n">acting</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">decentralised</span> <span class="n">way</span><span class="o">.</span> <span class="n">At</span> <span class="n">the</span> <span class="n">same</span> <span class="n">time</span><span class="p">,</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">often</span> <span class="n">possible</span> <span class="n">to</span> <span class="n">train</span> <span class="n">the</span> <span class="n">agents</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">centralised</span> <span class="n">fashion</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">simulated</span> <span class="ow">or</span> <span class="n">laboratory</span> <span class="n">setting</span><span class="p">,</span> <span class="n">where</span> <span class="k">global</span> <span class="n">state</span> <span class="n">information</span> <span class="ow">is</span> <span class="n">available</span> <span class="ow">and</span> <span class="n">communication</span> <span class="n">constraints</span> <span class="n">are</span> <span class="n">lifted</span><span class="o">.</span> <span class="n">Learning</span> <span class="n">joint</span> <span class="n">action</span><span class="o">-</span><span class="n">values</span> <span class="n">conditioned</span> <span class="n">on</span> <span class="n">extra</span> <span class="n">state</span> <span class="n">information</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">attractive</span> <span class="n">way</span> <span class="n">to</span> <span class="n">exploit</span> <span class="n">centralised</span> <span class="n">learning</span><span class="p">,</span> <span class="n">but</span> <span class="n">the</span> <span class="n">best</span> <span class="n">strategy</span> <span class="k">for</span> <span class="n">then</span> <span class="n">extracting</span> <span class="n">decentralised</span> <span class="n">policies</span> <span class="ow">is</span> <span class="n">unclear</span><span class="o">.</span> <span class="n">Our</span> <span class="n">solution</span> <span class="ow">is</span> <span class="n">QMIX</span><span class="p">,</span> <span class="n">a</span> <span class="n">novel</span> <span class="n">value</span><span class="o">-</span><span class="n">based</span> <span class="n">method</span> <span class="n">that</span> <span class="n">can</span> <span class="n">train</span> <span class="n">decentralised</span> <span class="n">policies</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">centralised</span> <span class="n">end</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">end</span> <span class="n">fashion</span><span class="o">.</span> <span class="n">QMIX</span> <span class="n">employs</span> <span class="n">a</span> <span class="n">network</span> <span class="n">that</span> <span class="n">estimates</span> <span class="n">joint</span> <span class="n">action</span><span class="o">-</span><span class="n">values</span> <span class="k">as</span> <span class="n">a</span> <span class="nb">complex</span> <span class="n">non</span><span class="o">-</span><span class="n">linear</span> <span class="n">combination</span> <span class="n">of</span> <span class="n">per</span><span class="o">-</span><span class="n">agent</span> <span class="n">values</span> <span class="n">that</span> <span class="n">condition</span> <span class="n">only</span> <span class="n">on</span> <span class="n">local</span> <span class="n">observations</span><span class="o">.</span> <span class="n">We</span> <span class="n">structurally</span> <span class="n">enforce</span> <span class="n">that</span> <span class="n">the</span> <span class="n">joint</span><span class="o">-</span><span class="n">action</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">monotonic</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">per</span><span class="o">-</span><span class="n">agent</span> <span class="n">values</span><span class="p">,</span> <span class="n">which</span> <span class="n">allows</span> <span class="n">tractable</span> <span class="n">maximisation</span> <span class="n">of</span> <span class="n">the</span> <span class="n">joint</span> <span class="n">action</span><span class="o">-</span><span class="n">value</span> <span class="ow">in</span> <span class="n">off</span><span class="o">-</span><span class="n">policy</span> <span class="n">learning</span><span class="p">,</span> <span class="ow">and</span> <span class="n">guarantees</span> <span class="n">consistency</span> <span class="n">between</span> <span class="n">the</span> <span class="n">centralised</span> <span class="ow">and</span> <span class="n">decentralised</span> <span class="n">policies</span><span class="o">.</span> <span class="n">We</span> <span class="n">evaluate</span> <span class="n">QMIX</span> <span class="n">on</span> <span class="n">a</span> <span class="n">challenging</span> <span class="nb">set</span> <span class="n">of</span> <span class="n">StarCraft</span> <span class="n">II</span> <span class="n">micromanagement</span> <span class="n">tasks</span><span class="p">,</span> <span class="ow">and</span> <span class="n">show</span> <span class="n">that</span> <span class="n">QMIX</span> <span class="n">significantly</span> <span class="n">outperforms</span> <span class="n">existing</span> <span class="n">value</span><span class="o">-</span><span class="n">based</span> <span class="n">multi</span><span class="o">-</span><span class="n">agent</span> <span class="n">reinforcement</span> <span class="n">learning</span> <span class="n">methods</span><span class="o">.</span><span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="nd">@article</span><span class="p">{</span><span class="n">rashid2020monotonic</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Monotonic</span> <span class="n">value</span> <span class="n">function</span> <span class="n">factorisation</span> <span class="k">for</span> <span class="n">deep</span> <span class="n">multi</span><span class="o">-</span><span class="n">agent</span> <span class="n">reinforcement</span> <span class="n">learning</span><span class="p">},</span>
+    <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Rashid</span><span class="p">,</span> <span class="n">Tabish</span> <span class="ow">and</span> <span class="n">Samvelyan</span><span class="p">,</span> <span class="n">Mikayel</span> <span class="ow">and</span> <span class="n">De</span> <span class="n">Witt</span><span class="p">,</span> <span class="n">Christian</span> <span class="n">Schroeder</span> <span class="ow">and</span> <span class="n">Farquhar</span><span class="p">,</span> <span class="n">Gregory</span> <span class="ow">and</span> <span class="n">Foerster</span><span class="p">,</span> <span class="n">Jakob</span> <span class="ow">and</span> <span class="n">Whiteson</span><span class="p">,</span> <span class="n">Shimon</span><span class="p">},</span>
+    <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">The</span> <span class="n">Journal</span> <span class="n">of</span> <span class="n">Machine</span> <span class="n">Learning</span> <span class="n">Research</span><span class="p">},</span>
+    <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">21</span><span class="p">},</span>
+    <span class="n">number</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span>
+    <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">7234</span><span class="o">--</span><span class="mi">7284</span><span class="p">},</span>
+    <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2020</span><span class="p">},</span>
+    <span class="n">publisher</span><span class="o">=</span><span class="p">{</span><span class="n">JMLRORG</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="qtran.html" class="btn btn-neutral float-left" title="QTRAN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="wqmix.html" class="btn btn-neutral float-right" title="WQMIX" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, 柳文章, 蔡文哲, 蒋坤, 王远大, 程光冉, 王嘉伟, 操菁瑜, 徐乐玏, 穆朝絮, 孙长银.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
