@@ -8,6 +8,7 @@ DDPG（Deep Deterministic Policy Gradient，深度确定性策略梯度）
 算法是一种基于执行-评价（Actor-Critic）框架的深度强化学习算法，适用于连续动作空间的问题。
 DDPG结合了深度学习和确定性策略梯度方法，以实现高维状态空间和连续动作空间下的高效学习。
 DDPG算法的主要步骤如下：
+
 #. 初始化演员网络（Actor）和评论家网络（Critic）以及他们的目标网络。
 #. 使用演员网络在环境中采集轨迹（trajectory）。
 #. 根据采集到的轨迹，使用评论家网络计算状态-动作对的Q值。
@@ -18,13 +19,11 @@ DDPG算法的主要步骤如下：
 算法出处
 ----------------------
 
-论文链接：
-
-- 
+**论文链接**:
 `Continuous control with deep reinforcement learning 
 <https://arxiv.org/pdf/1509.02971.pdf>`_
 
-论文引用信息：
+**论文引用信息**:
 
 ::
 

@@ -17,12 +17,12 @@ TD3在DDPG的基础上引入了三个关键改进：
 算法出处
 ----------------------
 
-论文链接：
+**论文链接**:
 
 `Addressing Function Approximation Error in Actor-Critic Methods." In International Conference on Machine Learning  
 <http://proceedings.mlr.press/v80/fujimoto18a/fujimoto18a.pdf>`_
 
-论文引用信息：
+**论文引用信息**:
 
 ::
 

@@ -15,12 +15,11 @@ OWQMIX（Optimistically-Weighted Q-mixing Networks）采用“乐观”加权的
 算法出处
 ----------------------
 
-论文链接：
-
-- `Weighted qmix: Expanding monotonic value function factorisation for deep multi-agent reinforcement learning 
+**论文链接**:
+`Weighted qmix: Expanding monotonic value function factorisation for deep multi-agent reinforcement learning 
 <https://proceedings.neurips.cc/paper/2020/file/73a427badebe0e32caa2e1fc7530b7f3-Paper.pdf>`_
 
-论文引用信息：
+**引用信息**:
 
 ::
 

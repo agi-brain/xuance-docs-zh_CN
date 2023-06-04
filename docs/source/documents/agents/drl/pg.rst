@@ -14,12 +14,11 @@ PG算法还可以使用基线函数来减少方差，从而提高更新效率。
 算法出处
 ----------------------
 
-论文链接：
-
-- `A natural policy gradient 
+**论文链接**：
+`A natural policy gradient 
 <https://proceedings.neurips.cc/paper/2001/file/4b86abe48d358ecf194c56c69108433e-Paper.pdf>`_
 
-论文引用信息：
+**论文引用信息**：
 
 ::
 

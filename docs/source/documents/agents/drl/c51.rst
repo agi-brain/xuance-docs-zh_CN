@@ -16,10 +16,10 @@ C51 DQN（Categorical DQN，全称Categorical 51-Atom DQN）是对原始DQN算�
 算法出处
 ----------------------
 
-论文链接: `A distributional perspective on reinforcement learning 
+**论文链接**: `A distributional perspective on reinforcement learning 
 <http://proceedings.mlr.press/v70/bellemare17a/bellemare17a.pdf>`_
 
-论文引用信息:
+**论文引用信息**:
 
 ::
 

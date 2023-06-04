@@ -11,12 +11,11 @@ MFQ的核心思想是利用中心场的概念，将每个智能体同其邻居�
 算法出处
 ----------------------
 
-论文链接：
-
-- `Mean field multi-agent reinforcement learning 
+**论文链接**:
+`Mean field multi-agent reinforcement learning 
 <http://proceedings.mlr.press/v80/yang18d/yang18d.pdf>`_
 
-论文引用信息：
+**论文引用信息**:
 
 ::
 

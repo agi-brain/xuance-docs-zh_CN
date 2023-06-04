@@ -11,13 +11,12 @@ MFAC采用Actor-Critic结构实现策略的更新，网路结构和A2C相似。
 算法出处
 ----------------------
 
-该算法的编写参考如下文献：
+**该算法的编写参考如下文献**:
 
-- 
 `Mean field multi-agent reinforcement learning 
 <http://proceedings.mlr.press/v80/yang18d/yang18d.pdf>`_
 
-论文引用信息：
+**论文引用信息**:
 
 ::
 

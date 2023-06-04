@@ -4,7 +4,7 @@ PPG
 算法描述
 ----------------------
 
-PPG（Phasic Policy Gradient）算法是一种基于策略梯度的深度强化学习算法，
+PPG（Phasic Policy Gradient）是一种基于策略梯度的深度强化学习算法，
 用于进一步通过加入辅助任务来提升强化学习的数据效率。
 具体来说，由于在这类算法中，为了降低策略更新的期望偏差，
 策略网络往往在更新次数较少的时候收益较大，而实际应用的时候，
@@ -17,12 +17,11 @@ PPG（Phasic Policy Gradient）算法是一种基于策略梯度的深度强化�
 算法出处
 ----------------------
 
-论文链接：
-
-- `Phasic policy gradient 
+**论文链接**:
+`Phasic policy gradient 
 <http://proceedings.mlr.press/v139/cobbe21a/cobbe21a.pdf>`_
 
-论文引用信息：
+**论文引用信息**:
 
 ::
 

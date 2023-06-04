@@ -20,12 +20,11 @@ Eval_Q模块的输入为representation的输出，再次经过单隐层的MLP网
 算法出处
 ----------------------
 
-论文链接：
-
-- `Soft actor-critic: Off-policy maximum entropy deep reinforcement learning with a stochastic actor 
+**论文链接**:
+`Soft actor-critic: Off-policy maximum entropy deep reinforcement learning with a stochastic actor 
 <http://proceedings.mlr.press/v80/haarnoja18b/haarnoja18b.pdf>`_
 
-论文引用信息：
+**论文引用信息**:
 
 ::
 

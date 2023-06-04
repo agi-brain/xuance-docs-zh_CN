@@ -15,10 +15,10 @@ CNN算法在图像和语音识别方面的优势很大，再使用DQN算法对�
 算法出处
 ----------------------
 
-论文链接: `Convolutional neural network-based deep Q-network (CNN-DQN) resource management in cloud radio access network
+**论文链接**: `Convolutional neural network-based deep Q-network (CNN-DQN) resource management in cloud radio access network
 <https://ieeexplore.ieee.org/abstract/document/9867958/>`_
 
-论文引用信息:
+**论文引用信息**:
 
 ::
 

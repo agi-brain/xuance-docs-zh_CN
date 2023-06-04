@@ -10,12 +10,11 @@ COMA算法全称为Counterfactual Multi-agent Policy Gradient，是一种基于�
 算法出处
 ----------------------
 
-论文链接：
-
-- `Counterfactual multi-agent policy gradients 
+**论文链接**:
+`Counterfactual multi-agent policy gradients 
 <https://ojs.aaai.org/index.php/AAAI/article/view/11794>`_
 
-论文引用信息：
+**论文引用信息**:
 
 ::
 

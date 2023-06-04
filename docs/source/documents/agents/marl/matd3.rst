@@ -23,13 +23,12 @@ eval_a 模块的输入为representation的输出，再次经过单隐层的MLP�
 算法出处
 ----------------------
 
-该算法的编写参考以下文献：
+**该算法的编写参考以下文献**:
 
-- 
 `Reducing overestimation bias in multi-agent domains using double centralized critics 
 <https://arxiv.org/pdf/1910.01465.pdf>`_
 
-论文引用信息：
+**论文引用信息**:
 
 ::
 

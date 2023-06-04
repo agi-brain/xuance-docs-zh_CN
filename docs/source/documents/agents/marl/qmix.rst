@@ -13,15 +13,13 @@ QMIX的更新方式同VDN一样，使用端到端训练。
 算法出处
 ----------------------
 
-论文链接：
+**论文链接**:
 
-- `QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning 
-<http://proceedings.mlr.press/v80/rashid18a/rashid18a.pdf>`_
+- `QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning <http://proceedings.mlr.press/v80/rashid18a/rashid18a.pdf>`_
 
-- `Monotonic value function factorisation for deep multi-agent reinforcement learning 
-<https://www.jmlr.org/papers/volume21/20-081/20-081.pdf>`_
+- `Monotonic value function factorisation for deep multi-agent reinforcement learning <https://www.jmlr.org/papers/volume21/20-081/20-081.pdf>`_
 
-引用信息：
+**引用信息**:
 
 ::
 

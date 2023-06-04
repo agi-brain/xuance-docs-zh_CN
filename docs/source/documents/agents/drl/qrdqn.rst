@@ -17,8 +17,10 @@ Quantile DQN，全称Quantile Regression DQN，简称QR-DQN。
 算法出处
 ----------------------
 
-论文链接: `Dueling network architectures for deep reinforcement learning 
+**论文链接**: `Dueling network architectures for deep reinforcement learning 
 <https://ojs.aaai.org/index.php/AAAI/article/view/11791>`_
+
+**论文引用信息**:
 
 ::
 

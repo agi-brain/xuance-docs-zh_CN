@@ -20,10 +20,10 @@ representation由包含单隐层的多层感知器（Multi-Layer Perception, MLP
 算法出处
 -------------------------------
 
-论文链接: `Human-level control through deep reinforcement learning 
+**论文链接**: `Human-level control through deep reinforcement learning 
 <https://www.nature.com/articles/nature14236/>`_
 
-论文引用信息:
+**论文引用信息**:
 
 ::
 

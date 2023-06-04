@@ -11,13 +11,12 @@ MADDPG由IDDPG算法发展而来，其基本结构和网络的更新原理和IDD
 算法出处
 ----------------------
 
-该算法的编写参考以下文献：
+**该算法的编写参考以下文献**:
 
-- 
 `Multi-agent actor-critic for mixed cooperative-competitive environments 
 <https://proceedings.neurips.cc/paper/2017/file/68a9750337a418a86fe06c1991a1d64c-Paper.pdf>`_
 
-论文引用信息：
+**论文引用信息**:
 
 ::
 

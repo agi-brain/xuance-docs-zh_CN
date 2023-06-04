@@ -15,9 +15,10 @@ Double DQN的主要思想是将动作选择和动作评估分离，使用两个�
 算法出处
 ----------------------
 
-论文链接: `Deep reinforcement learning with double q-learning 
+**论文链接**: `Deep reinforcement learning with double q-learning 
 <https://ojs.aaai.org/index.php/AAAI/article/view/10295>`_
 
+**论文引用信息**:
 ::
 
     @inproceedings{van2016deep,

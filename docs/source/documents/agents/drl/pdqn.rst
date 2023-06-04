@@ -4,7 +4,7 @@ PDQN
 算法描述
 ----------------------
 
-P-DQN全称为Parameterized Deep Q-Network，是一种基于策略(policy-based)的深度强化学习算法。
+P-DQN全称为Parameterized Deep Q-Network，是一种基于策略（policy-based）的深度强化学习算法。
 P-DQN使用神经网络作为函数逼近器来优化行动的价值，它可用于学习混合动作空间下的最优行动策略。
 P-DQN将DDPG算法和DQN相结合，通过DDPG算法确定各个离散动作对应的最优连续参数，
 再将这些最优连续参数和状态观测一起输入Q网络，智能体通过比较各个离散动作的价值大小，
@@ -15,8 +15,6 @@ P-DQN将DDPG算法和DQN相结合，通过DDPG算法确定各个离散动作对�
 ----------------------
 
 **论文链接**：
-
-- 
 `Parametrized deep q-networks learning: Reinforcement learning with discrete-continuous hybrid action space 
 <https://arxiv.org/pdf/1810.06394.pdf>`_
 

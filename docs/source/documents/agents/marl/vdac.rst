@@ -12,13 +12,11 @@ VDAC算法发扬了VDN算法和A2C算法的优势，将值函数分解思想引�
 算法出处
 ----------------------
 
-该算法的编写参考如下论文：
-
-- 
+**该算法的编写参考如下论文**:
 `Value-decomposition multi-agent actor-critics 
 <https://ojs.aaai.org/index.php/AAAI/article/view/17353>`_
 
-论文引用信息：
+**论文引用信息**:
 
 ::
 

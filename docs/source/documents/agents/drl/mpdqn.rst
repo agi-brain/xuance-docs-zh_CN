@@ -4,7 +4,7 @@ MPDQN
 算法描述
 ----------------------
 
-MP-DQN全称为Multi-pass Parameterized Deep Q-Network, 是一种基于策略(policy-based)的深度强化学习算法。
+MP-DQN全称为Multi-pass Parameterized Deep Q-Network, 是一种基于策略（policy-based）的深度强化学习算法。
 MP-DQN使用神经网络作为函数逼近器来优化行动的价值，它可用于学习混合动作空间下的最优行动策略。
 MP-DQN将DDPG算法和DQN相结合，通过DDPG算法确定各个离散动作对应的最优连续参数, 
 考虑到全通道输入所有离散动作对应的最优连续参数进Q网络影响了不同离散动作对应Q值的梯度，
@@ -15,12 +15,11 @@ MP-DQN将DDPG算法和DQN相结合，通过DDPG算法确定各个离散动作对
 算法出处
 ----------------------
 
-论文链接：
-
-- `Multi-pass q-networks for deep reinforcement learning with parameterised action spaces 
+**论文链接**:
+`Multi-pass q-networks for deep reinforcement learning with parameterised action spaces 
 <https://arxiv.org/pdf/1905.04388.pdf>`_
 
-论文引用信息：
+**论文引用信息**:
 
 ::
 

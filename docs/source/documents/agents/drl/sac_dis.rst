@@ -21,13 +21,11 @@ Eval_Q模块的输入为representation的输出，再次经过单隐层的MLP网
 算法出处
 ----------------------
 
-论文链接：
-
-- 
+**论文链接**:
 `Soft actor-critic for discrete action settings 
 <https://arxiv.org/pdf/1910.07207.pdf>`_
 
-论文引用信息：
+**论文引用信息**:
 
 ::
 

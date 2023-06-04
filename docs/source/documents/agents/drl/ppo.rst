@@ -19,8 +19,6 @@ PPO-KL算法的核心思想是在策略更新时限制新策略与旧策略之�
 ----------------------
 
 **论文链接**：
-
--
 `Proximal policy optimization algorithms <https://arxiv.org/pdf/1707.06347.pdf>`_
 
 **论文引用信息**：

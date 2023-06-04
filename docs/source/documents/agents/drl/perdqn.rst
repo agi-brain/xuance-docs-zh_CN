@@ -18,10 +18,10 @@ Per DQN: Prioritized Replay Buffer DQN（基于优先级的经验回放的DQN）
 算法出处
 ---------------------
 
-论文链接: `Prioritized experience replay 
+**论文链接**: `Prioritized experience replay 
 <https://arxiv.org/pdf/1511.05952>`_
 
-论文引用信息:
+**论文引用信息**:
 
 ::
 

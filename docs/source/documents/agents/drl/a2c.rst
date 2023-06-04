@@ -14,12 +14,11 @@ A2C算法的一大优点是能够在连续或离散的动作空间中进行有�
 算法出处
 ----------------------
 
-论文链接：
-
-- `Asynchronous methods for deep reinforcement learning 
+**论文链接**：
+`Asynchronous methods for deep reinforcement learning 
 <http://proceedings.mlr.press/v48/mniha16.pdf>`_
 
-论文引用信息：
+**论文引用信息**：
 
 ::
 

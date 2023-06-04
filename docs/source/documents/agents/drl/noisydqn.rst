@@ -11,10 +11,10 @@ NoisyNet DQN是对原始DQN算法的一种改进，旨在通过引入噪声来�
 算法出处
 ----------------------
 
-论文链接: `Noisy networks for exploration 
+**论文链接**: `Noisy networks for exploration 
 <https://arxiv.org/pdf/1706.10295.pdf>`_
 
-论文引用信息:
+**论文引用信息**:
 
 ::
 

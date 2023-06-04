@@ -14,10 +14,12 @@ CLDQN将CNN-LSTM（时空网络）算法和DQN相结合，首先利用卷积神�
 算法出处
 ----------------------
 
-论文链接: `UAV target following in complex occluded environments with adaptive multi-modal fusion 
+**论文链接**:
+
+`UAV target following in complex occluded environments with adaptive multi-modal fusion 
 <https://link.springer.com/article/10.1007/s10489-022-04317-2>`_
 
-论文引用信息:
+**论文引用信息**:
 
 ::
 
