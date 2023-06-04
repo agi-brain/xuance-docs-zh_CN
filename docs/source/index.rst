@@ -35,23 +35,26 @@ MindSpore_。并且支持CPU、GPU运算，能够在Linux，Windows，MacOS等�
 
 .. toctree::
    :maxdepth: 1
-   :caption: Included algorithms:
+   :caption: 主要模块与功能介绍:
+
+.. toctree::
+   :maxdepth: 1
+   :caption: API详细介绍:
+
+   documents/components/configs
+
+.. toctree::
+   :maxdepth: 1
+   :caption: 算法介绍:
 
    documents/agents/index_drl
    documents/agents/index_marl
 
 .. toctree::
    :maxdepth: 1
-   :caption: Benchmark
+   :caption: 参考基准
 
    documents/benchmark/environments
-
-.. toctree::
-   :maxdepth: 1
-   :caption: API tutorials:
-
-   documents/components/configs
-
 
 Indices and tables
 ==================

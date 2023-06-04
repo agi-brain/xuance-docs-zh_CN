@@ -13,7 +13,9 @@ LDQN使用神经网络来逼近行为值函数，使用了target Q network来更
 算法出处
 ----------------------
 
-论文链接: `UAV target following in complex occluded environments with adaptive multi-modal fusion 
+论文链接
+
+- `UAV target following in complex occluded environments with adaptive multi-modal fusion 
 <https://link.springer.com/article/10.1007/s10489-022-04317-2>`_
 
 论文引用信息:
