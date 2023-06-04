@@ -12,7 +12,7 @@ Per DQN: Prioritized Replay Buffer DQN（基于优先级的经验回放的DQN）
 
 .. math:: p = |\delta| + \epsilon，
 
-其中，:math:`\delta`表示该经验元组的TD误差（Temporal Difference Error），
+其中，:math:`\delta` 表示该经验元组的TD误差（Temporal Difference Error），
 即预测Q值与实际Q值之间的差值；:math:`\epsilon` 是一个很小的正数，用于确保每个经验元组都有一定的被采样概率。
 
 论文链接: `Prioritized experience replay 
