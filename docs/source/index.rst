@@ -37,6 +37,7 @@ MindSpore_。并且支持CPU、GPU运算，能够在Linux，Windows，MacOS等�
    :maxdepth: 1
    :caption: 主要模块与功能介绍:
 
+   documents/structure/configs
    documents/structure/common
    documents/structure/environments
    documents/structure/representations
