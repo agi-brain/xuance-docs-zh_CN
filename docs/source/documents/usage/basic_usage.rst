@@ -4,7 +4,7 @@
 运行一个DRL算法
 -----------------------
 
-安装完玄策后，用户只需要三行代码即可运行一个深度强化学习算法。首先，你需要通过指定 ``agent_name`` 、 ``env`` 和 ``env_id`` 等信息创建一个 *runner* 对象，
+安装完玄策后，用户只需要三行代码即可运行一个深度强化学习算法。首先，你需要通过指定 ``method`` 、 ``env`` 和 ``env_id`` 等信息创建一个 *runner* 对象，
 在 *runner* 的创建过程中，玄策已经创建好了 ``agent``, ``policy``, ``envs`` 等强化学习关键要素。接下来，只需要执行 ``runner.run()`` 就能实现算法的训练了。
 一个DQN算法的实例如下：
 
@@ -54,9 +54,9 @@
 
     import xuanpolicy as xp
     runner = xp.get_runner(method='dqn',
-                                env='toy',
-                                env_id='CartPole-v1',
-                                is_test=True)
+                           env='toy',
+                           env_id='CartPole-v1',
+                           is_test=True)
     runner.run()
 
 以上代码中，还可用 ``runner.benchmark()`` 代替 ``runner.run()`` ，用于训练基准模型和基准测试结果。
