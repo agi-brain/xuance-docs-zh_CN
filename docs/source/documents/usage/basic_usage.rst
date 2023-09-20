@@ -11,7 +11,9 @@
 :: 
 
     import xuanpolicy as xp
-    runner = xp.get_runner(agent_name='dqn', env_name='toy/CartPole-v0', is_test=False)
+    runner = xp.get_runner(agent_name='dqn', 
+                           env_name='toy/CartPole-v0', 
+                           is_test=False)
     runner.run()
 
 执行以上指令，终端将输出实验的基本信息和训练过程进度条，当进度条满格时表示训练结束，模型保存。
