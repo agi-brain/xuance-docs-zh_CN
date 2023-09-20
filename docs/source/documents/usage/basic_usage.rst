@@ -48,13 +48,13 @@
 
 测试
 -----------------------
-完成算法训练后，玄策会在指定目录中保存模型文件和训练日志信息。用户可以通过指定 ``runner.test=True`` 来实现测试：
+完成算法训练后，玄策会在指定目录中保存模型文件和训练日志信息。用户可以通过指定 ``is_test=True`` 来实现测试：
 
 :: 
 
     import xuanpolicy as xp
     runner = xp.get_runner(method='dqn',
-                           env='toy',
+                           env='classic_control',
                            env_id='CartPole-v1',
                            is_test=True)
     runner.run()
