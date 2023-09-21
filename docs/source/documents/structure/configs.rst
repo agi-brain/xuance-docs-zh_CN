@@ -3,34 +3,40 @@
 
 玄策的算法参数均通过YAML文件配置，存于xuanpolicy/configs文件夹中。
 
-为了便于训练和调参，参数配置分为基础参数配置和算法参数配置。
+为了便于训练和调参，默认的参数配置分为基础参数配置和算法参数配置。
+
+针对不同的算法、不同的环境，强化学习示例需要用到的参数种类各不相同，因此
 
 基础参数配置
 --------------------------
-基础参数配置存于xuanpolicy/config/basic.yaml文件中，各参数名称、含义、取值范围如下表所示：
+基础参数配置存于xuanpolicy/config/basic.yaml文件中，示例如下：
 
 ::
 
-    dl_toolbox: "torch"  # The deep learning toolbox. Choices: "torch", "mindspore", "tensorlayer"
+    dl_toolbox: "torch"  # Values: "torch", "mindspore", "tensorlayer"
 
-    runner: "DRL"  # Choices: "DRL", "MARL", "Mean_Field_MARL"
     project_name: "XuanPolicy_Benchmark"
-    logger: "tensorboard"  # Choices: tensorboard, wandb.
+    logger: "tensorboard"  # Values: tensorboard, wandb.
     wandb_user_name: "papers_liu"
 
     parallels: 10
     seed: 2910
-    vectorize: "Dummy_Gym"  # choices: [Dummy_Gym, Dummy_Pettingzoo, Dummy_Atari, Subproc, NOREQUIRED]
     render: True
-    render_mode: 'rgb_array' # Choices: 'human', 'rgb_array'.
+    render_mode: 'rgb_array' # Values: 'human', 'rgb_array'.
     test_mode: False
     test_steps: 2000
 
     device: "cuda:0"
 
-    # PyTorch: "cpu", "cuda:0";
-    # TensorFlow: "cpu"/"CPU", "gpu"/"GPU";
-    # MindSpore: "CPU", "GPU", "Ascend", "Davinci"
+需要注意的是， ``basic.yaml`` 文件中的 ``device`` 变量取值根据不同的深度学习框架有所差异，分别如下：
+
+PyTorch: "cpu", "cuda:0";
+
+TensorFlow: "cpu"/"CPU", "gpu"/"GPU";
+
+MindSpore: "CPU", "GPU", "Ascend", "Davinci"。
+
+
 
 
 算法参数配置
