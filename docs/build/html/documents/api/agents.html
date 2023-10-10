@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent类 &mdash; 玄策 v0.1.11 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/fonts.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="学习器Learner类" href="learners.html" />
+    <link rel="prev" title="状态表征" href="policies.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> 玄策
+            <img src="../../_static/logo_2.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">如何使用:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">安装教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/basic_usage.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/professional_usage.html">专业教程</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API介绍:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="configs.html">configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common.html">common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policies.html">状态表征</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Agent类</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">类初始化部分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">观测、奖励归一化模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">动作输出函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">训练模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">学习器单步更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">测试模块</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="learners.html">学习器Learner类</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../agents/index_drl.html">深度强化学习(单智能体)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agents/index_marl.html">多智能体强化学习</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/toy.html">Toy运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/mujoco.html">MuJoCo运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/atari.html">Atari运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/mpe.html">MPE运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/magent.html">Magent运行结果</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">玄策</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Agent类</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/documents/api/agents.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="agent">
+<h1>Agent类<a class="headerlink" href="#agent" title="Permalink to this headline">¶</a></h1>
+<section id="id1">
+<h2>类初始化部分<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Agent类是智能体运行的核心程序，其包含了强化学习算法运行所需要的全部元素，
+包括参数配置（config），日志记录模块（writer），经验回放池模块（memory），
+学习器模块（learner），优化器（optimizer），策略网络（policy），实例化环境（envs）等。
+在类初始化程序中，将对这些模块进行实例化与参数配置，便于接下来的算法运行。</p>
+</section>
+<section id="id2">
+<h2>观测、奖励归一化模块<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>为了便于神经网络训练，本软件考虑将观测数据和奖励值信息进行归一化处理，
+归一化函数分别为_process_observation和_process_reward。
+用户可通过对config.use_obsnorm和config.use_rewnorm两个变量的设置，决定是否采取归一化处理。
+True表示采取归一化处理，False表示不进行归一化处理。</p>
+</section>
+<section id="id3">
+<h2>动作输出函数<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>动作输出函数_action()是Agent类中的重要环节，智能体在环境中将根据该函数决定下一步采取什么样的动作，
+并计算出当前观测下状态表征网络提取出的状态特征，以及当前状态下的值函数输出结果。
+需要注意的是，不同算法的动作输出函数内容有所差异，其返回的变量也因各算法的需要而不同，
+但是均包含当前状态下智能体所应采取的动作信息。</p>
+</section>
+<section id="id4">
+<h2>训练模块<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>训练模块train()是Agent类的主干部分，也是强化学习算法同环境进行交互并实现模型训练的核心环节。
+程序在进入该部分时，首先初始化回合数、回报、得分等变量信息，并重置环境，接着便进入主循环，算法运行流程如下图所示：</p>
+<a class="reference internal image-reference" href="../../_images/algo_flow_chart.png"><img alt="../../_images/algo_flow_chart.png" src="../../_images/algo_flow_chart.png" style="height: 300px;" /></a>
+</section>
+<section id="id5">
+<h2>学习器单步更新<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>学习器的单步更新程序，在learner.update()函数中。
+该部分是一个算法的核心部分，也是该算法区别于其它算法的主要环节。
+主要包括对采样数据的预处理，计算当前网络的输出，以及目标值等信息，
+构造出损失函数并利用torch或mindspore中的优化器实现单步更新。</p>
+</section>
+<section id="id6">
+<h2>测试模块<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>测试模块和训练模块的主要区别在于，测试模块不需要存储交互数据，
+也不需要对模型参数进行更新和学习，但是需要在运行之前先加载已有的模型参数。
+在测试模块运行时，用户可观察到仿真环境的实际运行效果。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="policies.html" class="btn btn-neutral float-left" title="状态表征" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="learners.html" class="btn btn-neutral float-right" title="学习器Learner类" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, XuanPolicy contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

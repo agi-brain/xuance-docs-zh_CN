@@ -9,6 +9,7 @@
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/fonts.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -17,6 +18,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -52,19 +55,15 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
+<p class="caption" role="heading"><span class="caption-text">API介绍:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../structure/configs.html">参数配置</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../structure/common.html">通用模块</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../structure/environments.html">环境封装</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../structure/representations.html">状态表征</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../structure/policies.html">状态表征</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../structure/agents.html">Agent类</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../structure/learners.html">学习器Learner类</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">API详细介绍:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../api_tutorial/common.html">common toolboxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/configs.html">configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/common.html">common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/agents.html">Agent类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/learners.html">学习器Learner类</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
 <ul>
@@ -106,12 +105,12 @@
              
   <section id="id1">
 <h1>快速开始<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<section id="drl">
+<br><hr><section id="drl">
 <h2>运行一个DRL算法<a class="headerlink" href="#drl" title="Permalink to this headline">¶</a></h2>
 <p>安装完玄策后，用户只需要三行代码即可运行一个深度强化学习算法。首先，你需要通过指定 <code class="docutils literal notranslate"><span class="pre">method</span></code> 、 <code class="docutils literal notranslate"><span class="pre">env</span></code> 和 <code class="docutils literal notranslate"><span class="pre">env_id</span></code> 等信息创建一个 <em>runner</em> 对象，
 在 <em>runner</em> 的创建过程中，玄策已经创建好了 <code class="docutils literal notranslate"><span class="pre">agent</span></code>, <code class="docutils literal notranslate"><span class="pre">policy</span></code>, <code class="docutils literal notranslate"><span class="pre">envs</span></code> 等强化学习关键要素。接下来，只需要执行 <code class="docutils literal notranslate"><span class="pre">runner.run()</span></code> 就能实现算法的训练了。
 一个DQN算法的实例如下：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span> <span class="k">as</span> <span class="nn">xp</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span> <span class="k">as</span> <span class="nn">xp</span>
 <span class="n">runner</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">get_runner</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;dqn&#39;</span><span class="p">,</span>
                        <span class="n">env</span><span class="o">=</span><span class="s1">&#39;classic_control&#39;</span><span class="p">,</span>
                        <span class="n">env_id</span><span class="o">=</span><span class="s1">&#39;CartPole-v1&#39;</span><span class="p">,</span>
@@ -120,11 +119,11 @@
 </pre></div>
 </div>
 <p>执行以上指令，终端将输出实验的基本信息和训练过程进度条，当进度条满格时表示训练结束，模型保存。</p>
-</section>
+<br><hr></section>
 <section id="marl">
 <h2>运行一个MARL算法<a class="headerlink" href="#marl" title="Permalink to this headline">¶</a></h2>
 <p>和单智能体强化学习不同的是，多智能体强化学习任务分为合作型、竞争型、以及合作竞争混合型。合作型任务的运行方法和前面介绍的相同，只需要指定算法名称和环境名称即可开始训练，例如：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span> <span class="k">as</span> <span class="nn">xp</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span> <span class="k">as</span> <span class="nn">xp</span>
 <span class="n">runner</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">get_runner</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;maddpg&#39;</span><span class="p">,</span>
                        <span class="n">env</span><span class="o">=</span><span class="s1">&#39;mpe&#39;</span><span class="p">,</span>
                        <span class="n">env_id</span><span class="o">=</span><span class="s1">&#39;simple_spread_v3&#39;</span><span class="p">,</span>
@@ -135,7 +134,7 @@
 <p>当环境中包含竞争型任务时，由于智能体的优化目标不同，玄策根据原始环境中的任务说明，将智能体进行分组，每组运行一个MARL算法。
 例如，对于 <a class="reference external" href="https://pettingzoo.farama.org/environments/mpe/simple_adversary/">mpe/adversary</a> 环境，智能体集合为[adversary_0, agent_0,agent_1]。
 玄策的环境封装模块将这些智能体分为两组，第一组为“adversary”智能体，第二组为“agent”智能体，每组均可指定一种MARL算法，实现方法如下：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span> <span class="k">as</span> <span class="nn">xp</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span> <span class="k">as</span> <span class="nn">xp</span>
 <span class="n">runner</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">get_runner</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;iddpg&quot;</span><span class="p">,</span> <span class="s2">&quot;maddpg&quot;</span><span class="p">],</span>
                        <span class="n">env</span><span class="o">=</span><span class="s1">&#39;mpe&#39;</span><span class="p">,</span>
                        <span class="n">env_id</span><span class="o">=</span><span class="s1">&#39;simple_push_v3&#39;</span><span class="p">,</span>
@@ -144,11 +143,11 @@
 </pre></div>
 </div>
 <p>在该示例中，第一组智能体使用IDDPG算法，而第二组使用MADDPG算法。执行以上命令后，终端将输出实验的基本信息和训练过程进度条，当进度条满格时表示训练结束，模型保存。</p>
-</section>
+<br><hr></section>
 <section id="id2">
 <h2>测试<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>完成算法训练后，玄策会在指定目录中保存模型文件和训练日志信息。用户可以通过指定 <code class="docutils literal notranslate"><span class="pre">is_test=True</span></code> 来实现测试：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span> <span class="k">as</span> <span class="nn">xp</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span> <span class="k">as</span> <span class="nn">xp</span>
 <span class="n">runner</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">get_runner</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;dqn&#39;</span><span class="p">,</span>
                        <span class="n">env</span><span class="o">=</span><span class="s1">&#39;classic_control&#39;</span><span class="p">,</span>
                        <span class="n">env_id</span><span class="o">=</span><span class="s1">&#39;CartPole-v1&#39;</span><span class="p">,</span>
@@ -157,16 +156,16 @@
 </pre></div>
 </div>
 <p>以上代码中，还可用 <code class="docutils literal notranslate"><span class="pre">runner.benchmark()</span></code> 代替 <code class="docutils literal notranslate"><span class="pre">runner.run()</span></code> ，用于训练基准模型和基准测试结果。</p>
-</section>
+<br><hr></section>
 <section id="id3">
 <h2>训练可视化<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>用户可利用tensorboard或wandb工具来可视化训练过程，
 通过指定xuanpolicy/configs/basic.yaml文件中的 <code class="docutils literal notranslate"><span class="pre">logger</span></code> 参数选择具体的工具：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">logger</span><span class="p">:</span> <span class="n">tensorboard</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">logger</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tensorboard</span>
 </pre></div>
 </div>
 <p>或</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">logger</span><span class="p">:</span> <span class="n">wandb</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">logger</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wandb</span>
 </pre></div>
 </div>
 <p><strong>1. Tensorboard 可视化</strong></p>

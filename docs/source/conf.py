@@ -14,7 +14,10 @@ release = 'v0.1.11'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['renku_sphinx_theme']
+extensions = [
+    'renku_sphinx_theme',
+    'sphinx_copybutton'
+]
 
 templates_path = ['_templates']
 exclude_patterns = []

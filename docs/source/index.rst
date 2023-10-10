@@ -25,6 +25,22 @@ MindSpore_。并且支持CPU、GPU运算，能够在Linux，Windows，MacOS等�
 .. _TensorFlow: https://www.tensorflow.org/
 .. _MindSpore: https://www.mindspore.cn/en
 
+“玄策”的 **主要特征** 总结如下：
+   * 支持PyTorch，TensorFlow2，MindSpore三种深度学习框架。
+   * 可在Linux，Windows，MacOS等操作系统上运行。
+   * 安装方便，代码易读，上手简单。
+   * 支持丰富的算法，包括单智能体、多智能体协作、多智能体对抗博弈等任务。
+
+目前，“玄策”已在GitHub和OpenI社区开源，链接如下：
+
+| **GitHub**： `https://github.com/agi-brain/xuanpolicy.git <https://github.com/agi-brain/xuanpolicy.git/>`_
+| **OpenI**： `https://github.com/agi-brain/xuanpolicy.git <https://github.com/agi-brain/xuanpolicy.git/>`_
+
+.. raw:: html
+
+   <br><hr>
+   
+
 .. toctree::
    :maxdepth: 1
    :caption: 如何使用:
@@ -35,21 +51,15 @@ MindSpore_。并且支持CPU、GPU运算，能够在Linux，Windows，MacOS等�
 
 .. toctree::
    :maxdepth: 1
-   :caption: 主要模块与功能介绍:
+   :caption: API介绍:
 
-   documents/structure/configs
-   documents/structure/common
-   documents/structure/environments
-   documents/structure/representations
-   documents/structure/policies
-   documents/structure/agents
-   documents/structure/learners
-
-.. toctree::
-   :maxdepth: 1
-   :caption: API详细介绍:
-
-   documents/api_tutorial/common
+   documents/api/configs
+   documents/api/common
+   documents/api/environments
+   documents/api/representations
+   documents/api/policies
+   documents/api/agents
+   documents/api/learners
 
 .. toctree::
    :maxdepth: 1

@@ -9,6 +9,7 @@
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
       <link rel="stylesheet" href="_static/fonts.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -17,6 +18,8 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -45,19 +48,15 @@
 <li class="toctree-l1"><a class="reference internal" href="documents/usage/basic_usage.html">快速开始</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documents/usage/professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
+<p class="caption" role="heading"><span class="caption-text">API介绍:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="documents/structure/configs.html">参数配置</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/structure/common.html">通用模块</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/structure/environments.html">环境封装</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/structure/representations.html">状态表征</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/structure/policies.html">状态表征</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/structure/agents.html">Agent类</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/structure/learners.html">学习器Learner类</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">API详细介绍:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="documents/api_tutorial/common.html">common toolboxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/configs.html">configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/common.html">common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/agents.html">Agent类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/learners.html">学习器Learner类</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
 <ul>
@@ -111,7 +110,21 @@
 <a class="reference external" href="https://pytorch.org/">PyTorch</a>，
 <a class="reference external" href="https://www.tensorflow.org/">TensorFlow</a>，和
 <a class="reference external" href="https://www.mindspore.cn/en">MindSpore</a>。并且支持CPU、GPU运算，能够在Linux，Windows，MacOS等操作系统上运行。</p>
-<div class="toctree-wrapper compound">
+<dl class="simple">
+<dt>“玄策”的 <strong>主要特征</strong> 总结如下：</dt><dd><ul class="simple">
+<li><p>支持PyTorch，TensorFlow2，MindSpore三种深度学习框架。</p></li>
+<li><p>可在Linux，Windows，MacOS等操作系统上运行。</p></li>
+<li><p>安装方便，代码易读，上手简单。</p></li>
+<li><p>支持丰富的算法，包括单智能体、多智能体协作、多智能体对抗博弈等任务。</p></li>
+</ul>
+</dd>
+</dl>
+<p>目前，“玄策”已在GitHub和OpenI社区开源，链接如下：</p>
+<div class="line-block">
+<div class="line"><strong>GitHub</strong>： <a class="reference external" href="https://github.com/agi-brain/xuanpolicy.git/">https://github.com/agi-brain/xuanpolicy.git</a></div>
+<div class="line"><strong>OpenI</strong>： <a class="reference external" href="https://github.com/agi-brain/xuanpolicy.git/">https://github.com/agi-brain/xuanpolicy.git</a></div>
+</div>
+<br><hr><div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">如何使用:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="documents/usage/installation.html">安装教程</a></li>
@@ -120,21 +133,15 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
+<p class="caption" role="heading"><span class="caption-text">API介绍:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="documents/structure/configs.html">参数配置</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/structure/common.html">通用模块</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/structure/environments.html">环境封装</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/structure/representations.html">状态表征</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/structure/policies.html">状态表征</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/structure/agents.html">Agent类</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/structure/learners.html">学习器Learner类</a></li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">API详细介绍:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="documents/api_tutorial/common.html">common toolboxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/configs.html">configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/common.html">common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/agents.html">Agent类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/learners.html">学习器Learner类</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">

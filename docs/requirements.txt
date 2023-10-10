@@ -1,1 +1,2 @@
 renku-sphinx-theme
+sphinx_copybutton

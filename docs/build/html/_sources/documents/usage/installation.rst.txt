@@ -5,7 +5,11 @@
 
 安装玄策之前，需首先安装 Anaconda_ 来配置Python运行环境。
 
-安装完 Anaconda 后，可通过以下两种方法安装玄策：
+安装完 Anaconda 后，可通过以下两种方法安装玄策。
+
+.. raw:: html
+
+   <br><hr>
 
 方法一：通过PyPI安装
 ---------------------------
@@ -47,6 +51,10 @@
 
     pip install xuanpolicy[all]
 
+.. raw:: html
+
+   <br><hr>
+
 方法二：本地安装
 ---------------------------
 
@@ -85,6 +93,10 @@
 .. _TensorFlow2: https://www.tensorflow.org/install
 .. _MindSpore: https://www.mindspore.cn/install/en
 
+.. raw:: html
+
+   <br><hr>
+   
 测试是否安装成功
 ---------------------------
 

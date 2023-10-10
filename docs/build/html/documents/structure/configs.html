@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>参数配置 &mdash; 玄策 v0.1.11 documentation</title>
+  <title>configs &mdash; 玄策 v0.1.11 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
@@ -48,10 +48,10 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">参数配置</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">基础参数配置</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">算法参数配置</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">自定义参数配置</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">configs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">基础参数配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">算法参数配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">自定义参数配置</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="common.html">通用模块</a></li>
@@ -93,7 +93,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">参数配置</li>
+      <li class="breadcrumb-item active">configs</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/documents/structure/configs.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -103,17 +103,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="id1">
-<h1>参数配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p>玄策的算法参数均通过YAML文件配置，存于xuanpolicy/configs文件夹中。</p>
+  <section id="configs">
+<h1>configs<a class="headerlink" href="#configs" title="Permalink to this headline">¶</a></h1>
+<p>Configs模块用于存放有关算法、环境、系统配置等参数，玄策提供的算法案例，其参数均存于该模块中。</p>
 <p>为了便于训练和调参，玄策给出了默认的参数配置。
 默认参数配置分为基础参数配置和算法参数配置，二者中的参数名称可重复，
 但是算法参数配置的优先级高于基础参数配置，即重复的参数名已算法参数配置文件中的值为主。</p>
 <p>针对不同的算法、不同的环境，强化学习示例需要用到的参数种类各不相同，因此需要根据实际需求配置必要的参数。
 玄策中的所有算法均有相应的示例，每个示例给出了该算法运行所必须的参数。若用户在实现自己的新任务时需要用到其它参数，
 可直接在参数配置文件中添加。</p>
-<section id="id2">
-<h2>基础参数配置<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<section id="id1">
+<h2>基础参数配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>基础参数配置存于xuanpolicy/config/basic.yaml文件中，示例如下：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dl_toolbox</span><span class="p">:</span> <span class="s2">&quot;torch&quot;</span>  <span class="c1"># Values: &quot;torch&quot;, &quot;mindspore&quot;, &quot;tensorlayer&quot;</span>
 
@@ -136,8 +136,8 @@
 <p>TensorFlow: “cpu”/”CPU”, “gpu”/”GPU”;</p>
 <p>MindSpore: “CPU”, “GPU”, “Ascend”, “Davinci”。</p>
 </section>
-<section id="id3">
-<h2>算法参数配置<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<section id="id2">
+<h2>算法参数配置<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>以DQN算法在Atari环境中的参数配置为例，除了基础参数配置外，其算法参数配置存放于 xuanpolicy/configs/dqn/atari.yaml
 文件中，内容如下：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span><span class="p">:</span> <span class="s2">&quot;DQN&quot;</span>
@@ -193,8 +193,8 @@
 <p>xuanpolicy/configs/dqn/box2d/CarRacing-v2.yaml</p>
 <p>xuanpolicy/configs/dqn/box2d/LunarLander-v2.yaml</p>
 </section>
-<section id="id4">
-<h2>自定义参数配置<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<section id="id3">
+<h2>自定义参数配置<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>用户也可以选择不适用玄策提供的默认参数，或者玄策中不包含用户的任务时，可用同样的方式自定义.yaml参数配置文件。
 但是在获取runner的过程中，需指定参数文件的存放位置，示例如下：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span> <span class="k">as</span> <span class="nn">xp</span>

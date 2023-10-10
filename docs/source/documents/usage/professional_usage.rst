@@ -5,6 +5,10 @@
 从而便于进一步做算法开发和实现用户自己的强化学习任务，下面以PPO算法训练MuJoCo环境任务为例，
 详细介绍如何从底层地调用API实现强化学习模型训练。
 
+.. raw:: html
+
+   <br><hr>
+   
 步骤1：准备YAML文件，配置参数
 --------------------------------
 
@@ -62,7 +66,10 @@
     log_dir: "./logs/ppo/"
     model_dir: "./models/ppo/"
 
+.. raw:: html
 
+   <br><hr>
+   
 步骤2：读取参数
 -----------------------------------
 
@@ -111,6 +118,10 @@
 如已经有默认的参数，则全部读取。接着继续从 ``config.path`` 路径下索引步骤1中的配置文件，并读取.yaml文件中的所有参数。最后读取 ``parser`` 中的全部参数。
 三次读取中，若遇到相同变量名，则以后者参数为准进行更新。最终， ``get_arguments()`` 函数将返回 ``args`` 变量，包含所有参数信息，输入 ``run()`` 函数中。
 
+.. raw:: html
+
+   <br><hr>
+   
 步骤3：定义run()，创建模型，运行算法
 -----------------------------------------------
 
@@ -230,4 +241,4 @@
 
 该部分完整代码见如下链接：
 
-`https://github.com/agi-brain/xuanpolicy/blob/master/examples/ppo/ppo_mujoco.py <https://github.com/agi-brain/xuanpolicy/blob/master/examples/ppo/ppo_mujoco.py/>`_
+`https://github.com/agi-brain/xuanpolicy/examples/ppo/ppo_mujoco.py <https://github.com/agi-brain/xuanpolicy/examples/ppo/ppo_mujoco.py/>`_
