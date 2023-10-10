@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>安装教程 &mdash; 玄策 v0.1.7 documentation</title>
+  <title>安装教程 &mdash; 玄策 v0.1.11 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
@@ -42,13 +42,19 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">如何使用:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">安装教程</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">安装教程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pypi">方法一：通过PyPI安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">方法二：本地安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">测试是否安装成功</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="basic_usage.html">快速开始</a></li>
 <li class="toctree-l1"><a class="reference internal" href="professional_usage.html">专业教程</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../structure/common.html">通用基础模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/configs.html">参数配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/common.html">通用模块</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../structure/environments.html">环境封装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../structure/representations.html">状态表征</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../structure/policies.html">状态表征</a></li>
@@ -101,7 +107,9 @@
 <h1>安装教程<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p>玄策算法库能够在Linux，Windows，MacOS等操作系统上运行，并且易于安装。</p>
 <p>安装玄策之前，需首先安装 <a class="reference external" href="https://www.anaconda.com/download">Anaconda</a> 来配置Python运行环境。</p>
-<p>安装完 Anaconda 后，推荐通过以下步骤安装玄策：</p>
+<p>安装完 Anaconda 后，可通过以下两种方法安装玄策：</p>
+<section id="pypi">
+<h2>方法一：通过PyPI安装<a class="headerlink" href="#pypi" title="Permalink to this headline">¶</a></h2>
 <p><strong>步骤 1</strong>: 打开终端窗口程序，创建新的 conda 环境（Python版本推荐3.7及以上），名称自定义（这里命名为’xpolicy’）:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">xpolicy</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.7</span>
 </pre></div>
@@ -131,12 +139,40 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">xuanpolicy</span><span class="p">[</span><span class="nb">all</span><span class="p">]</span>
 </pre></div>
 </div>
+</section>
+<section id="id2">
+<h2>方法二：本地安装<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>（注意：步骤1、步骤2和方法一中的相同）</p>
+<p><strong>步骤 1</strong>: 打开终端窗口程序，创建新的 conda 环境（Python版本推荐3.7及以上），名称自定义（这里命名为’xpolicy’）:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">xpolicy</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.7</span>
+</pre></div>
+</div>
+<p><strong>步骤 2</strong>: conda 环境创建成功后，激活该环境:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">xpolicy</span>
+</pre></div>
+</div>
+<p><strong>步骤 3</strong>: 从GitHub下载xuanpolicy源码:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">agi</span><span class="o">-</span><span class="n">brain</span><span class="o">/</span><span class="n">xuanpolicy</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p><strong>步骤 4</strong>: 下载完毕后，进入xuanpolicy主目录:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">xuanpolicy</span>
+</pre></div>
+</div>
+<p><strong>步骤 5</strong>: 完成本地安装:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+</pre></div>
+</div>
 <p>提示: 完成以上步骤后，即可运行大部分玄策中的DRL和MARL算法。个别算法需要安装特殊的python依赖库，用户可根据实际的需求来手动安装。</p>
+</section>
+<section id="id3">
+<h2>测试是否安装成功<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>安装完玄策后，在终端输入python进入python运行环境，输入</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span>
 </pre></div>
 </div>
 <p>如果没有发出报错或警告，则表示已成功安装玄策，下一步就可以使用了。</p>
+</section>
 </section>
 
 
@@ -150,7 +186,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, 柳文章, 蔡文哲, 蒋坤, 王远大, 程光冉, 王嘉伟, 操菁瑜, 徐乐玏, 穆朝絮, 孙长银.</p>
+    <p>&#169; Copyright 2023, XuanPolicy contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

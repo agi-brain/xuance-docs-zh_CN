@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MuJoCo运行结果 &mdash; 玄策 v0.1.7 documentation</title>
+  <title>MuJoCo运行结果 &mdash; 玄策 v0.1.11 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
@@ -48,7 +48,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">主要模块与功能介绍:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../structure/common.html">通用基础模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/configs.html">参数配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/common.html">通用模块</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../structure/environments.html">环境封装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../structure/representations.html">状态表征</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../structure/policies.html">状态表征</a></li>
@@ -69,6 +70,7 @@
 <li class="toctree-l1"><a class="reference internal" href="toy.html">Toy运行结果</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">MuJoCo运行结果</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">环境介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">测试结果</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="atari.html">Atari运行结果</a></li>
@@ -109,6 +111,218 @@
 <a class="reference internal image-reference" href="../../_images/hopper.gif"><img alt="../../_images/hopper.gif" src="../../_images/hopper.gif" style="height: 150px;" /></a>
 <a class="reference internal image-reference" href="../../_images/humanoid.gif"><img alt="../../_images/humanoid.gif" src="../../_images/humanoid.gif" style="height: 150px;" /></a>
 </section>
+<section id="id2">
+<h2>测试结果<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 11%" />
+<col style="width: 7%" />
+<col style="width: 12%" />
+<col style="width: 7%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
+<col style="width: 10%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Task</p></td>
+<td></td>
+<td><p>Ant</p></td>
+<td><p>HalfCheetah</p></td>
+<td><p>Hopper</p></td>
+<td><p>Walker2d</p></td>
+<td><p>Swimmer</p></td>
+<td><p>Humanoid</p></td>
+<td><p>Reacher</p></td>
+<td><p>Ipendulum</p></td>
+<td><p>IDPendulum</p></td>
+</tr>
+<tr class="row-even"><td><p>DDPG</p></td>
+<td><p>XuanPolicy</p></td>
+<td><p>1472.8</p></td>
+<td><p>10093</p></td>
+<td><p>3434.9</p></td>
+<td><p>2443.7</p></td>
+<td><p>67.7</p></td>
+<td><p>99</p></td>
+<td><p>-4.05</p></td>
+<td><p>1000</p></td>
+<td><p>9359.8</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Tianshou</p></td>
+<td><p>990.4</p></td>
+<td><p>11718.7</p></td>
+<td><p>2197</p></td>
+<td><p>1400.6</p></td>
+<td><p>144.1</p></td>
+<td><p>177.3</p></td>
+<td><p>-3.3</p></td>
+<td><p>1000</p></td>
+<td><p>8364.3</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Published</p></td>
+<td><p>1005.3</p></td>
+<td><p>3305.6</p></td>
+<td><p>2020.5</p></td>
+<td><p>1843.6</p></td>
+<td><p>/</p></td>
+<td><p>/</p></td>
+<td><p>-6.5</p></td>
+<td><p>1000</p></td>
+<td><p>9355.5</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SpinningUp</p></td>
+<td><p>840</p></td>
+<td><p>11000</p></td>
+<td><p>1800</p></td>
+<td><p>1950</p></td>
+<td><p>137</p></td>
+<td><p>/</p></td>
+<td><p>/</p></td>
+<td><p>/</p></td>
+<td><p>/</p></td>
+</tr>
+<tr class="row-even"><td><p>TD3</p></td>
+<td><p>XuanPolicy</p></td>
+<td><p>4822.9</p></td>
+<td><p>10718.1</p></td>
+<td><p>3492.4</p></td>
+<td><p>4307.9</p></td>
+<td><p>59.9</p></td>
+<td><p>547.88</p></td>
+<td><p>-4.07</p></td>
+<td><p>1000</p></td>
+<td><p>9358.9</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Tianshou</p></td>
+<td><p>5116.4</p></td>
+<td><p>10201.2</p></td>
+<td><p>3472.2</p></td>
+<td><p>3982.4</p></td>
+<td><p>104.2</p></td>
+<td><p>5189.5</p></td>
+<td><p>-2.7</p></td>
+<td><p>1000</p></td>
+<td><p>9349.2</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Published</p></td>
+<td><p>4372.4</p></td>
+<td><p>9637</p></td>
+<td><p>3564.1</p></td>
+<td><p>4682.8</p></td>
+<td><p>/</p></td>
+<td><p>/</p></td>
+<td><p>-3.6</p></td>
+<td><p>1000</p></td>
+<td><p>9337.5</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SpinningUp</p></td>
+<td><p>3800</p></td>
+<td><p>9750</p></td>
+<td><p>2860</p></td>
+<td><p>4000</p></td>
+<td><p>78</p></td>
+<td><p>/</p></td>
+<td><p>/</p></td>
+<td><p>/</p></td>
+<td><p>/</p></td>
+</tr>
+<tr class="row-even"><td><p>A2C</p></td>
+<td><p>XuanPolicy</p></td>
+<td><p>1420.4</p></td>
+<td><p>2674.5</p></td>
+<td><p>825.9</p></td>
+<td><p>970.6</p></td>
+<td><p>51.4</p></td>
+<td><p>240.9</p></td>
+<td><p>-11.7</p></td>
+<td><p>1000</p></td>
+<td><p>9357.8</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Tianshou</p></td>
+<td><p>3485.4</p></td>
+<td><p>1829.9</p></td>
+<td><p>1253.2</p></td>
+<td><p>1091.6</p></td>
+<td><p>36.6</p></td>
+<td><p>1726</p></td>
+<td><p>-6.7</p></td>
+<td><p>1000</p></td>
+<td><p>9257.7</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Published</p></td>
+<td><p>/</p></td>
+<td><p>1000</p></td>
+<td><p>900</p></td>
+<td><p>850</p></td>
+<td><p>31</p></td>
+<td><p>/</p></td>
+<td><p>-24</p></td>
+<td><p>1000</p></td>
+<td><p>8100</p></td>
+</tr>
+<tr class="row-odd"><td><p>PPO</p></td>
+<td><p>XuanPolicy</p></td>
+<td><p>2810.7</p></td>
+<td><p>4628.4</p></td>
+<td><p>3450.1</p></td>
+<td><p>4318.6</p></td>
+<td><p>108.9</p></td>
+<td><p>705.5</p></td>
+<td><p>-8.1</p></td>
+<td><p>1000</p></td>
+<td><p>9359.1</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Tianshou</p></td>
+<td><p>3258.4</p></td>
+<td><p>5783.9</p></td>
+<td><p>2609.3</p></td>
+<td><p>3588.5</p></td>
+<td><p>66.7</p></td>
+<td><p>787.1</p></td>
+<td><p>-4.1</p></td>
+<td><p>1000</p></td>
+<td><p>9231.3</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Published</p></td>
+<td><p>/</p></td>
+<td><p>1800</p></td>
+<td><p>2330</p></td>
+<td><p>3460</p></td>
+<td><p>108</p></td>
+<td><p>/</p></td>
+<td><p>-7</p></td>
+<td><p>1000</p></td>
+<td><p>8000</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SpinningUp</p></td>
+<td><p>650</p></td>
+<td><p>1670</p></td>
+<td><p>1850</p></td>
+<td><p>1230</p></td>
+<td><p>120</p></td>
+<td><p>/</p></td>
+<td><p>/</p></td>
+<td><p>/</p></td>
+<td><p>/</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 
 
@@ -122,7 +336,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, 柳文章, 蔡文哲, 蒋坤, 王远大, 程光冉, 王嘉伟, 操菁瑜, 徐乐玏, 穆朝絮, 孙长银.</p>
+    <p>&#169; Copyright 2023, XuanPolicy contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
