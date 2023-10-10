@@ -109,3 +109,115 @@
 步骤3：定义run()，创建模型，运行算法
 -----------------------------------------------
 
+定义 ``run()`` 函数，输入为步骤2中得到的 ``args``变量。在函数中，实现了环境创建，实例化representation、policy、agent等模块，并实现训练。
+以下是带注释的run()函数定义示例：
+
+::
+    import os
+    from copy import deepcopy
+    import numpy as np
+    import torch.optim
+
+    from xuanpolicy.common import space2shape
+    from xuanpolicy.environment import make_envs
+    from xuanpolicy.torch.utils.operations import set_seed
+    from xuanpolicy.torch.utils import ActivationFunctions
+
+    def run(args):
+        agent_name = args.agent  # 获取智能体名称
+        set_seed(args.seed)  # 设置随机种子
+
+        # prepare directories for results
+        args.model_dir = os.path.join(os.getcwd(), args.model_dir, args.env_id)  # 模型存储/读取路径
+        args.log_dir = os.path.join(args.log_dir, args.env_id)  # 日志文件存储路径
+
+        # build environments
+        envs = make_envs(args)  # 创建强化学习环境
+        args.observation_space = envs.observation_space  # 获取观测空间
+        args.action_space = envs.action_space  # 获取动作空间
+        n_envs = envs.num_envs  # 获取并行环境个数
+
+        # prepare representation
+        from xuanpolicy.torch.representations import Basic_MLP  # 导入表征器类
+        representation = Basic_MLP(input_shape=space2shape(args.observation_space),
+                                hidden_sizes=args.representation_hidden_size,
+                                normalize=None,
+                                initialize=torch.nn.init.orthogonal_,
+                                activation=ActivationFunctions[args.activation],
+                                device=args.device)  # 创建MLP表征器
+
+        # prepare policy
+        from xuanpolicy.torch.policies import Gaussian_AC_Policy  # 导入策略类
+        policy = Gaussian_AC_Policy(action_space=args.action_space,
+                                    representation=representation,
+                                    actor_hidden_size=args.actor_hidden_size,
+                                    critic_hidden_size=args.critic_hidden_size,
+                                    normalize=None,
+                                    initialize=torch.nn.init.orthogonal_,
+                                    activation=ActivationFunctions[args.activation],
+                                    device=args.device)  # 创建服从高斯分布的随机策略
+
+        # prepare agent
+        from xuanpolicy.torch.agents import PPOCLIP_Agent, get_total_iters  # 导入智能体类
+        optimizer = torch.optim.Adam(policy.parameters(), args.learning_rate, eps=1e-5)  # 创建优化器
+        lr_scheduler = torch.optim.lr_scheduler.LinearLR(optimizer, start_factor=1.0, end_factor=0.0,
+                                                        total_iters=get_total_iters(agent_name, args))  # 创建学习率衰减器
+        agent = PPOCLIP_Agent(config=args,
+                              envs=envs,
+                              policy=policy,
+                              optimizer=optimizer,
+                              scheduler=lr_scheduler,
+                              device=args.device)  # 创建PPO智能体
+
+        # start running
+        envs.reset()  # 环境初始化
+        if args.benchmark:  # run benchmark
+            def env_fn():  # 创建测试环境，用于每个阶段训练结束后，随机初始化测试环境并进行测试
+                args_test = deepcopy(args)  # 拷贝原有参数
+                args_test.parallels = args_test.test_episode  # 更改并行环境数量为测试回合数
+                return make_envs(args_test)  # 返回实例化测试环境
+
+            train_steps = args.running_steps // n_envs  # 获取智能体总的运行步数
+            eval_interval = args.eval_interval // n_envs  # 确定每轮训练步数
+            test_episode = args.test_episode  # 获取测试回合数
+            num_epoch = int(train_steps / eval_interval)  # 确定训练轮数
+
+            test_scores = agent.test(env_fn, test_episode)  # 第0步测试，得到测试结果
+            best_scores_info = {"mean": np.mean(test_scores),  # 平均累积回合奖励
+                                "std": np.std(test_scores),  # 累积回合奖励方差
+                                "step": agent.current_step}  # 当前步数
+            for i_epoch in range(num_epoch):  # 开始轮回训练
+                print("Epoch: %d/%d:" % (i_epoch, num_epoch))  # 打印第i_epoch轮训练的基本信息
+                agent.train(eval_interval)  # 训练eval_interval步
+                test_scores = agent.test(env_fn, test_episode)  # 测试test_episode个回合
+
+                if np.mean(test_scores) > best_scores_info["mean"]:  # 若当前测试结果为历史最高，则保存模型
+                    best_scores_info = {"mean": np.mean(test_scores),
+                                        "std": np.std(test_scores),
+                                        "step": agent.current_step}
+                    # save best model
+                    agent.save_model(model_name="best_model.pth")
+            # end benchmarking
+            print("Best Model Score: %.2f, std=%.2f" % (best_scores_info["mean"], best_scores_info["std"]))  # 结束benchmark训练，打印最终结果
+        else:
+            if not args.test:  # train the model without testing
+                n_train_steps = args.running_steps // n_envs  # 确定总的运行步数
+                agent.train(n_train_steps)  # 直接训练模型
+                agent.save_model("final_train_model.pth")  # 保存最终训练结果
+                print("Finish training!")  # 结束训练
+            else:  # test a trained model
+                def env_fn():
+                    args_test = deepcopy(args)
+                    args_test.parallels = 1
+                    return make_envs(args_test)
+
+                agent.render = True
+                agent.load_model(agent.model_dir_load, args.seed)  # 加载模型文件
+                scores = agent.test(env_fn, args.test_episode)  # 测试模型
+                print(f"Mean Score: {np.mean(scores)}, Std: {np.std(scores)}")
+                print("Finish testing.")  # 结束测试
+
+        # the end.
+        envs.close()  # 关闭环境
+        agent.finish()  # 结束实验
+
