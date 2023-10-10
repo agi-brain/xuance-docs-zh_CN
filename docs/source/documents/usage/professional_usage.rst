@@ -72,6 +72,7 @@
 定义如下函数 ``parse_args()``，利用Python包 `argparser` 读取终端指令，获取指令参数。
 
 ::
+    
     import argparser
 
     def parse_args():
@@ -91,6 +92,7 @@
 首先通过调用步骤2.1中的 ``parse_args()``函数读取终端指令参数，然后获取步骤1中的配置参数。
 
 ::
+
     from xuanpolicy import get_arguments
 
     if __name__ == "__main__":
@@ -113,6 +115,7 @@
 以下是带注释的run()函数定义示例：
 
 ::
+
     import os
     from copy import deepcopy
     import numpy as np
