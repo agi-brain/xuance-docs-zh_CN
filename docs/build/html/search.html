@@ -9,6 +9,7 @@
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
       <link rel="stylesheet" href="_static/fonts.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
     
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -17,9 +18,12 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/clipboard.min.js"></script>
         <script src="_static/copybutton.js"></script>
+        <script src="_static/tabs.js"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/searchtools.js"></script>
     <script src="_static/language_data.js"></script>
@@ -32,12 +36,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> 玄策
-            <img src="_static/logo_2.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            玄策
+              <img src="_static/logo_2.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="#" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -49,20 +57,15 @@
 <li class="toctree-l1"><a class="reference internal" href="documents/usage/basic_usage.html">快速开始</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documents/usage/professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API介绍:</span></p>
+<p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="documents/api/configs.html">configs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/api/common.html">common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/api/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/agents.html">Agents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documents/api/representations.html">状态表征</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documents/api/policies.html">状态表征</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/api/agents.html">Agent类</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documents/api/learners.html">学习器Learner类</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="documents/agents/index_drl.html">深度强化学习(单智能体)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/agents/index_marl.html">多智能体强化学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/configs.html">Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/common.html">common</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
@@ -71,6 +74,11 @@
 <li class="toctree-l1"><a class="reference internal" href="documents/benchmark/atari.html">Atari运行结果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documents/benchmark/mpe.html">MPE运行结果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documents/benchmark/magent.html">Magent运行结果</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="documents/algorithms/drl.html">DRL Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/algorithms/marl.html">MARL Algorithms</a></li>
 </ul>
 
         </div>
@@ -86,7 +94,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Search</li>
       <li class="wy-breadcrumbs-aside">
       </li>

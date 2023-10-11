@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agent类 &mdash; 玄策 v0.1.11 documentation</title>
+  <title>Agents &mdash; 玄策 v0.1.11 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/fonts.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -17,14 +18,17 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="学习器Learner类" href="learners.html" />
-    <link rel="prev" title="状态表征" href="policies.html" /> 
+    <link rel="next" title="Agent" href="agents/drl/basic_drl_class.html" />
+    <link rel="prev" title="专业教程" href="../usage/professional_usage.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,12 +36,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> 玄策
-            <img src="../../_static/logo_2.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            玄策
+              <img src="../../_static/logo_2.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -49,28 +57,55 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage/basic_usage.html">快速开始</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API介绍:</span></p>
+<p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="configs.html">configs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common.html">common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="environments.html">环境封装</a></li>
-<li class="toctree-l1"><a class="reference internal" href="representations.html">状态表征</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html">状态表征</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Agent类</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">类初始化部分</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">观测、奖励归一化模块</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">动作输出函数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">训练模块</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">学习器单步更新</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">测试模块</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Agents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/basic_drl_class.html">Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/marl/basic_marl_class.html">MARLAgents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/dqn.html">DQN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/c51.html">C51_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/ddqn.html">DDQN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/dueldqn.html">DuelDQN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/noisydqn.html">NoisyDQN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/perdqn.html">PerDQN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/qrdqn.html">QRDQN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/pg.html">PG_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/ppg.html">PPG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/ppo_clip.html">PPOCLIP_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/ppo_kl.html">PPOCKL_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/pdqn.html">PDQN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/spdqn.html">SPDQN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/mpdqn.html">MPDQN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/a2c.html">A2C_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/sac.html">SAC_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/sac_dis.html">SACDIS_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/ddpg.html">DDPG_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/drl/td3.html">TD3_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/marl/iql.html">IQL_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/marl/vdn.html">VDN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/marl/qmix.html">QMIX_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/marl/wqmix.html">WQMIX_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/marl/qtran.html">QTRAN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/marl/dcg.html">DCG_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/marl/iddpg.html">IDDPG_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/marl/maddpg.html">MADDPG_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/marl/isac.html">ISAC_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/marl/masac.html">MASAC_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/marl/ippo.html">IPPO_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/marl/mappo.html">MAPPO_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/marl/matd3.html">MATD3_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/marl/vdac.html">VDAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/marl/coma.html">COMA_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/marl/mfq.html">MFQ_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agents/marl/mfac.html">MFAC_Agent</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policies.html">状态表征</a></li>
 <li class="toctree-l1"><a class="reference internal" href="learners.html">学习器Learner类</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../agents/index_drl.html">深度强化学习(单智能体)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agents/index_marl.html">多智能体强化学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configs.html">Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common.html">common</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
@@ -79,6 +114,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/atari.html">Atari运行结果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/mpe.html">MPE运行结果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/magent.html">Magent运行结果</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../algorithms/drl.html">DRL Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithms/marl.html">MARL Algorithms</a></li>
 </ul>
 
         </div>
@@ -94,8 +134,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">Agent类</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Agents</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/documents/api/agents.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -105,56 +145,177 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="agent">
-<h1>Agent类<a class="headerlink" href="#agent" title="Permalink to this headline">¶</a></h1>
-<section id="id1">
-<h2>类初始化部分<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Agent类是智能体运行的核心程序，其包含了强化学习算法运行所需要的全部元素，
-包括参数配置（config），日志记录模块（writer），经验回放池模块（memory），
-学习器模块（learner），优化器（optimizer），策略网络（policy），实例化环境（envs）等。
-在类初始化程序中，将对这些模块进行实例化与参数配置，便于接下来的算法运行。</p>
-</section>
-<section id="id2">
-<h2>观测、奖励归一化模块<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>为了便于神经网络训练，本软件考虑将观测数据和奖励值信息进行归一化处理，
-归一化函数分别为_process_observation和_process_reward。
-用户可通过对config.use_obsnorm和config.use_rewnorm两个变量的设置，决定是否采取归一化处理。
-True表示采取归一化处理，False表示不进行归一化处理。</p>
-</section>
-<section id="id3">
-<h2>动作输出函数<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p>动作输出函数_action()是Agent类中的重要环节，智能体在环境中将根据该函数决定下一步采取什么样的动作，
-并计算出当前观测下状态表征网络提取出的状态特征，以及当前状态下的值函数输出结果。
-需要注意的是，不同算法的动作输出函数内容有所差异，其返回的变量也因各算法的需要而不同，
-但是均包含当前状态下智能体所应采取的动作信息。</p>
-</section>
-<section id="id4">
-<h2>训练模块<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<p>训练模块train()是Agent类的主干部分，也是强化学习算法同环境进行交互并实现模型训练的核心环节。
-程序在进入该部分时，首先初始化回合数、回报、得分等变量信息，并重置环境，接着便进入主循环，算法运行流程如下图所示：</p>
-<a class="reference internal image-reference" href="../../_images/algo_flow_chart.png"><img alt="../../_images/algo_flow_chart.png" src="../../_images/algo_flow_chart.png" style="height: 300px;" /></a>
-</section>
-<section id="id5">
-<h2>学习器单步更新<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
-<p>学习器的单步更新程序，在learner.update()函数中。
-该部分是一个算法的核心部分，也是该算法区别于其它算法的主要环节。
-主要包括对采样数据的预处理，计算当前网络的输出，以及目标值等信息，
-构造出损失函数并利用torch或mindspore中的优化器实现单步更新。</p>
-</section>
-<section id="id6">
-<h2>测试模块<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
-<p>测试模块和训练模块的主要区别在于，测试模块不需要存储交互数据，
-也不需要对模型参数进行更新和学习，但是需要在运行之前先加载已有的模型参数。
-在测试模块运行时，用户可观察到仿真环境的实际运行效果。</p>
-</section>
-</section>
+  <section id="agents">
+<h1>Agents<a class="headerlink" href="#agents" title="Permalink to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<br><hr><p>强化学习Agents（智能体）是能够与环境进行交互的、具有自主决策能力和自主学习能力的独立单元。
+在与环境交互过程中，Agents获取观测信息，根据观测信息计算出动作信息并执行该动作，使得环境进入下一步状态。
+通过不断和环境进行交互，Agents收集经验数据，再根据经验数据训练模型，从而获得更优的策略。
+以下列出了“玄策”平台中包含的单智能体强化学习Agents。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Agents</p></th>
+<th class="head"><p>PyTorch</p></th>
+<th class="head"><p>TensorFlow</p></th>
+<th class="head"><p>MindSpore</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="agents/drl/dqn.html"><span class="doc">Deep Q-Networks</span></a> (DQN)</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="agents/drl/c51.html"><span class="doc">Distributional Reinforcement Learning</span></a> (C51DQN)</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="agents/drl/ddqn.html"><span class="doc">DQN with Double Q-learning</span></a> (Double DQN)</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="agents/drl/dueldqn.html"><span class="doc">DQN with Dueling network</span></a> (Dueling DQN)</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="agents/drl/noisydqn.html"><span class="doc">DQN with Parameter Space Noise</span></a> (Noisy DQN)</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="agents/drl/perdqn.html"><span class="doc">DQN with Prioritized Experience Replay</span></a> (PERDQN)</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="agents/drl/qrdqn.html"><span class="doc">DQN with Quantile Regression</span></a> (QRDQN)</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="agents/drl/pg.html"><span class="doc">Vanilla Policy Gradient</span></a> (VPG)</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="agents/drl/ppg.html"><span class="doc">Phasic Policy Gradient</span></a> (PPG)</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="agents/drl/ppo_clip.html"><span class="doc">Proximal Policy Optimization</span></a> (PPO)</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="agents/drl/pdqn.html"><span class="doc">Parameterised DQN</span></a> (PDQN)</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="agents/drl/spdqn.html"><span class="doc">Split PDQN</span></a> (SPDQN)</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="agents/drl/mpdqn.html"><span class="doc">Multi-pass PDQN</span></a> (MPDQN)</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="agents/drl/a2c.html"><span class="doc">Advantage Actor Critic</span></a> (A2C)</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="agents/drl/sac.html"><span class="doc">Soft Actor-Critic</span></a> (SAC)</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="agents/drl/sac_dis.html"><span class="doc">SAC for Discrete Actions</span></a> (SAC-Dis)</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="agents/drl/ddpg.html"><span class="doc">Deep Deterministic Policy Gradient</span></a> (DDPG)</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="agents/drl/td3.html"><span class="doc">Twin Delayed DDPG</span></a> (TD3)</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+</tbody>
+</table>
+<br><hr></section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="policies.html" class="btn btn-neutral float-left" title="状态表征" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="learners.html" class="btn btn-neutral float-right" title="学习器Learner类" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../usage/professional_usage.html" class="btn btn-neutral float-left" title="专业教程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="agents/drl/basic_drl_class.html" class="btn btn-neutral float-right" title="Agent" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

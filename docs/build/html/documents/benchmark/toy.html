@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Toy运行结果 &mdash; 玄策 v0.1.11 documentation</title>
@@ -10,6 +10,7 @@
       <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/fonts.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -17,14 +18,16 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="MuJoCo运行结果" href="mujoco.html" />
-    <link rel="prev" title="VDAC" href="../agents/marl/vdac.html" /> 
+    <link rel="prev" title="common" href="../api/common.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,12 +35,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> 玄策
-            <img src="../../_static/logo_2.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            玄策
+              <img src="../../_static/logo_2.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -49,20 +56,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage/basic_usage.html">快速开始</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API介绍:</span></p>
+<p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/configs.html">configs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/common.html">common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/agents.html">Agents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/representations.html">状态表征</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/policies.html">状态表征</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/agents.html">Agent类</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/learners.html">学习器Learner类</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../agents/index_drl.html">深度强化学习(单智能体)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agents/index_marl.html">多智能体强化学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/configs.html">Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/common.html">common</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul class="current">
@@ -74,6 +76,11 @@
 <li class="toctree-l1"><a class="reference internal" href="atari.html">Atari运行结果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mpe.html">MPE运行结果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="magent.html">Magent运行结果</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../algorithms/drl.html">DRL Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithms/marl.html">MARL Algorithms</a></li>
 </ul>
 
         </div>
@@ -89,7 +96,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Toy运行结果</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/documents/benchmark/toy.rst.txt" rel="nofollow"> View page source</a>
@@ -101,9 +108,9 @@
            <div itemprop="articleBody">
              
   <section id="toy">
-<h1>Toy运行结果<a class="headerlink" href="#toy" title="Permalink to this headline">¶</a></h1>
+<h1>Toy运行结果<a class="headerlink" href="#toy" title="Permalink to this heading">¶</a></h1>
 <section id="id1">
-<h2>环境介绍<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>环境介绍<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <a class="reference internal image-reference" href="../../_images/cart_pole.gif"><img alt="../../_images/cart_pole.gif" src="../../_images/cart_pole.gif" style="height: 150px;" /></a>
 <a class="reference internal image-reference" href="../../_images/lunar_lander.gif"><img alt="../../_images/lunar_lander.gif" src="../../_images/lunar_lander.gif" style="height: 150px;" /></a>
 <a class="reference internal image-reference" href="../../_images/pendulum.gif"><img alt="../../_images/pendulum.gif" src="../../_images/pendulum.gif" style="height: 150px;" /></a>
@@ -114,7 +121,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../agents/marl/vdac.html" class="btn btn-neutral float-left" title="VDAC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../api/common.html" class="btn btn-neutral float-left" title="common" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="mujoco.html" class="btn btn-neutral float-right" title="MuJoCo运行结果" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

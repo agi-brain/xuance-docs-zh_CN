@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>状态表征 &mdash; 玄策 v0.1.11 documentation</title>
@@ -10,6 +10,7 @@
       <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/fonts.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -17,14 +18,16 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="状态表征" href="policies.html" />
-    <link rel="prev" title="环境封装" href="environments.html" /> 
+    <link rel="prev" title="MFAC" href="agents/marl/mfac.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,12 +35,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> 玄策
-            <img src="../../_static/logo_2.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            玄策
+              <img src="../../_static/logo_2.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -49,11 +56,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage/basic_usage.html">快速开始</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API介绍:</span></p>
+<p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="configs.html">configs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common.html">common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agents.html">Agents</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">状态表征</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">多层感知器模块</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">卷积神经网络模块</a></li>
@@ -61,13 +66,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="policies.html">状态表征</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agents.html">Agent类</a></li>
 <li class="toctree-l1"><a class="reference internal" href="learners.html">学习器Learner类</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../agents/index_drl.html">深度强化学习(单智能体)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agents/index_marl.html">多智能体强化学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configs.html">Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common.html">common</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
@@ -76,6 +78,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/atari.html">Atari运行结果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/mpe.html">MPE运行结果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/magent.html">Magent运行结果</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../algorithms/drl.html">DRL Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithms/marl.html">MARL Algorithms</a></li>
 </ul>
 
         </div>
@@ -91,7 +98,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">状态表征</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/documents/api/representations.rst.txt" rel="nofollow"> View page source</a>
@@ -103,9 +110,9 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>状态表征<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>状态表征<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
 <section id="id2">
-<h2>多层感知器模块<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>多层感知器模块<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>多层感知器是一种最简单的深层神经网络模型，用于处理向量输入，
 用户可根据各自需要实例化多层感知器模块，
 其定义位于./xuance_torch/utils/layers.py和./xuance_ms/utils/layers.py文件中，类名称为mlp_block。
@@ -114,7 +121,7 @@
 在pytorch下实现还需指定设备类型（device），以确定模型在CPU上运行还是GPU。</p>
 </section>
 <section id="id3">
-<h2>卷积神经网络模块<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>卷积神经网络模块<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p>卷积神经网络主要用于处理图像输入数据，提取出特征向量，一般输入类型为多通道图像矩阵，输出多维向量，
 名称为 cnn_block,其定义位于./xuance_torch/utils/layers.py和./xuance_ms/utils/layers.py中。
 实例化该类需要指定输入尺寸（input_shape），滤波方法（filter），核大小（kernel_size），步长（stride），
@@ -122,7 +129,7 @@
 在pytorch下实现还需指定设备类型（device），以确定模型在CPU上运行还是GPU。</p>
 </section>
 <section id="id4">
-<h2>循环神经网络模块<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2>循环神经网络模块<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
 <p>循环神经网络主要用于处理时序信号信息，提取出当前时序信号的特征向量。
 根据使用场景差异，本软件提供两种循环神经网路模块：gru_block和lstm_block，
 其定义均位于./xuance_torch/utils/layers.py和./xuance_ms/utils/layers.py中。
@@ -136,7 +143,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="environments.html" class="btn btn-neutral float-left" title="环境封装" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="agents/marl/mfac.html" class="btn btn-neutral float-left" title="MFAC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="policies.html" class="btn btn-neutral float-right" title="状态表征" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

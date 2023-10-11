@@ -1,4 +1,4 @@
-configs
+Configs
 ======================
 
 Configs模块用于存放有关算法、环境、系统配置等参数，玄策提供的算法案例，其参数均存于该模块中。
@@ -39,9 +39,9 @@ Configs模块用于存放有关算法、环境、系统配置等参数，玄策�
 
 需要注意的是， `basic.yaml` 文件中的 ``device`` 变量取值根据不同的深度学习框架有所差异，分别如下：
 
-| PyTorch: "cpu", "cuda:0";
-| TensorFlow: "cpu"/"CPU", "gpu"/"GPU";
-| MindSpore: "CPU", "GPU", "Ascend", "Davinci"。
+| - PyTorch: "cpu", "cuda:0";
+| - TensorFlow: "cpu"/"CPU", "gpu"/"GPU";
+| - MindSpore: "CPU", "GPU", "Ascend", "Davinci"。
 
 .. raw:: html
 
@@ -52,6 +52,15 @@ Configs模块用于存放有关算法、环境、系统配置等参数，玄策�
 
 以DQN算法在Atari环境中的参数配置为例，除了基础参数配置外，其算法参数配置存放于 xuanpolicy/configs/dqn/atari.yaml
 文件中，内容如下：
+
+.. raw:: html
+
+    <center>
+        <select id="env-mujoco" onchange="showMujocoEnv(this)"></select>
+        <br>
+        <div id="vis-mujoco"></div>
+        <br>
+    </center>
 
 .. code-block:: yaml
 

@@ -73,7 +73,7 @@
 步骤2：读取参数
 -----------------------------------
 
-该部分主要包括参数读取、环境创建、模型创建、模型训练等环节，分为如下步骤：
+该部分主要包括参数读取、环境创建、模型创建、模型训练等环节。首先创建 `ppo_mujoco.py` 文件，代码编写分为如下步骤：
 
 **步骤2.1 解析终端命令参数**
 
@@ -239,6 +239,13 @@
         agent.finish()  # 结束实验
 
 
-该部分完整代码见如下链接：
+完成以上三个步骤后，可在终端运行 `ppo_mujoco.py` Python文件，训练模型：
+
+.. code-block:: console
+
+    python ppo_mujoco.py --method ppo --env mujoco --env-id Ant-v4
+
+
+该实例的完整代码见如下链接：
 
 `https://github.com/agi-brain/xuanpolicy/examples/ppo/ppo_mujoco.py <https://github.com/agi-brain/xuanpolicy/examples/ppo/ppo_mujoco.py/>`_

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C51 &mdash; 玄策 v0.1.11 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/fonts.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../../_static/clipboard.min.js"></script>
+        <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Double DQN" href="ddqn.html" />
+    <link rel="prev" title="DQN_Agent" href="dqn.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            玄策
+              <img src="../../../../_static/logo_2.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">如何使用:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/installation.html">安装教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/basic_usage.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/professional_usage.html">专业教程</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../agents.html">Agents</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basic_drl_class.html">Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/basic_marl_class.html">MARLAgents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dqn.html">DQN_Agent</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">C51_Agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">算法描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">算法出处</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ddqn.html">DDQN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dueldqn.html">DuelDQN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="noisydqn.html">NoisyDQN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perdqn.html">PerDQN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qrdqn.html">QRDQN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pg.html">PG_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppg.html">PPG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppo_clip.html">PPOCLIP_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppo_kl.html">PPOCKL_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdqn.html">PDQN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spdqn.html">SPDQN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpdqn.html">MPDQN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a2c.html">A2C_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sac.html">SAC_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sac_dis.html">SACDIS_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ddpg.html">DDPG_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="td3.html">TD3_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/iql.html">IQL_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/vdn.html">VDN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/qmix.html">QMIX_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/wqmix.html">WQMIX_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/qtran.html">QTRAN_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/dcg.html">DCG_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/iddpg.html">IDDPG_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/maddpg.html">MADDPG_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/isac.html">ISAC_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/masac.html">MASAC_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/ippo.html">IPPO_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/mappo.html">MAPPO_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/matd3.html">MATD3_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/vdac.html">VDAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/coma.html">COMA_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/mfq.html">MFQ_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/mfac.html">MFAC_Agent</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learners.html">学习器Learner类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configs.html">Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common.html">common</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmark/toy.html">Toy运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmark/mujoco.html">MuJoCo运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmark/atari.html">Atari运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmark/mpe.html">MPE运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmark/magent.html">Magent运行结果</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithms/drl.html">DRL Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithms/marl.html">MARL Algorithms</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">玄策</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../agents.html">Agents</a></li>
+      <li class="breadcrumb-item active">C51</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/documents/api/agents/drl/c51.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="c51">
+<h1>C51<a class="headerlink" href="#c51" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2>算法描述<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<p>C51 DQN（Categorical DQN，全称Categorical 51-Atom DQN）是对原始DQN算法的一种改进，
+旨在更准确地估计状态-动作值函数。这种方法的主要思想是用一组离散的概率分布来表示状态-动作值函数，
+而不是使用单一的实数值。这样可以更好地捕捉状态-动作值函数的不确定性，提高强化学习性能。
+在C51 DQN中，状态-动作值函数Q(s, a)由一组离散的原子（atoms）组成。
+每个原子代表一个可能的回报值，具有相应的概率。
+为了实现这一目标，C51 DQN引入了一个多头神经网络（multi-head neural network），
+每个头对应一个动作，输出对应动作的原子概率分布。在训练过程中，C51 DQN使用类似于原始DQN的损失函数，
+但用KL散度（Kullback-Leibler divergence）来衡量预测概率分布与目标概率分布之间的差异。</p>
+</section>
+<section id="id2">
+<h2>算法出处<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p><strong>论文链接</strong>: <a class="reference external" href="http://proceedings.mlr.press/v70/bellemare17a/bellemare17a.pdf">A distributional perspective on reinforcement learning</a></p>
+<p><strong>论文引用信息</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@inproceedings</span><span class="p">{</span><span class="n">bellemare2017distributional</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">A</span> <span class="n">distributional</span> <span class="n">perspective</span> <span class="n">on</span> <span class="n">reinforcement</span> <span class="n">learning</span><span class="p">},</span>
+    <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Bellemare</span><span class="p">,</span> <span class="n">Marc</span> <span class="n">G</span> <span class="ow">and</span> <span class="n">Dabney</span><span class="p">,</span> <span class="n">Will</span> <span class="ow">and</span> <span class="n">Munos</span><span class="p">,</span> <span class="n">R</span><span class="p">{</span>\<span class="s1">&#39;e}mi},</span>
+    <span class="n">booktitle</span><span class="o">=</span><span class="p">{</span><span class="n">International</span> <span class="n">conference</span> <span class="n">on</span> <span class="n">machine</span> <span class="n">learning</span><span class="p">},</span>
+    <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">449</span><span class="o">--</span><span class="mi">458</span><span class="p">},</span>
+    <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2017</span><span class="p">},</span>
+    <span class="n">organization</span><span class="o">=</span><span class="p">{</span><span class="n">PMLR</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dqn.html" class="btn btn-neutral float-left" title="DQN_Agent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ddqn.html" class="btn btn-neutral float-right" title="Double DQN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, XuanPolicy contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

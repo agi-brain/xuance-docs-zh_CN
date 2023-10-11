@@ -1,44 +1,139 @@
-Agent类
+Agents
 ======================
 
-类初始化部分
-----------------------
-Agent类是智能体运行的核心程序，其包含了强化学习算法运行所需要的全部元素，
-包括参数配置（config），日志记录模块（writer），经验回放池模块（memory），
-学习器模块（learner），优化器（optimizer），策略网络（policy），实例化环境（envs）等。
-在类初始化程序中，将对这些模块进行实例化与参数配置，便于接下来的算法运行。
+.. toctree::
+  :hidden:
 
-观测、奖励归一化模块
-----------------------
-为了便于神经网络训练，本软件考虑将观测数据和奖励值信息进行归一化处理，
-归一化函数分别为_process_observation和_process_reward。
-用户可通过对config.use_obsnorm和config.use_rewnorm两个变量的设置，决定是否采取归一化处理。
-True表示采取归一化处理，False表示不进行归一化处理。
+  Agent <agents/drl/basic_drl_class>
+  MARLAgents <agents/marl/basic_marl_class>
+  DQN_Agent <agents/drl/dqn>
+  C51_Agent <agents/drl/c51>
+  DDQN_Agent <agents/drl/ddqn>
+  DuelDQN_Agent <agents/drl/dueldqn>
+  NoisyDQN_Agent <agents/drl/noisydqn>
+  PerDQN_Agent <agents/drl/perdqn>
+  QRDQN_Agent <agents/drl/qrdqn>
+  PG_Agent <agents/drl/pg>
+  PPG <agents/drl/ppg>
+  PPOCLIP_Agent <agents/drl/ppo_clip>
+  PPOCKL_Agent <agents/drl/ppo_kl>
+  PDQN_Agent <agents/drl/pdqn>
+  SPDQN_Agent <agents/drl/spdqn>
+  MPDQN_Agent <agents/drl/mpdqn>
+  A2C_Agent <agents/drl/a2c>
+  SAC_Agent <agents/drl/sac>
+  SACDIS_Agent <agents/drl/sac_dis>
+  DDPG_Agent <agents/drl/ddpg>
+  TD3_Agent <agents/drl/td3>
 
-动作输出函数
-----------------------
-动作输出函数_action()是Agent类中的重要环节，智能体在环境中将根据该函数决定下一步采取什么样的动作，
-并计算出当前观测下状态表征网络提取出的状态特征，以及当前状态下的值函数输出结果。
-需要注意的是，不同算法的动作输出函数内容有所差异，其返回的变量也因各算法的需要而不同，
-但是均包含当前状态下智能体所应采取的动作信息。
+  IQL_Agent <agents/marl/iql>
+  VDN_Agent <agents/marl/vdn>
+  QMIX_Agent <agents/marl/qmix>
+  WQMIX_Agent <agents/marl/wqmix>
+  QTRAN_Agent <agents/marl/qtran>
+  DCG_Agent <agents/marl/dcg>
+  IDDPG_Agent <agents/marl/iddpg>
+  MADDPG_Agent <agents/marl/maddpg>
+  ISAC_Agent <agents/marl/isac>
+  MASAC_Agent <agents/marl/masac>
+  IPPO_Agent <agents/marl/ippo>
+  MAPPO_Agent <agents/marl/mappo>
+  MATD3_Agent <agents/marl/matd3>
+  VDAC <agents/marl/vdac>
+  COMA_Agent <agents/marl/coma>
+  MFQ_Agent <agents/marl/mfq>
+  MFAC_Agent <agents/marl/mfac>
 
-训练模块
-----------------------
-训练模块train()是Agent类的主干部分，也是强化学习算法同环境进行交互并实现模型训练的核心环节。
-程序在进入该部分时，首先初始化回合数、回报、得分等变量信息，并重置环境，接着便进入主循环，算法运行流程如下图所示：
+.. raw:: html
 
-.. image:: ../../figures/algo_flow_chart.png
-    :height: 300px
+   <br><hr>
 
-学习器单步更新
-----------------------
-学习器的单步更新程序，在learner.update()函数中。
-该部分是一个算法的核心部分，也是该算法区别于其它算法的主要环节。
-主要包括对采样数据的预处理，计算当前网络的输出，以及目标值等信息，
-构造出损失函数并利用torch或mindspore中的优化器实现单步更新。
+强化学习Agents（智能体）是能够与环境进行交互的、具有自主决策能力和自主学习能力的独立单元。
+在与环境交互过程中，Agents获取观测信息，根据观测信息计算出动作信息并执行该动作，使得环境进入下一步状态。
+通过不断和环境进行交互，Agents收集经验数据，再根据经验数据训练模型，从而获得更优的策略。
+以下列出了“玄策”平台中包含的单智能体强化学习Agents。
 
-测试模块
-----------------------
-测试模块和训练模块的主要区别在于，测试模块不需要存储交互数据，
-也不需要对模型参数进行更新和学习，但是需要在运行之前先加载已有的模型参数。
-在测试模块运行时，用户可观察到仿真环境的实际运行效果。
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - Agents
+     - PyTorch 
+     - TensorFlow
+     - MindSpore
+   * - :doc:`Deep Q-Networks <agents/drl/dqn>` (DQN)
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+   * - :doc:`Distributional Reinforcement Learning <agents/drl/c51>` (C51DQN)
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+   * - :doc:`DQN with Double Q-learning <agents/drl/ddqn>` (Double DQN)
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+   * - :doc:`DQN with Dueling network <agents/drl/dueldqn>` (Dueling DQN)
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+   * - :doc:`DQN with Parameter Space Noise <agents/drl/noisydqn>` (Noisy DQN)
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+   * - :doc:`DQN with Prioritized Experience Replay <agents/drl/perdqn>` (PERDQN)
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+   * - :doc:`DQN with Quantile Regression <agents/drl/qrdqn>` (QRDQN)
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+   * - :doc:`Vanilla Policy Gradient <agents/drl/pg>` (VPG)
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+   * - :doc:`Phasic Policy Gradient <agents/drl/ppg>` (PPG)
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+   * - :doc:`Proximal Policy Optimization <agents/drl/ppo_clip>` (PPO)
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+   * - :doc:`Parameterised DQN <agents/drl/pdqn>` (PDQN)
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+   * - :doc:`Split PDQN <agents/drl/spdqn>` (SPDQN)
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+   * - :doc:`Multi-pass PDQN <agents/drl/mpdqn>` (MPDQN)
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+   * - :doc:`Advantage Actor Critic <agents/drl/a2c>` (A2C)
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+   * - :doc:`Soft Actor-Critic <agents/drl/sac>` (SAC)
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+   * - :doc:`SAC for Discrete Actions <agents/drl/sac_dis>` (SAC-Dis)
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+   * - :doc:`Deep Deterministic Policy Gradient <agents/drl/ddpg>` (DDPG)
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+   * - :doc:`Twin Delayed DDPG <agents/drl/td3>` (TD3)
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+     - .. centered:: :math:`\checkmark`
+
+.. raw:: html
+
+   <br><hr>

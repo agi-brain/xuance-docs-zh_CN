@@ -38,8 +38,7 @@ MindSpore_。并且支持CPU、GPU运算，能够在Linux，Windows，MacOS等�
 
 .. raw:: html
 
-   <br><hr>
-   
+   <br><hr> 
 
 .. toctree::
    :maxdepth: 1
@@ -49,24 +48,25 @@ MindSpore_。并且支持CPU、GPU运算，能够在Linux，Windows，MacOS等�
    documents/usage/basic_usage
    documents/usage/professional_usage
 
+.. raw:: html
+
+   <br><hr> 
+
 .. toctree::
    :maxdepth: 1
-   :caption: API介绍:
+   :caption: API:
 
-   documents/api/configs
-   documents/api/common
-   documents/api/environments
+   documents/api/agents
    documents/api/representations
    documents/api/policies
-   documents/api/agents
    documents/api/learners
+   documents/api/environments
+   documents/api/configs
+   documents/api/common
 
-.. toctree::
-   :maxdepth: 1
-   :caption: 算法介绍:
+.. raw:: html
 
-   documents/agents/index_drl
-   documents/agents/index_marl
+   <br><hr> 
 
 .. toctree::
    :maxdepth: 1
@@ -77,6 +77,17 @@ MindSpore_。并且支持CPU、GPU运算，能够在Linux，Windows，MacOS等�
    documents/benchmark/atari
    documents/benchmark/mpe
    documents/benchmark/magent
+
+.. toctree::
+   :maxdepth: 1
+   :caption: 算法介绍
+
+   documents/algorithms/drl
+   documents/algorithms/marl
+
+.. raw:: html
+
+   <br><hr> 
 
 Indices and tables
 ==================

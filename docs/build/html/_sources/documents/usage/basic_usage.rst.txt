@@ -99,7 +99,7 @@
 当完成模型训练后，日志文件存放于根目录下的log文件夹中，具体路径根据用户的实际配置查找。
 以./logs/dqn/torch/CartPole-v0路径为例，用户可通过以下指令实现日志可视化：
 
-::
+.. code-block:: console
     
     tensorboard --logdir ./logs/dqn/torch/CartPole-v1/
 
@@ -109,6 +109,5 @@
 
 关于W&B的使用及其本地化部署，可参考如下链接：
 
-wandb: `https://github.com/wandb/wandb.git <https://github.com/wandb/wandb.git/>`_
-
-wandb server: `https://github.com/wandb/server.git <https://github.com/wandb/server.git/>`_
+| **wandb**: `https://github.com/wandb/wandb.git <https://github.com/wandb/wandb.git/>`_
+| **wandb server**: `https://github.com/wandb/server.git <https://github.com/wandb/server.git/>`_

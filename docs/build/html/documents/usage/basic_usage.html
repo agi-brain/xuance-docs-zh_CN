@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>快速开始 &mdash; 玄策 v0.1.11 documentation</title>
@@ -10,6 +10,7 @@
       <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/fonts.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -17,7 +18,9 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -32,12 +35,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> 玄策
-            <img src="../../_static/logo_2.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            玄策
+              <img src="../../_static/logo_2.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -55,20 +62,15 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API介绍:</span></p>
+<p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/configs.html">configs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/common.html">common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/agents.html">Agents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/representations.html">状态表征</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/policies.html">状态表征</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/agents.html">Agent类</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/learners.html">学习器Learner类</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../agents/index_drl.html">深度强化学习(单智能体)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agents/index_marl.html">多智能体强化学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/configs.html">Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/common.html">common</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
@@ -77,6 +79,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/atari.html">Atari运行结果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/mpe.html">MPE运行结果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/magent.html">Magent运行结果</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../algorithms/drl.html">DRL Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithms/marl.html">MARL Algorithms</a></li>
 </ul>
 
         </div>
@@ -92,7 +99,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">快速开始</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/documents/usage/basic_usage.rst.txt" rel="nofollow"> View page source</a>
@@ -104,9 +111,9 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>快速开始<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>快速开始<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
 <br><hr><section id="drl">
-<h2>运行一个DRL算法<a class="headerlink" href="#drl" title="Permalink to this headline">¶</a></h2>
+<h2>运行一个DRL算法<a class="headerlink" href="#drl" title="Permalink to this heading">¶</a></h2>
 <p>安装完玄策后，用户只需要三行代码即可运行一个深度强化学习算法。首先，你需要通过指定 <code class="docutils literal notranslate"><span class="pre">method</span></code> 、 <code class="docutils literal notranslate"><span class="pre">env</span></code> 和 <code class="docutils literal notranslate"><span class="pre">env_id</span></code> 等信息创建一个 <em>runner</em> 对象，
 在 <em>runner</em> 的创建过程中，玄策已经创建好了 <code class="docutils literal notranslate"><span class="pre">agent</span></code>, <code class="docutils literal notranslate"><span class="pre">policy</span></code>, <code class="docutils literal notranslate"><span class="pre">envs</span></code> 等强化学习关键要素。接下来，只需要执行 <code class="docutils literal notranslate"><span class="pre">runner.run()</span></code> 就能实现算法的训练了。
 一个DQN算法的实例如下：</p>
@@ -121,7 +128,7 @@
 <p>执行以上指令，终端将输出实验的基本信息和训练过程进度条，当进度条满格时表示训练结束，模型保存。</p>
 <br><hr></section>
 <section id="marl">
-<h2>运行一个MARL算法<a class="headerlink" href="#marl" title="Permalink to this headline">¶</a></h2>
+<h2>运行一个MARL算法<a class="headerlink" href="#marl" title="Permalink to this heading">¶</a></h2>
 <p>和单智能体强化学习不同的是，多智能体强化学习任务分为合作型、竞争型、以及合作竞争混合型。合作型任务的运行方法和前面介绍的相同，只需要指定算法名称和环境名称即可开始训练，例如：</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span> <span class="k">as</span> <span class="nn">xp</span>
 <span class="n">runner</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">get_runner</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;maddpg&#39;</span><span class="p">,</span>
@@ -145,7 +152,7 @@
 <p>在该示例中，第一组智能体使用IDDPG算法，而第二组使用MADDPG算法。执行以上命令后，终端将输出实验的基本信息和训练过程进度条，当进度条满格时表示训练结束，模型保存。</p>
 <br><hr></section>
 <section id="id2">
-<h2>测试<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>测试<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>完成算法训练后，玄策会在指定目录中保存模型文件和训练日志信息。用户可以通过指定 <code class="docutils literal notranslate"><span class="pre">is_test=True</span></code> 来实现测试：</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span> <span class="k">as</span> <span class="nn">xp</span>
 <span class="n">runner</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">get_runner</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;dqn&#39;</span><span class="p">,</span>
@@ -158,7 +165,7 @@
 <p>以上代码中，还可用 <code class="docutils literal notranslate"><span class="pre">runner.benchmark()</span></code> 代替 <code class="docutils literal notranslate"><span class="pre">runner.run()</span></code> ，用于训练基准模型和基准测试结果。</p>
 <br><hr></section>
 <section id="id3">
-<h2>训练可视化<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>训练可视化<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p>用户可利用tensorboard或wandb工具来可视化训练过程，
 通过指定xuanpolicy/configs/basic.yaml文件中的 <code class="docutils literal notranslate"><span class="pre">logger</span></code> 参数选择具体的工具：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">logger</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tensorboard</span>
@@ -171,14 +178,16 @@
 <p><strong>1. Tensorboard 可视化</strong></p>
 <p>当完成模型训练后，日志文件存放于根目录下的log文件夹中，具体路径根据用户的实际配置查找。
 以./logs/dqn/torch/CartPole-v0路径为例，用户可通过以下指令实现日志可视化：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tensorboard</span> <span class="o">--</span><span class="n">logdir</span> <span class="o">./</span><span class="n">logs</span><span class="o">/</span><span class="n">dqn</span><span class="o">/</span><span class="n">torch</span><span class="o">/</span><span class="n">CartPole</span><span class="o">-</span><span class="n">v1</span><span class="o">/</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">tensorboard --logdir ./logs/dqn/torch/CartPole-v1/</span>
 </pre></div>
 </div>
 <p><strong>2. W&amp;B 可视化</strong></p>
 <p>若选择使用wandb工具实现训练可视化，可根据W&amp;B官方说明创建账号，并在xuanpolicy/configs/basic.yaml文件中指定用户名 <code class="docutils literal notranslate"><span class="pre">wandb_user_name</span></code>.</p>
 <p>关于W&amp;B的使用及其本地化部署，可参考如下链接：</p>
-<p>wandb: <a class="reference external" href="https://github.com/wandb/wandb.git/">https://github.com/wandb/wandb.git</a></p>
-<p>wandb server: <a class="reference external" href="https://github.com/wandb/server.git/">https://github.com/wandb/server.git</a></p>
+<div class="line-block">
+<div class="line"><strong>wandb</strong>: <a class="reference external" href="https://github.com/wandb/wandb.git/">https://github.com/wandb/wandb.git</a></div>
+<div class="line"><strong>wandb server</strong>: <a class="reference external" href="https://github.com/wandb/server.git/">https://github.com/wandb/server.git</a></div>
+</div>
 </section>
 </section>
 

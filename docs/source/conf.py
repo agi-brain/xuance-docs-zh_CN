@@ -16,7 +16,8 @@ release = 'v0.1.11'
 
 extensions = [
     'renku_sphinx_theme',
-    'sphinx_copybutton'
+    'sphinx_copybutton',
+    'sphinx_tabs.tabs',
 ]
 
 templates_path = ['_templates']

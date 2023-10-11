@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>安装教程 &mdash; 玄策 v0.1.11 documentation</title>
@@ -10,6 +10,7 @@
       <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/fonts.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -17,7 +18,9 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -32,12 +35,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> 玄策
-            <img src="../../_static/logo_2.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            玄策
+              <img src="../../_static/logo_2.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -54,20 +61,15 @@
 <li class="toctree-l1"><a class="reference internal" href="basic_usage.html">快速开始</a></li>
 <li class="toctree-l1"><a class="reference internal" href="professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API介绍:</span></p>
+<p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/configs.html">configs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/common.html">common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/agents.html">Agents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/representations.html">状态表征</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/policies.html">状态表征</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/agents.html">Agent类</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/learners.html">学习器Learner类</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../agents/index_drl.html">深度强化学习(单智能体)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agents/index_marl.html">多智能体强化学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/configs.html">Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/common.html">common</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
@@ -76,6 +78,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/atari.html">Atari运行结果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/mpe.html">MPE运行结果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/magent.html">Magent运行结果</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../algorithms/drl.html">DRL Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithms/marl.html">MARL Algorithms</a></li>
 </ul>
 
         </div>
@@ -91,7 +98,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">安装教程</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/documents/usage/installation.rst.txt" rel="nofollow"> View page source</a>
@@ -103,71 +110,71 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>安装教程<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>安装教程<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
 <p>玄策算法库能够在Linux，Windows，MacOS等操作系统上运行，并且易于安装。</p>
 <p>安装玄策之前，需首先安装 <a class="reference external" href="https://www.anaconda.com/download">Anaconda</a> 来配置Python运行环境。</p>
 <p>安装完 Anaconda 后，可通过以下两种方法安装玄策。</p>
 <br><hr><section id="pypi">
-<h2>方法一：通过PyPI安装<a class="headerlink" href="#pypi" title="Permalink to this headline">¶</a></h2>
+<h2>方法一：通过PyPI安装<a class="headerlink" href="#pypi" title="Permalink to this heading">¶</a></h2>
 <p><strong>步骤 1</strong>: 打开终端窗口程序，创建新的 conda 环境（Python版本推荐3.7及以上），名称自定义（这里命名为’xpolicy’）:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">xpolicy</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.7</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda create -n xpolicy python=3.7</span>
 </pre></div>
 </div>
 <p><strong>步骤 2</strong>: conda 环境创建成功后，激活该环境:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">xpolicy</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda activate xpolicy</span>
 </pre></div>
 </div>
 <p><strong>步骤 3</strong>: 安装玄策:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">xuanpolicy</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install xuanpolicy</span>
 </pre></div>
 </div>
 <p>由于没有指定特定的深度学习框架，上面的安装指令没有安装深度学习工具包。用户可通过以下指令按需求安装：</p>
 <p>仅安装 <a class="reference external" href="https://pytorch.org/get-started/locally/">PyTorch</a> 版玄策:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">xuanpolicy</span><span class="p">[</span><span class="n">torch</span><span class="p">]</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install xuanpolicy[torch]</span>
 </pre></div>
 </div>
 <p>仅安装 <a class="reference external" href="https://www.tensorflow.org/install">TensorFlow2</a> 版玄策:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">xuanpolicy</span><span class="p">[</span><span class="n">tensorflow</span><span class="p">]</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install xuanpolicy[tensorflow]</span>
 </pre></div>
 </div>
 <p>仅安装 <a class="reference external" href="https://www.mindspore.cn/install/en">MindSpore</a> 版玄策:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">xuanpolicy</span><span class="p">[</span><span class="n">mindspore</span><span class="p">]</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install xuanpolicy[mindspore]</span>
 </pre></div>
 </div>
 <p>安装同时支持 <a class="reference external" href="https://pytorch.org/get-started/locally/">PyTorch</a>，<a class="reference external" href="https://www.tensorflow.org/install">TensorFlow2</a>，和 <a class="reference external" href="https://www.mindspore.cn/install/en">MindSpore</a> 三种深度学习框架的玄策：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">xuanpolicy</span><span class="p">[</span><span class="nb">all</span><span class="p">]</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install xuanpolicy[all]</span>
 </pre></div>
 </div>
 <br><hr></section>
 <section id="id2">
-<h2>方法二：本地安装<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>方法二：本地安装<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>（注意：步骤1、步骤2和方法一中的相同）</p>
 <p><strong>步骤 1</strong>: 打开终端窗口程序，创建新的 conda 环境（Python版本推荐3.7及以上），名称自定义（这里命名为’xpolicy’）:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">xpolicy</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.7</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda create -n xpolicy python=3.7</span>
 </pre></div>
 </div>
 <p><strong>步骤 2</strong>: conda 环境创建成功后，激活该环境:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">xpolicy</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda activate xpolicy</span>
 </pre></div>
 </div>
 <p><strong>步骤 3</strong>: 从GitHub下载xuanpolicy源码:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">agi</span><span class="o">-</span><span class="n">brain</span><span class="o">/</span><span class="n">xuanpolicy</span><span class="o">.</span><span class="n">git</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/agi-brain/xuanpolicy.git</span>
 </pre></div>
 </div>
 <p><strong>步骤 4</strong>: 下载完毕后，进入xuanpolicy主目录:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">xuanpolicy</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd xuanpolicy</span>
 </pre></div>
 </div>
 <p><strong>步骤 5</strong>: 完成本地安装:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install -e .</span>
 </pre></div>
 </div>
 <p>提示: 完成以上步骤后，即可运行大部分玄策中的DRL和MARL算法。个别算法需要安装特殊的python依赖库，用户可根据实际的需求来手动安装。</p>
 <br><hr></section>
 <section id="id3">
-<h2>测试是否安装成功<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>测试是否安装成功<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p>安装完玄策后，在终端输入python进入python运行环境，输入</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span>
 </pre></div>
 </div>
 <p>如果没有发出报错或警告，则表示已成功安装玄策，下一步就可以使用了。</p>

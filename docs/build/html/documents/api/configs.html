@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>configs &mdash; 玄策 v0.1.11 documentation</title>
+  <title>Configs &mdash; 玄策 v0.1.11 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/fonts.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -17,14 +18,16 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="common" href="common.html" />
-    <link rel="prev" title="专业教程" href="../usage/professional_usage.html" /> 
+    <link rel="prev" title="环境封装" href="environments.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,12 +35,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> 玄策
-            <img src="../../_static/logo_2.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            玄策
+              <img src="../../_static/logo_2.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -49,25 +56,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage/basic_usage.html">快速开始</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/professional_usage.html">专业教程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API介绍:</span></p>
+<p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">configs</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="agents.html">Agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="learners.html">学习器Learner类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environments.html">环境封装</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">基础参数配置</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">算法参数配置</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">自定义参数配置</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="common.html">common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="environments.html">环境封装</a></li>
-<li class="toctree-l1"><a class="reference internal" href="representations.html">状态表征</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html">状态表征</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agents.html">Agent类</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learners.html">学习器Learner类</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../agents/index_drl.html">深度强化学习(单智能体)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agents/index_marl.html">多智能体强化学习</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
@@ -76,6 +78,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/atari.html">Atari运行结果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/mpe.html">MPE运行结果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/magent.html">Magent运行结果</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../algorithms/drl.html">DRL Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithms/marl.html">MARL Algorithms</a></li>
 </ul>
 
         </div>
@@ -91,8 +98,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">configs</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Configs</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/documents/api/configs.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -103,7 +110,7 @@
            <div itemprop="articleBody">
              
   <section id="configs">
-<h1>configs<a class="headerlink" href="#configs" title="Permalink to this headline">¶</a></h1>
+<h1>Configs<a class="headerlink" href="#configs" title="Permalink to this heading">¶</a></h1>
 <p>Configs模块用于存放有关算法、环境、系统配置等参数，玄策提供的算法案例，其参数均存于该模块中。</p>
 <p>为了便于训练和调参，玄策给出了默认的参数配置。
 默认参数配置分为基础参数配置和算法参数配置，二者中的参数名称可重复，
@@ -112,7 +119,7 @@
 玄策中的所有算法均有相应的示例，每个示例给出了该算法运行所必须的参数。若用户在实现自己的新任务时需要用到其它参数，
 可直接在参数配置文件中添加。</p>
 <br><hr><section id="id1">
-<h2>基础参数配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>基础参数配置<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p>基础参数配置存于xuanpolicy/config/basic.yaml文件中，示例如下：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">dl_toolbox</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;torch&quot;</span><span class="w">  </span><span class="c1"># Values: &quot;torch&quot;, &quot;mindspore&quot;, &quot;tensorlayer&quot;</span>
 
@@ -132,16 +139,21 @@
 </div>
 <p>需要注意的是， <cite>basic.yaml</cite> 文件中的 <code class="docutils literal notranslate"><span class="pre">device</span></code> 变量取值根据不同的深度学习框架有所差异，分别如下：</p>
 <div class="line-block">
-<div class="line">PyTorch: “cpu”, “cuda:0”;</div>
-<div class="line">TensorFlow: “cpu”/”CPU”, “gpu”/”GPU”;</div>
-<div class="line">MindSpore: “CPU”, “GPU”, “Ascend”, “Davinci”。</div>
+<div class="line">- PyTorch: “cpu”, “cuda:0”;</div>
+<div class="line">- TensorFlow: “cpu”/”CPU”, “gpu”/”GPU”;</div>
+<div class="line">- MindSpore: “CPU”, “GPU”, “Ascend”, “Davinci”。</div>
 </div>
 <br><hr></section>
 <section id="id2">
-<h2>算法参数配置<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>算法参数配置<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>以DQN算法在Atari环境中的参数配置为例，除了基础参数配置外，其算法参数配置存放于 xuanpolicy/configs/dqn/atari.yaml
 文件中，内容如下：</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">agent</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DQN&quot;</span>
+<center>
+    <select id="env-mujoco" onchange="showMujocoEnv(this)"></select>
+    <br>
+    <div id="vis-mujoco"></div>
+    <br>
+</center><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">agent</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DQN&quot;</span>
 <span class="nt">vectorize</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Dummy_Atari&quot;</span>
 <span class="nt">env_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Atari&quot;</span>
 <span class="nt">env_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ALE/Breakout-v5&quot;</span>
@@ -199,7 +211,7 @@
 </div></blockquote>
 <br><hr></section>
 <section id="id3">
-<h2>自定义参数配置<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>自定义参数配置<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p>用户也可以选择不适用玄策提供的默认参数，或者玄策中不包含用户的任务时，可用同样的方式自定义.yaml参数配置文件。
 但是在获取runner的过程中，需指定参数文件的存放位置，示例如下：</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span> <span class="k">as</span> <span class="nn">xp</span>
@@ -218,7 +230,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../usage/professional_usage.html" class="btn btn-neutral float-left" title="专业教程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="environments.html" class="btn btn-neutral float-left" title="环境封装" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="common.html" class="btn btn-neutral float-right" title="common" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

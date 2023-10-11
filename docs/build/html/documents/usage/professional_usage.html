@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>专业教程 &mdash; 玄策 v0.1.11 documentation</title>
@@ -10,6 +10,7 @@
       <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/fonts.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -17,13 +18,15 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="configs" href="../api/configs.html" />
+    <link rel="next" title="Agents" href="../api/agents.html" />
     <link rel="prev" title="快速开始" href="basic_usage.html" /> 
 </head>
 
@@ -32,12 +35,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> 玄策
-            <img src="../../_static/logo_2.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            玄策
+              <img src="../../_static/logo_2.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -54,20 +61,15 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API介绍:</span></p>
+<p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/configs.html">configs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/common.html">common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/agents.html">Agents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/representations.html">状态表征</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/policies.html">状态表征</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/agents.html">Agent类</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/learners.html">学习器Learner类</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">算法介绍:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../agents/index_drl.html">深度强化学习(单智能体)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agents/index_marl.html">多智能体强化学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/configs.html">Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/common.html">common</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
@@ -76,6 +78,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/atari.html">Atari运行结果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/mpe.html">MPE运行结果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/magent.html">Magent运行结果</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../algorithms/drl.html">DRL Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithms/marl.html">MARL Algorithms</a></li>
 </ul>
 
         </div>
@@ -91,7 +98,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">专业教程</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/documents/usage/professional_usage.rst.txt" rel="nofollow"> View page source</a>
@@ -103,12 +110,12 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>专业教程<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>专业教程<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
 <p>上一页是通过调用runner来直接运行算法。为了更好地帮助用户理解“玄策”的内部实现流程，
 从而便于进一步做算法开发和实现用户自己的强化学习任务，下面以PPO算法训练MuJoCo环境任务为例，
 详细介绍如何从底层地调用API实现强化学习模型训练。</p>
 <br><hr><section id="yaml">
-<h2>步骤1：准备YAML文件，配置参数<a class="headerlink" href="#yaml" title="Permalink to this headline">¶</a></h2>
+<h2>步骤1：准备YAML文件，配置参数<a class="headerlink" href="#yaml" title="Permalink to this heading">¶</a></h2>
 <p>创建 <cite>mujoco.yaml</cite> 文件，并指定相关参数，如下所示：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dl_toolbox</span><span class="p">:</span> <span class="s2">&quot;torch&quot;</span>  <span class="c1"># The deep learning toolbox. Choices: &quot;torch&quot;, &quot;mindspore&quot;, &quot;tensorlayer&quot;</span>
 <span class="n">project_name</span><span class="p">:</span> <span class="s2">&quot;XuanPolicy_Benchmark&quot;</span>
@@ -163,8 +170,8 @@
 </div>
 <br><hr></section>
 <section id="id2">
-<h2>步骤2：读取参数<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>该部分主要包括参数读取、环境创建、模型创建、模型训练等环节，分为如下步骤：</p>
+<h2>步骤2：读取参数<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p>该部分主要包括参数读取、环境创建、模型创建、模型训练等环节。首先创建 <cite>ppo_mujoco.py</cite> 文件，代码编写分为如下步骤：</p>
 <p><strong>步骤2.1 解析终端命令参数</strong></p>
 <p>定义如下函数 <code class="docutils literal notranslate"><span class="pre">parse_args()</span></code>，利用Python包 <cite>argparser</cite> 读取终端指令，获取指令参数。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparser</span>
@@ -201,7 +208,7 @@
 三次读取中，若遇到相同变量名，则以后者参数为准进行更新。最终， <code class="docutils literal notranslate"><span class="pre">get_arguments()</span></code> 函数将返回 <code class="docutils literal notranslate"><span class="pre">args</span></code> 变量，包含所有参数信息，输入 <code class="docutils literal notranslate"><span class="pre">run()</span></code> 函数中。</p>
 <br><hr></section>
 <section id="run">
-<h2>步骤3：定义run()，创建模型，运行算法<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h2>
+<h2>步骤3：定义run()，创建模型，运行算法<a class="headerlink" href="#run" title="Permalink to this heading">¶</a></h2>
 <p>定义 <code class="docutils literal notranslate"><span class="pre">run()</span></code> 函数，输入为步骤2中得到的 <code class="docutils literal notranslate"><span class="pre">args</span></code> 变量。在函数中，实现了环境创建，实例化representation、policy、agent等模块，并实现训练。
 以下是带注释的run()函数定义示例：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -313,7 +320,11 @@
     <span class="n">agent</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>  <span class="c1"># 结束实验</span>
 </pre></div>
 </div>
-<p>该部分完整代码见如下链接：</p>
+<p>完成以上三个步骤后，可在终端运行 <cite>ppo_mujoco.py</cite> Python文件，训练模型：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python ppo_mujoco.py --method ppo --env mujoco --env-id Ant-v4</span>
+</pre></div>
+</div>
+<p>该实例的完整代码见如下链接：</p>
 <p><a class="reference external" href="https://github.com/agi-brain/xuanpolicy/examples/ppo/ppo_mujoco.py/">https://github.com/agi-brain/xuanpolicy/examples/ppo/ppo_mujoco.py</a></p>
 </section>
 </section>
@@ -323,7 +334,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="basic_usage.html" class="btn btn-neutral float-left" title="快速开始" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../api/configs.html" class="btn btn-neutral float-right" title="configs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../api/agents.html" class="btn btn-neutral float-right" title="Agents" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

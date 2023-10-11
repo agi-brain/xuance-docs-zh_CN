@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAPPO &mdash; 玄策 v0.1.11 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/fonts.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="MATD3" href="matd3.html" />
+    <link rel="prev" title="MAPPO" href="ippo.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            玄策
+              <img src="../../../_static/logo_2.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">如何使用:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">安装教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/basic_usage.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/professional_usage.html">专业教程</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/agents.html">Agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/representations.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/policies.html">状态表征</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/learners.html">学习器Learner类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/configs.html">Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/common.html">common</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/toy.html">Toy运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/mujoco.html">MuJoCo运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/atari.html">Atari运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/mpe.html">MPE运行结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/magent.html">Magent运行结果</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">算法介绍</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../drl.html">DRL Algorithms</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../marl.html">MARL Algorithms</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="iql.html">IQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vdn.html">VDN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qmix.html">QMIX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wqmix.html">WQMIX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qtran.html">QTRAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dcg.html">DCG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iddpg.html">IDDPG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maddpg.html">MADDPG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isac.html">ISAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="masac.html">MASAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ippo.html">MAPPO</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">MAPPO</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">算法描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">算法出处</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="matd3.html">MATD3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vdac.html">VDAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coma.html">COMA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mfq.html">MFQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mfac.html">MFAC</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">玄策</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../marl.html">MARL Algorithms</a></li>
+      <li class="breadcrumb-item active">MAPPO</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/documents/algorithms/marl/mappo.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mappo">
+<h1>MAPPO<a class="headerlink" href="#mappo" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2>算法描述<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<p>MAPPO算法全称为Multi-agent Proximal Policy Optimization
+是从PPO算法发展而来的多智能体强化学习算法，它的基本结构和PPO算法类似，
+不同之处在于其策略网络和值函数网络均加上One-Hot向量作为智能体身份标识，以区分各不同智能体的决策信息。
+MAPPO的整体值函数采用加和的方式获取，同VDN类似。</p>
+</section>
+<section id="id2">
+<h2>算法出处<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p><strong>论文链接</strong>:
+<a class="reference external" href="https://proceedings.neurips.cc/paper_files/paper/2022/file/9c1535a02f0ce079433344e14d910597-Paper-Datasets_and_Benchmarks.pdf">The surprising effectiveness of ppo in cooperative multi-agent games</a></p>
+<p><strong>论文引用信息</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">yu2022surprising</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">The</span> <span class="n">surprising</span> <span class="n">effectiveness</span> <span class="n">of</span> <span class="n">ppo</span> <span class="ow">in</span> <span class="n">cooperative</span> <span class="n">multi</span><span class="o">-</span><span class="n">agent</span> <span class="n">games</span><span class="p">},</span>
+    <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Yu</span><span class="p">,</span> <span class="n">Chao</span> <span class="ow">and</span> <span class="n">Velu</span><span class="p">,</span> <span class="n">Akash</span> <span class="ow">and</span> <span class="n">Vinitsky</span><span class="p">,</span> <span class="n">Eugene</span> <span class="ow">and</span> <span class="n">Gao</span><span class="p">,</span> <span class="n">Jiaxuan</span> <span class="ow">and</span> <span class="n">Wang</span><span class="p">,</span> <span class="n">Yu</span> <span class="ow">and</span> <span class="n">Bayen</span><span class="p">,</span> <span class="n">Alexandre</span> <span class="ow">and</span> <span class="n">Wu</span><span class="p">,</span> <span class="n">Yi</span><span class="p">},</span>
+    <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">Advances</span> <span class="ow">in</span> <span class="n">Neural</span> <span class="n">Information</span> <span class="n">Processing</span> <span class="n">Systems</span><span class="p">},</span>
+    <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">35</span><span class="p">},</span>
+    <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">24611</span><span class="o">--</span><span class="mi">24624</span><span class="p">},</span>
+    <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2022</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ippo.html" class="btn btn-neutral float-left" title="MAPPO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="matd3.html" class="btn btn-neutral float-right" title="MATD3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, XuanPolicy contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
