@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Per DQN &mdash; 玄策 v0.1.11 documentation</title>
+  <title>PerDQN_Agent &mdash; 玄策 v0.1.11 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
@@ -23,12 +23,12 @@
         <script src="../../../../_static/sphinx_highlight.js"></script>
         <script src="../../../../_static/clipboard.min.js"></script>
         <script src="../../../../_static/copybutton.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../../../_static/tabs.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="QRDQN" href="qrdqn.html" />
-    <link rel="prev" title="Noisy DQN" href="noisydqn.html" /> 
+    <link rel="next" title="QRDQN_Agent" href="qrdqn.html" />
+    <link rel="prev" title="NoisyDQN_Agent" href="noisydqn.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -68,8 +68,13 @@
 <li class="toctree-l2"><a class="reference internal" href="dueldqn.html">DuelDQN_Agent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="noisydqn.html">NoisyDQN_Agent</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">PerDQN_Agent</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">算法描述</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">算法出处</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent"><code class="docutils literal notranslate"><span class="pre">xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent._action"><code class="docutils literal notranslate"><span class="pre">xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent._action()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent.train"><code class="docutils literal notranslate"><span class="pre">xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent.train()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent.test"><code class="docutils literal notranslate"><span class="pre">xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent.test()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">源码</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="qrdqn.html">QRDQN_Agent</a></li>
@@ -140,7 +145,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../agents.html">Agents</a></li>
-      <li class="breadcrumb-item active">Per DQN</li>
+      <li class="breadcrumb-item active">PerDQN_Agent</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../_sources/documents/api/agents/drl/perdqn.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -150,32 +155,239 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="per-dqn">
-<h1>Per DQN<a class="headerlink" href="#per-dqn" title="Permalink to this heading">¶</a></h1>
-<section id="id1">
-<h2>算法描述<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
-<p>Per DQN: Prioritized Replay Buffer DQN（基于优先级的经验回放的DQN）是对原始DQN算法的一种改进，
-旨在更高效地从经验回放缓存中采样有价值的经验，从而提高学习效率。
-这种方法的主要思想是为经验回放缓冲区中的每个转换分配一个优先级，并根据优先级进行采样，而不是进行均匀随机采样。
-在Prioritized Replay Buffer DQN中，每个经验元组
-（状态 <span class="math notranslate nohighlight">\(s\)</span> 、动作 <span class="math notranslate nohighlight">\(a\)</span>、奖励 <span class="math notranslate nohighlight">\(r\)</span>、下一个状态 <span class="math notranslate nohighlight">\(s'\)</span>）的优先级计算方法如下：</p>
-<div class="math notranslate nohighlight">
-\[p = |\delta| + \epsilon，\]</div>
-<p>其中，<span class="math notranslate nohighlight">\(\delta\)</span> 表示该经验元组的TD误差（Temporal Difference Error），
-即预测Q值与实际Q值之间的差值；<span class="math notranslate nohighlight">\(\epsilon\)</span> 是一个很小的正数，用于确保每个经验元组都有一定的被采样概率。</p>
-</section>
-<section id="id2">
-<h2>算法出处<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
-<p><strong>论文链接</strong>: <a class="reference external" href="https://arxiv.org/pdf/1511.05952">Prioritized experience replay</a></p>
-<p><strong>论文引用信息</strong>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">schaul2015prioritized</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Prioritized</span> <span class="n">experience</span> <span class="n">replay</span><span class="p">},</span>
-    <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Schaul</span><span class="p">,</span> <span class="n">Tom</span> <span class="ow">and</span> <span class="n">Quan</span><span class="p">,</span> <span class="n">John</span> <span class="ow">and</span> <span class="n">Antonoglou</span><span class="p">,</span> <span class="n">Ioannis</span> <span class="ow">and</span> <span class="n">Silver</span><span class="p">,</span> <span class="n">David</span><span class="p">},</span>
-    <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">arXiv</span> <span class="n">preprint</span> <span class="n">arXiv</span><span class="p">:</span><span class="mf">1511.05952</span><span class="p">},</span>
-    <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2015</span><span class="p">}</span>
-<span class="p">}</span>
+  <section id="perdqn-agent">
+<h1>PerDQN_Agent<a class="headerlink" href="#perdqn-agent" title="Permalink to this heading">¶</a></h1>
+<br><hr><p><strong>PyTorch:</strong></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">xuanpolicy.torch.agent.qlearning_family.perdqn_agent.</span></span><span class="sig-name descname"><span class="pre">PerDQN_Agent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheduler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> (<em>Namespace</em>) – Provides hyper parameters.</p></li>
+<li><p><strong>envs</strong> (<em>xuanpolicy.environments.vector_envs.vector_env.VecEnv</em>) – The vectorized environments.</p></li>
+<li><p><strong>policy</strong> (<em>nn.Module</em>) – The policy that provides actions and values.</p></li>
+<li><p><strong>optimizer</strong> (<em>torch.optim.Optimizer</em>) – The optimizer that updates the parameters.</p></li>
+<li><p><strong>scheduler</strong> (<em>torch.optim.lr_scheduler._LRScheduler</em>) – Implement the learning rate decay.</p></li>
+<li><p><strong>device</strong> (<em>str</em><em>, </em><em>int</em><em>, </em><em>torch.device</em>) – Choose CPU or GPU to train the model.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent._action">
+<span class="sig-prename descclassname"><span class="pre">xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent.</span></span><span class="sig-name descname"><span class="pre">_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">egreedy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent._action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actions according to the observations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obs</strong> (<em>numpy.ndarray</em>) – The observation of current step.</p></li>
+<li><p><strong>egreedy</strong> (<em>np.float</em>) – The epsilong greedy factor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>action</strong> - The actions to be executed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent.train">
+<span class="sig-prename descclassname"><span class="pre">xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent.</span></span><span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">train_steps</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the PerDQN agent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>train_steps</strong> (<em>int</em>) – The number of steps for training.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent.test">
+<span class="sig-prename descclassname"><span class="pre">xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent.</span></span><span class="sig-name descname"><span class="pre">test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_episodes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xuanpolicy.torch.agent.qlearning_family.perdqn_agent.PerDQN_Agent.test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the trained model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>env_fn</strong> – The function of making environments.</p></li>
+<li><p><strong>test_episodes</strong> (<em>int</em>) – The number of testing episodes.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>scores</strong> - The accumulated scores of these episodes.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<br><hr><p><strong>TensorFlow:</strong></p>
+<br><hr><p><strong>MindSpore:</strong></p>
+<br><hr><section id="id1">
+<h2>源码<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-UHlUb3JjaA==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-UHlUb3JjaA==" name="UHlUb3JjaA==" role="tab" tabindex="0">PyTorch</button><button aria-controls="panel-0-VGVuc29yRmxvdw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-VGVuc29yRmxvdw==" name="VGVuc29yRmxvdw==" role="tab" tabindex="-1">TensorFlow</button><button aria-controls="panel-0-TWluZFNwb3Jl" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-TWluZFNwb3Jl" name="TWluZFNwb3Jl" role="tab" tabindex="-1">MindSpore</button></div><div aria-labelledby="tab-0-UHlUb3JjaA==" class="sphinx-tabs-panel group-tab" id="panel-0-UHlUb3JjaA==" name="UHlUb3JjaA==" role="tabpanel" tabindex="0"><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xuanpolicy.torch.agents</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">class</span> <span class="nc">PerDQN_Agent</span><span class="p">(</span><span class="n">Agent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                <span class="n">config</span><span class="p">:</span> <span class="n">Namespace</span><span class="p">,</span>
+                <span class="n">envs</span><span class="p">:</span> <span class="n">DummyVecEnv_Gym</span><span class="p">,</span>
+                <span class="n">policy</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
+                <span class="n">optimizer</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Optimizer</span><span class="p">,</span>
+                <span class="n">scheduler</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">lr_scheduler</span><span class="o">.</span><span class="n">_LRScheduler</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">render</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">render</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_envs</span> <span class="o">=</span> <span class="n">envs</span><span class="o">.</span><span class="n">num_envs</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">gamma</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">train_frequency</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">training_frequency</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_training</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">start_training</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_greedy</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">start_greedy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end_greedy</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">end_greedy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">egreedy</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">start_greedy</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">observation_space</span> <span class="o">=</span> <span class="n">envs</span><span class="o">.</span><span class="n">observation_space</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action_space</span> <span class="o">=</span> <span class="n">envs</span><span class="o">.</span><span class="n">action_space</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">auxiliary_info_shape</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">PER_beta0</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">PER_beta0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PER_beta</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">PER_beta0</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">atari</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">env_name</span> <span class="o">==</span> <span class="s2">&quot;Atari&quot;</span> <span class="k">else</span> <span class="kc">False</span>
+        <span class="n">memory</span> <span class="o">=</span> <span class="n">PerOffPolicyBuffer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">observation_space</span><span class="p">,</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">action_space</span><span class="p">,</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">auxiliary_info_shape</span><span class="p">,</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">n_envs</span><span class="p">,</span>
+                                    <span class="n">config</span><span class="o">.</span><span class="n">n_size</span><span class="p">,</span>
+                                    <span class="n">config</span><span class="o">.</span><span class="n">batch_size</span><span class="p">,</span>
+                                    <span class="n">config</span><span class="o">.</span><span class="n">PER_alpha</span><span class="p">)</span>
+        <span class="n">learner</span> <span class="o">=</span> <span class="n">PerDQN_Learner</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span>
+                                <span class="n">optimizer</span><span class="p">,</span>
+                                <span class="n">scheduler</span><span class="p">,</span>
+                                <span class="n">config</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
+                                <span class="n">config</span><span class="o">.</span><span class="n">model_dir</span><span class="p">,</span>
+                                <span class="n">config</span><span class="o">.</span><span class="n">gamma</span><span class="p">,</span>
+                                <span class="n">config</span><span class="o">.</span><span class="n">sync_frequency</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">PerDQN_Agent</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">envs</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="n">memory</span><span class="p">,</span> <span class="n">learner</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span>
+                                        <span class="n">config</span><span class="o">.</span><span class="n">log_dir</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">model_dir</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obs</span><span class="p">,</span> <span class="n">egreedy</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">argmax_action</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+        <span class="n">random_action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_envs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">egreedy</span><span class="p">:</span>
+            <span class="n">action</span> <span class="o">=</span> <span class="n">random_action</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">action</span> <span class="o">=</span> <span class="n">argmax_action</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">action</span>
+
+    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">train_steps</span><span class="p">):</span>
+        <span class="n">obs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">envs</span><span class="o">.</span><span class="n">buf_obs</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">train_steps</span><span class="p">)):</span>
+            <span class="n">step_info</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obs_rms</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+            <span class="n">obs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_observation</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+            <span class="n">acts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_action</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">egreedy</span><span class="p">)</span>
+            <span class="n">next_obs</span><span class="p">,</span> <span class="n">rewards</span><span class="p">,</span> <span class="n">terminals</span><span class="p">,</span> <span class="n">trunctions</span><span class="p">,</span> <span class="n">infos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">envs</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">acts</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">acts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_reward</span><span class="p">(</span><span class="n">rewards</span><span class="p">),</span> <span class="n">terminals</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_observation</span><span class="p">(</span><span class="n">next_obs</span><span class="p">))</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_step</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_training</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_step</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_frequency</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># training</span>
+                <span class="n">obs_batch</span><span class="p">,</span> <span class="n">act_batch</span><span class="p">,</span> <span class="n">rew_batch</span><span class="p">,</span> <span class="n">terminal_batch</span><span class="p">,</span> <span class="n">next_batch</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">idxes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">PER_beta</span><span class="p">)</span>
+                <span class="n">td_error</span><span class="p">,</span> <span class="n">step_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">learner</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">obs_batch</span><span class="p">,</span> <span class="n">act_batch</span><span class="p">,</span> <span class="n">rew_batch</span><span class="p">,</span> <span class="n">next_batch</span><span class="p">,</span> <span class="n">terminal_batch</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">update_priorities</span><span class="p">(</span><span class="n">idxes</span><span class="p">,</span> <span class="n">td_error</span><span class="p">)</span>
+                <span class="n">step_info</span><span class="p">[</span><span class="s2">&quot;epsilon-greedy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">egreedy</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log_infos</span><span class="p">(</span><span class="n">step_info</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_step</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">PER_beta</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">PER_beta0</span><span class="p">)</span> <span class="o">/</span> <span class="n">train_steps</span>
+
+            <span class="n">obs</span> <span class="o">=</span> <span class="n">next_obs</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">egreedy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">egreedy</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_greedy</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_greedy</span><span class="p">)</span> <span class="o">/</span> <span class="n">train_steps</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_envs</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">terminals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">or</span> <span class="n">trunctions</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">atari</span> <span class="ow">and</span> <span class="p">(</span><span class="o">~</span><span class="n">trunctions</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+                        <span class="k">pass</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">obs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">infos</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;reset_obs&quot;</span><span class="p">]</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">current_episode</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_wandb</span><span class="p">:</span>
+                            <span class="n">step_info</span><span class="p">[</span><span class="s2">&quot;Episode-Steps/env-</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">infos</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;episode_step&quot;</span><span class="p">]</span>
+                            <span class="n">step_info</span><span class="p">[</span><span class="s2">&quot;Train-Episode-Rewards/env-</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">infos</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;episode_score&quot;</span><span class="p">]</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">step_info</span><span class="p">[</span><span class="s2">&quot;Episode-Steps&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;env-</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">:</span> <span class="n">infos</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;episode_step&quot;</span><span class="p">]}</span>
+                            <span class="n">step_info</span><span class="p">[</span><span class="s2">&quot;Train-Episode-Rewards&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;env-</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">:</span> <span class="n">infos</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;episode_score&quot;</span><span class="p">]}</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">log_infos</span><span class="p">(</span><span class="n">step_info</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_step</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">current_step</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_envs</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">egreedy</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_greedy</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">egreedy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">egreedy</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_greedy</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_greedy</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">decay_step_greedy</span>
+
+    <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env_fn</span><span class="p">,</span> <span class="n">test_episodes</span><span class="p">):</span>
+        <span class="n">test_envs</span> <span class="o">=</span> <span class="n">env_fn</span><span class="p">()</span>
+        <span class="n">num_envs</span> <span class="o">=</span> <span class="n">test_envs</span><span class="o">.</span><span class="n">num_envs</span>
+        <span class="n">videos</span><span class="p">,</span> <span class="n">episode_videos</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_envs</span><span class="p">)],</span> <span class="p">[]</span>
+        <span class="n">current_episode</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">best_score</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[],</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+        <span class="n">obs</span><span class="p">,</span> <span class="n">infos</span> <span class="o">=</span> <span class="n">test_envs</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">render_mode</span> <span class="o">==</span> <span class="s2">&quot;rgb_array&quot;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">:</span>
+            <span class="n">images</span> <span class="o">=</span> <span class="n">test_envs</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">render_mode</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
+                <span class="n">videos</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="n">current_episode</span> <span class="o">&lt;</span> <span class="n">test_episodes</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obs_rms</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+            <span class="n">obs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_observation</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+            <span class="n">acts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_action</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">egreedy</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+            <span class="n">next_obs</span><span class="p">,</span> <span class="n">rewards</span><span class="p">,</span> <span class="n">terminals</span><span class="p">,</span> <span class="n">trunctions</span><span class="p">,</span> <span class="n">infos</span> <span class="o">=</span> <span class="n">test_envs</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">acts</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">render_mode</span> <span class="o">==</span> <span class="s2">&quot;rgb_array&quot;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">:</span>
+                <span class="n">images</span> <span class="o">=</span> <span class="n">test_envs</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">render_mode</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
+                    <span class="n">videos</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+            <span class="n">obs</span> <span class="o">=</span> <span class="n">next_obs</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_envs</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">terminals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">or</span> <span class="n">trunctions</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">atari</span> <span class="ow">and</span> <span class="p">(</span><span class="o">~</span><span class="n">trunctions</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+                        <span class="k">pass</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">obs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">infos</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;reset_obs&quot;</span><span class="p">]</span>
+                        <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">infos</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;episode_score&quot;</span><span class="p">])</span>
+                        <span class="n">current_episode</span> <span class="o">+=</span> <span class="mi">1</span>
+                        <span class="k">if</span> <span class="n">best_score</span> <span class="o">&lt;</span> <span class="n">infos</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;episode_score&quot;</span><span class="p">]:</span>
+                            <span class="n">best_score</span> <span class="o">=</span> <span class="n">infos</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;episode_score&quot;</span><span class="p">]</span>
+                            <span class="n">episode_videos</span> <span class="o">=</span> <span class="n">videos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">test_mode</span><span class="p">:</span>
+                            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Episode: </span><span class="si">%d</span><span class="s2">, Score: </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">current_episode</span><span class="p">,</span> <span class="n">infos</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;episode_score&quot;</span><span class="p">]))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">render_mode</span> <span class="o">==</span> <span class="s2">&quot;rgb_array&quot;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">:</span>
+            <span class="c1"># time, height, width, channel -&gt; time, channel, height, width</span>
+            <span class="n">videos_info</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Videos_Test&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">episode_videos</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log_videos</span><span class="p">(</span><span class="n">info</span><span class="o">=</span><span class="n">videos_info</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">current_step</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">test_mode</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best Score: </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">best_score</span><span class="p">))</span>
+
+        <span class="n">test_info</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;Test-Episode-Rewards/Mean-Score&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">),</span>
+            <span class="s2">&quot;Test-Episode-Rewards/Std-Score&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_infos</span><span class="p">(</span><span class="n">test_info</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_step</span><span class="p">)</span>
+
+        <span class="n">test_envs</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">scores</span>
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-0-VGVuc29yRmxvdw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-VGVuc29yRmxvdw==" name="VGVuc29yRmxvdw==" role="tabpanel" tabindex="0"><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-TWluZFNwb3Jl" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-TWluZFNwb3Jl" name="TWluZFNwb3Jl" role="tabpanel" tabindex="0"><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div></div>
 </section>
 </section>
 
@@ -183,8 +395,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="noisydqn.html" class="btn btn-neutral float-left" title="Noisy DQN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="qrdqn.html" class="btn btn-neutral float-right" title="QRDQN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="noisydqn.html" class="btn btn-neutral float-left" title="NoisyDQN_Agent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="qrdqn.html" class="btn btn-neutral float-right" title="QRDQN_Agent" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

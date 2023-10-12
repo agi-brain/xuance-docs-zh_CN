@@ -61,75 +61,75 @@ Agents
      - PyTorch 
      - TensorFlow
      - MindSpore
-   * - :doc:`Deep Q-Networks <agents/drl/dqn>` (DQN)
+   * - :doc:`DQN <agents/drl/dqn>`: Deep Q-Networks
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
-   * - :doc:`Distributional Reinforcement Learning <agents/drl/c51>` (C51DQN)
+   * - :doc:`C51DQN <agents/drl/c51>`: Distributional Reinforcement Learning
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
-   * - :doc:`DQN with Double Q-learning <agents/drl/ddqn>` (Double DQN)
+   * - :doc:`Double DQN <agents/drl/ddqn>`: DQN with Double Q-learning
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
-   * - :doc:`DQN with Dueling network <agents/drl/dueldqn>` (Dueling DQN)
+   * - :doc:`Dueling DQN <agents/drl/dueldqn>`: DQN with Dueling network
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
-   * - :doc:`DQN with Parameter Space Noise <agents/drl/noisydqn>` (Noisy DQN)
+   * - :doc:`Noisy DQN <agents/drl/noisydqn>`: DQN with Parameter Space Noise
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
-   * - :doc:`DQN with Prioritized Experience Replay <agents/drl/perdqn>` (PERDQN)
+   * - :doc:`PERDQN <agents/drl/perdqn>`: DQN with Prioritized Experience Replay
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
-   * - :doc:`DQN with Quantile Regression <agents/drl/qrdqn>` (QRDQN)
+   * - :doc:`QRDQN <agents/drl/qrdqn>`: DQN with Quantile Regression
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
-   * - :doc:`Vanilla Policy Gradient <agents/drl/pg>` (VPG)
+   * - :doc:`VPG <agents/drl/pg>`: Vanilla Policy Gradient
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
-   * - :doc:`Phasic Policy Gradient <agents/drl/ppg>` (PPG)
+   * - :doc:`PPG <agents/drl/ppg>`: Phasic Policy Gradient
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
-   * - :doc:`Proximal Policy Optimization <agents/drl/ppo_clip>` (PPO)
+   * - :doc:`PPO <agents/drl/ppo_clip>`: Proximal Policy Optimization
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
-   * - :doc:`Parameterised DQN <agents/drl/pdqn>` (PDQN)
+   * - :doc:`PDQN <agents/drl/pdqn>`: Parameterised DQN
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
-   * - :doc:`Split PDQN <agents/drl/spdqn>` (SPDQN)
+   * - :doc:`SPDQN <agents/drl/spdqn>`: Split PDQN
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
-   * - :doc:`Multi-pass PDQN <agents/drl/mpdqn>` (MPDQN)
+   * - :doc:`MPDQN <agents/drl/mpdqn>`: Multi-pass PDQN
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
-   * - :doc:`Advantage Actor Critic <agents/drl/a2c>` (A2C)
+   * - :doc:`A2C <agents/drl/a2c>`: Advantage Actor Critic
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
-   * - :doc:`Soft Actor-Critic <agents/drl/sac>` (SAC)
+   * - :doc:`SAC <agents/drl/sac>`: Soft Actor-Critic
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
-   * - :doc:`SAC for Discrete Actions <agents/drl/sac_dis>` (SAC-Dis)
+   * - :doc:`SAC-Dis <agents/drl/sac_dis>`: SAC for Discrete Actions
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
-   * - :doc:`Deep Deterministic Policy Gradient <agents/drl/ddpg>` (DDPG)
+   * - :doc:`DDPG <agents/drl/ddpg>`: Deep Deterministic Policy Gradient
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
-   * - :doc:`Twin Delayed DDPG <agents/drl/td3>` (TD3)
+   * - :doc:`TD3 <agents/drl/td3>`: Twin Delayed DDPG
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`
      - .. centered:: :math:`\checkmark`

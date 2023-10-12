@@ -27,8 +27,8 @@
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="SAC" href="sac.html" />
-    <link rel="prev" title="MPDQN" href="mpdqn.html" /> 
+    <link rel="next" title="SAC_Agent" href="sac.html" />
+    <link rel="prev" title="MPDQN_Agent" href="mpdqn.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -83,6 +83,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#xuanpolicy.torch.agent.policy_gradient.a2c_agent.A2C_Agent.test"><code class="docutils literal notranslate"><span class="pre">xuanpolicy.torch.agent.policy_gradient.a2c_agent.A2C_Agent.test()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">源码</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="sac.html">SAC_Agent</a></li>
@@ -156,6 +157,7 @@
              
   <section id="a2c-agent">
 <h1>A2C_Agent<a class="headerlink" href="#a2c-agent" title="Permalink to this heading">¶</a></h1>
+<br><hr><p><strong>PyTorch:</strong></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="xuanpolicy.torch.agent.policy_gradient.a2c_agent.A2C_Agent">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">xuanpolicy.torch.agent.policy_gradient.a2c_agent.</span></span><span class="sig-name descname"><span class="pre">A2C_Agent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheduler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xuanpolicy.torch.agent.policy_gradient.a2c_agent.A2C_Agent" title="Permalink to this definition">¶</a></dt>
@@ -165,7 +167,7 @@
 <li><p><strong>config</strong> (<em>Namespace</em>) – Provides hyper parameters.</p></li>
 <li><p><strong>envs</strong> (<em>xuanpolicy.environments.vector_envs.vector_env.VecEnv</em>) – The vectorized environments.</p></li>
 <li><p><strong>policy</strong> (<em>nn.Module</em>) – The policy that provides actions and values.</p></li>
-<li><p><strong>optimizer</strong> (<em>torch.optim.Optimizer</em>) – The optimizer that update the parameters.</p></li>
+<li><p><strong>optimizer</strong> (<em>torch.optim.Optimizer</em>) – The optimizer that updates the parameters.</p></li>
 <li><p><strong>scheduler</strong> (<em>torch.optim.lr_scheduler._LRScheduler</em>) – Implement the learning rate decay.</p></li>
 <li><p><strong>device</strong> (<em>str</em><em>, </em><em>int</em><em>, </em><em>torch.device</em>) – Choose CPU or GPU to train the model.</p></li>
 </ul>
@@ -221,6 +223,10 @@
 </dl>
 </dd></dl>
 
+<br><hr><p><strong>TensorFlow:</strong></p>
+<br><hr><p><strong>MindSpore:</strong></p>
+<br><hr><section id="id1">
+<h2>源码<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-UHlUb3JjaA==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-UHlUb3JjaA==" name="UHlUb3JjaA==" role="tab" tabindex="0">PyTorch</button><button aria-controls="panel-0-VGVuc29yRmxvdw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-VGVuc29yRmxvdw==" name="VGVuc29yRmxvdw==" role="tab" tabindex="-1">TensorFlow</button><button aria-controls="panel-0-TWluZFNwb3Jl" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-TWluZFNwb3Jl" name="TWluZFNwb3Jl" role="tab" tabindex="-1">MindSpore</button></div><div aria-labelledby="tab-0-UHlUb3JjaA==" class="sphinx-tabs-panel group-tab" id="panel-0-UHlUb3JjaA==" name="UHlUb3JjaA==" role="tabpanel" tabindex="0"><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -393,13 +399,14 @@
 </div>
 </div></div>
 </section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="mpdqn.html" class="btn btn-neutral float-left" title="MPDQN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="sac.html" class="btn btn-neutral float-right" title="SAC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="mpdqn.html" class="btn btn-neutral float-left" title="MPDQN_Agent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sac.html" class="btn btn-neutral float-right" title="SAC_Agent" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

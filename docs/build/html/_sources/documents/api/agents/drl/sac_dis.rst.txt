@@ -1,37 +1,224 @@
-SAC
-======================
+SACDIS_Agent
+=====================================
 
-算法描述
-----------------------
+.. raw:: html
 
-SAC-Dis算法全称为soft actor-critic based on maximum entropy with discrete action，
-是一种基于执行器-评价器（actor-critic based）的深度强化学习算法。
-SACDIS分别使用不同的神经网络来拟合智能体的策略和值函数，其中拟合策略的神经网络输出的是一个分类分布，
-主要用于解决离散动作空间下的控制问题。
-SACDIS 算法与SAC算法不同之处在于其策略网络是一个分类分布，用来解决离散动作空间控制问题。
-SACDIS算法仍然要在最大化累计奖励的同时对离散策略的熵进行最大化。
+    <br><hr>
 
-在本算法库中，SACDIS的前向传播分为representation，eval_policy, eval_Q三个部分。
-representation由包含单隐层的多层感知器MLP构成，输入为智能体观测的状态信息，输出为256维的隐状态信息。
-eval_a 模块的输入为representation的输出，再次经过单隐层的MLP网络输出动作的高斯分布，
-智能体通过在分类分布中选择最后施加于环境中的动作。
-Eval_Q模块的输入为representation的输出，再次经过单隐层的MLP网络输出动作的价值。
-此外，SACDIS还包含target_Q作为目标Q网络，目标网络与在线网络结构系统相同，参数和在线网络保持周期性一致。
+**PyTorch:**
 
-算法出处
-----------------------
+.. py:class:: 
+  xuanpolicy.torch.agent.policy_gradient.sacdis_agent.SACDIS_Agent(config, envs, policy, optimizer, scheduler, device)
 
-**论文链接**:
-`Soft actor-critic for discrete action settings 
-<https://arxiv.org/pdf/1910.07207.pdf>`_
+  :param config: Provides hyper parameters.
+  :type config: Namespace
+  :param envs: The vectorized environments.
+  :type envs: xuanpolicy.environments.vector_envs.vector_env.VecEnv
+  :param policy: The policy that provides actions and values.
+  :type policy: nn.Module
+  :param optimizer: The optimizers of actor and critic that update the parameters.
+  :type optimizer: list[torch.optim.Optimizer]
+  :param scheduler: Implement the learning rate decay.
+  :type scheduler: torch.optim.lr_scheduler._LRScheduler
+  :param device: Choose CPU or GPU to train the model.
+  :type device: str, int, torch.device
 
-**论文引用信息**:
+.. py:function:: 
+  xuanpolicy.torch.agent.policy_gradient.sacdis_agent.SACDIS_Agent._action(obs)
+  
+  Calculate actions according to the observations.
 
-::
+  :param obs: The observation of current step.
+  :type obs: numpy.ndarray
+  :return: **action** - The actions to be executed.
+  :rtype: np.ndarray
+  
+.. py:function:: 
+  xuanpolicy.torch.agent.policy_gradient.sacdis_agent.SACDIS_Agent.train(train_steps)
+  
+  Train the SACDIS agent.
 
-    @article{christodoulou2019soft,
-        title={Soft actor-critic for discrete action settings},
-        author={Christodoulou, Petros},
-        journal={arXiv preprint arXiv:1910.07207},
-        year={2019}
-    }
+  :param train_steps: The number of steps for training.
+  :type train_steps: int
+
+.. py:function:: 
+  xuanpolicy.torch.agent.policy_gradient.sacdis_agent.SACDIS_Agent.test(env_fn, test_episodes)
+  
+  Test the trained model.
+
+  :param env_fn: The function of making environments.
+  :param test_episodes: The number of testing episodes.
+  :type test_episodes: int
+  :return: **scores** - The accumulated scores of these episodes.
+  :rtype: list
+
+.. raw:: html
+
+    <br><hr>
+
+**TensorFlow:**
+
+.. raw:: html
+
+    <br><hr>
+
+**MindSpore:**
+
+.. raw:: html
+
+    <br><hr>
+
+源码
+-----------------
+
+.. tabs::
+  
+  .. group-tab:: PyTorch
+    
+    .. code-block:: python3
+
+        from xuanpolicy.torch.agents import *
+
+        class SACDIS_Agent(Agent):
+            def __init__(self,
+                        config: Namespace,
+                        envs: DummyVecEnv_Gym,
+                        policy: nn.Module,
+                        optimizer: Sequence[torch.optim.Optimizer],
+                        scheduler: Optional[Sequence[torch.optim.lr_scheduler._LRScheduler]] = None,
+                        device: Optional[Union[int, str, torch.device]] = None):
+                self.render = config.render
+                self.n_envs = envs.num_envs
+
+                self.gamma = config.gamma
+                self.train_frequency = config.training_frequency
+                self.start_training = config.start_training
+                self.start_noise = config.start_noise
+                self.end_noise = config.end_noise
+                self.noise_scale = config.start_noise
+
+                self.observation_space = envs.observation_space
+                self.action_space = envs.action_space
+                self.auxiliary_info_shape = {}
+                self.atari = True if config.env_name == "Atari" else False
+                Buffer = DummyOffPolicyBuffer_Atari if self.atari else DummyOffPolicyBuffer
+                memory = Buffer(self.observation_space,
+                                self.action_space,
+                                self.auxiliary_info_shape,
+                                self.n_envs,
+                                config.n_size,
+                                config.batch_size)
+                learner = SACDIS_Learner(policy,
+                                        optimizer,
+                                        scheduler,
+                                        config.device,
+                                        config.model_dir,
+                                        config.gamma,
+                                        config.tau)
+                super(SACDIS_Agent, self).__init__(config, envs, policy, memory, learner, device,
+                                                config.log_dir, config.model_dir)
+
+            def _action(self, obs):
+                _, act_prob, act_distribution = self.policy(obs)
+                action = act_distribution.sample()
+                action = action.detach().cpu().numpy()
+                return action
+
+            def train(self, train_steps):
+                obs = self.envs.buf_obs
+                for _ in tqdm(range(train_steps)):
+                    step_info = {}
+                    self.obs_rms.update(obs)
+                    obs = self._process_observation(obs)
+                    acts = self._action(obs)
+                    next_obs, rewards, terminals, trunctions, infos = self.envs.step(acts)
+                    self.memory.store(obs, acts, self._process_reward(rewards), terminals, self._process_observation(next_obs))
+                    if self.current_step > self.start_training and self.current_step % self.train_frequency == 0:
+                        obs_batch, act_batch, rew_batch, terminal_batch, next_batch = self.memory.sample()
+                        step_info = self.learner.update(obs_batch, act_batch, rew_batch, next_batch, terminal_batch)
+                        self.log_infos(step_info, self.current_step)
+
+                    self.returns = self.gamma * self.returns + rewards
+                    obs = next_obs
+                    for i in range(self.n_envs):
+                        if terminals[i] or trunctions[i]:
+                            if self.atari and (~trunctions[i]):
+                                pass
+                            else:
+                                obs[i] = infos[i]["reset_obs"]
+                                self.ret_rms.update(self.returns[i:i + 1])
+                                self.returns[i] = 0.0
+                                self.current_episode[i] += 1
+                                if self.use_wandb:
+                                    step_info["Episode-Steps/env-%d" % i] = infos[i]["episode_step"]
+                                    step_info["Train-Episode-Rewards/env-%d" % i] = infos[i]["episode_score"]
+                                else:
+                                    step_info["Episode-Steps"] = {"env-%d" % i: infos[i]["episode_step"]}
+                                    step_info["Train-Episode-Rewards"] = {"env-%d" % i: infos[i]["episode_score"]}
+                                self.log_infos(step_info, self.current_step)
+                    self.current_step += self.n_envs
+
+            def test(self, env_fn, test_episodes):
+                test_envs = env_fn()
+                num_envs = test_envs.num_envs
+                videos, episode_videos = [[] for _ in range(num_envs)], []
+                current_episode, scores, best_score = 0, [], -np.inf
+                obs, infos = test_envs.reset()
+                if self.config.render_mode == "rgb_array" and self.render:
+                    images = test_envs.render(self.config.render_mode)
+                    for idx, img in enumerate(images):
+                        videos[idx].append(img)
+
+                while current_episode < test_episodes:
+                    self.obs_rms.update(obs)
+                    obs = self._process_observation(obs)
+                    acts = self._action(obs)
+                    next_obs, rewards, terminals, trunctions, infos = test_envs.step(acts)
+                    if self.config.render_mode == "rgb_array" and self.render:
+                        images = test_envs.render(self.config.render_mode)
+                        for idx, img in enumerate(images):
+                            videos[idx].append(img)
+
+                    obs = next_obs
+                    for i in range(num_envs):
+                        if terminals[i] or trunctions[i]:
+                            if self.atari and (~trunctions[i]):
+                                pass
+                            else:
+                                obs[i] = infos[i]["reset_obs"]
+                                scores.append(infos[i]["episode_score"])
+                                current_episode += 1
+                                if best_score < infos[i]["episode_score"]:
+                                    best_score = infos[i]["episode_score"]
+                                    episode_videos = videos[i].copy()
+                                if self.config.test_mode:
+                                    print("Episode: %d, Score: %.2f" % (current_episode, infos[i]["episode_score"]))
+
+                if self.config.render_mode == "rgb_array" and self.render:
+                    # time, height, width, channel -> time, channel, height, width
+                    videos_info = {"Videos_Test": np.array([episode_videos], dtype=np.uint8).transpose((0, 1, 4, 2, 3))}
+                    self.log_videos(info=videos_info, fps=50, x_index=self.current_step)
+
+                if self.config.test_mode:
+                    print("Best Score: %.2f" % (best_score))
+
+                test_info = {
+                    "Test-Episode-Rewards/Mean-Score": np.mean(scores),
+                    "Test-Episode-Rewards/Std-Score": np.std(scores)
+                }
+                self.log_infos(test_info, self.current_step)
+
+                test_envs.close()
+
+                return scores
+
+
+
+
+  .. group-tab:: TensorFlow
+
+    .. code-block:: python3
+
+  .. group-tab:: MindSpore
+
+    .. code-block:: python3

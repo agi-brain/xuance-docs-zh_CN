@@ -148,7 +148,7 @@ To create new MARL agents, you should build a class inherit from ``xuanpolicy.to
 
    <br><hr>
 
-原始代码
+源码
 -----------------
 
 .. tabs::

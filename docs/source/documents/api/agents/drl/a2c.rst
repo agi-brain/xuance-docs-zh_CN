@@ -1,5 +1,11 @@
 A2C_Agent
-------------------------------------
+=====================================
+
+.. raw:: html
+
+    <br><hr>
+
+**PyTorch:**
 
 .. py:class:: 
   xuanpolicy.torch.agent.policy_gradient.a2c_agent.A2C_Agent(config, envs, policy, optimizer, scheduler, device)
@@ -10,7 +16,7 @@ A2C_Agent
   :type envs: xuanpolicy.environments.vector_envs.vector_env.VecEnv
   :param policy: The policy that provides actions and values.
   :type policy: nn.Module
-  :param optimizer: The optimizer that update the parameters.
+  :param optimizer: The optimizer that updates the parameters.
   :type optimizer: torch.optim.Optimizer
   :param scheduler: Implement the learning rate decay.
   :type scheduler: torch.optim.lr_scheduler._LRScheduler
@@ -46,6 +52,24 @@ A2C_Agent
   :return: **scores** - The accumulated scores of these episodes.
   :rtype: list
 
+.. raw:: html
+
+    <br><hr>
+
+**TensorFlow:**
+
+.. raw:: html
+
+    <br><hr>
+
+**MindSpore:**
+
+.. raw:: html
+
+    <br><hr>
+
+源码
+-----------------
 
 .. tabs::
   

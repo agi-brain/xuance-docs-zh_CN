@@ -162,7 +162,7 @@ To create a new Agent, you should build a class inherit from ``xuanpolicy.torch.
 
    <br><hr>
 
-原始代码
+源码
 -----------------
 
 .. tabs::
