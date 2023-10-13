@@ -6,7 +6,6 @@
 欢迎来到‘玄策’中文文档!
 ======================================
 
-**XuanPolicy** is an open-source ensemble of Deep Reinforcement Learning (DRL) algorithm implementations.
 **玄策** 是一个深度强化学习（Deep Reinforcement Learning, DRL）开源算法库。“玄”字意为玄妙的，“策”意为策略。
 在深度强化学习算法中，智能体通过和环境交互不断试错，最终学习出一个最优策略完成任务，而不需要对环境或动力学模型建立精确的模型，因此该算法库被称为“玄妙的策略”，故而取名“玄策”。
 
