@@ -58,11 +58,11 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="documents/api/agents.html">Agents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documents/api/representations.html">Representations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/api/policies.html">状态表征</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/api/learners.html">学习器Learner类</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/api/environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/policies.html">Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/learners.html">Learners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documents/api/configs.html">Configs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documents/api/common.html">common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/common.html">Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documents/api/environments.html">Environments</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
@@ -321,6 +321,32 @@
         <li><a href="documents/api/agents/marl/basic_marl_class.html#xuanpolicy.torch.agents.agents_marl.MARLAgent.train">xuanpolicy.torch.agents.agents_marl.MARLAgent.train()</a>
 </li>
         <li><a href="documents/api/agents/marl/basic_marl_class.html#xuanpolicy.torch.agents.agents_marl.RandomAgents.act">xuanpolicy.torch.agents.agents_marl.RandomAgents.act()</a>
+</li>
+        <li><a href="documents/api/representations/cnn.html#xuanpolicy.torch.representations.cnn.AC_CNN_Atari._create_network">xuanpolicy.torch.representations.cnn.AC_CNN_Atari._create_network()</a>
+</li>
+        <li><a href="documents/api/representations/cnn.html#xuanpolicy.torch.representations.cnn.AC_CNN_Atari._init_layer">xuanpolicy.torch.representations.cnn.AC_CNN_Atari._init_layer()</a>
+</li>
+        <li><a href="documents/api/representations/cnn.html#xuanpolicy.torch.representations.cnn.AC_CNN_Atari.forward">xuanpolicy.torch.representations.cnn.AC_CNN_Atari.forward()</a>
+</li>
+        <li><a href="documents/api/representations/cnn.html#xuanpolicy.torch.representations.cnn.Basic_CNN._create_network">xuanpolicy.torch.representations.cnn.Basic_CNN._create_network()</a>
+</li>
+        <li><a href="documents/api/representations/cnn.html#xuanpolicy.torch.representations.cnn.Basic_CNN.forward">xuanpolicy.torch.representations.cnn.Basic_CNN.forward()</a>
+</li>
+        <li><a href="documents/api/representations/mlp.html#xuanpolicy.torch.representations.mlp.Basic_Identical.forward">xuanpolicy.torch.representations.mlp.Basic_Identical.forward()</a>
+</li>
+        <li><a href="documents/api/representations/mlp.html#xuanpolicy.torch.representations.mlp.Basic_MLP._create_network">xuanpolicy.torch.representations.mlp.Basic_MLP._create_network()</a>
+</li>
+        <li><a href="documents/api/representations/mlp.html#xuanpolicy.torch.representations.mlp.Basic_MLP.forward">xuanpolicy.torch.representations.mlp.Basic_MLP.forward()</a>
+</li>
+        <li><a href="documents/api/representations/rnn.html#xuanpolicy.torch.representations.rnn.Basic_RNN._create_network">xuanpolicy.torch.representations.rnn.Basic_RNN._create_network()</a>
+</li>
+        <li><a href="documents/api/representations/rnn.html#xuanpolicy.torch.representations.rnn.Basic_RNN.forward">xuanpolicy.torch.representations.rnn.Basic_RNN.forward()</a>
+</li>
+        <li><a href="documents/api/representations/rnn.html#xuanpolicy.torch.representations.rnn.Basic_RNN.get_hidden_item">xuanpolicy.torch.representations.rnn.Basic_RNN.get_hidden_item()</a>
+</li>
+        <li><a href="documents/api/representations/rnn.html#xuanpolicy.torch.representations.rnn.Basic_RNN.init_hidden">xuanpolicy.torch.representations.rnn.Basic_RNN.init_hidden()</a>
+</li>
+        <li><a href="documents/api/representations/rnn.html#xuanpolicy.torch.representations.rnn.Basic_RNN.init_hidden_item">xuanpolicy.torch.representations.rnn.Basic_RNN.init_hidden_item()</a>
 </li>
       </ul></li>
   </ul></td>
@@ -724,8 +750,6 @@
         <li><a href="documents/api/agents/drl/ppo_clip.html#xuanpolicy.torch.agent.policy_gradient.ppoclip_agent.PPOCLIP_Agent.test">built-in function</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     xuanpolicy.torch.agent.policy_gradient.ppoclip_agent.PPOCLIP_Agent.train()
 
@@ -779,6 +803,8 @@
         <li><a href="documents/api/agents/drl/sac.html#xuanpolicy.torch.agent.policy_gradient.sac_agent.SAC_Agent.train">built-in function</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="documents/api/agents/drl/sac_dis.html#xuanpolicy.torch.agent.policy_gradient.sacdis_agent.SACDIS_Agent">xuanpolicy.torch.agent.policy_gradient.sacdis_agent.SACDIS_Agent (built-in class)</a>
 </li>
       <li>
@@ -1134,6 +1160,107 @@
 
       <ul>
         <li><a href="documents/api/agents/marl/basic_marl_class.html#xuanpolicy.torch.agents.agents_marl.RandomAgents.act">built-in function</a>
+</li>
+      </ul></li>
+      <li><a href="documents/api/representations/cnn.html#xuanpolicy.torch.representations.cnn.AC_CNN_Atari">xuanpolicy.torch.representations.cnn.AC_CNN_Atari (built-in class)</a>
+</li>
+      <li>
+    xuanpolicy.torch.representations.cnn.AC_CNN_Atari._create_network()
+
+      <ul>
+        <li><a href="documents/api/representations/cnn.html#xuanpolicy.torch.representations.cnn.AC_CNN_Atari._create_network">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    xuanpolicy.torch.representations.cnn.AC_CNN_Atari._init_layer()
+
+      <ul>
+        <li><a href="documents/api/representations/cnn.html#xuanpolicy.torch.representations.cnn.AC_CNN_Atari._init_layer">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    xuanpolicy.torch.representations.cnn.AC_CNN_Atari.forward()
+
+      <ul>
+        <li><a href="documents/api/representations/cnn.html#xuanpolicy.torch.representations.cnn.AC_CNN_Atari.forward">built-in function</a>
+</li>
+      </ul></li>
+      <li><a href="documents/api/representations/cnn.html#xuanpolicy.torch.representations.cnn.Basic_CNN">xuanpolicy.torch.representations.cnn.Basic_CNN (built-in class)</a>
+</li>
+      <li>
+    xuanpolicy.torch.representations.cnn.Basic_CNN._create_network()
+
+      <ul>
+        <li><a href="documents/api/representations/cnn.html#xuanpolicy.torch.representations.cnn.Basic_CNN._create_network">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    xuanpolicy.torch.representations.cnn.Basic_CNN.forward()
+
+      <ul>
+        <li><a href="documents/api/representations/cnn.html#xuanpolicy.torch.representations.cnn.Basic_CNN.forward">built-in function</a>
+</li>
+      </ul></li>
+      <li><a href="documents/api/representations/mlp.html#xuanpolicy.torch.representations.mlp.Basic_Identical">xuanpolicy.torch.representations.mlp.Basic_Identical (built-in class)</a>
+</li>
+      <li>
+    xuanpolicy.torch.representations.mlp.Basic_Identical.forward()
+
+      <ul>
+        <li><a href="documents/api/representations/mlp.html#xuanpolicy.torch.representations.mlp.Basic_Identical.forward">built-in function</a>
+</li>
+      </ul></li>
+      <li><a href="documents/api/representations/mlp.html#xuanpolicy.torch.representations.mlp.Basic_MLP">xuanpolicy.torch.representations.mlp.Basic_MLP (built-in class)</a>
+</li>
+      <li>
+    xuanpolicy.torch.representations.mlp.Basic_MLP._create_network()
+
+      <ul>
+        <li><a href="documents/api/representations/mlp.html#xuanpolicy.torch.representations.mlp.Basic_MLP._create_network">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    xuanpolicy.torch.representations.mlp.Basic_MLP.forward()
+
+      <ul>
+        <li><a href="documents/api/representations/mlp.html#xuanpolicy.torch.representations.mlp.Basic_MLP.forward">built-in function</a>
+</li>
+      </ul></li>
+      <li><a href="documents/api/representations/rnn.html#xuanpolicy.torch.representations.rnn.Basic_RNN">xuanpolicy.torch.representations.rnn.Basic_RNN (built-in class)</a>
+</li>
+      <li>
+    xuanpolicy.torch.representations.rnn.Basic_RNN._create_network()
+
+      <ul>
+        <li><a href="documents/api/representations/rnn.html#xuanpolicy.torch.representations.rnn.Basic_RNN._create_network">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    xuanpolicy.torch.representations.rnn.Basic_RNN.forward()
+
+      <ul>
+        <li><a href="documents/api/representations/rnn.html#xuanpolicy.torch.representations.rnn.Basic_RNN.forward">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    xuanpolicy.torch.representations.rnn.Basic_RNN.get_hidden_item()
+
+      <ul>
+        <li><a href="documents/api/representations/rnn.html#xuanpolicy.torch.representations.rnn.Basic_RNN.get_hidden_item">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    xuanpolicy.torch.representations.rnn.Basic_RNN.init_hidden()
+
+      <ul>
+        <li><a href="documents/api/representations/rnn.html#xuanpolicy.torch.representations.rnn.Basic_RNN.init_hidden">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    xuanpolicy.torch.representations.rnn.Basic_RNN.init_hidden_item()
+
+      <ul>
+        <li><a href="documents/api/representations/rnn.html#xuanpolicy.torch.representations.rnn.Basic_RNN.init_hidden_item">built-in function</a>
 </li>
       </ul></li>
   </ul></td>

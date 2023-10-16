@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>状态表征 &mdash; 玄策 v0.1.11 documentation</title>
+  <title>Policies &mdash; 玄策 v0.1.11 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="学习器Learner类" href="learners.html" />
-    <link rel="prev" title="状态表征" href="representations.html" /> 
+    <link rel="next" title="Learners" href="learners.html" />
+    <link rel="prev" title="RNN-based" href="representations/rnn.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -59,17 +59,17 @@
 <p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="agents.html">Agents</a></li>
-<li class="toctree-l1"><a class="reference internal" href="representations.html">状态表征</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">状态表征</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">离散动作随机策略</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">高斯分布随机策略</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">确定性策略</a></li>
+<li class="toctree-l1"><a class="reference internal" href="representations.html">Representations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Policies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">离散动作随机策略</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">高斯分布随机策略</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">确定性策略</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="learners.html">学习器Learner类</a></li>
-<li class="toctree-l1"><a class="reference internal" href="environments.html">环境封装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="learners.html">Learners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configs.html">Configs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common.html">common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common.html">Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environments.html">Environments</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
@@ -99,7 +99,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">状态表征</li>
+      <li class="breadcrumb-item active">Policies</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/documents/api/policies.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -109,10 +109,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="id1">
-<h1>状态表征<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
-<section id="id2">
-<h2>离散动作随机策略<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+  <section id="policies">
+<h1>Policies<a class="headerlink" href="#policies" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2>离散动作随机策略<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p>针对离散动作随机策略，本软件根据pytorch和mindspore两种编程框架的差异，
 通过不同的方式加以实现，相关定义均位于各自目录的policy子文件夹下。
 其中，使用torch.distributions和mindspore.nn.probability.distribution类
@@ -120,16 +120,16 @@
 根据动作的维度大小确定Categorical的类别数量。
 相关的策略包括：ActorCriticPolicy，ActorPolicy两种。</p>
 </section>
-<section id="id3">
-<h2>高斯分布随机策略<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<section id="id2">
+<h2>高斯分布随机策略<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>针对连续动作随机策略，本软件根据pytorch和mindspore两种编程框架的差异，
 通过不同的方式加以实现，相关定义均位于各自目录的policy子文件夹下。
 其中，使用torch.distributions和mindspore.nn.probability.distribution工具
 分别实现pytorch和mindspore两种编程框架下的Gaussian分布。
 根据动作的维度大小确定均值和方差的维度。相关的策略包括：ActorCriticPolicy，ActorPolicy两种。</p>
 </section>
-<section id="id4">
-<h2>确定性策略<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<section id="id3">
+<h2>确定性策略<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p>确定性策略主要用于DQN和DDPG两大类算法的策略实现。
 确定性策略包括BasicQnetwork, DuelQnetwork, DDPGPolicy, TD3Policy,
 MixingQnetwork, Weighted_MixingQnetwork, Qtran_MixingQnetwork,
@@ -144,8 +144,8 @@ DCG_policy,Basic_DDPG_policy，MADDPG_policy等。
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="representations.html" class="btn btn-neutral float-left" title="状态表征" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="learners.html" class="btn btn-neutral float-right" title="学习器Learner类" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="representations/rnn.html" class="btn btn-neutral float-left" title="RNN-based" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="learners.html" class="btn btn-neutral float-right" title="Learners" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

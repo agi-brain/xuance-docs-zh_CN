@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>环境封装 &mdash; 玄策 v0.1.11 documentation</title>
+  <title>Environments &mdash; 玄策 v0.1.11 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Configs" href="configs.html" />
-    <link rel="prev" title="学习器Learner类" href="learners.html" /> 
+    <link rel="next" title="Toy运行结果" href="../benchmark/toy.html" />
+    <link rel="prev" title="Common" href="common.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -59,17 +59,17 @@
 <p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="agents.html">Agents</a></li>
-<li class="toctree-l1"><a class="reference internal" href="representations.html">状态表征</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html">状态表征</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learners.html">学习器Learner类</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">环境封装</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">算法库支持的仿真环境</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">用户自定义环境</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">向量化仿真环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="representations.html">Representations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policies.html">Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="learners.html">Learners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configs.html">Configs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common.html">Common</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Environments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">算法库支持的仿真环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">用户自定义环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">向量化仿真环境</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="configs.html">Configs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common.html">common</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">参考基准</span></p>
 <ul>
@@ -99,7 +99,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">环境封装</li>
+      <li class="breadcrumb-item active">Environments</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/documents/api/environments.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -109,16 +109,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="id1">
-<h1>环境封装<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
-<section id="id2">
-<h2>算法库支持的仿真环境<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+  <section id="environments">
+<h1>Environments<a class="headerlink" href="#environments" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2>算法库支持的仿真环境<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p>本软件包含的单智能体任务仿真环境有Atari，Mujoco，Robotics，Toy，
 包含的多智能体任务仿真环境有pettingzoo开源环境下的Atari，butterfly，magent，mpe，sisl等。
 每个仿真环境下包含丰富的任务场景，如下表所示。</p>
 </section>
-<section id="id3">
-<h2>用户自定义环境<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<section id="id2">
+<h2>用户自定义环境<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>若用户所使用的仿真环境不在表1中，可对环境进行二次封装并存放至./environment目录下。具体添加方法如下：</p>
 <p>步骤一：</p>
 <p>在./environment目录下创建文件夹myenv（名称自拟），进入myenv文件件并创建my_env.py文件（文件名自拟），编写如下内容：</p>
@@ -151,8 +151,8 @@
 </pre></div>
 </div>
 </section>
-<section id="id4">
-<h2>向量化仿真环境<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<section id="id3">
+<h2>向量化仿真环境<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p>为了提高采样效率，节省算法运行时间，本软件支持向量化仿真环境设置，即运行多个仿真环境同时采样。
 向量化环境基类VecEnv的定义位于./environment/vector_envs/vector_env.py文件中，
 在此基类上定义继承类DummyVecEnv及DummyVecEnv_MAS，分别用于实现单智能体和多智能体向量化仿真环境，
@@ -164,8 +164,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="learners.html" class="btn btn-neutral float-left" title="学习器Learner类" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="configs.html" class="btn btn-neutral float-right" title="Configs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="common.html" class="btn btn-neutral float-left" title="Common" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../benchmark/toy.html" class="btn btn-neutral float-right" title="Toy运行结果" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

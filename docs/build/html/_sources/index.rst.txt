@@ -55,13 +55,13 @@ MindSpore_。并且支持CPU、GPU运算，能够在Linux，Windows，MacOS等�
    :maxdepth: 1
    :caption: API:
 
-   documents/api/agents
+   documents/api/agents.rst
    documents/api/representations
    documents/api/policies
    documents/api/learners
-   documents/api/environments
    documents/api/configs
    documents/api/common
+   documents/api/environments
 
 .. raw:: html
 
