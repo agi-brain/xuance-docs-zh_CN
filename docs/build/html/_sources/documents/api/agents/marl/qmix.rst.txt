@@ -1,52 +1,174 @@
-QMIX
-======================
+QMIX_Agents
+=====================================
 
-算法描述
-----------------------
+.. raw:: html
 
-QMIX算法全称为Q-Mixing networks，该算法同样是在VDN算法基础上发展而来。
-由于VDN利用加和约束优化各智能体的值函数，极大地限制了算法在复杂问题上的决策能力。
-为了解决该问题，QMIX算法将VDN的加和性约束放宽至单调性约束。
-QMIX算法将各智能体的独立Q值经过qmixer模块，得到整体Q值，该整体Q值和独立Q值保持单调性关系。
-QMIX的更新方式同VDN一样，使用端到端训练。
+    <br><hr>
 
-算法出处
-----------------------
+**PyTorch:**
 
-**论文链接**:
+.. py:class:: 
+    xuanpolicy.torch.agent.mutli_agent_rl.qmix_agents.QMIX_Agents(config, envs, device)
 
-- `QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning <http://proceedings.mlr.press/v80/rashid18a/rashid18a.pdf>`_
+    :param config: Provides hyper parameters.
+    :type config: Namespace
+    :param envs: The vectorized environments.
+    :type envs: xuanpolicy.environments.vector_envs.vector_env.VecEnv
+    :param device: Choose CPU or GPU to train the model.
+    :type device: str, int, torch.device
 
-- `Monotonic value function factorisation for deep multi-agent reinforcement learning <https://www.jmlr.org/papers/volume21/20-081/20-081.pdf>`_
+.. py:function:: 
+    xuanpolicy.torch.agent.mutli_agent_rl.qmix_agents.QMIX_Agents.act(obs_n, *rnn_hidden, avail_actions=None, test_mode=False)
 
-**引用信息**:
+    Calculate joint actions for N agents according to the joint observations.
 
-::
+    :param obs_n: The joint observations of N agents.
+    :type obs_n: numpy.ndarray
+    :param rnn_hidden: The hidden states of RNN.
+    :type rnn_hidden: tuple(numpy.ndarray, numpy.ndarray)
+    :param avail_actions: The actions mask for available actions in the environment.
+    :type avail_actions: numpy.ndarray
+    :param test_mode: is True for selecting greedy actions, is False for selecting epsilon-greedy actions.
+    :type test_mode: bool
+    :return: **hidden_state**, **actions_n** - The next hidden states of RNN and the joint actions.
+    :rtype: tuple(numpy.ndarray, numpy.ndarray), np.ndarray
+  
+.. py:function:: 
+    xuanpolicy.torch.agent.mutli_agent_rl.qmix_agents.QMIX_Agents.train(i_step)
 
-    @InProceedings{pmlr-v80-rashid18a,
-        title = {{QMIX}: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning},
-        author = {Rashid, Tabish and Samvelyan, Mikayel and Schroeder, Christian and Farquhar, Gregory and Foerster, Jakob and Whiteson, Shimon},
-        booktitle = {Proceedings of the 35th International Conference on Machine Learning},
-        pages = {4295--4304},
-        year = {2018},
-        editor = {Dy, Jennifer and Krause, Andreas},
-        volume = {80},
-        series = {Proceedings of Machine Learning Research},
-        month = {10--15 Jul},
-        publisher = {PMLR},
-        pdf = {http://proceedings.mlr.press/v80/rashid18a/rashid18a.pdf},
-        url = {https://proceedings.mlr.press/v80/rashid18a.html},
-        abstract = {In many real-world settings, a team of agents must coordinate their behaviour while acting in a decentralised way. At the same time, it is often possible to train the agents in a centralised fashion in a simulated or laboratory setting, where global state information is available and communication constraints are lifted. Learning joint action-values conditioned on extra state information is an attractive way to exploit centralised learning, but the best strategy for then extracting decentralised policies is unclear. Our solution is QMIX, a novel value-based method that can train decentralised policies in a centralised end-to-end fashion. QMIX employs a network that estimates joint action-values as a complex non-linear combination of per-agent values that condition only on local observations. We structurally enforce that the joint-action value is monotonic in the per-agent values, which allows tractable maximisation of the joint action-value in off-policy learning, and guarantees consistency between the centralised and decentralised policies. We evaluate QMIX on a challenging set of StarCraft II micromanagement tasks, and show that QMIX significantly outperforms existing value-based multi-agent reinforcement learning methods.}
-    }
+    Train the multi-agent reinforcement learning model.
+
+    :param i_step: The i-th step during training.
+    :type i_step: int
+    :return: **info_train** - the information of the training process.
+    :rtype: dict
+
+.. raw:: html
+
+    <br><hr>
+
+**TensorFlow:**
 
 
-    @article{rashid2020monotonic,
-        title={Monotonic value function factorisation for deep multi-agent reinforcement learning},
-        author={Rashid, Tabish and Samvelyan, Mikayel and De Witt, Christian Schroeder and Farquhar, Gregory and Foerster, Jakob and Whiteson, Shimon},
-        journal={The Journal of Machine Learning Research},
-        volume={21},
-        number={1},
-        pages={7234--7284},
-        year={2020},
-        publisher={JMLRORG}
-    }
+.. raw:: html
+
+    <br><hr>
+
+**MindSpore:**
+
+.. raw:: html
+
+    <br><hr>
+
+源码
+-----------------
+
+.. tabs::
+  
+    .. group-tab:: PyTorch
+    
+        .. code-block:: python3
+
+            from xuanpolicy.torch.agents import *
+
+            class QMIX_Agents(MARLAgents):
+                def __init__(self,
+                            config: Namespace,
+                            envs: DummyVecEnv_Pettingzoo,
+                            device: Optional[Union[int, str, torch.device]] = None):
+                    self.gamma = config.gamma
+                    self.start_greedy, self.end_greedy = config.start_greedy, config.end_greedy
+                    self.egreedy = self.start_greedy
+                    self.delta_egreedy = (self.start_greedy - self.end_greedy) / config.decay_step_greedy
+
+                    if config.state_space is not None:
+                        config.dim_state, state_shape = config.state_space.shape, config.state_space.shape
+                    else:
+                        config.dim_state, state_shape = None, None
+
+                    input_representation = get_repre_in(config)
+                    self.use_recurrent = config.use_recurrent
+                    if self.use_recurrent:
+                        kwargs_rnn = {"N_recurrent_layers": config.N_recurrent_layers,
+                                    "dropout": config.dropout,
+                                    "rnn": config.rnn}
+                        representation = REGISTRY_Representation[config.representation](*input_representation, **kwargs_rnn)
+                    else:
+                        representation = REGISTRY_Representation[config.representation](*input_representation)
+                    mixer = QMIX_mixer(config.dim_state[0], config.hidden_dim_mixing_net, config.hidden_dim_hyper_net,
+                                    config.n_agents, device)
+                    input_policy = get_policy_in_marl(config, representation, mixer=mixer)
+                    policy = REGISTRY_Policy[config.policy](*input_policy,
+                                                            use_recurrent=config.use_recurrent,
+                                                            rnn=config.rnn)
+                    optimizer = torch.optim.Adam(policy.parameters(), config.learning_rate, eps=1e-5)
+                    scheduler = torch.optim.lr_scheduler.LinearLR(optimizer, start_factor=1.0, end_factor=0.5,
+                                                                total_iters=get_total_iters(config.agent_name, config))
+                    self.observation_space = envs.observation_space
+                    self.action_space = envs.action_space
+                    self.representation_info_shape = policy.representation.output_shapes
+                    self.auxiliary_info_shape = {}
+
+                    buffer = MARL_OffPolicyBuffer_RNN if self.use_recurrent else MARL_OffPolicyBuffer
+                    input_buffer = (config.n_agents, state_shape, config.obs_shape, config.act_shape, config.rew_shape,
+                                    config.done_shape, envs.num_envs, config.buffer_size, config.batch_size)
+                    memory = buffer(*input_buffer, max_episode_length=envs.max_episode_length, dim_act=config.dim_act)
+
+                    learner = QMIX_Learner(config, policy, optimizer, scheduler,
+                                        config.device, config.model_dir, config.gamma,
+                                        config.sync_frequency)
+                    super(QMIX_Agents, self).__init__(config, envs, policy, memory, learner, device,
+                                                    config.log_dir, config.model_dir)
+                    self.on_policy = False
+
+                def act(self, obs_n, *rnn_hidden, avail_actions=None, test_mode=False):
+                    batch_size = obs_n.shape[0]
+                    agents_id = torch.eye(self.n_agents).unsqueeze(0).expand(batch_size, -1, -1).to(self.device)
+                    obs_in = torch.Tensor(obs_n).view([batch_size, self.n_agents, -1]).to(self.device)
+                    if self.use_recurrent:
+                        batch_agents = batch_size * self.n_agents
+                        hidden_state, greedy_actions, _ = self.policy(obs_in.view(batch_agents, 1, -1),
+                                                                    agents_id.view(batch_agents, 1, -1),
+                                                                    *rnn_hidden,
+                                                                    avail_actions=avail_actions.reshape(batch_agents, 1, -1))
+                        greedy_actions = greedy_actions.view(batch_size, self.n_agents)
+                    else:
+                        hidden_state, greedy_actions, _ = self.policy(obs_in, agents_id, avail_actions=avail_actions)
+                    greedy_actions = greedy_actions.cpu().detach().numpy()
+
+                    if test_mode:
+                        return hidden_state, greedy_actions
+                    else:
+                        if avail_actions is None:
+                            random_actions = np.random.choice(self.dim_act, [self.nenvs, self.n_agents])
+                        else:
+                            random_actions = Categorical(torch.Tensor(avail_actions)).sample().numpy()
+                        if np.random.rand() < self.egreedy:
+                            return hidden_state, random_actions
+                        else:
+                            return hidden_state, greedy_actions
+
+                def train(self, i_step):
+                    if self.egreedy >= self.end_greedy:
+                        self.egreedy = self.start_greedy - self.delta_egreedy * i_step
+
+                    if i_step > self.start_training:
+                        sample = self.memory.sample()
+                        if self.use_recurrent:
+                            info_train = self.learner.update_recurrent(sample)
+                        else:
+                            info_train = self.learner.update(sample)
+                        info_train["epsilon-greedy"] = self.egreedy
+                        return info_train
+                    else:
+                        return {}
+
+
+    .. group-tab:: TensorFlow
+    
+        .. code-block:: python3
+
+
+    .. group-tab:: MindSpore
+
+        .. code-block:: python3

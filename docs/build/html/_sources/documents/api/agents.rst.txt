@@ -26,23 +26,23 @@ Agents
   DDPG_Agent <agents/drl/ddpg>
   TD3_Agent <agents/drl/td3>
 
-  IQL_Agent <agents/marl/iql>
-  VDN_Agent <agents/marl/vdn>
-  QMIX_Agent <agents/marl/qmix>
-  WQMIX_Agent <agents/marl/wqmix>
-  QTRAN_Agent <agents/marl/qtran>
-  DCG_Agent <agents/marl/dcg>
-  IDDPG_Agent <agents/marl/iddpg>
-  MADDPG_Agent <agents/marl/maddpg>
-  ISAC_Agent <agents/marl/isac>
-  MASAC_Agent <agents/marl/masac>
-  IPPO_Agent <agents/marl/ippo>
-  MAPPO_Agent <agents/marl/mappo>
-  MATD3_Agent <agents/marl/matd3>
-  VDAC <agents/marl/vdac>
-  COMA_Agent <agents/marl/coma>
-  MFQ_Agent <agents/marl/mfq>
-  MFAC_Agent <agents/marl/mfac>
+  IQL_Agents <agents/marl/iql>
+  VDN_Agents <agents/marl/vdn>
+  QMIX_Agents <agents/marl/qmix>
+  WQMIX_Agents <agents/marl/wqmix>
+  QTRAN_Agents <agents/marl/qtran>
+  DCG_Agents <agents/marl/dcg>
+  IDDPG_Agents <agents/marl/iddpg>
+  MADDPG_Agents <agents/marl/maddpg>
+  ISAC_Agents <agents/marl/isac>
+  MASAC_Agents <agents/marl/masac>
+  IPPO_Agents <agents/marl/ippo>
+  MAPPO_Agents <agents/marl/mappo>
+  MATD3_Agents <agents/marl/matd3>
+  VDAC_Agents <agents/marl/vdac>
+  COMA_Agents <agents/marl/coma>
+  MFQ_Agents <agents/marl/mfq>
+  MFAC_Agents <agents/marl/mfac>
 
 .. raw:: html
 

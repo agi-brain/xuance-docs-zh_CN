@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MAPPO &mdash; 玄策 v0.1.11 documentation</title>
+  <title>MAPPO_Agents &mdash; 玄策 v0.1.11 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
@@ -23,11 +23,12 @@
         <script src="../../../../_static/sphinx_highlight.js"></script>
         <script src="../../../../_static/clipboard.min.js"></script>
         <script src="../../../../_static/copybutton.js"></script>
+        <script src="../../../../_static/tabs.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="MATD3" href="matd3.html" />
-    <link rel="prev" title="MAPPO" href="ippo.html" /> 
+    <link rel="next" title="MATD3_Agents" href="matd3.html" />
+    <link rel="prev" title="IPPO_Agents" href="ippo.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -80,27 +81,31 @@
 <li class="toctree-l2"><a class="reference internal" href="../drl/sac_dis.html">SACDIS_Agent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../drl/ddpg.html">DDPG_Agent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../drl/td3.html">TD3_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iql.html">IQL_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vdn.html">VDN_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qmix.html">QMIX_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wqmix.html">WQMIX_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qtran.html">QTRAN_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dcg.html">DCG_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iddpg.html">IDDPG_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="maddpg.html">MADDPG_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="isac.html">ISAC_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="masac.html">MASAC_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ippo.html">IPPO_Agent</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">MAPPO_Agent</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">算法描述</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">算法出处</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iql.html">IQL_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vdn.html">VDN_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qmix.html">QMIX_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wqmix.html">WQMIX_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qtran.html">QTRAN_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dcg.html">DCG_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iddpg.html">IDDPG_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maddpg.html">MADDPG_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isac.html">ISAC_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="masac.html">MASAC_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ippo.html">IPPO_Agents</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">MAPPO_Agents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#xuanpolicy.torch.agent.mutli_agent_rl.mappo_agents.MAPPO_Agents"><code class="docutils literal notranslate"><span class="pre">xuanpolicy.torch.agent.mutli_agent_rl.mappo_agents.MAPPO_Agents</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#xuanpolicy.torch.agent.mutli_agent_rl.mappo_agents.MAPPO_Agents.act"><code class="docutils literal notranslate"><span class="pre">xuanpolicy.torch.agent.mutli_agent_rl.mappo_agents.MAPPO_Agents.act()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xuanpolicy.torch.agent.mutli_agent_rl.mappo_agents.MAPPO_Agents.train"><code class="docutils literal notranslate"><span class="pre">xuanpolicy.torch.agent.mutli_agent_rl.mappo_agents.MAPPO_Agents.train()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="matd3.html">MATD3_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vdac.html">VDAC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coma.html">COMA_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mfq.html">MFQ_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mfac.html">MFAC_Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">源码</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="matd3.html">MATD3_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vdac.html">VDAC_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coma.html">COMA_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mfq.html">MFQ_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mfac.html">MFAC_Agents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../representations.html">状态表征</a></li>
@@ -139,7 +144,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../agents.html">Agents</a></li>
-      <li class="breadcrumb-item active">MAPPO</li>
+      <li class="breadcrumb-item active">MAPPO_Agents</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../_sources/documents/api/agents/marl/mappo.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -149,30 +154,193 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="mappo">
-<h1>MAPPO<a class="headerlink" href="#mappo" title="Permalink to this heading">¶</a></h1>
-<section id="id1">
-<h2>算法描述<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
-<p>MAPPO算法全称为Multi-agent Proximal Policy Optimization
-是从PPO算法发展而来的多智能体强化学习算法，它的基本结构和PPO算法类似，
-不同之处在于其策略网络和值函数网络均加上One-Hot向量作为智能体身份标识，以区分各不同智能体的决策信息。
-MAPPO的整体值函数采用加和的方式获取，同VDN类似。</p>
-</section>
-<section id="id2">
-<h2>算法出处<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
-<p><strong>论文链接</strong>:
-<a class="reference external" href="https://proceedings.neurips.cc/paper_files/paper/2022/file/9c1535a02f0ce079433344e14d910597-Paper-Datasets_and_Benchmarks.pdf">The surprising effectiveness of ppo in cooperative multi-agent games</a></p>
-<p><strong>论文引用信息</strong>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">yu2022surprising</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">The</span> <span class="n">surprising</span> <span class="n">effectiveness</span> <span class="n">of</span> <span class="n">ppo</span> <span class="ow">in</span> <span class="n">cooperative</span> <span class="n">multi</span><span class="o">-</span><span class="n">agent</span> <span class="n">games</span><span class="p">},</span>
-    <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Yu</span><span class="p">,</span> <span class="n">Chao</span> <span class="ow">and</span> <span class="n">Velu</span><span class="p">,</span> <span class="n">Akash</span> <span class="ow">and</span> <span class="n">Vinitsky</span><span class="p">,</span> <span class="n">Eugene</span> <span class="ow">and</span> <span class="n">Gao</span><span class="p">,</span> <span class="n">Jiaxuan</span> <span class="ow">and</span> <span class="n">Wang</span><span class="p">,</span> <span class="n">Yu</span> <span class="ow">and</span> <span class="n">Bayen</span><span class="p">,</span> <span class="n">Alexandre</span> <span class="ow">and</span> <span class="n">Wu</span><span class="p">,</span> <span class="n">Yi</span><span class="p">},</span>
-    <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">Advances</span> <span class="ow">in</span> <span class="n">Neural</span> <span class="n">Information</span> <span class="n">Processing</span> <span class="n">Systems</span><span class="p">},</span>
-    <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">35</span><span class="p">},</span>
-    <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">24611</span><span class="o">--</span><span class="mi">24624</span><span class="p">},</span>
-    <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2022</span><span class="p">}</span>
-<span class="p">}</span>
+  <section id="mappo-agents">
+<h1>MAPPO_Agents<a class="headerlink" href="#mappo-agents" title="Permalink to this heading">¶</a></h1>
+<br><hr><p><strong>PyTorch:</strong></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="xuanpolicy.torch.agent.mutli_agent_rl.mappo_agents.MAPPO_Agents">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">xuanpolicy.torch.agent.mutli_agent_rl.mappo_agents.</span></span><span class="sig-name descname"><span class="pre">MAPPO_Agents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xuanpolicy.torch.agent.mutli_agent_rl.mappo_agents.MAPPO_Agents" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> (<em>Namespace</em>) – Provides hyper parameters.</p></li>
+<li><p><strong>envs</strong> (<em>xuanpolicy.environments.vector_envs.vector_env.VecEnv</em>) – The vectorized environments.</p></li>
+<li><p><strong>device</strong> (<em>str</em><em>, </em><em>int</em><em>, </em><em>torch.device</em>) – Choose CPU or GPU to train the model.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xuanpolicy.torch.agent.mutli_agent_rl.mappo_agents.MAPPO_Agents.act">
+<span class="sig-prename descclassname"><span class="pre">xuanpolicy.torch.agent.mutli_agent_rl.mappo_agents.MAPPO_Agents.</span></span><span class="sig-name descname"><span class="pre">act</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs_n</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rnn_hidden</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avail_actions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xuanpolicy.torch.agent.mutli_agent_rl.mappo_agents.MAPPO_Agents.act" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate joint actions for N agents according to the joint observations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obs_n</strong> (<em>numpy.ndarray</em>) – The joint observations of N agents.</p></li>
+<li><p><strong>rnn_hidden</strong> (<em>tuple</em><em>(</em><em>numpy.ndarray</em><em>, </em><em>numpy.ndarray</em><em>)</em>) – The hidden states of RNN.</p></li>
+<li><p><strong>avail_actions</strong> (<em>numpy.ndarray</em>) – The actions mask for available actions in the environment.</p></li>
+<li><p><strong>state</strong> (<em>numpy.ndarray</em>) – The global state of the environments.</p></li>
+<li><p><strong>test_mode</strong> (<em>bool</em>) – is True for selecting greedy actions, is False for selecting epsilon-greedy actions.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>hidden_state</strong>, <strong>actions_n</strong> - The next hidden states of RNN and the joint actions.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple(numpy.ndarray, numpy.ndarray), np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xuanpolicy.torch.agent.mutli_agent_rl.mappo_agents.MAPPO_Agents.train">
+<span class="sig-prename descclassname"><span class="pre">xuanpolicy.torch.agent.mutli_agent_rl.mappo_agents.MAPPO_Agents.</span></span><span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_step</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xuanpolicy.torch.agent.mutli_agent_rl.mappo_agents.MAPPO_Agents.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the multi-agent reinforcement learning model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>i_step</strong> (<em>int</em>) – The i-th step during training.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>info_train</strong> - the information of the training process.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<br><hr><p><strong>TensorFlow:</strong></p>
+<br><hr><p><strong>MindSpore:</strong></p>
+<br><hr><section id="id1">
+<h2>源码<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-UHlUb3JjaA==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-UHlUb3JjaA==" name="UHlUb3JjaA==" role="tab" tabindex="0">PyTorch</button><button aria-controls="panel-0-VGVuc29yRmxvdw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-VGVuc29yRmxvdw==" name="VGVuc29yRmxvdw==" role="tab" tabindex="-1">TensorFlow</button><button aria-controls="panel-0-TWluZFNwb3Jl" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-TWluZFNwb3Jl" name="TWluZFNwb3Jl" role="tab" tabindex="-1">MindSpore</button></div><div aria-labelledby="tab-0-UHlUb3JjaA==" class="sphinx-tabs-panel group-tab" id="panel-0-UHlUb3JjaA==" name="UHlUb3JjaA==" role="tabpanel" tabindex="0"><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">xuanpolicy.torch.agents</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">class</span> <span class="nc">MAPPO_Agents</span><span class="p">(</span><span class="n">MARLAgents</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                <span class="n">config</span><span class="p">:</span> <span class="n">Namespace</span><span class="p">,</span>
+                <span class="n">envs</span><span class="p">:</span> <span class="n">DummyVecEnv_Pettingzoo</span><span class="p">,</span>
+                <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">gamma</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_envs</span> <span class="o">=</span> <span class="n">envs</span><span class="o">.</span><span class="n">num_envs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_size</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">n_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_epoch</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">n_epoch</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_minibatch</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">n_minibatch</span>
+        <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">state_space</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">dim_state</span><span class="p">,</span> <span class="n">state_shape</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">state_space</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">config</span><span class="o">.</span><span class="n">state_space</span><span class="o">.</span><span class="n">shape</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">dim_state</span><span class="p">,</span> <span class="n">state_shape</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+        <span class="n">input_representation</span> <span class="o">=</span> <span class="n">get_repre_in</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_recurrent</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">use_recurrent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_global_state</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">use_global_state</span>
+        <span class="c1"># create representation for actor</span>
+        <span class="n">kwargs_rnn</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;N_recurrent_layers&quot;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">N_recurrent_layers</span><span class="p">,</span>
+                    <span class="s2">&quot;dropout&quot;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">dropout</span><span class="p">,</span>
+                    <span class="s2">&quot;rnn&quot;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">rnn</span><span class="p">}</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_recurrent</span> <span class="k">else</span> <span class="p">{}</span>
+        <span class="n">representation</span> <span class="o">=</span> <span class="n">REGISTRY_Representation</span><span class="p">[</span><span class="n">config</span><span class="o">.</span><span class="n">representation</span><span class="p">](</span><span class="o">*</span><span class="n">input_representation</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs_rnn</span><span class="p">)</span>
+        <span class="c1"># create representation for critic</span>
+        <span class="n">input_representation</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">dim_state</span><span class="p">,)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_global_state</span> <span class="k">else</span> <span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">dim_obs</span> <span class="o">*</span> <span class="n">config</span><span class="o">.</span><span class="n">n_agents</span><span class="p">,)</span>
+        <span class="n">representation_critic</span> <span class="o">=</span> <span class="n">REGISTRY_Representation</span><span class="p">[</span><span class="n">config</span><span class="o">.</span><span class="n">representation</span><span class="p">](</span><span class="o">*</span><span class="n">input_representation</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs_rnn</span><span class="p">)</span>
+        <span class="c1"># create policy</span>
+        <span class="n">input_policy</span> <span class="o">=</span> <span class="n">get_policy_in_marl</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="p">(</span><span class="n">representation</span><span class="p">,</span> <span class="n">representation_critic</span><span class="p">))</span>
+        <span class="n">policy</span> <span class="o">=</span> <span class="n">REGISTRY_Policy</span><span class="p">[</span><span class="n">config</span><span class="o">.</span><span class="n">policy</span><span class="p">](</span><span class="o">*</span><span class="n">input_policy</span><span class="p">,</span>
+                                                <span class="n">use_recurrent</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">use_recurrent</span><span class="p">,</span>
+                                                <span class="n">rnn</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">rnn</span><span class="p">,</span>
+                                                <span class="n">gain</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">gain</span><span class="p">)</span>
+        <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">policy</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span>
+                                    <span class="n">lr</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span>
+                                    <span class="n">weight_decay</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">weight_decay</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">observation_space</span> <span class="o">=</span> <span class="n">envs</span><span class="o">.</span><span class="n">observation_space</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action_space</span> <span class="o">=</span> <span class="n">envs</span><span class="o">.</span><span class="n">action_space</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">auxiliary_info_shape</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="n">buffer</span> <span class="o">=</span> <span class="n">MARL_OnPolicyBuffer_RNN</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_recurrent</span> <span class="k">else</span> <span class="n">MARL_OnPolicyBuffer</span>
+        <span class="n">input_buffer</span> <span class="o">=</span> <span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">n_agents</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">state_space</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">obs_shape</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">act_shape</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">rew_shape</span><span class="p">,</span>
+                        <span class="n">config</span><span class="o">.</span><span class="n">done_shape</span><span class="p">,</span> <span class="n">envs</span><span class="o">.</span><span class="n">num_envs</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">n_size</span><span class="p">,</span>
+                        <span class="n">config</span><span class="o">.</span><span class="n">use_gae</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">use_advnorm</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">gamma</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">gae_lambda</span><span class="p">)</span>
+        <span class="n">memory</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">(</span><span class="o">*</span><span class="n">input_buffer</span><span class="p">,</span> <span class="n">max_episode_length</span><span class="o">=</span><span class="n">envs</span><span class="o">.</span><span class="n">max_episode_length</span><span class="p">,</span> <span class="n">dim_act</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">dim_act</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buffer_size</span> <span class="o">=</span> <span class="n">memory</span><span class="o">.</span><span class="n">buffer_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer_size</span> <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_minibatch</span>
+
+        <span class="n">learner</span> <span class="o">=</span> <span class="n">MAPPO_Clip_Learner</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
+                                    <span class="n">config</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">model_dir</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">gamma</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MAPPO_Agents</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">envs</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="n">memory</span><span class="p">,</span> <span class="n">learner</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span>
+                                        <span class="n">config</span><span class="o">.</span><span class="n">log_dir</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">model_dir</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">share_values</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">rew_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_policy</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obs_n</span><span class="p">,</span> <span class="o">*</span><span class="n">rnn_hidden</span><span class="p">,</span> <span class="n">avail_actions</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">test_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">batch_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">obs_n</span><span class="p">)</span>
+        <span class="n">agents_id</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_agents</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">obs_in</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">obs_n</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">([</span><span class="n">batch_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_agents</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_recurrent</span><span class="p">:</span>
+            <span class="n">batch_agents</span> <span class="o">=</span> <span class="n">batch_size</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_agents</span>
+            <span class="n">hidden_state</span><span class="p">,</span> <span class="n">dists</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="p">(</span><span class="n">obs_in</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">batch_agents</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+                                            <span class="n">agents_id</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">batch_agents</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+                                            <span class="o">*</span><span class="n">rnn_hidden</span><span class="p">,</span>
+                                            <span class="n">avail_actions</span><span class="o">=</span><span class="n">avail_actions</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">batch_agents</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">actions</span> <span class="o">=</span> <span class="n">dists</span><span class="o">.</span><span class="n">stochastic_sample</span><span class="p">()</span>
+            <span class="n">log_pi_a</span> <span class="o">=</span> <span class="n">dists</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">actions</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_agents</span><span class="p">)</span>
+            <span class="n">actions</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_agents</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">hidden_state</span><span class="p">,</span> <span class="n">dists</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="p">(</span><span class="n">obs_in</span><span class="p">,</span> <span class="n">agents_id</span><span class="p">,</span> <span class="n">avail_actions</span><span class="o">=</span><span class="n">avail_actions</span><span class="p">)</span>
+            <span class="n">actions</span> <span class="o">=</span> <span class="n">dists</span><span class="o">.</span><span class="n">stochastic_sample</span><span class="p">()</span>
+            <span class="n">log_pi_a</span> <span class="o">=</span> <span class="n">dists</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">actions</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">hidden_state</span><span class="p">,</span> <span class="n">actions</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">log_pi_a</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obs_n</span><span class="p">,</span> <span class="o">*</span><span class="n">rnn_hidden</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">batch_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">obs_n</span><span class="p">)</span>
+        <span class="n">agents_id</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_agents</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="c1"># build critic input</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_global_state</span><span class="p">:</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">state</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">critic_in</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_agents</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">critic_in</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">obs_n</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">([</span><span class="n">batch_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">critic_in</span> <span class="o">=</span> <span class="n">critic_in</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_agents</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># get critic values</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_recurrent</span><span class="p">:</span>
+            <span class="n">hidden_state</span><span class="p">,</span> <span class="n">values_n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="n">critic_in</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>  <span class="c1"># add a sequence length axis.</span>
+                                                            <span class="n">agents_id</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+                                                            <span class="o">*</span><span class="n">rnn_hidden</span><span class="p">)</span>
+            <span class="n">values_n</span> <span class="o">=</span> <span class="n">values_n</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">hidden_state</span><span class="p">,</span> <span class="n">values_n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="n">critic_in</span><span class="p">,</span> <span class="n">agents_id</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">hidden_state</span><span class="p">,</span> <span class="n">values_n</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i_step</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">full</span><span class="p">:</span>
+            <span class="n">info_train</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">indexes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">buffer_size</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_epoch</span><span class="p">):</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">indexes</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">start</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">):</span>
+                    <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span>
+                    <span class="n">sample_idx</span> <span class="o">=</span> <span class="n">indexes</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
+                    <span class="n">sample</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">sample_idx</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_recurrent</span><span class="p">:</span>
+                        <span class="n">info_train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">learner</span><span class="o">.</span><span class="n">update_recurrent</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">info_train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">learner</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">learner</span><span class="o">.</span><span class="n">lr_decay</span><span class="p">(</span><span class="n">i_step</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">info_train</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{}</span>
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-0-VGVuc29yRmxvdw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-VGVuc29yRmxvdw==" name="VGVuc29yRmxvdw==" role="tabpanel" tabindex="0"><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-TWluZFNwb3Jl" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-TWluZFNwb3Jl" name="TWluZFNwb3Jl" role="tabpanel" tabindex="0"><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div></div>
 </section>
 </section>
 
@@ -180,8 +348,8 @@ MAPPO的整体值函数采用加和的方式获取，同VDN类似。</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ippo.html" class="btn btn-neutral float-left" title="MAPPO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="matd3.html" class="btn btn-neutral float-right" title="MATD3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ippo.html" class="btn btn-neutral float-left" title="IPPO_Agents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="matd3.html" class="btn btn-neutral float-right" title="MATD3_Agents" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

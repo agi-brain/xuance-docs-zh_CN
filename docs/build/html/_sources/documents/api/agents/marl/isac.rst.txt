@@ -1,21 +1,140 @@
-ISAC
-======================
+ISAC_Agents
+=====================================
 
-算法描述
-----------------------
+.. raw:: html
 
-ISAC算法全称为independent soft actor-critic based on maximum entropy，
-是一种基于执行器-评价器（actor-critic based）的多智能体深度强化学习算法。
-ISAC算法是一种独立训练和独立执行的多智能体强化学习算法，每个智能体的值函数输入空间只有自己的观测和动作，
-同样智能体也只根据自身观测的数据进行决策。
-ISAC分别使用不同的神经网络来拟合智能体的策略和值函数，其中拟合策略的神经网络输出的是高斯分布，
-主要用于解决连续动作空间下的多智能体控制问题。ISAC算法中的每个智能体最大化自身的累计奖励和策略的熵。
+    <br><hr>
 
-在本算法库中，ISAC应用于三个智能体强化学习任务场景。
-每个智能体的前向传播分为representation，eval_policy, eval_Q三个部分。
-representation由包含单隐层的多层感知器MLP构成，输入为智能体观测的状态信息，输出为64维的隐状态信息。
-eval_a 模块的输入为representation的输出，再次经过单隐层的MLP网络输出动作的高斯分布，
-每个智能体通过在高斯分布中采样选择最后施加于环境中的动作。
-Eval_Q模块的输入为representation的输出，再次经过单隐层的MLP网络值函数。
-此外，ISAC中的每个智能体还包含target_a和target_Q作为目标动作网络和目标Q网络，
-目标网络与在线网络结构系统相同，参数和在线网络保持周期性一致。
+**PyTorch:**
+
+.. py:class:: 
+    xuanpolicy.torch.agent.mutli_agent_rl.isac_agents.ISAC_Agents(config, envs, device)
+
+    :param config: Provides hyper parameters.
+    :type config: Namespace
+    :param envs: The vectorized environments.
+    :type envs: xuanpolicy.environments.vector_envs.vector_env.VecEnv
+    :param device: Choose CPU or GPU to train the model.
+    :type device: str, int, torch.device
+
+.. py:function:: 
+    xuanpolicy.torch.agent.mutli_agent_rl.isac_agents.ISAC_Agents.act(obs_n, test_mode=False)
+
+    Calculate joint actions for N agents according to the joint observations.
+
+    :param obs_n: The joint observations of N agents.
+    :type obs_n: numpy.ndarray
+    :param test_mode: Choose if add noises on the output actions. If True, output actions directly, else output actions with noises.
+    :type test_mode: bool
+    :return: **actions** - The joint actions of N agents.
+    :rtype: np.ndarray
+  
+.. py:function:: 
+    xuanpolicy.torch.agent.mutli_agent_rl.isac_agents.ISAC_Agents.train(i_episode)
+
+    Train the multi-agent reinforcement learning model.
+
+    :param i_episode: The i-th episode during training.
+    :type i_episode: int
+    :return: **info_train** - the information of the training process.
+    :rtype: dict
+
+.. raw:: html
+
+    <br><hr>
+
+**TensorFlow:**
+
+
+.. raw:: html
+
+    <br><hr>
+
+**MindSpore:**
+
+.. raw:: html
+
+    <br><hr>
+
+源码
+-----------------
+
+.. tabs::
+  
+    .. group-tab:: PyTorch
+    
+        .. code-block:: python3
+
+            from xuanpolicy.torch.agents import *
+
+            class ISAC_Agents(MARLAgents):
+                def __init__(self,
+                            config: Namespace,
+                            envs: DummyVecEnv_Pettingzoo,
+                            device: Optional[Union[int, str, torch.device]] = None):
+                    self.gamma = config.gamma
+
+                    input_representation = get_repre_in(config)
+                    representation = REGISTRY_Representation[config.representation](*input_representation)
+                    input_policy = get_policy_in_marl(config, representation, config.agent_keys)
+                    policy = REGISTRY_Policy[config.policy](*input_policy)
+                    optimizer = [torch.optim.Adam(policy.parameters_actor, config.lr_a, eps=1e-5),
+                                torch.optim.Adam(policy.parameters_critic, config.lr_c, eps=1e-5)]
+                    scheduler = [torch.optim.lr_scheduler.LinearLR(optimizer[0], start_factor=1.0, end_factor=0.5,
+                                                                total_iters=get_total_iters(config.agent_name, config)),
+                                torch.optim.lr_scheduler.LinearLR(optimizer[1], start_factor=1.0, end_factor=0.5,
+                                                                total_iters=get_total_iters(config.agent_name, config))]
+                    self.observation_space = envs.observation_space
+                    self.action_space = envs.action_space
+                    self.actions_high, self.actions_low = [], []
+                    for k in config.agent_keys:
+                        self.actions_high.append(self.action_space[k].high)
+                        self.actions_low.append(self.action_space[k].low)
+                    self.actions_high, self.actions_low = np.array(self.actions_high), np.array(self.actions_low)
+                    self.representation_info_shape = policy.representation.output_shapes
+                    self.auxiliary_info_shape = {}
+
+                    if config.state_space is not None:
+                        config.dim_state, state_shape = config.state_space.shape, config.state_space.shape
+                    else:
+                        config.dim_state, state_shape = None, None
+                    memory = MARL_OffPolicyBuffer(config.n_agents,
+                                                state_shape,
+                                                config.obs_shape,
+                                                config.act_shape,
+                                                config.rew_shape,
+                                                config.done_shape,
+                                                envs.num_envs,
+                                                config.buffer_size,
+                                                config.batch_size)
+                    learner = ISAC_Learner(config, policy, optimizer, scheduler,
+                                        config.device, config.model_dir, config.gamma)
+                    super(ISAC_Agents, self).__init__(config, envs, policy, memory, learner, device,
+                                                    config.log_dir, config.model_dir)
+                    self.on_policy = False
+
+                def act(self, obs_n, test_mode):
+                    batch_size = len(obs_n)
+                    agents_id = torch.eye(self.n_agents).unsqueeze(0).expand(batch_size, -1, -1).to(self.device)
+                    _, dists = self.policy(obs_n, agents_id)
+                    acts = dists.rsample()
+                    actions = acts.cpu().detach().numpy()
+                    actions = np.clip(actions, self.actions_low, self.actions_high)
+                    return None, actions
+
+                def train(self, i_episode):
+                    sample = self.memory.sample()
+                    info_train = self.learner.update(sample)
+                    return info_train
+
+
+    .. group-tab:: TensorFlow
+    
+        .. code-block:: python3
+
+
+
+    .. group-tab:: MindSpore
+
+        .. code-block:: python3
+            

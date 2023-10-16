@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MAPPO &mdash; 玄策 v0.1.11 documentation</title>
+  <title>IPPO_Agents &mdash; 玄策 v0.1.11 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
@@ -23,11 +23,12 @@
         <script src="../../../../_static/sphinx_highlight.js"></script>
         <script src="../../../../_static/clipboard.min.js"></script>
         <script src="../../../../_static/copybutton.js"></script>
+        <script src="../../../../_static/tabs.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="MAPPO" href="mappo.html" />
-    <link rel="prev" title="MASAC" href="masac.html" /> 
+    <link rel="next" title="MAPPO_Agents" href="mappo.html" />
+    <link rel="prev" title="MASAC_Agents" href="masac.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -80,27 +81,27 @@
 <li class="toctree-l2"><a class="reference internal" href="../drl/sac_dis.html">SACDIS_Agent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../drl/ddpg.html">DDPG_Agent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../drl/td3.html">TD3_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iql.html">IQL_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vdn.html">VDN_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qmix.html">QMIX_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wqmix.html">WQMIX_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qtran.html">QTRAN_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dcg.html">DCG_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iddpg.html">IDDPG_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="maddpg.html">MADDPG_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="isac.html">ISAC_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="masac.html">MASAC_Agent</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">IPPO_Agent</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">算法描述</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">算法出处</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iql.html">IQL_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vdn.html">VDN_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qmix.html">QMIX_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wqmix.html">WQMIX_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qtran.html">QTRAN_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dcg.html">DCG_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iddpg.html">IDDPG_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maddpg.html">MADDPG_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isac.html">ISAC_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="masac.html">MASAC_Agents</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">IPPO_Agents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#xuanpolicy.torch.agent.mutli_agent_rl.ippo_agents.IPPO_Agents"><code class="docutils literal notranslate"><span class="pre">xuanpolicy.torch.agent.mutli_agent_rl.ippo_agents.IPPO_Agents</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">源码</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="mappo.html">MAPPO_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="matd3.html">MATD3_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vdac.html">VDAC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coma.html">COMA_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mfq.html">MFQ_Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mfac.html">MFAC_Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mappo.html">MAPPO_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matd3.html">MATD3_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vdac.html">VDAC_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coma.html">COMA_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mfq.html">MFQ_Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mfac.html">MFAC_Agents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../representations.html">状态表征</a></li>
@@ -139,7 +140,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../agents.html">Agents</a></li>
-      <li class="breadcrumb-item active">MAPPO</li>
+      <li class="breadcrumb-item active">IPPO_Agents</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../_sources/documents/api/agents/marl/ippo.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -149,30 +150,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="mappo">
-<h1>MAPPO<a class="headerlink" href="#mappo" title="Permalink to this heading">¶</a></h1>
-<section id="id1">
-<h2>算法描述<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
-<p>MAPPO算法全称为Multi-agent Proximal Policy Optimization
-是从PPO算法发展而来的多智能体强化学习算法，它的基本结构和PPO算法类似，
-不同之处在于其策略网络和值函数网络均加上One-Hot向量作为智能体身份标识，以区分各不同智能体的决策信息。
-MAPPO的整体值函数采用加和的方式获取，同VDN类似。</p>
-</section>
-<section id="id2">
-<h2>算法出处<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
-<p><strong>论文链接</strong>:
-<a class="reference external" href="https://proceedings.neurips.cc/paper_files/paper/2022/file/9c1535a02f0ce079433344e14d910597-Paper-Datasets_and_Benchmarks.pdf">The surprising effectiveness of ppo in cooperative multi-agent games</a></p>
-<p><strong>论文引用信息</strong>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">yu2022surprising</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">The</span> <span class="n">surprising</span> <span class="n">effectiveness</span> <span class="n">of</span> <span class="n">ppo</span> <span class="ow">in</span> <span class="n">cooperative</span> <span class="n">multi</span><span class="o">-</span><span class="n">agent</span> <span class="n">games</span><span class="p">},</span>
-    <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Yu</span><span class="p">,</span> <span class="n">Chao</span> <span class="ow">and</span> <span class="n">Velu</span><span class="p">,</span> <span class="n">Akash</span> <span class="ow">and</span> <span class="n">Vinitsky</span><span class="p">,</span> <span class="n">Eugene</span> <span class="ow">and</span> <span class="n">Gao</span><span class="p">,</span> <span class="n">Jiaxuan</span> <span class="ow">and</span> <span class="n">Wang</span><span class="p">,</span> <span class="n">Yu</span> <span class="ow">and</span> <span class="n">Bayen</span><span class="p">,</span> <span class="n">Alexandre</span> <span class="ow">and</span> <span class="n">Wu</span><span class="p">,</span> <span class="n">Yi</span><span class="p">},</span>
-    <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">Advances</span> <span class="ow">in</span> <span class="n">Neural</span> <span class="n">Information</span> <span class="n">Processing</span> <span class="n">Systems</span><span class="p">},</span>
-    <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">35</span><span class="p">},</span>
-    <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">24611</span><span class="o">--</span><span class="mi">24624</span><span class="p">},</span>
-    <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2022</span><span class="p">}</span>
-<span class="p">}</span>
+  <section id="ippo-agents">
+<h1>IPPO_Agents<a class="headerlink" href="#ippo-agents" title="Permalink to this heading">¶</a></h1>
+<br><hr><p><strong>PyTorch:</strong></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="xuanpolicy.torch.agent.mutli_agent_rl.ippo_agents.IPPO_Agents">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">xuanpolicy.torch.agent.mutli_agent_rl.ippo_agents.</span></span><span class="sig-name descname"><span class="pre">IPPO_Agents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xuanpolicy.torch.agent.mutli_agent_rl.ippo_agents.IPPO_Agents" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> (<em>Namespace</em>) – Provides hyper parameters.</p></li>
+<li><p><strong>envs</strong> (<em>xuanpolicy.environments.vector_envs.vector_env.VecEnv</em>) – The vectorized environments.</p></li>
+<li><p><strong>device</strong> (<em>str</em><em>, </em><em>int</em><em>, </em><em>torch.device</em>) – Choose CPU or GPU to train the model.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<br><hr><p><strong>TensorFlow:</strong></p>
+<br><hr><p><strong>MindSpore:</strong></p>
+<br><hr><section id="id1">
+<h2>源码<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-UHlUb3JjaA==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-UHlUb3JjaA==" name="UHlUb3JjaA==" role="tab" tabindex="0">PyTorch</button><button aria-controls="panel-0-VGVuc29yRmxvdw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-VGVuc29yRmxvdw==" name="VGVuc29yRmxvdw==" role="tab" tabindex="-1">TensorFlow</button><button aria-controls="panel-0-TWluZFNwb3Jl" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-TWluZFNwb3Jl" name="TWluZFNwb3Jl" role="tab" tabindex="-1">MindSpore</button></div><div aria-labelledby="tab-0-UHlUb3JjaA==" class="sphinx-tabs-panel group-tab" id="panel-0-UHlUb3JjaA==" name="UHlUb3JjaA==" role="tabpanel" tabindex="0"><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-0-VGVuc29yRmxvdw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-VGVuc29yRmxvdw==" name="VGVuc29yRmxvdw==" role="tabpanel" tabindex="0"><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-TWluZFNwb3Jl" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-TWluZFNwb3Jl" name="TWluZFNwb3Jl" role="tabpanel" tabindex="0"><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div></div>
 </section>
 </section>
 
@@ -180,8 +189,8 @@ MAPPO的整体值函数采用加和的方式获取，同VDN类似。</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="masac.html" class="btn btn-neutral float-left" title="MASAC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="mappo.html" class="btn btn-neutral float-right" title="MAPPO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="masac.html" class="btn btn-neutral float-left" title="MASAC_Agents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mappo.html" class="btn btn-neutral float-right" title="MAPPO_Agents" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

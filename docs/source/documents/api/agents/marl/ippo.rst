@@ -1,30 +1,56 @@
-MAPPO
-======================
+IPPO_Agents
+=====================================
 
-算法描述
-----------------------
+.. raw:: html
 
-MAPPO算法全称为Multi-agent Proximal Policy Optimization
-是从PPO算法发展而来的多智能体强化学习算法，它的基本结构和PPO算法类似，
-不同之处在于其策略网络和值函数网络均加上One-Hot向量作为智能体身份标识，以区分各不同智能体的决策信息。
-MAPPO的整体值函数采用加和的方式获取，同VDN类似。
+    <br><hr>
 
-算法出处
-----------------------
+**PyTorch:**
 
-**论文链接**:
-`The surprising effectiveness of ppo in cooperative multi-agent games 
-<https://proceedings.neurips.cc/paper_files/paper/2022/file/9c1535a02f0ce079433344e14d910597-Paper-Datasets_and_Benchmarks.pdf>`_
+.. py:class:: 
+    xuanpolicy.torch.agent.mutli_agent_rl.ippo_agents.IPPO_Agents(config, envs, device)
 
-**论文引用信息**:
+    :param config: Provides hyper parameters.
+    :type config: Namespace
+    :param envs: The vectorized environments.
+    :type envs: xuanpolicy.environments.vector_envs.vector_env.VecEnv
+    :param device: Choose CPU or GPU to train the model.
+    :type device: str, int, torch.device
 
-::
+.. raw:: html
 
-    @article{yu2022surprising,
-        title={The surprising effectiveness of ppo in cooperative multi-agent games},
-        author={Yu, Chao and Velu, Akash and Vinitsky, Eugene and Gao, Jiaxuan and Wang, Yu and Bayen, Alexandre and Wu, Yi},
-        journal={Advances in Neural Information Processing Systems},
-        volume={35},
-        pages={24611--24624},
-        year={2022}
-    }
+    <br><hr>
+
+**TensorFlow:**
+
+
+.. raw:: html
+
+    <br><hr>
+
+**MindSpore:**
+
+.. raw:: html
+
+    <br><hr>
+
+源码
+-----------------
+
+.. tabs::
+  
+    .. group-tab:: PyTorch
+    
+        .. code-block:: python3
+
+
+
+    .. group-tab:: TensorFlow
+    
+        .. code-block:: python3
+
+
+
+    .. group-tab:: MindSpore
+
+        .. code-block:: python3
