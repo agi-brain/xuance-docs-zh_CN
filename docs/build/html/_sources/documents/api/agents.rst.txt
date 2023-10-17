@@ -14,7 +14,7 @@ Agents
   PerDQN_Agent <agents/drl/perdqn>
   QRDQN_Agent <agents/drl/qrdqn>
   PG_Agent <agents/drl/pg>
-  PPG <agents/drl/ppg>
+  PPG_Agent <agents/drl/ppg>
   PPOCLIP_Agent <agents/drl/ppo_clip>
   PPOCKL_Agent <agents/drl/ppo_kl>
   PDQN_Agent <agents/drl/pdqn>

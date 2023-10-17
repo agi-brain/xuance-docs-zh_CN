@@ -23,11 +23,12 @@
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Configs" href="configs.html" />
-    <link rel="prev" title="Coordination Graph for Multi-Agents" href="policies/coordination_graph.html" /> 
+    <link rel="next" title="Learner" href="learners/learner.html" />
+    <link rel="prev" title="Coordination-Graph" href="policies/coordination_graph.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -62,7 +63,43 @@
 <li class="toctree-l1"><a class="reference internal" href="representations.html">Representations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies.html">Policies</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Learners</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">学习器功能介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/learner.html">Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/dqn.html">DQN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/c51.html">C51_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/ddqn.html">DDQN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/dueldqn.html">DuelDQN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/noisydqn.html">NoisyDQN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/perdqn.html">PerDQN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/qrdqn.html">QRDQN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/pg.html">PG_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/ppg.html">PPG_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/ppo_clip.html">PPOCLIP_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/ppo_kl.html">PPOCKL_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/pdqn.html">PDQN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/spdqn.html">SPDQN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/mpdqn.html">MPDQN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/a2c.html">A2C_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/sac.html">SAC_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/sac_dis.html">SACDIS_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/ddpg.html">DDPG_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/drl/td3.html">TD3_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/marl/iql.html">IQL_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/marl/vdn.html">VDN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/marl/qmix.html">QMIX_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/marl/wqmix.html">WQMIX_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/marl/qtran.html">QTRAN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/marl/dcg.html">DCG_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/marl/iddpg.html">IDDPG_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/marl/maddpg.html">MADDPG_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/marl/isac.html">ISAC_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/marl/masac.html">MASAC_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/marl/ippo.html">IPPO_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/marl/mappo.html">MAPPO_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/marl/matd3.html">MATD3_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/marl/vdac.html">VDAC_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/marl/coma.html">COMA_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/marl/mfq.html">MFQ_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learners/marl/mfac.html">MFAC_Learner</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="configs.html">Configs</a></li>
@@ -109,20 +146,318 @@
              
   <section id="learners">
 <h1>Learners<a class="headerlink" href="#learners" title="Permalink to this heading">¶</a></h1>
-<section id="id1">
-<h2>学习器功能介绍<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
-<p>Learner类是每个DRL算法优化模型参数的关键部分，其初始化输入包含策略网络（policy），优化器（optimizer），
-学习率衰减模块（scheduler），日志模块（summary_writer），模型存储地址（modeldir）等。
-Learner类的主要功能是更新网络参数，在成员函数update()中加以实现，具体内容因各种算法的不同而异。</p>
-</section>
+<div class="toctree-wrapper compound">
+</div>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Learner</p></th>
+<th class="head"><p>PyTorch</p></th>
+<th class="head"><p>TensorFlow</p></th>
+<th class="head"><p>MindSpore</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="learners/drl/dqn.html"><span class="doc">DQN</span></a>: Deep Q-Networks</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="learners/drl/c51.html"><span class="doc">C51DQN</span></a>: Distributional Reinforcement Learning</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="learners/drl/ddqn.html"><span class="doc">Double DQN</span></a>: DQN with Double Q-learning</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="learners/drl/dueldqn.html"><span class="doc">Dueling DQN</span></a>: DQN with Dueling network</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="learners/drl/noisydqn.html"><span class="doc">Noisy DQN</span></a>: DQN with Parameter Space Noise</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="learners/drl/perdqn.html"><span class="doc">PERDQN</span></a>: DQN with Prioritized Experience Replay</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="learners/drl/qrdqn.html"><span class="doc">QRDQN</span></a>: DQN with Quantile Regression</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="learners/drl/pg.html"><span class="doc">VPG</span></a>: Vanilla Policy Gradient</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="learners/drl/ppg.html"><span class="doc">PPG</span></a>: Phasic Policy Gradient</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="learners/drl/ppo_clip.html"><span class="doc">PPO</span></a>: Proximal Policy Optimization</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="learners/drl/pdqn.html"><span class="doc">PDQN</span></a>: Parameterised DQN</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="learners/drl/spdqn.html"><span class="doc">SPDQN</span></a>: Split PDQN</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="learners/drl/mpdqn.html"><span class="doc">MPDQN</span></a>: Multi-pass PDQN</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="learners/drl/a2c.html"><span class="doc">A2C</span></a>: Advantage Actor Critic</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="learners/drl/sac.html"><span class="doc">SAC</span></a>: Soft Actor-Critic</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="learners/drl/sac_dis.html"><span class="doc">SAC-Dis</span></a>: SAC for Discrete Actions</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="learners/drl/ddpg.html"><span class="doc">DDPG</span></a>: Deep Deterministic Policy Gradient</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="learners/drl/td3.html"><span class="doc">TD3</span></a>: Twin Delayed DDPG</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Multi-Agent Learner</p></th>
+<th class="head"><p>PyTorch</p></th>
+<th class="head"><p>TensorFlow</p></th>
+<th class="head"><p>MindSpore</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="learners/drl/td3.html"><span class="doc">IQL</span></a>: Independent Q-Learning</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="learners/drl/td3.html"><span class="doc">VDN</span></a>: Value-Decomposition Networks</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="learners/drl/td3.html"><span class="doc">QMIX</span></a>: VDN with Q-Mixer</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="learners/drl/td3.html"><span class="doc">WQMIX</span></a>: Weighted QMIX</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="learners/drl/td3.html"><span class="doc">QTRAN</span></a>: Q-Transformation</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="learners/drl/td3.html"><span class="doc">DCG</span></a>: Deep Coordination Graph</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="learners/drl/td3.html"><span class="doc">IDDPG</span></a>: Independent DDPG</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="learners/drl/td3.html"><span class="doc">MADDPG</span></a>: Multi-Agent DDPG</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="learners/drl/td3.html"><span class="doc">ISAC</span></a>: Independent SAC</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="learners/drl/td3.html"><span class="doc">MASAC</span></a>: Multi-Agent SAC</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="learners/drl/td3.html"><span class="doc">IPPO</span></a>: Independent PPO</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="learners/drl/td3.html"><span class="doc">MAPPO</span></a>: Multi-Agent PPO</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="learners/drl/td3.html"><span class="doc">MATD3</span></a>: Multi-Agent TD3</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="learners/drl/td3.html"><span class="doc">VDAC</span></a>: Value-Decomposition Actor-Critic</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="learners/drl/td3.html"><span class="doc">COMA</span></a>: Counterfacutal Multi-Agent PG</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="learners/drl/td3.html"><span class="doc">MFQ</span></a>: Mean-Field Q-Learning</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="learners/drl/td3.html"><span class="doc">MFAC</span></a>: Mean-Field Actor-Critic</p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+<td><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\checkmark\)</span></strong></p></td>
+</tr>
+</tbody>
+</table>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="policies/coordination_graph.html" class="btn btn-neutral float-left" title="Coordination Graph for Multi-Agents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="configs.html" class="btn btn-neutral float-right" title="Configs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="policies/coordination_graph.html" class="btn btn-neutral float-left" title="Coordination-Graph" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="learners/learner.html" class="btn btn-neutral float-right" title="Learner" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
