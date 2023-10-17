@@ -26,7 +26,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Learners" href="learners.html" />
+    <link rel="next" title="Categorical" href="policies/categorical.html" />
     <link rel="prev" title="RNN-based" href="representations/rnn.html" /> 
 </head>
 
@@ -61,9 +61,14 @@
 <li class="toctree-l1"><a class="reference internal" href="agents.html">Agents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="representations.html">Representations</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Policies</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">离散动作随机策略</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">高斯分布随机策略</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">确定性策略</a></li>
+<li class="toctree-l2"><a class="reference internal" href="policies/categorical.html">Categorical</a></li>
+<li class="toctree-l2"><a class="reference internal" href="policies/categorical_marl.html">Categorical-MARL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="policies/deterministic.html">Deterministic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="policies/deterministic_marl.html">Deterministic-MARL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="policies/gaussian.html">Gaussian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="policies/gaussian_marl.html">Gaussian-MARL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="policies/mixers.html">Mixiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="policies/coordination_graph.html">Coordination-Graph</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="learners.html">Learners</a></li>
@@ -111,33 +116,18 @@
              
   <section id="policies">
 <h1>Policies<a class="headerlink" href="#policies" title="Permalink to this heading">¶</a></h1>
-<section id="id1">
-<h2>离散动作随机策略<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
-<p>针对离散动作随机策略，本软件根据pytorch和mindspore两种编程框架的差异，
-通过不同的方式加以实现，相关定义均位于各自目录的policy子文件夹下。
-其中，使用torch.distributions和mindspore.nn.probability.distribution类
-分别实现pytorch和mindspore两种编程框架下的Categorical分布。
-根据动作的维度大小确定Categorical的类别数量。
-相关的策略包括：ActorCriticPolicy，ActorPolicy两种。</p>
-</section>
-<section id="id2">
-<h2>高斯分布随机策略<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
-<p>针对连续动作随机策略，本软件根据pytorch和mindspore两种编程框架的差异，
-通过不同的方式加以实现，相关定义均位于各自目录的policy子文件夹下。
-其中，使用torch.distributions和mindspore.nn.probability.distribution工具
-分别实现pytorch和mindspore两种编程框架下的Gaussian分布。
-根据动作的维度大小确定均值和方差的维度。相关的策略包括：ActorCriticPolicy，ActorPolicy两种。</p>
-</section>
-<section id="id3">
-<h2>确定性策略<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
-<p>确定性策略主要用于DQN和DDPG两大类算法的策略实现。
-确定性策略包括BasicQnetwork, DuelQnetwork, DDPGPolicy, TD3Policy,
-MixingQnetwork, Weighted_MixingQnetwork, Qtran_MixingQnetwork,
-DCG_policy,Basic_DDPG_policy，MADDPG_policy等。
-相关定义均位于./policy子文件下。
-确定性策略不包含概率分布，因此不需要用到distribution工具。
-其包含的Q网络、Actor网络和Critic网络，均建立在状态表征网络基础上，利用2.3节中介绍的多层感知器模块实现。</p>
-</section>
+<div class="toctree-wrapper compound">
+</div>
+<ul class="simple">
+<li><p><a class="reference internal" href="policies/categorical.html"><span class="doc">Categorical</span></a>:</p></li>
+<li><p><a class="reference internal" href="policies/categorical_marl.html"><span class="doc">Categorical-MARL</span></a>:</p></li>
+<li><p><a class="reference internal" href="policies/deterministic.html"><span class="doc">Deterministic</span></a>:</p></li>
+<li><p><a class="reference internal" href="policies/deterministic_marl.html"><span class="doc">Deterministic-MARL</span></a>:</p></li>
+<li><p><a class="reference internal" href="policies/gaussian.html"><span class="doc">Gaussian</span></a>:</p></li>
+<li><p><a class="reference internal" href="policies/gaussian_marl.html"><span class="doc">Gaussian-MARL</span></a>:</p></li>
+<li><p><a class="reference internal" href="policies/mixers.html"><span class="doc">Mixiers</span></a>:</p></li>
+<li><p><a class="reference internal" href="policies/coordination_graph.html"><span class="doc">Coordination-Graph</span></a>:</p></li>
+</ul>
 </section>
 
 
@@ -145,7 +135,7 @@ DCG_policy,Basic_DDPG_policy，MADDPG_policy等。
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="representations/rnn.html" class="btn btn-neutral float-left" title="RNN-based" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="learners.html" class="btn btn-neutral float-right" title="Learners" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="policies/categorical.html" class="btn btn-neutral float-right" title="Categorical" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
