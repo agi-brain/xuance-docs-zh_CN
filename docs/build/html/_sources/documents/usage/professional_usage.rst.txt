@@ -14,7 +14,7 @@
 
 创建 `mujoco.yaml` 文件，并指定相关参数，如下所示：
 
-::
+.. code-block:: yaml
 
     dl_toolbox: "torch"  # The deep learning toolbox. Choices: "torch", "mindspore", "tensorlayer"
     project_name: "XuanPolicy_Benchmark"
@@ -79,7 +79,7 @@
 
 定义如下函数 ``parse_args()``，利用Python包 `argparser` 读取终端指令，获取指令参数。
 
-::
+.. code-block:: python
 
     import argparser
 
@@ -100,7 +100,7 @@
 
 首先通过调用步骤2.1中的 ``parse_args()`` 函数读取终端指令参数，然后获取步骤1中的配置参数。
 
-::
+.. code-block:: python
 
     from xuanpolicy import get_arguments
 
@@ -128,7 +128,7 @@
 定义 ``run()`` 函数，输入为步骤2中得到的 ``args`` 变量。在函数中，实现了环境创建，实例化representation、policy、agent等模块，并实现训练。
 以下是带注释的run()函数定义示例：
 
-::
+.. code-block:: python
 
     import os
     from copy import deepcopy
@@ -243,7 +243,7 @@
 
 .. code-block:: console
 
-    python ppo_mujoco.py --method ppo --env mujoco --env-id Ant-v4
+    $ python ppo_mujoco.py --method ppo --env mujoco --env-id Ant-v4
 
 
 该实例的完整代码见如下链接：

@@ -3,8 +3,8 @@ Environments
 
 算法库支持的仿真环境
 ----------------------
-本软件包含的单智能体任务仿真环境有Atari，Mujoco，Robotics，Toy，
-包含的多智能体任务仿真环境有pettingzoo开源环境下的Atari，butterfly，magent，mpe，sisl等。
+本软件包含的单智能体任务仿真环境有gym下的Atari，Mujoco，Classic Control，Box2D。
+包含的多智能体任务仿真环境有PettingZoo开源环境下的MPE和SISL，StarCraft2，MAgent2，Google Football环境等。
 每个仿真环境下包含丰富的任务场景，如下表所示。
 
 用户自定义环境
@@ -15,7 +15,8 @@ Environments
 步骤一：
 
 在./environment目录下创建文件夹myenv（名称自拟），进入myenv文件件并创建my_env.py文件（文件名自拟），编写如下内容：
-::
+
+.. code-block:: python
 
     class My_Env(gym.Env):
         def __init__(env_id: str, seed: str)

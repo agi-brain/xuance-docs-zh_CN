@@ -119,55 +119,55 @@
 <br><hr><section id="yaml">
 <h2>步骤1：准备YAML文件，配置参数<a class="headerlink" href="#yaml" title="Permalink to this heading">¶</a></h2>
 <p>创建 <cite>mujoco.yaml</cite> 文件，并指定相关参数，如下所示：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dl_toolbox</span><span class="p">:</span> <span class="s2">&quot;torch&quot;</span>  <span class="c1"># The deep learning toolbox. Choices: &quot;torch&quot;, &quot;mindspore&quot;, &quot;tensorlayer&quot;</span>
-<span class="n">project_name</span><span class="p">:</span> <span class="s2">&quot;XuanPolicy_Benchmark&quot;</span>
-<span class="n">logger</span><span class="p">:</span> <span class="s2">&quot;tensorboard&quot;</span>  <span class="c1"># Choices: tensorboard, wandb.</span>
-<span class="n">wandb_user_name</span><span class="p">:</span> <span class="s2">&quot;your_user_name&quot;</span>
-<span class="n">render</span><span class="p">:</span> <span class="kc">False</span>
-<span class="n">render_mode</span><span class="p">:</span> <span class="s1">&#39;rgb_array&#39;</span> <span class="c1"># Choices: &#39;human&#39;, &#39;rgb_array&#39;.</span>
-<span class="n">test_mode</span><span class="p">:</span> <span class="kc">False</span>
-<span class="n">device</span><span class="p">:</span> <span class="s2">&quot;cuda:0&quot;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">dl_toolbox</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;torch&quot;</span><span class="w">  </span><span class="c1"># The deep learning toolbox. Choices: &quot;torch&quot;, &quot;mindspore&quot;, &quot;tensorlayer&quot;</span>
+<span class="nt">project_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;XuanPolicy_Benchmark&quot;</span>
+<span class="nt">logger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tensorboard&quot;</span><span class="w">  </span><span class="c1"># Choices: tensorboard, wandb.</span>
+<span class="nt">wandb_user_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_user_name&quot;</span>
+<span class="nt">render</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">render_mode</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;rgb_array&#39;</span><span class="w"> </span><span class="c1"># Choices: &#39;human&#39;, &#39;rgb_array&#39;.</span>
+<span class="nt">test_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cuda:0&quot;</span>
 
-<span class="n">agent</span><span class="p">:</span> <span class="s2">&quot;PPO_Clip&quot;</span>  <span class="c1"># choice: PPO_Clip, PPO_KL</span>
-<span class="n">env_name</span><span class="p">:</span> <span class="s2">&quot;MuJoCo&quot;</span>
-<span class="n">vectorize</span><span class="p">:</span> <span class="s2">&quot;Dummy_Gym&quot;</span>
-<span class="n">runner</span><span class="p">:</span> <span class="s2">&quot;DRL&quot;</span>
+<span class="nt">agent</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PPO_Clip&quot;</span><span class="w">  </span><span class="c1"># choice: PPO_Clip, PPO_KL</span>
+<span class="nt">env_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;MuJoCo&quot;</span>
+<span class="nt">vectorize</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Dummy_Gym&quot;</span>
+<span class="nt">runner</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DRL&quot;</span>
 
-<span class="n">representation_hidden_size</span><span class="p">:</span> <span class="p">[</span><span class="mi">256</span><span class="p">,]</span>
-<span class="n">actor_hidden_size</span><span class="p">:</span> <span class="p">[</span><span class="mi">256</span><span class="p">,]</span>
-<span class="n">critic_hidden_size</span><span class="p">:</span> <span class="p">[</span><span class="mi">256</span><span class="p">,]</span>
-<span class="n">activation</span><span class="p">:</span> <span class="s2">&quot;LeakyReLU&quot;</span>
+<span class="nt">representation_hidden_size</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">256</span><span class="p p-Indicator">,]</span>
+<span class="nt">actor_hidden_size</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">256</span><span class="p p-Indicator">,]</span>
+<span class="nt">critic_hidden_size</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">256</span><span class="p p-Indicator">,]</span>
+<span class="nt">activation</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;LeakyReLU&quot;</span>
 
-<span class="n">seed</span><span class="p">:</span> <span class="mi">79811</span>
-<span class="n">parallels</span><span class="p">:</span> <span class="mi">16</span>
-<span class="n">running_steps</span><span class="p">:</span> <span class="mi">1000000</span>
-<span class="n">n_steps</span><span class="p">:</span> <span class="mi">256</span>
-<span class="n">n_epoch</span><span class="p">:</span> <span class="mi">16</span>
-<span class="n">n_minibatch</span><span class="p">:</span> <span class="mi">8</span>
-<span class="n">learning_rate</span><span class="p">:</span> <span class="mf">0.0004</span>
+<span class="nt">seed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">79811</span>
+<span class="nt">parallels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16</span>
+<span class="nt">running_steps</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000000</span>
+<span class="nt">n_steps</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">256</span>
+<span class="nt">n_epoch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16</span>
+<span class="nt">n_minibatch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span>
+<span class="nt">learning_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0004</span>
 
-<span class="n">use_grad_clip</span><span class="p">:</span> <span class="kc">True</span>
+<span class="nt">use_grad_clip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
 
-<span class="n">vf_coef</span><span class="p">:</span> <span class="mf">0.25</span>
-<span class="n">ent_coef</span><span class="p">:</span> <span class="mf">0.0</span>
-<span class="n">target_kl</span><span class="p">:</span> <span class="mf">0.001</span>  <span class="c1"># for PPO_KL agent</span>
-<span class="n">clip_range</span><span class="p">:</span> <span class="mf">0.2</span>  <span class="c1"># for PPO_Clip agent</span>
-<span class="n">clip_grad_norm</span><span class="p">:</span> <span class="mf">0.5</span>
-<span class="n">gamma</span><span class="p">:</span> <span class="mf">0.99</span>
-<span class="n">use_gae</span><span class="p">:</span> <span class="kc">True</span>
-<span class="n">gae_lambda</span><span class="p">:</span> <span class="mf">0.95</span>
-<span class="n">use_advnorm</span><span class="p">:</span> <span class="kc">True</span>
+<span class="nt">vf_coef</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.25</span>
+<span class="nt">ent_coef</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
+<span class="nt">target_kl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.001</span><span class="w">  </span><span class="c1"># for PPO_KL agent</span>
+<span class="nt">clip_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.2</span><span class="w">  </span><span class="c1"># for PPO_Clip agent</span>
+<span class="nt">clip_grad_norm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.5</span>
+<span class="nt">gamma</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.99</span>
+<span class="nt">use_gae</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="nt">gae_lambda</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.95</span>
+<span class="nt">use_advnorm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
 
-<span class="n">use_obsnorm</span><span class="p">:</span> <span class="kc">True</span>
-<span class="n">use_rewnorm</span><span class="p">:</span> <span class="kc">True</span>
-<span class="n">obsnorm_range</span><span class="p">:</span> <span class="mi">5</span>
-<span class="n">rewnorm_range</span><span class="p">:</span> <span class="mi">5</span>
+<span class="nt">use_obsnorm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="nt">use_rewnorm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="nt">obsnorm_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="nt">rewnorm_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 
-<span class="n">test_steps</span><span class="p">:</span> <span class="mi">10000</span>
-<span class="n">eval_interval</span><span class="p">:</span> <span class="mi">5000</span>
-<span class="n">test_episode</span><span class="p">:</span> <span class="mi">5</span>
-<span class="n">log_dir</span><span class="p">:</span> <span class="s2">&quot;./logs/ppo/&quot;</span>
-<span class="n">model_dir</span><span class="p">:</span> <span class="s2">&quot;./models/ppo/&quot;</span>
+<span class="nt">test_steps</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10000</span>
+<span class="nt">eval_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5000</span>
+<span class="nt">test_episode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="nt">log_dir</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;./logs/ppo/&quot;</span>
+<span class="nt">model_dir</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;./models/ppo/&quot;</span>
 </pre></div>
 </div>
 <br><hr></section>
@@ -176,7 +176,7 @@
 <p>该部分主要包括参数读取、环境创建、模型创建、模型训练等环节。首先创建 <cite>ppo_mujoco.py</cite> 文件，代码编写分为如下步骤：</p>
 <p><strong>步骤2.1 解析终端命令参数</strong></p>
 <p>定义如下函数 <code class="docutils literal notranslate"><span class="pre">parse_args()</span></code>，利用Python包 <cite>argparser</cite> 读取终端指令，获取指令参数。</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparser</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparser</span>
 
 <span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="s2">&quot;Example of XuanPolicy.&quot;</span><span class="p">)</span>
@@ -193,7 +193,7 @@
 </div>
 <p><strong>步骤2.2 读取参数</strong></p>
 <p>首先通过调用步骤2.1中的 <code class="docutils literal notranslate"><span class="pre">parse_args()</span></code> 函数读取终端指令参数，然后获取步骤1中的配置参数。</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xuanpolicy</span> <span class="kn">import</span> <span class="n">get_arguments</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xuanpolicy</span> <span class="kn">import</span> <span class="n">get_arguments</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
 <span class="n">parser</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
@@ -213,7 +213,7 @@
 <h2>步骤3：定义run()，创建模型，运行算法<a class="headerlink" href="#run" title="Permalink to this heading">¶</a></h2>
 <p>定义 <code class="docutils literal notranslate"><span class="pre">run()</span></code> 函数，输入为步骤2中得到的 <code class="docutils literal notranslate"><span class="pre">args</span></code> 变量。在函数中，实现了环境创建，实例化representation、policy、agent等模块，并实现训练。
 以下是带注释的run()函数定义示例：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">torch.optim</span>
@@ -323,7 +323,7 @@
 </pre></div>
 </div>
 <p>完成以上三个步骤后，可在终端运行 <cite>ppo_mujoco.py</cite> Python文件，训练模型：</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python ppo_mujoco.py --method ppo --env mujoco --env-id Ant-v4</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>ppo_mujoco.py<span class="w"> </span>--method<span class="w"> </span>ppo<span class="w"> </span>--env<span class="w"> </span>mujoco<span class="w"> </span>--env-id<span class="w"> </span>Ant-v4
 </pre></div>
 </div>
 <p>该实例的完整代码见如下链接：</p>

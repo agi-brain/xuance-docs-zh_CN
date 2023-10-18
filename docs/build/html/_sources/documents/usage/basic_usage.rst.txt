@@ -1,5 +1,6 @@
 快速开始
 =======================
+
 .. raw:: html
 
    <br><hr>
@@ -14,9 +15,9 @@
 .. code-block:: python3
 
     import xuanpolicy as xp
-    runner = xp.get_runner(method='dqn', 
+    runner = xp.get_runner(method='dqn',
                            env='classic_control',
-                           env_id='CartPole-v1', 
+                           env_id='CartPole-v1',
                            is_test=False)
     runner.run()
 

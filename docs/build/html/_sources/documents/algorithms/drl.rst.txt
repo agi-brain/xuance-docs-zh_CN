@@ -12,7 +12,8 @@ DRL Algorithms
    drl/noisydqn
    drl/perdqn
    drl/qrdqn
-   drl/pg
+   drl/drqn
+   drl/vpg
    drl/ppg
    drl/ppo
    drl/pdqn
