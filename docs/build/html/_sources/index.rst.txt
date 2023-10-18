@@ -59,6 +59,8 @@ MindSpore_。并且支持CPU、GPU运算，能够在Linux，Windows，MacOS等�
    documents/api/representations
    documents/api/policies
    documents/api/learners
+   documents/api/runners
+   documents/api/utils
    documents/api/configs
    documents/api/common
    documents/api/environments

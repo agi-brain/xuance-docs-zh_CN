@@ -26,7 +26,9 @@
         <script src="../../../../_static/tabs.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" /> 
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="MPDQN_Learner" href="mpdqn.html" />
+    <link rel="prev" title="PDQN_Learner" href="pdqn.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,11 +58,55 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../usage/professional_usage.html">专业教程</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../agents.html">Agents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../representations.html">Representations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html">Policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../learners.html">Learners</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../learners.html">Learners</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../learner.html">Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dqn.html">DQN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c51.html">C51_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ddqn.html">DDQN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dueldqn.html">DuelDQN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="noisydqn.html">NoisyDQN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perdqn.html">PerDQN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qrdqn.html">QRDQN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pg.html">PG_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppg.html">PPG_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppo_clip.html">PPOCLIP_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppo_kl.html">PPOCKL_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdqn.html">PDQN_Learner</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SPDQN_Learner</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">源码</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mpdqn.html">MPDQN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a2c.html">A2C_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sac.html">SAC_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sac_dis.html">SACDIS_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ddpg.html">DDPG_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="td3.html">TD3_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/iql.html">IQL_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/vdn.html">VDN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/qmix.html">QMIX_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/wqmix.html">WQMIX_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/qtran.html">QTRAN_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/dcg.html">DCG_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/iddpg.html">IDDPG_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/maddpg.html">MADDPG_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/isac.html">ISAC_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/masac.html">MASAC_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/ippo.html">IPPO_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/mappo.html">MAPPO_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/matd3.html">MATD3_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/vdac.html">VDAC_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/coma.html">COMA_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/mfq.html">MFQ_Learner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marl/mfac.html">MFAC_Learner</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../runners.html">Runners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils.html">Utils</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../configs.html">Configs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../common.html">Common</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../environments.html">Environments</a></li>
@@ -93,6 +139,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../learners.html">Learners</a></li>
       <li class="breadcrumb-item active">SPDQN_Learner</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../_sources/documents/api/learners/drl/spdqn.rst.txt" rel="nofollow"> View page source</a>
@@ -127,7 +174,10 @@
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pdqn.html" class="btn btn-neutral float-left" title="PDQN_Learner" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mpdqn.html" class="btn btn-neutral float-right" title="MPDQN_Learner" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
