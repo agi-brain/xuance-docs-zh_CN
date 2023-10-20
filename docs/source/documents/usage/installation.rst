@@ -30,7 +30,7 @@
 
 .. code-block:: console
     
-    pip install xuanpolicy
+    pip install xuance
 
 由于没有指定特定的深度学习框架，上面的安装指令没有安装深度学习工具包。用户可通过以下指令按需求安装：
 
@@ -38,25 +38,25 @@
 
 .. code-block:: console
     
-    pip install xuanpolicy[torch]
+    pip install xuance[torch]
 
 仅安装 TensorFlow2_ 版玄策:
 
 .. code-block:: console
     
-    pip install xuanpolicy[tensorflow]
+    pip install xuance[tensorflow]
 
 仅安装 MindSpore_ 版玄策:
 
 .. code-block:: console
     
-    pip install xuanpolicy[mindspore]
+    pip install xuance[mindspore]
 
 安装同时支持 PyTorch_，TensorFlow2_，和 MindSpore_ 三种深度学习框架的玄策：
 
 .. code-block:: console
 
-    pip install xuanpolicy[all]
+    pip install xuance[all]
 
 
 .. raw:: html
@@ -80,17 +80,17 @@
     
     conda activate xpolicy
 
-**步骤 3**: 从GitHub下载xuanpolicy源码:
+**步骤 3**: 从GitHub下载xuance源码:
 
 .. code-block:: console
     
-    git clone https://github.com/agi-brain/xuanpolicy.git
+    git clone https://github.com/agi-brain/xuance.git
 
-**步骤 4**: 下载完毕后，进入xuanpolicy主目录:
+**步骤 4**: 下载完毕后，进入xuance主目录:
 
 .. code-block:: console
     
-    cd xuanpolicy
+    cd xuance
 
 **步骤 5**: 完成本地安装:
 
@@ -117,6 +117,6 @@
 
 .. code-block:: python3
 
-    import xuanpolicy
+    import xuance
 
 如果没有发出报错或警告，则表示已成功安装玄策，下一步就可以使用了。

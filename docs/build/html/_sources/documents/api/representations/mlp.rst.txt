@@ -15,7 +15,7 @@ MLP-based
 **PyTorch:**
 
 .. py:class:: 
-    xuanpolicy.torch.representations.mlp.Basic_Identical(input_shape, device)
+    xuance.torch.representations.mlp.Basic_Identical(input_shape, device)
 
     :param input_shape: The shape of the inputs.
     :type input_shape: Sequence[int]
@@ -23,7 +23,7 @@ MLP-based
     :type device: str, int, torch.device
 
 .. py:function:: 
-    xuanpolicy.torch.representations.mlp.Basic_Identical.forward(observations)
+    xuance.torch.representations.mlp.Basic_Identical.forward(observations)
 
     Calculate feature representation of the input observations.
 
@@ -33,7 +33,7 @@ MLP-based
     :rtype: dict
 
 .. py:class:: 
-    xuanpolicy.torch.representations.mlp.Basic_MLP(input_shape, device)
+    xuance.torch.representations.mlp.Basic_MLP(input_shape, device)
 
     :param input_shape: The shape of the inputs.
     :type input_shape: Sequence[int]
@@ -41,7 +41,7 @@ MLP-based
     :type device: str, int, torch.device
 
 .. py:function:: 
-    xuanpolicy.torch.representations.mlp.Basic_MLP._create_network()
+    xuance.torch.representations.mlp.Basic_MLP._create_network()
 
     Create the multi-layer perceptron netowrks.
 
@@ -49,7 +49,7 @@ MLP-based
     :rtype: nn.Module
 
 .. py:function:: 
-    xuanpolicy.torch.representations.mlp.Basic_MLP.forward(observations)
+    xuance.torch.representations.mlp.Basic_MLP.forward(observations)
 
     Calculate feature representation of the input observations.
 
@@ -83,7 +83,7 @@ MLP-based
     
     .. code-block:: python3
 
-        from xuanpolicy.torch.representations import *
+        from xuance.torch.representations import *
 
         # directly returns the original observation
         class Basic_Identical(nn.Module):

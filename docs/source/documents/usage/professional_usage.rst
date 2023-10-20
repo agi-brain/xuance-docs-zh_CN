@@ -17,7 +17,7 @@
 .. code-block:: yaml
 
     dl_toolbox: "torch"  # The deep learning toolbox. Choices: "torch", "mindspore", "tensorlayer"
-    project_name: "XuanPolicy_Benchmark"
+    project_name: "XuanCe_Benchmark"
     logger: "tensorboard"  # Choices: tensorboard, wandb.
     wandb_user_name: "your_user_name"
     render: False
@@ -84,7 +84,7 @@
     import argparser
 
     def parse_args():
-        parser = argparse.ArgumentParser("Example of XuanPolicy.")
+        parser = argparse.ArgumentParser("Example of XuanCe.")
         parser.add_argument("--method", type=str, default="ppo")
         parser.add_argument("--env", type=str, default="mujoco")
         parser.add_argument("--env-id", type=str, default="InvertedPendulum-v4")
@@ -102,7 +102,7 @@
 
 .. code-block:: python
 
-    from xuanpolicy import get_arguments
+    from xuance import get_arguments
 
     if __name__ == "__main__":
     parser = parse_args()
@@ -114,7 +114,7 @@
     run(args)
 
 
-在该步骤中，调用了“玄策”中的 ``get_arguments()`` 函数。在该函数中，首先根据 ``env`` 和 ``env_id`` 变量组合，从xuanpolicy/configs/路径中查询是否有可读取的参数。
+在该步骤中，调用了“玄策”中的 ``get_arguments()`` 函数。在该函数中，首先根据 ``env`` 和 ``env_id`` 变量组合，从xuance/configs/路径中查询是否有可读取的参数。
 如已经有默认的参数，则全部读取。接着继续从 ``config.path`` 路径下索引步骤1中的配置文件，并读取.yaml文件中的所有参数。最后读取 ``parser`` 中的全部参数。
 三次读取中，若遇到相同变量名，则以后者参数为准进行更新。最终， ``get_arguments()`` 函数将返回 ``args`` 变量，包含所有参数信息，输入 ``run()`` 函数中。
 
@@ -135,10 +135,10 @@
     import numpy as np
     import torch.optim
 
-    from xuanpolicy.common import space2shape
-    from xuanpolicy.environment import make_envs
-    from xuanpolicy.torch.utils.operations import set_seed
-    from xuanpolicy.torch.utils import ActivationFunctions
+    from xuance.common import space2shape
+    from xuance.environment import make_envs
+    from xuance.torch.utils.operations import set_seed
+    from xuance.torch.utils import ActivationFunctions
 
     def run(args):
         agent_name = args.agent  # 获取智能体名称
@@ -155,7 +155,7 @@
         n_envs = envs.num_envs  # 获取并行环境个数
 
         # prepare representation
-        from xuanpolicy.torch.representations import Basic_MLP  # 导入表征器类
+        from xuance.torch.representations import Basic_MLP  # 导入表征器类
         representation = Basic_MLP(input_shape=space2shape(args.observation_space),
                                 hidden_sizes=args.representation_hidden_size,
                                 normalize=None,
@@ -164,7 +164,7 @@
                                 device=args.device)  # 创建MLP表征器
 
         # prepare policy
-        from xuanpolicy.torch.policies import Gaussian_AC_Policy  # 导入策略类
+        from xuance.torch.policies import Gaussian_AC_Policy  # 导入策略类
         policy = Gaussian_AC_Policy(action_space=args.action_space,
                                     representation=representation,
                                     actor_hidden_size=args.actor_hidden_size,
@@ -175,7 +175,7 @@
                                     device=args.device)  # 创建服从高斯分布的随机策略
 
         # prepare agent
-        from xuanpolicy.torch.agents import PPOCLIP_Agent, get_total_iters  # 导入智能体类
+        from xuance.torch.agents import PPOCLIP_Agent, get_total_iters  # 导入智能体类
         optimizer = torch.optim.Adam(policy.parameters(), args.learning_rate, eps=1e-5)  # 创建优化器
         lr_scheduler = torch.optim.lr_scheduler.LinearLR(optimizer, start_factor=1.0, end_factor=0.0,
                                                         total_iters=get_total_iters(agent_name, args))  # 创建学习率衰减器
@@ -248,4 +248,4 @@
 
 该实例的完整代码见如下链接：
 
-`https://github.com/agi-brain/xuanpolicy/examples/ppo/ppo_mujoco.py <https://github.com/agi-brain/xuanpolicy/examples/ppo/ppo_mujoco.py/>`_
+`https://github.com/agi-brain/xuance/examples/ppo/ppo_mujoco.py <https://github.com/agi-brain/xuance/examples/ppo/ppo_mujoco.py/>`_

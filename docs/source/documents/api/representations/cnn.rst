@@ -15,7 +15,7 @@ CNN-based
 **PyTorch:**
 
 .. py:class:: 
-    xuanpolicy.torch.representations.cnn.Basic_CNN(input_shape, kernels, strides, filters, normalize=None, initialize=None, activation=None, device=None)
+    xuance.torch.representations.cnn.Basic_CNN(input_shape, kernels, strides, filters, normalize=None, initialize=None, activation=None, device=None)
 
     :param input_shape: The shape of the inputs.
     :type input_shape: Sequence of int
@@ -34,7 +34,7 @@ CNN-based
     :type device: str, int, torch.device
 
 .. py:function:: 
-    xuanpolicy.torch.representations.cnn.Basic_CNN._create_network()
+    xuance.torch.representations.cnn.Basic_CNN._create_network()
 
     Create the convolutional neural netowrks.
 
@@ -42,7 +42,7 @@ CNN-based
     :rtype: nn.Module
 
 .. py:function:: 
-    xuanpolicy.torch.representations.cnn.Basic_CNN.forward(observations)
+    xuance.torch.representations.cnn.Basic_CNN.forward(observations)
 
     Calculate feature representation of the input observations.
 
@@ -52,7 +52,7 @@ CNN-based
     :rtype: dict
 
 .. py:class:: 
-    xuanpolicy.torch.representations.cnn.AC_CNN_Atari(input_shape, kernels, strides, filters, normalize=None, initialize=None, activation=None, device=None)
+    xuance.torch.representations.cnn.AC_CNN_Atari(input_shape, kernels, strides, filters, normalize=None, initialize=None, activation=None, device=None)
 
     :param input_shape: The shape of the inputs.
     :type input_shape: Sequence of int
@@ -73,7 +73,7 @@ CNN-based
     :type device: Sequence of int
 
 .. py:function:: 
-    xuanpolicy.torch.representations.cnn.AC_CNN_Atari._init_layer(layer, gain=numpy.sqrt(2), bias=0.0)
+    xuance.torch.representations.cnn.AC_CNN_Atari._init_layer(layer, gain=numpy.sqrt(2), bias=0.0)
 
     Initialize the weights and biases of the model.
 
@@ -87,7 +87,7 @@ CNN-based
     :rtype: nn.Module
 
 .. py:function:: 
-    xuanpolicy.torch.representations.cnn.AC_CNN_Atari._create_network()
+    xuance.torch.representations.cnn.AC_CNN_Atari._create_network()
 
     Create the convolutional neural netowrks for actor-critic based algorithms and Atari tasks.
 
@@ -95,7 +95,7 @@ CNN-based
     :rtype: nn.Module
 
 .. py:function:: 
-    xuanpolicy.torch.representations.cnn.AC_CNN_Atari.forward(observations)
+    xuance.torch.representations.cnn.AC_CNN_Atari.forward(observations)
 
     Calculate feature representation of the input observations.
 
@@ -129,7 +129,7 @@ CNN-based
     
     .. code-block:: python3
 
-        from xuanpolicy.torch.representations import *
+        from xuance.torch.representations import *
 
         # process the input observations with stacks of CNN layers
         class Basic_CNN(nn.Module):

@@ -15,7 +15,7 @@ RNN-based
 **PyTorch:**
 
 .. py:class:: 
-    xuanpolicy.torch.representations.rnn.Basic_RNN(input_shape, hidden_sizes, normalize=None, initialize=None, activation=None, device=None, kwargs)
+    xuance.torch.representations.rnn.Basic_RNN(input_shape, hidden_sizes, normalize=None, initialize=None, activation=None, device=None, kwargs)
 
     The ``hidden_sizes`` is a dict input, which contains "fc_hidden_sizes" and "fc_hidden_sizes".
     The "fc_hidden_sizes" is the sizes of the fully connected layers before rnn layers.
@@ -42,7 +42,7 @@ RNN-based
     :type rnn: str
 
 .. py:function:: 
-    xuanpolicy.torch.representations.rnn.Basic_RNN._create_network()
+    xuance.torch.representations.rnn.Basic_RNN._create_network()
 
     Create the recurrent neural netowrks.
 
@@ -50,7 +50,7 @@ RNN-based
     :rtype: nn.Module, nn.Module, int
 
 .. py:function:: 
-    xuanpolicy.torch.representations.rnn.Basic_RNN.forward(x, h, c=None)
+    xuance.torch.representations.rnn.Basic_RNN.forward(x, h, c=None)
 
     Calculate feature representation of the inputs.
 
@@ -64,7 +64,7 @@ RNN-based
     :rtype: dict
 
 .. py:function:: 
-    xuanpolicy.torch.representations.rnn.Basic_RNN.init_hidden(batch)
+    xuance.torch.representations.rnn.Basic_RNN.init_hidden(batch)
 
     Initialize a batch of RNN hidden states.
 
@@ -74,7 +74,7 @@ RNN-based
     :rtype: torch.Tensor
 
 .. py:function:: 
-    xuanpolicy.torch.representations.rnn.Basic_RNN.init_hidden_item(i, rnn_hidden)
+    xuance.torch.representations.rnn.Basic_RNN.init_hidden_item(i, rnn_hidden)
 
     Initialize a slice of hidden states from the given RNN hidden states.
 
@@ -86,7 +86,7 @@ RNN-based
     :rtype: torch.Tensor
 
 .. py:function:: 
-    xuanpolicy.torch.representations.rnn.Basic_RNN.get_hidden_item(i, rnn_hidden)
+    xuance.torch.representations.rnn.Basic_RNN.get_hidden_item(i, rnn_hidden)
 
     Get a slice of hidden states from the given RNN hidden states.
 
@@ -122,7 +122,7 @@ RNN-based
     
     .. code-block:: python3
 
-        from xuanpolicy.torch.representations import *
+        from xuance.torch.representations import *
 
         class Basic_RNN(nn.Module):
             def __init__(self,

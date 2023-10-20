@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = '玄策'
-copyright = '2023, XuanPolicy contributors'
-author = 'XuanPolicy contributors'
+copyright = '2023, XuanCe contributors'
+author = 'XuanCe contributors'
 release = 'v0.1.11'
 
 # -- General configuration ---------------------------------------------------

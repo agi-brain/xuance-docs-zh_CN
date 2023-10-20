@@ -119,7 +119,7 @@
 <p>安装完玄策后，用户只需要三行代码即可运行一个深度强化学习算法。首先，你需要通过指定 <code class="docutils literal notranslate"><span class="pre">method</span></code> 、 <code class="docutils literal notranslate"><span class="pre">env</span></code> 和 <code class="docutils literal notranslate"><span class="pre">env_id</span></code> 等信息创建一个 <em>runner</em> 对象，
 在 <em>runner</em> 的创建过程中，玄策已经创建好了 <code class="docutils literal notranslate"><span class="pre">agent</span></code>, <code class="docutils literal notranslate"><span class="pre">policy</span></code>, <code class="docutils literal notranslate"><span class="pre">envs</span></code> 等强化学习关键要素。接下来，只需要执行 <code class="docutils literal notranslate"><span class="pre">runner.run()</span></code> 就能实现算法的训练了。
 一个DQN算法的实例如下：</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span> <span class="k">as</span> <span class="nn">xp</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuance</span> <span class="k">as</span> <span class="nn">xp</span>
 <span class="n">runner</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">get_runner</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;dqn&#39;</span><span class="p">,</span>
                        <span class="n">env</span><span class="o">=</span><span class="s1">&#39;classic_control&#39;</span><span class="p">,</span>
                        <span class="n">env_id</span><span class="o">=</span><span class="s1">&#39;CartPole-v1&#39;</span><span class="p">,</span>
@@ -132,7 +132,7 @@
 <section id="marl">
 <h2>运行一个MARL算法<a class="headerlink" href="#marl" title="Permalink to this heading">¶</a></h2>
 <p>和单智能体强化学习不同的是，多智能体强化学习任务分为合作型、竞争型、以及合作竞争混合型。合作型任务的运行方法和前面介绍的相同，只需要指定算法名称和环境名称即可开始训练，例如：</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span> <span class="k">as</span> <span class="nn">xp</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuance</span> <span class="k">as</span> <span class="nn">xp</span>
 <span class="n">runner</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">get_runner</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;maddpg&#39;</span><span class="p">,</span>
                        <span class="n">env</span><span class="o">=</span><span class="s1">&#39;mpe&#39;</span><span class="p">,</span>
                        <span class="n">env_id</span><span class="o">=</span><span class="s1">&#39;simple_spread_v3&#39;</span><span class="p">,</span>
@@ -143,7 +143,7 @@
 <p>当环境中包含竞争型任务时，由于智能体的优化目标不同，玄策根据原始环境中的任务说明，将智能体进行分组，每组运行一个MARL算法。
 例如，对于 <a class="reference external" href="https://pettingzoo.farama.org/environments/mpe/simple_adversary/">mpe/adversary</a> 环境，智能体集合为[adversary_0, agent_0,agent_1]。
 玄策的环境封装模块将这些智能体分为两组，第一组为“adversary”智能体，第二组为“agent”智能体，每组均可指定一种MARL算法，实现方法如下：</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span> <span class="k">as</span> <span class="nn">xp</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuance</span> <span class="k">as</span> <span class="nn">xp</span>
 <span class="n">runner</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">get_runner</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;iddpg&quot;</span><span class="p">,</span> <span class="s2">&quot;maddpg&quot;</span><span class="p">],</span>
                        <span class="n">env</span><span class="o">=</span><span class="s1">&#39;mpe&#39;</span><span class="p">,</span>
                        <span class="n">env_id</span><span class="o">=</span><span class="s1">&#39;simple_push_v3&#39;</span><span class="p">,</span>
@@ -156,7 +156,7 @@
 <section id="id2">
 <h2>测试<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>完成算法训练后，玄策会在指定目录中保存模型文件和训练日志信息。用户可以通过指定 <code class="docutils literal notranslate"><span class="pre">is_test=True</span></code> 来实现测试：</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuanpolicy</span> <span class="k">as</span> <span class="nn">xp</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xuance</span> <span class="k">as</span> <span class="nn">xp</span>
 <span class="n">runner</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">get_runner</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;dqn&#39;</span><span class="p">,</span>
                        <span class="n">env</span><span class="o">=</span><span class="s1">&#39;classic_control&#39;</span><span class="p">,</span>
                        <span class="n">env_id</span><span class="o">=</span><span class="s1">&#39;CartPole-v1&#39;</span><span class="p">,</span>
@@ -169,7 +169,7 @@
 <section id="id3">
 <h2>训练可视化<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p>用户可利用tensorboard或wandb工具来可视化训练过程，
-通过指定xuanpolicy/configs/basic.yaml文件中的 <code class="docutils literal notranslate"><span class="pre">logger</span></code> 参数选择具体的工具：</p>
+通过指定xuance/configs/basic.yaml文件中的 <code class="docutils literal notranslate"><span class="pre">logger</span></code> 参数选择具体的工具：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">logger</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tensorboard</span>
 </pre></div>
 </div>
@@ -184,7 +184,7 @@
 </pre></div>
 </div>
 <p><strong>2. W&amp;B 可视化</strong></p>
-<p>若选择使用wandb工具实现训练可视化，可根据W&amp;B官方说明创建账号，并在xuanpolicy/configs/basic.yaml文件中指定用户名 <code class="docutils literal notranslate"><span class="pre">wandb_user_name</span></code>.</p>
+<p>若选择使用wandb工具实现训练可视化，可根据W&amp;B官方说明创建账号，并在xuance/configs/basic.yaml文件中指定用户名 <code class="docutils literal notranslate"><span class="pre">wandb_user_name</span></code>.</p>
 <p>关于W&amp;B的使用及其本地化部署，可参考如下链接：</p>
 <div class="line-block">
 <div class="line"><strong>wandb</strong>: <a class="reference external" href="https://github.com/wandb/wandb.git/">https://github.com/wandb/wandb.git</a></div>
@@ -204,7 +204,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, XuanPolicy contributors.</p>
+    <p>&#169; Copyright 2023, XuanCe contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

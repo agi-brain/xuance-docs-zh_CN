@@ -14,7 +14,7 @@
 
 .. code-block:: python3
 
-    import xuanpolicy as xp
+    import xuance as xp
     runner = xp.get_runner(method='dqn',
                            env='classic_control',
                            env_id='CartPole-v1',
@@ -34,7 +34,7 @@
 
 .. code-block:: python3
 
-    import xuanpolicy as xp
+    import xuance as xp
     runner = xp.get_runner(method='maddpg',
                            env='mpe',
                            env_id='simple_spread_v3',
@@ -47,7 +47,7 @@
 
 .. code-block:: python3
 
-    import xuanpolicy as xp
+    import xuance as xp
     runner = xp.get_runner(method=["iddpg", "maddpg"],
                            env='mpe',
                            env_id='simple_push_v3',
@@ -66,7 +66,7 @@
 
 .. code-block:: python3
 
-    import xuanpolicy as xp
+    import xuance as xp
     runner = xp.get_runner(method='dqn',
                            env='classic_control',
                            env_id='CartPole-v1',
@@ -83,7 +83,7 @@
 -----------------------
 
 用户可利用tensorboard或wandb工具来可视化训练过程，
-通过指定xuanpolicy/configs/basic.yaml文件中的 ``logger`` 参数选择具体的工具：
+通过指定xuance/configs/basic.yaml文件中的 ``logger`` 参数选择具体的工具：
 
 .. code-block:: yaml
 
@@ -106,7 +106,7 @@
 
 **2. W&B 可视化**
 
-若选择使用wandb工具实现训练可视化，可根据W&B官方说明创建账号，并在xuanpolicy/configs/basic.yaml文件中指定用户名 ``wandb_user_name``.
+若选择使用wandb工具实现训练可视化，可根据W&B官方说明创建账号，并在xuance/configs/basic.yaml文件中指定用户名 ``wandb_user_name``.
 
 关于W&B的使用及其本地化部署，可参考如下链接：
 

@@ -1,4 +1,4 @@
-.. XuanPolicy documentation master file, created by
+.. XuanCe documentation master file, created by
    sphinx-quickstart on Wed May 31 20:18:19 2023.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -32,8 +32,8 @@ MindSpore_。并且支持CPU、GPU运算，能够在Linux，Windows，MacOS等�
 
 目前，“玄策”已在GitHub和OpenI社区开源，链接如下：
 
-| **GitHub**： `https://github.com/agi-brain/xuanpolicy.git <https://github.com/agi-brain/xuanpolicy.git/>`_
-| **OpenI**： `https://github.com/agi-brain/xuanpolicy.git <https://github.com/agi-brain/xuanpolicy.git/>`_
+| **GitHub**： `https://github.com/agi-brain/xuance.git <https://github.com/agi-brain/xuance.git/>`_
+| **OpenI**： `https://github.com/agi-brain/xuance.git <https://github.com/agi-brain/xuance.git/>`_
 
 .. raw:: html
 

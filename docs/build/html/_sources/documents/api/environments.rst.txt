@@ -15,7 +15,8 @@ Environments
 步骤一：
 
 在./environment目录下创建文件夹myenv（名称自拟），进入myenv文件件并创建my_env.py文件（文件名自拟），编写如下内容：
-::
+
+.. code-block:: python
 
     class My_Env(gym.Env):
         def __init__(env_id: str, seed: str)
