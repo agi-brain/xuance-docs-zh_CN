@@ -14,11 +14,11 @@
 
 .. code-block:: python3
 
-    import xuance as xp
-    runner = xp.get_runner(method='dqn',
-                           env='classic_control',
-                           env_id='CartPole-v1',
-                           is_test=False)
+    import xuance
+    runner = xuance.get_runner(method='dqn',
+                               env='classic_control',
+                               env_id='CartPole-v1',
+                               is_test=False)
     runner.run()
 
 执行以上指令，终端将输出实验的基本信息和训练过程进度条，当进度条满格时表示训练结束，模型保存。
@@ -34,11 +34,11 @@
 
 .. code-block:: python3
 
-    import xuance as xp
-    runner = xp.get_runner(method='maddpg',
-                           env='mpe',
-                           env_id='simple_spread_v3',
-                           is_test=False)
+    import xuance
+    runner = xuance.get_runner(method='maddpg',
+                               env='mpe',
+                               env_id='simple_spread_v3',
+                               is_test=False)
     runner.run()
 
 当环境中包含竞争型任务时，由于智能体的优化目标不同，玄策根据原始环境中的任务说明，将智能体进行分组，每组运行一个MARL算法。
@@ -47,11 +47,11 @@
 
 .. code-block:: python3
 
-    import xuance as xp
-    runner = xp.get_runner(method=["iddpg", "maddpg"],
-                           env='mpe',
-                           env_id='simple_push_v3',
-                           is_test=False)
+    import xuance
+    runner = xuance.get_runner(method=["iddpg", "maddpg"],
+                               env='mpe',
+                               env_id='simple_push_v3',
+                               is_test=False)
     runner.run()
 
 在该示例中，第一组智能体使用IDDPG算法，而第二组使用MADDPG算法。执行以上命令后，终端将输出实验的基本信息和训练过程进度条，当进度条满格时表示训练结束，模型保存。
@@ -66,11 +66,11 @@
 
 .. code-block:: python3
 
-    import xuance as xp
-    runner = xp.get_runner(method='dqn',
-                           env='classic_control',
-                           env_id='CartPole-v1',
-                           is_test=True)
+    import xuance
+    runner = xuance.get_runner(method='dqn',
+                               env='classic_control',
+                               env_id='CartPole-v1',
+                               is_test=True)
     runner.run()
 
 以上代码中，还可用 ``runner.benchmark()`` 代替 ``runner.run()`` ，用于训练基准模型和基准测试结果。
