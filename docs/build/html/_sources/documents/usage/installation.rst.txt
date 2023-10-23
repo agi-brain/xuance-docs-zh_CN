@@ -18,13 +18,13 @@
 
 .. code-block:: console
 
-    conda create -n xpolicy python=3.7
+    conda create -n xuance_env python=3.7
 
 **步骤 2**: conda 环境创建成功后，激活该环境:
 
 .. code-block:: console
     
-    conda activate xpolicy
+    conda activate xuance_env
 
 **步骤 3**: 安装玄策:
 
@@ -72,13 +72,13 @@
 
 .. code-block:: console
 
-    conda create -n xpolicy python=3.7
+    conda create -n xuance_env python=3.7
 
 **步骤 2**: conda 环境创建成功后，激活该环境:
 
 .. code-block:: console
     
-    conda activate xpolicy
+    conda activate xuance_env
 
 **步骤 3**: 从GitHub下载xuance源码:
 
