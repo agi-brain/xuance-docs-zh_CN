@@ -1,3 +1,0 @@
-renku-sphinx-theme
-sphinx_tabs
-sphinx_copybutton
