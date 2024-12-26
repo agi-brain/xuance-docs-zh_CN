@@ -1,16 +1,9 @@
 Representations
-======================
+================
 
 .. toctree::
-    :hidden:
+    :maxdepth: 1
 
-    MLP-based <representations/mlp>
-    CNN-based <representations/cnn>
-    RNN-based <representations/rnn>
-
-* :doc:`MLP <representations/mlp>`: Multi-layer perceptron.
-
-* :doc:`CNN <representations/cnn>`: Convolutional neural networks.
-
-* :doc:`RNN <representations/rnn>`: Recurrent neural networks.
-
+    representations/mlp
+    representations/cnn
+    representations/rnn

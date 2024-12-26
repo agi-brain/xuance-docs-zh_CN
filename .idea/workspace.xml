@@ -4,7 +4,261 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2bf839e-3bd2-450d-bf76-14e7e97dce85" name="Changes" comment="" />
+    <list default="true" id="d2bf839e-3bd2-450d-bf76-14e7e97dce85" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/base.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/core.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/a2c_agent.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/c51_agent.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/ddpg_agent.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/ddqn_agent.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/dqn_agent.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/drqn_agent.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/dueldqn_agent.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/mpdqn_agent.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/noisydqn_agent.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/pdqn_agent.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/perdqn_agent.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/pg_agent.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/ppg_agent.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/ppoclip_agent.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/ppokl_agent.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/qrdqn_agent.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/sac_agent.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/spdqn_agent.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/td3_agent.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/coma_agents.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/dcg_agents.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/iac_agents.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/iddpg_agents.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/ippo_agents.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/iql_agents.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/isac_agents.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/maddpg_agents.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/mappo_agents.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/masac_agents.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/matd3_agents.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/mfac_agents.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/mfq_agents.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/qmix_agents.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/qtran_agents.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/vdac_agents.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/vdn_agents.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/wqmix_agents.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/configs/basic_configurations.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/configs/configuration_examples.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/configs/customized_configurations.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/configs/example_marl.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/configs/example_policy_based.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/configs/example_value_based.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/multi_agent_env.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/multi_agent_env/drones.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/multi_agent_env/football.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/multi_agent_env/magent2.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/multi_agent_env/mpe.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/multi_agent_env/robotic_warehouse.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/multi_agent_env/smac.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/single_agent_env.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/single_agent_env/gym.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/single_agent_env/gym_platform.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/single_agent_env/metadrive.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/single_agent_env/minigrid.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/utils.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/utils/base.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/utils/wrapper.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/vector_envs.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/vector_envs/dummy_vec_env.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/vector_envs/env_utils.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/vector_envs/subprocess_vec_env.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/environments/vector_envs/vector_env.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/a2c_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/c51_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/ddpg_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/ddqn_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/dqn_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/drqn_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/dueldqn_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/mpdqn_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/pdqn_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/perdqn_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/pg_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/ppg_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/ppoclip_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/ppokl_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/qrdqn_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/sac_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/sacdis_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/spdqn_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/td3_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/coma_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/dcg_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/iac_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/iddpg_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/ippo_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/iql_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/isac_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/maddpg_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/mappo_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/masac_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/matd3_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/mfac_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/mfq_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/qmix_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/qtran_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/vdac_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/vdn_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/wqmix_learner.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/policies/core.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/runners/runner_competition.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/api/runners/runner_marl.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_0_Ant.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_1_HalfCheetah.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_2_Hopper.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_3_HumanoidStandup.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_4_Humanoid.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_5_InvertedDoublePendulum.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_6_InvertedPendulum.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_7_Reacher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_8_Swimmer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_9_Walker2d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/fig_0_2m_vs_1z.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/fig_1_3m.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/fig_2_8m.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/fig_3_1c3s5z.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/fig_4_2s3z.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/fig_5_25m.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/fig_6_5m_vs_6m.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/fig_7_8m_vs_9m.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/fig_8_MMM2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/release_log.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/usage/new_algorithm.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/usage/new_drl_envs.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/usage/new_envs.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/usage/new_marl_envs.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/agents.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/a2c.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/basic_drl_class.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/c51.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/ddpg.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/ddqn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/dqn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/dueldqn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/mpdqn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/noisydqn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/pdqn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/perdqn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/pg.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/ppg.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/ppo_clip.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/ppo_kl.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/qrdqn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/sac.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/sac_dis.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/spdqn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/td3.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/basic_marl_class.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/coma.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/dcg.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/iddpg.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/ippo.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/iql.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/isac.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/maddpg.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/mappo.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/masac.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/matd3.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/mfac.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/mfq.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/qmix.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/qtran.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/vdac.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/vdn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/marl/wqmix.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/common.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/common.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/common/common_tools.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/common/common_tools.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/common/memory_tools.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/common/memory_tools.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/common/memory_tools_marl.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/common/memory_tools_marl.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/common/segtree_tool.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/common/segtree_tool.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/common/statistic_tools.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/common/statistic_tools.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/configs.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/configs.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/environments.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/environments.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/learners.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/a2c.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/c51.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/ddpg.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/ddqn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/dqn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/dueldqn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/mpdqn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/noisydqn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/pdqn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/perdqn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/pg.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/ppg.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/ppo_clip.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/ppo_kl.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/qrdqn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/sac.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/sac_dis.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/spdqn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/drl/td3.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/learner.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/learners/learner.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/coma.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/dcg.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/iddpg.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/ippo.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/iql.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/isac.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/maddpg.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/mappo.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/masac.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/matd3.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/mfac.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/mfq.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/qmix.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/qtran.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/vdac.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/vdn.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/learners/marl/wqmix.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/policies.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/policies.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/policies/categorical.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/policies/categorical.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/policies/categorical_marl.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/policies/categorical_marl.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/policies/coordination_graph.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/policies/coordination_graph.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/policies/deterministic.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/policies/deterministic.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/policies/deterministic_marl.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/policies/deterministic_marl.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/policies/gaussian.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/policies/gaussian.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/policies/gaussian_marl.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/policies/gaussian_marl.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/policies/mixers.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/representations.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/representations.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/representations/cnn.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/representations/cnn.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/representations/mlp.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/representations/mlp.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/representations/rnn.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/representations/rnn.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/runners.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/runners.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/runners/runner_basic.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/runners/runner_basic.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/runners/runner_drl.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/runners/runner_drl.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/runners/runner_football.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/runners/runner_football.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/runners/runner_magent.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/runners/runner_pettingzoo.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/runners/runner_sc2.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/runners/runner_sc2.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/utils.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/utils.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/utils/distributions.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/utils/distributions.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/utils/input_reformat.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/utils/layers.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/utils/layers.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/utils/operations.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/utils/operations.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/utils/value_norm.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/utils/value_norm.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/atari.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/atari.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/magent.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/mpe.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/toy.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/professional_usage.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/usage/further_usage.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +283,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/lwz/Public/--MyPapers/5-XuanPolicy-RL-library/code/xuance-docs-zh_CN/docs",
+    "last_opened_file_path": "/Users/lwz/Public/--MyPapers/5-XuanPolicy-RL-library/code/xuance-docs-zh_CN/docs/source/documents",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -40,6 +294,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/source/documents" />
+      <recent name="$PROJECT_DIR$/docs/source/documents/usage" />
+      <recent name="$PROJECT_DIR$/docs/source/documents/benchmark" />
       <recent name="$PROJECT_DIR$/docs" />
     </key>
   </component>
@@ -58,7 +315,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1697784306340</updated>
-      <workItem from="1735109991373" duration="3436000" />
+      <workItem from="1735109991373" duration="6730000" />
     </task>
     <servers />
   </component>

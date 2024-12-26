@@ -35,64 +35,62 @@ MindSpore_。并且支持CPU、GPU运算，能够在Linux，Windows，MacOS等�
 | **GitHub**： `https://github.com/agi-brain/xuance.git <https://github.com/agi-brain/xuance.git/>`_
 | **OpenI**： `https://github.com/agi-brain/xuance.git <https://github.com/agi-brain/xuance.git/>`_
 
-.. raw:: html
+The Framework of XuanCe
+------------------------------------------
 
-   <br><hr> 
+The overall framework of XuanCe is shown as below.
+
+.. image:: _static/figures/xuance_framework.png
+
+
+XuanCe contains four main parts:
+
+- Part I: Configs. The configurations of hyper-parameters, environments, models, etc.
+- Part II: Common tools. Reusable tools that are independent of the choice of DL toolbox.
+- Part III: Envrionments. The supported simulated environments.
+- Part IV: Algorithms. The key part to build DRL algorithms.
 
 .. toctree::
+   :hidden:
    :maxdepth: 1
-   :caption: 如何使用:
+   :caption: 教程
 
    documents/usage/installation
    documents/usage/basic_usage
-   documents/usage/professional_usage
-
-.. raw:: html
-
-   <br><hr> 
+   documents/usage/further_usage
+   documents/usage/new_envs
+   documents/usage/new_algorithm
 
 .. toctree::
+   :hidden:
    :maxdepth: 1
-   :caption: API:
+   :caption: 接口：
 
-   documents/api/agents.rst
+   documents/api/environments
+   documents/api/agents
+   documents/api/runners
    documents/api/representations
    documents/api/policies
    documents/api/learners
-   documents/api/runners
-   documents/api/utils
    documents/api/configs
    documents/api/common
-   documents/api/environments
-
-.. raw:: html
-
-   <br><hr> 
+   documents/api/utils
 
 .. toctree::
+   :hidden:
    :maxdepth: 1
    :caption: 参考基准
 
-   documents/benchmark/toy
    documents/benchmark/mujoco
    documents/benchmark/atari
-   documents/benchmark/mpe
-   documents/benchmark/magent
+   documents/benchmark/smac
 
 .. toctree::
-   :maxdepth: 1
-   :caption: 算法介绍
+   :hidden:
+   :caption: 玄策开发
 
-   documents/algorithms/drl
-   documents/algorithms/marl
-
-.. raw:: html
-
-   <br><hr> 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   Github <https://github.com/agi-brain/xuance.git>
+   documents/release_log
+   Contribute to XuanCe <https://github.com/agi-brain/xuance/pulls>
+   Contribute to the Docs (English) <https://github.com/agi-brain/xuance/tree/master/docs>
+   Contribute to the Docs (Chinese) <https://github.com/agi-brain/xuance-docs-zh_CN/tree/master/docs>
