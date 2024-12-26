@@ -43,12 +43,12 @@ The overall framework of XuanCe is shown as below.
 .. image:: _static/figures/xuance_framework.png
 
 
-XuanCe contains four main parts:
+玄策框架主要由以下四个部分构成:
 
-- Part I: Configs. The configurations of hyper-parameters, environments, models, etc.
-- Part II: Common tools. Reusable tools that are independent of the choice of DL toolbox.
-- Part III: Envrionments. The supported simulated environments.
-- Part IV: Algorithms. The key part to build DRL algorithms.
+- 第一部分: Configs. 环境参数、算法超参数、模型规模、训练参数等配置信息；
+- 第二部分: Common Tools. 通用工具，包含经验回放池等模块；
+- 第三部分: Environments. 环境模块，包含玄策的环境封装，向量化环境等工具；
+- 第四部分: Algorithms. 算法模块，包含表征器、策略、学习器、智能体等模块。
 
 .. toctree::
    :hidden:

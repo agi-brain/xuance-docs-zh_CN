@@ -1,17 +1,15 @@
-New Algorithm
+自定义算法
 =========================================================
 
-We allow users create their own customized algorithm outside of the default in XuanCe.
+用户可以在玄策框架的默认算法之外创建自己的新算法。
 
-This tutorial walks you through the process of creating, training,
-and testing a custom off-policy reinforcement learning (RL) agent using the XuanCe framework.
-The demo involves defining a custom policy, learner, and agent while using XuanCe’s modular architecture for RL experiments.
+本教程将引导您完成使用玄策框架创建、训练和测试自定义离策略强化学习（RL）智能体的全过程。
+示例演示了如何定义自定义策略、学习器和智能体，同时利用玄策的模块化架构进行强化学习实验。
 
-Step 1: Define the Policy Module
+步骤 1: 定义策略模块
 -------------------------------------------------------------
 
-The policy is the brain of the agent.
-It maps observations to actions, optionally through a value function. Here, we define a custom policy MyPolicy:
+策略 policy 是智能体的决策模块，它将从环境中获取的观测信息映射至动作空间。这里，我们给出了一个自定义策略（MyPolicy）的示例：
 
 .. code-block:: python
 
@@ -57,17 +55,16 @@ It maps observations to actions, optionally through a value function. Here, we d
                 tp.data.copy_(ep)
 
 
-Key Points:
+关键点：
 
-- representation module: Extracts state features, decoupling feature engineering from Q-value computation.
-- networks: The policy uses a feedforward neural network to calculate actions and estimate Q-values.
-- device: The device choice should align with that of the other modules.
+- 表征器（representation）：用于提取状态特征，将环境表征与Q值计算解耦。
+- 网络（networks）：策略使用前馈神经网络来计算动作并估计Q值。
+- 设备（device）：需指定计算设备，CPU或GPU，GPU编号等。
 
-Step 2: Define the Learner
+步骤 2: 定义学习器模块（Learner）
 -------------------------------------------------------------
 
-The learner manages the policy optimization process,
-including computing loss, performing gradient updates, and synchronizing target networks.
+学习器（Learner）主要负责定义优化器、确定优化目标，从而计算出损失函数，完成反向传播，从而更新策略模块的网络参数。
 
 .. code-block:: python
 
@@ -113,16 +110,16 @@ including computing loss, performing gradient updates, and synchronizing target 
 
             return info
 
-Key Points:
+关键要点:
 
-- optimizer: The pytorch's optimizer should be selected in the __init__ method.
-- update: In this method, we can get a batch of samples and use them to calculate loss values and back propagation.
-- info: The users can add arbitrarily .
+- 优化器（optimizer）: 优化器的选择需在学习器的 ``__init__`` 方法中定义.
+- 更新方法（update）: 在该方法中，传入一个batch的经验数据，完成前向传播并计算出损失函数，最后完成反向传播和参数更新.
+- info字典: 在 ``info`` 字典中写入您想在训练过程中观察的变量.
 
-Step 3: Define the Agent
+步骤 3: 定义智能体模块（Agent)
 -------------------------------------------------------------
 
-The agent combines the policy, learner, and environment interaction to create a complete RL pipeline.
+智能体模块包含了 ``policy``，``learner``，``environment``等模块，用于实现智能体和环境的交互过程。
 
 .. code-block:: python
 
@@ -141,16 +138,17 @@ The agent combines the policy, learner, and environment interaction to create a 
             policy = MyPolicy(representation, 64, self.action_space.n, self.config.device)
             return policy
 
-Key Points:
+关键要点:
 
-- Policy: Build the custom policy and learner defined earlier.
-- Memory: Build experience replay to break correlations in training data.
-- Learner: Register MyLearner for easy configuration.
+- 策略（policy）: 在 ``_build_policy`` 方法中创建表征器模块，然后创建策略模块.
+- 经验回放池（memory）: 在 ``_build_memory`` 方法中创建经验回放池，用于存储经验数据.
+- 学习器（learner）: 在 ``_build_learner`` 方法中创建学习器模块.
 
-Step 4: Build and Run Your Agent.
+步骤 4: 创建智能体模块并运行
 -------------------------------------------------------------
 
-Finally, we can create the agent and make environments to train the model.
+在准备好以上各模块之后，在主程序中获取 ``config`` 参数配置，创建环境、智能体模块，
+利用 ``Agent`` 模块中预定义的 ``train``，``test`` 方法，完成训练和测试。
 
 .. code-block:: python
 
@@ -172,6 +170,6 @@ Finally, we can create the agent and make environments to train the model.
         agent.finish()  # Finish the agent.
         envs.close()  # Close the environments.
 
-The source code of this example can be visited at the following link:
+该示例的源码文件请参考以下链接:
 
 `https://github.com/agi-brain/xuance/blob/master/examples/new_algorithm/new_rl.py <https://github.com/agi-brain/xuance/blob/master/examples/new_algorithm/new_rl.py>`_

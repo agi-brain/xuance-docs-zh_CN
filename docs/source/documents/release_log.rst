@@ -1,4 +1,4 @@
-Release Log
+版本发布
 ==============
 
 .. changelog::
