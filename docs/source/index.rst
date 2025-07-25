@@ -30,10 +30,9 @@ MindSpore_。并且支持CPU、GPU运算，能够在Linux，Windows，MacOS等�
    * 安装方便，代码易读，上手简单。
    * 支持丰富的算法，包括单智能体、多智能体协作、多智能体对抗博弈等任务。
 
-目前，“玄策”已在GitHub和OpenI社区开源，链接如下：
+目前，“玄策”已在GitHub社区开源，链接如下：
 
 | **GitHub**： `https://github.com/agi-brain/xuance.git <https://github.com/agi-brain/xuance.git/>`_
-| **OpenI**： `https://github.com/agi-brain/xuance.git <https://github.com/agi-brain/xuance.git/>`_
 
 The Framework of XuanCe
 ------------------------------------------

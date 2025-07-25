@@ -6,17 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d2bf839e-3bd2-450d-bf76-14e7e97dce85" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/atari.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/atari.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/smac.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/release_log.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/release_log.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/basic_usage.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/usage/basic_usage.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/installation.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/usage/installation.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/new_algorithm.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/usage/new_algorithm.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/new_drl_envs.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/usage/new_drl_envs.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/new_envs.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/usage/new_envs.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/new_marl_envs.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/usage/new_marl_envs.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +63,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1697784306340</updated>
-      <workItem from="1735109991373" duration="11449000" />
+      <workItem from="1735109991373" duration="12935000" />
     </task>
     <servers />
   </component>
