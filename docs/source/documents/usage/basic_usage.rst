@@ -29,11 +29,39 @@
                                is_test=False)
     runner.run()
 
-执行以上指令，终端将输出实验的基本信息和训练过程进度条，当进度条满格时表示训练结束，模型保存。
+.. tip::
 
-.. raw:: html
+    如果你想修改上述示例中的超参数，可以创建一个 Python 文件，例如命名为 “example.py”。
+    在 example.py 文件中，请在创建运行器（runner）之前定义并创建参数解析器（parser arguments）。
 
-   <br><hr>
+    .. code-block:: python
+
+        import xuance, argparse
+
+        def parse_args():
+            parser = argparse.ArgumentParser("Run a demo.")
+            parser.add_argument("--method", type=str, default="dqn")
+            parser.add_argument("--env", type=str, default="classic_control")
+            parser.add_argument("--env-id", type=str, default="CartPole-v1")
+            parser.add_argument("--test", type=int, default=0)
+            parser.add_argument("--device", type=str, default="cuda:0")
+
+            return parser.parse_args()
+
+        if __name__ == '__main__':
+            parser = parse_args()
+            runner = xuance.get_runner(method=parser.method,
+                                       env=parser.env,
+                                       env_id=parser.env_id,
+                                       parser_args=parser,
+                                       is_test=parser.test)
+            runner.run()
+
+    然后，在终端运行 Python 文件:
+
+    .. code-block:: bash
+
+        python example.py  # or python example.py --device 'cpu'
    
 运行一个MARL算法
 -----------------------
@@ -58,7 +86,7 @@
 .. code-block:: python3
 
     import xuance
-    runner = xuance.get_runner(method=["iddpg", "maddpg"],
+    runner = xuance.get_runner(method=["maddpg", "iddpg"],
                                env='mpe',
                                env_id='simple_push_v3',
                                is_test=False)
@@ -66,10 +94,6 @@
 
 在该示例中，第一组智能体使用IDDPG算法，而第二组使用MADDPG算法。
 执行以上命令后，终端将输出实验的基本信息和训练过程进度条，当进度条满格时表示训练结束，模型保存。
-
-.. raw:: html
-
-   <br><hr>
    
 测试
 -----------------------
@@ -86,10 +110,6 @@
     runner.run()
 
 以上代码中，还可用 ``runner.benchmark()`` 代替 ``runner.run()`` ，用于训练基准模型和基准测试结果。
-
-.. raw:: html
-
-   <br><hr>
    
 训练可视化
 -----------------------

@@ -25,61 +25,82 @@
     dl_toolbox: "torch"  # The deep learning toolbox. Choices: "torch", "mindspore", "tensorlayer"
     project_name: "XuanCe_Benchmark"
     logger: "tensorboard"  # Choices: tensorboard, wandb.
-    wandb_user_name: "your_user_name"
-    render: False
+    wandb_user_name: "your_user_name"  # The username of wandb when the logger is wandb.
+    render: False # Whether to render the environment when testing.
     render_mode: 'rgb_array' # Choices: 'human', 'rgb_array'.
-    test_mode: False
-    device: "cuda:0"
+    fps: 50  # The frames per second for the rendering videos in log file.
+    test_mode: False  # Whether to run in test mode.
+    device: "cuda:0"  # Choose an calculating device.
+    distributed_training: False  # Whether to use multi-GPU for distributed training.
+    master_port: '12355'  # The master port for current experiment when use distributed training.
 
-    agent: "PPO_Clip"  # choice: PPO_Clip, PPO_KL
-    env_name: "MuJoCo"
-    vectorize: "Dummy_Gym"
-    runner: "DRL"
+    agent: "PPO_Clip"  # The agent name.
+    env_name: "MuJoCo"  # The environment device.
+    env_id: "Ant-v4"  # The environment id.
+    env_seed: 1
+    vectorize: "DummyVecEnv"  # The vecrized method to create n parallel environments. Choices: DummyVecEnv, or SubprocVecEnv.
+    learner: "PPOCLIP_Learner"
+    policy: "Gaussian_AC"  # choice: Gaussian_AC for continuous actions, Categorical_AC for discrete actions.
+    representation: "Basic_MLP"  # The representation name.
 
-    representation_hidden_size: [256,]
-    actor_hidden_size: [256,]
-    critic_hidden_size: [256,]
-    activation: "LeakyReLU"
+    representation_hidden_size: [256,]  # The size of hidden layers for representation network.
+    actor_hidden_size: [256,]  # The size of hidden layers for actor network.
+    critic_hidden_size: [256,]  # The size of hidden layers for critic network.
+    activation: "leaky_relu"  # The activation function for each hidden layer.
+    activation_action: 'tanh'  # The activation function for the last layer of actor network.
 
-    seed: 79811
-    parallels: 16
-    running_steps: 1000000
-    n_steps: 256
-    n_epoch: 16
-    n_minibatch: 8
-    learning_rate: 0.0004
+    seed: 79811  # The random seed.
+    parallels: 16  # The number of environments to run in parallel.
+    running_steps: 1000000  # The total running steps for all environments.
+    horizon_size: 256  # the horizon size for an environment, buffer_size = horizon_size * parallels.
+    n_epochs: 16  # The number of training epochs.
+    n_minibatch: 8  # The number of minibatch for each training epoch. batch_size = buffer_size // n_minibatch.
+    learning_rate: 0.0004  # The learning rate.
 
-    use_grad_clip: True
+    vf_coef: 0.25  # Coefficient factor for critic loss.
+    ent_coef: 0.0  # Coefficient factor for entropy loss.
+    target_kl: 0.25  # For PPO_KL learner.
+    kl_coef: 1.0  # For PPO_KL learner.
+    clip_range: 0.2  # The clip range for ratio in PPO_Clip learner.
+    gamma: 0.99  # Discount factor.
+    use_gae: True  # Use GAE trick.
+    gae_lambda: 0.95  # The GAE lambda.
+    use_advnorm: True  # Whether to use advantage normalization.
 
-    vf_coef: 0.25
-    ent_coef: 0.0
-    target_kl: 0.001  # for PPO_KL agent
-    clip_range: 0.2  # for PPO_Clip agent
-    clip_grad_norm: 0.5
-    gamma: 0.99
-    use_gae: True
-    gae_lambda: 0.95
-    use_advnorm: True
+    use_grad_clip: True  # Whether to clip the gradient during training.
+    clip_type: 1  # Gradient clip for Mindspore: 0: ms.ops.clip_by_value; 1: ms.nn.ClipByNorm()
+    grad_clip_norm: 0.5  # The max norm of the gradient.
+    use_actions_mask: False  # Whether to use action mask values.
+    use_obsnorm: True  # Whether to use observation normalization.
+    use_rewnorm: True  # Whether to use reward normalization.
+    obsnorm_range: 5  # The range of observation if use observation normalization.
+    rewnorm_range: 5  # The range of reward if use reward normalization.
 
-    use_obsnorm: True
-    use_rewnorm: True
-    obsnorm_range: 5
-    rewnorm_range: 5
+    test_steps: 10000  # The total steps for testing.
+    eval_interval: 5000  # The evaluate interval when use benchmark method.
+    test_episode: 5  # The test episodes.
+    log_dir: "./logs/ppo/"  # The main directory of log files.
+    model_dir: "./models/ppo/"  # The main directory of model files.
 
-    test_steps: 10000
-    eval_interval: 5000
-    test_episode: 5
-    log_dir: "./logs/ppo/"
-    model_dir: "./models/ppo/"
-
-.. raw:: html
-
-   <br><hr>
    
 步骤2：读取参数
 -----------------------------------
 
-该部分主要包括参数读取、环境创建、模型创建、模型训练等环节。首先创建 `ppo_mujoco.py` 文件，代码编写分为如下步骤：
+该部分主要包括参数读取、环境创建、模型构建以及模型训练等内容。
+首先，创建一个名为 ppo_mujoco.py 的文件。
+代码的编写过程可以分为以下几个步骤：
+
+**Step 2.0 导入必要工具**
+
+.. code-block:: python
+
+    import argparse
+    import numpy as np
+    from copy import deepcopy
+    from xuance.common import get_configs, recursive_dict_update
+    from xuance.environment import make_envs
+    from xuance.torch.utils.operations import set_seed
+    from xuance.torch.agents import PPOCLIP_Agent
 
 **步骤2.1 解析终端命令参数**
 
@@ -87,17 +108,13 @@
 
 .. code-block:: python
 
-    import argparser
+    import argparse
 
     def parse_args():
-        parser = argparse.ArgumentParser("Example of XuanCe.")
-        parser.add_argument("--method", type=str, default="ppo")
-        parser.add_argument("--env", type=str, default="mujoco")
+        parser = argparse.ArgumentParser("Example of XuanCe: PPO for MuJoCo.")
         parser.add_argument("--env-id", type=str, default="InvertedPendulum-v4")
         parser.add_argument("--test", type=int, default=0)
-        parser.add_argument("--device", type=str, default="cuda:0")
         parser.add_argument("--benchmark", type=int, default=1)
-        parser.add_argument("--config", type=str, default="./ppo_mujoco_config.yaml")
 
         return parser.parse_args()
 
@@ -108,16 +125,11 @@
 
 .. code-block:: python
 
-    from xuance import get_arguments
-
     if __name__ == "__main__":
-    parser = parse_args()
-    args = get_arguments(method=parser.method,
-                         env=parser.env,
-                         env_id=parser.env_id,
-                         config_path=parser.config,
-                         parser_args=parser)
-    run(args)
+        parser = parse_args()
+        configs_dict = get_configs(file_dir="ppo_configs/ppo_mujoco_config.yaml")
+        configs_dict = recursive_dict_update(configs_dict, parser.__dict__)
+        configs = argparse.Namespace(**configs_dict)
 
 
 在该步骤中，调用了“玄策”中的 ``get_arguments()`` 函数。在该函数中，首先根据 ``env`` 和 ``env_id`` 变量组合，从xuance/configs/路径中查询是否有可读取的参数。
@@ -255,3 +267,13 @@
 该实例的完整代码见如下链接：
 
 `https://github.com/agi-brain/xuance/examples/ppo/ppo_mujoco.py <https://github.com/agi-brain/xuance/examples/ppo/ppo_mujoco.py/>`_
+
+利用多GPU实现分布式训练
+--------------------------------------
+
+XuanCe 支持 多 GPU 并行训练，以最大化 GPU 资源利用率，从而实现更高效的深度强化学习（DRL）模型训练。
+
+若要使用多 GPU 进行 DRL 模型训练，需要将参数 distributed_training 设置为 True。
+以下是相关参数说明：
+- distributed_training（bool）：指定是否启用多 GPU 分布式训练。设置为 True 时开启分布式训练；若为 False，则不启用。
+- master_port（int）：当启用分布式训练时，用于定义当前实验的主端口号。
