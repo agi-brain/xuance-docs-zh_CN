@@ -1,19 +1,19 @@
 agent: "MFQ"  # the learning algorithms_marl
-env_name: "mpe"
+env_name: "mpe"  # Name of the environment.
 env_id: "simple_spread_v3"
 env_seed: 1
-continuous_action: False
+continuous_action: False  # Continuous action space or not.
 learner: "MFQ_Learner"
 policy: "MF_Q_network"
 representation: "Basic_Identical"
 vectorize: "DummyVecMultiAgentEnv"
 runner: "RunnerPettingzoo"
 
-use_rnn: False
+use_rnn: False  # Whether to use recurrent neural networks.
 rnn:
 representation_hidden_size: [64, ]
 q_hidden_size: [64, ]  # the units for each hidden layer
-activation: "relu"
+activation: "relu"  # The activation function of each hidden layer.
 
 seed: 1
 parallels: 16
@@ -27,7 +27,7 @@ temperature: 0.1  # softmax for policy
 start_greedy: 1.0
 end_greedy: 0.05
 decay_step_greedy: 2500000
-start_training: 1000  # start training after n episodes
+start_training: 1000  # start training after n steps
 running_steps: 10000000  # 10M
 train_per_step: False  # True: train model per step; False: train model per episode.
 training_frequency: 1

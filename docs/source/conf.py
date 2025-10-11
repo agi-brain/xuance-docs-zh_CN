@@ -12,10 +12,10 @@ import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 print("[DOCS] xuance library path: {}".format(sys.path[0]))
 
-project = '玄策'
-copyright = '2023, XuanCe contributors'
+project = 'XuanCe'
+copyright = '2023, XuanCe Contributors.'
 author = 'Wenzhang Liu, etc.'
-release = '1.2'
+release = "1.3.2"
 
 # The master toctree document.
 master_doc = 'index'
@@ -26,6 +26,7 @@ master_doc = 'index'
 extensions = [
     # Sphinx's own extensions
     "sphinx.ext.autodoc",
+    "sphinx.ext.napoleon",
     "sphinx.ext.extlinks",
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
@@ -42,12 +43,20 @@ extensions = [
     "sphinx_github_changelog"
 ]
 
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.txt': 'markdown',
+    '.md': 'markdown',
+}
+
+myst_enable_extensions = [
+    "dollarmath",  # Enables $...$ for inline and $$...$$ for block math
+]
+
 autodoc_mock_imports = [
     "numpy",
     "scipy",
-    "gym",
     "gymnasium",
-    "gym-notices",
     "pygame",
     "tqdm",
     "pyglet",
@@ -62,16 +71,54 @@ autodoc_mock_imports = [
     "tensorflow_probability",
     "tensorflow-addons",
     "mindspore",
+    "optuna",
+    "optuna-dashboard",
+    "plotly",
 ]
 
+pygments_style = "tango"
+pygments_dark_style = "zenburn"
+
+intersphinx_disabled_domains = ["std"]
 templates_path = ['_templates']
 exclude_patterns = []
+rst_prolog = """
+.. include:: <s5defs.txt>
+
+.. |_1| unicode:: 0xA0
+    :trim:
+
+.. |_2| unicode:: 0xA0 0xA0
+    :trim:
+
+.. |_3| unicode:: 0xA0 0xA0 0xA0
+    :trim:
+
+.. |_4| unicode:: 0xA0 0xA0 0xA0 0xA0
+    :trim:
+
+.. |_5| unicode:: 0xA0 0xA0 0xA0 0xA0 0xA0
+    :trim:
+
+.. |torch| image:: /_static/figures/DL_tools_logo/pytorch.svg
+    :width: 18
+    :align: middle
+
+.. |tensorflow| image:: /_static/figures/DL_tools_logo/tensorflow.svg
+    :width: 20
+    :align: middle
+
+.. |mindspore| image:: /_static/figures/DL_tools_logo/mindspore.svg
+    :width: 36
+    :align: middle
+"""
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = "furo"
+html_theme = "furo"  # sphinx_rtd_theme (before that is renku)
 html_title = f"<div style='text-align: center; font-size: 20px'><strong>{project}</strong></div>"
+html_scaled_image_link = False
 html_static_path = ['_static']
 html_theme_options = {
     # logo
@@ -82,6 +129,12 @@ html_theme_options = {
     "source_branch": "../tree/master",
     "source_directory": "docs/source",
     "top_of_page_buttons": ["view", "edit"],
+    # color
+    # "light_css_variables": {
+    #     "color-brand-primary": "#7C4DFF",
+    #     "color-brand-content": "#7C4DFF",
+    # },
+    "navigation_with_keys": True,  # Controls whether the user can navigate the documentation using the keyboard’s left and right arrows.
 }
 html_css_files = [
     'css/xuance.css',  # Name of xuance CSS file
@@ -98,4 +151,7 @@ favicons = [
 
 # -- Generate Changelog -------------------------------------------------
 
-sphinx_github_changelog_token = os.environ.get("SPHINX_GITHUB_CHANGELOG_TOKEN")
+sphinx_github_changelog_token = (
+    os.environ.get("SPHINX_GITHUB_CHANGELOG_TOKEN") or
+    os.environ.get("GITHUB_TOKEN")
+)

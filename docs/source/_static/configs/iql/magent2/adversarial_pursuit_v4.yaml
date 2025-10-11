@@ -14,11 +14,11 @@ vectorize: "Dummy_MAgent"
 runner: "RunnerMAgent"
 
 # recurrent settings for Basic_RNN representation
-use_rnn: False
+use_rnn: False  # Whether to use recurrent neural networks.
 rnn:
 representation_hidden_size: [64, ]
 q_hidden_size: [64, ]  # the units for each hidden layer
-activation: "relu"
+activation: "relu"  # The activation function of each hidden layer.
 
 seed: 1
 parallels: 10
@@ -31,7 +31,7 @@ double_q: True  # use double q learning
 start_greedy: 1.0
 end_greedy: 0.05
 decay_step_greedy: 2500000
-start_training: 1000  # start training after n episodes
+start_training: 1000  # start training after n steps
 running_steps: 10000000  # 10M
 training_frequency: 1
 sync_frequency: 100

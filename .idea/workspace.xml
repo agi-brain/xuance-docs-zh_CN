@@ -4,8 +4,209 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2bf839e-3bd2-450d-bf76-14e7e97dce85" name="Changes" comment="">
+    <list default="true" id="d2bf839e-3bd2-450d-bf76-14e7e97dce85" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/documents/usage/new_callback.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/c51/atari.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/c51/atari.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/1c3s5z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/1c3s5z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/25m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/25m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/2m_vs_1z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/2m_vs_1z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/2s3z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/2s3z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/3m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/3m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/5m_vs_6m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/5m_vs_6m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/8m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/8m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/8m_vs_9m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/8m_vs_9m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/MMM2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/MMM2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/corridor.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/coma/sc2/corridor.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/dcg/mpe/simple_spread_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/dcg/mpe/simple_spread_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/1c3s5z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/1c3s5z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/25m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/25m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/2m_vs_1z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/2m_vs_1z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/2s3z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/2s3z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/3m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/3m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/5m_vs_6m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/5m_vs_6m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/8m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/8m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/8m_vs_9m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/8m_vs_9m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/MMM2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/MMM2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/corridor.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/dcg/sc2/corridor.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/ddpg/classic_control/Pendulum-v1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/ddpg/classic_control/Pendulum-v1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/ddqn/atari.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/ddqn/atari.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/dqn/atari.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/dqn/atari.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/drqn/atari.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/drqn/atari.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/drqn/box2d/CarRacing-v2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/drqn/box2d/CarRacing-v2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/drqn/box2d/LunarLander-v2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/drqn/box2d/LunarLander-v2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/drqn/classic_control/Acrobot-v1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/drqn/classic_control/Acrobot-v1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/drqn/classic_control/CartPole-v1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/drqn/classic_control/CartPole-v1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/drqn/classic_control/MountainCar-v0.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/drqn/classic_control/MountainCar-v0.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/dueldqn/atari.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/dueldqn/atari.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iac/mpe/simple_spread_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iac/mpe/simple_spread_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/1c3s5z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/1c3s5z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/25m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/25m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/2m_vs_1z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/2m_vs_1z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/2s3z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/2s3z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/3m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/3m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/5m_vs_6m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/5m_vs_6m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/8m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/8m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/8m_vs_9m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/8m_vs_9m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/MMM2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/MMM2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/corridor.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iac/sc2/corridor.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iddpg/drones.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iddpg/drones.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iddpg/mpe/simple_adversary_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iddpg/mpe/simple_adversary_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iddpg/mpe/simple_push_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iddpg/mpe/simple_push_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iddpg/mpe/simple_reference_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iddpg/mpe/simple_reference_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iddpg/mpe/simple_spread_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iddpg/mpe/simple_spread_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/ippo/football/3v1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/ippo/football/3v1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/1c3s5z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/1c3s5z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/25m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/25m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/2m_vs_1z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/2m_vs_1z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/2s3z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/2s3z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/3m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/3m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/5m_vs_6m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/5m_vs_6m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/8m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/8m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/8m_vs_9m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/8m_vs_9m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/MMM2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/MMM2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/corridor.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/ippo/sc2/corridor.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iql/football/3v1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iql/football/3v1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iql/magent2/adversarial_pursuit_v4.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iql/magent2/adversarial_pursuit_v4.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iql/mpe/simple_spread_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iql/mpe/simple_spread_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iql/robotic_warehouse/rware-tiny-2ag-v1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iql/robotic_warehouse/rware-tiny-2ag-v1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/1c3s5z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/1c3s5z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/25m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/25m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/2m_vs_1z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/2m_vs_1z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/2s3z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/2s3z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/3m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/3m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/5m_vs_6m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/5m_vs_6m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/8m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/8m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/8m_vs_9m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/8m_vs_9m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/MMM2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/MMM2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/corridor.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/iql/sc2/corridor.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/isac/mpe/simple_adversary_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/isac/mpe/simple_adversary_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/isac/mpe/simple_push_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/isac/mpe/simple_push_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/isac/mpe/simple_spread_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/isac/mpe/simple_spread_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/maddpg/drones.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/maddpg/drones.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/maddpg/mpe/simple_adversary_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/maddpg/mpe/simple_adversary_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/maddpg/mpe/simple_push_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/maddpg/mpe/simple_push_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/maddpg/mpe/simple_spread_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/maddpg/mpe/simple_spread_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/maddpg/new_env_mas.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/maddpg/new_env_mas.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mappo/football/1v1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mappo/football/1v1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mappo/football/3v1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mappo/football/3v1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mappo/mpe/simple_adversary_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mappo/mpe/simple_adversary_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mappo/mpe/simple_push_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mappo/mpe/simple_push_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mappo/robotic_warehouse/rware-tiny-2ag-v1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mappo/robotic_warehouse/rware-tiny-2ag-v1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/1c3s5z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/1c3s5z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/25m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/25m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/2m_vs_1z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/2m_vs_1z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/2s3z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/2s3z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/3m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/3m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/5m_vs_6m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/5m_vs_6m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/8m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/8m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/8m_vs_9m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/8m_vs_9m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/MMM2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/MMM2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/corridor.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mappo/sc2/corridor.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/masac/mpe/simple_adversary_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/masac/mpe/simple_adversary_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/masac/mpe/simple_push_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/masac/mpe/simple_push_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/masac/mpe/simple_spread_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/masac/mpe/simple_spread_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/matd3/mpe/simple_adversary_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/matd3/mpe/simple_adversary_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/matd3/mpe/simple_push_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/matd3/mpe/simple_push_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/matd3/mpe/simple_spread_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/matd3/mpe/simple_spread_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mfac/mpe/simple_spread_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mfac/mpe/simple_spread_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mfq/magent2/adversarial_pursuit_v4.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mfq/magent2/adversarial_pursuit_v4.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mfq/mpe/simple_spread_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mfq/mpe/simple_spread_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/mpdqn/Platform.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/mpdqn/Platform.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/noisydqn/atari.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/noisydqn/atari.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/pdqn/Platform.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/pdqn/Platform.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/perdqn/atari.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/perdqn/atari.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/ppg/box2d/LunarLander-v2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/ppg/box2d/LunarLander-v2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/ppg/classic_control/CartPole-v1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/ppg/classic_control/CartPole-v1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/ppo/atari.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/ppo/atari.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/ppo/box2d/CarRacing-v2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/ppo/box2d/CarRacing-v2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qmix/football/3v1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qmix/football/3v1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qmix/mpe/simple_spread_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qmix/mpe/simple_spread_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qmix/robotic_warehouse/rware-tiny-2ag-v1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qmix/robotic_warehouse/rware-tiny-2ag-v1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/1c3s5z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/1c3s5z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/25m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/25m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/2m_vs_1z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/2m_vs_1z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/2s3z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/2s3z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/3m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/3m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/5m_vs_6m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/5m_vs_6m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/8m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/8m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/8m_vs_9m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/8m_vs_9m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/MMM2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/MMM2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/corridor.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qmix/sc2/corridor.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qrdqn/atari.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qrdqn/atari.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qtran/mpe/simple_spread_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qtran/mpe/simple_spread_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/1c3s5z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/1c3s5z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/25m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/25m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/2m_vs_1z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/2m_vs_1z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/2s3z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/2s3z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/3m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/3m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/5m_vs_6m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/5m_vs_6m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/8m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/8m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/8m_vs_9m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/8m_vs_9m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/MMM2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/MMM2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/corridor.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/qtran/sc2/corridor.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/random/mpe/simple_adversary.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/random/mpe/simple_adversary.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/random/mpe/simple_push.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/random/mpe/simple_push.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/random/mpe/simple_spread.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/random/mpe/simple_spread.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/sac/box2d/LunarLander-v2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/sac/box2d/LunarLander-v2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/sac/classic_control/Acrobot-v1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/sac/classic_control/Acrobot-v1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/sac/classic_control/CartPole-v1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/sac/classic_control/CartPole-v1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/sac/classic_control/MountainCar-v0.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/sac/classic_control/MountainCar-v0.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/sac/classic_control/Pendulum-v1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/sac/classic_control/Pendulum-v1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/sac/metadrive.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/sac/metadrive.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/spdqn/Platform.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/spdqn/Platform.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdac/mpe/simple_spread_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdac/mpe/simple_spread_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/1c3s5z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/1c3s5z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/25m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/25m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/2m_vs_1z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/2m_vs_1z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/2s3z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/2s3z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/3m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/3m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/5m_vs_6m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/5m_vs_6m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/8m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/8m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/8m_vs_9m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/8m_vs_9m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/MMM2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/MMM2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/corridor.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdac/sc2/corridor.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdn/football/3v1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdn/football/3v1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdn/mpe/simple_spread_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdn/mpe/simple_spread_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdn/new_env_mas.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdn/new_env_mas.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdn/robotic_warehouse/rware-tiny-2ag-v1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdn/robotic_warehouse/rware-tiny-2ag-v1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/1c3s5z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/1c3s5z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/25m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/25m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/2m_vs_1z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/2m_vs_1z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/2s3z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/2s3z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/3m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/3m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/5m_vs_6m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/5m_vs_6m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/8m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/8m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/8m_vs_9m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/8m_vs_9m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/MMM2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/MMM2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/corridor.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/vdn/sc2/corridor.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/mpe/simple_spread_v3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/mpe/simple_spread_v3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/1c3s5z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/1c3s5z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/25m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/25m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/2m_vs_1z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/2m_vs_1z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/2s3z.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/2s3z.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/3m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/3m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/5m_vs_6m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/5m_vs_6m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/8m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/8m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/8m_vs_9m.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/8m_vs_9m.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/MMM2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/MMM2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/corridor.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/configs/wqmix/sc2/corridor.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/css/xuance.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/css/xuance.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/figures/atari/boxing.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/figures/atari/breakout.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/figures/minigrid/crossing.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/figures/minigrid/lockedroom.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/figures/minigrid/memory.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/figures/minigrid/playground.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/figures/mpe/mpe_simple_world_comm.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/figures/toy/acrobot.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/figures/toy/cart_pole.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/figures/toy/pendulum.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/conf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/release_log.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/release_log.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +219,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2X16ayUPAXf7ew2X1u7wDWxcn31" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,7 +232,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/lwz/Public/--MyPapers/5-XuanPolicy-RL-library/code/xuance-docs-zh_CN/docs/source/documents",
+    "last_opened_file_path": "/Users/lwz/Public/--MyPapers/5-XuanPolicy-RL-library/code/xuance-docs-zh_CN/docs/source/documents/usage",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -42,8 +243,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/docs/source/documents" />
       <recent name="$PROJECT_DIR$/docs/source/documents/usage" />
+      <recent name="$PROJECT_DIR$/docs/source/documents" />
       <recent name="$PROJECT_DIR$/docs/source/documents/benchmark" />
       <recent name="$PROJECT_DIR$/docs" />
     </key>
@@ -64,7 +265,18 @@
       <option name="presentableId" value="Default" />
       <updated>1697784306340</updated>
       <workItem from="1735109991373" duration="12935000" />
+      <workItem from="1753456589428" duration="83000" />
+      <workItem from="1760156824940" duration="3257000" />
     </task>
+    <task id="LOCAL-00001" summary="update">
+      <option name="closed" value="true" />
+      <created>1753456666813</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1753456666813</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -80,5 +292,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>
