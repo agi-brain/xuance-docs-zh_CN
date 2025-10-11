@@ -125,7 +125,7 @@ html_theme_options = {
     "light_logo": "figures/logo_2.png",
     "dark_logo": "figures/logo_2.png",
     #
-    "source_repository": "https://github.com/agi-brain/xuance",
+    "source_repository": "https://github.com/agi-brain/xuance-docs-zh_CN",
     "source_branch": "../tree/master",
     "source_directory": "docs/source",
     "top_of_page_buttons": ["view", "edit"],

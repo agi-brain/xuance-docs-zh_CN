@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2bf839e-3bd2-450d-bf76-14e7e97dce85" name="Changes" comment="update: figures">
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/basic_usage.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/usage/basic_usage.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/further_usage.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/usage/further_usage.rst" afterDir="false" />
-    </list>
+    <list default="true" id="d2bf839e-3bd2-450d-bf76-14e7e97dce85" name="Changes" comment="update: figures" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,7 +64,7 @@
       <workItem from="1735109991373" duration="12935000" />
       <workItem from="1753456589428" duration="83000" />
       <workItem from="1760156824940" duration="3257000" />
-      <workItem from="1760167960307" duration="3348000" />
+      <workItem from="1760167960307" duration="4009000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
