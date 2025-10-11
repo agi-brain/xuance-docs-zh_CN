@@ -1,6 +1,16 @@
 自定义算法
 =========================================================
 
+.. raw:: html
+
+   <a href="https://colab.research.google.com/github/agi-brain/xuance/blob/master/docs/source/notebook-colab/new_algorithm.ipynb"
+      target="_blank"
+      rel="noopener noreferrer"
+      style="float: left; margin-left: 0px;">
+       <img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg">
+   </a>
+   <br>
+
 用户可以在玄策框架的默认算法之外创建自己的新算法。
 
 本教程将引导您完成使用玄策框架创建、训练和测试自定义离策略强化学习（RL）智能体的全过程。

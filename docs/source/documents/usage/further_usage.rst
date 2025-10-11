@@ -7,7 +7,13 @@
 
 .. raw:: html
 
-   <br><hr>
+   <a href="https://colab.research.google.com/github/agi-brain/xuance/blob/master/docs/source/notebook-colab/further_usage.ipynb"
+      target="_blank"
+      rel="noopener noreferrer"
+      style="float: left; margin-left: 0px;">
+       <img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg">
+   </a>
+   <br>
    
 步骤1：准备YAML文件，配置参数
 --------------------------------
