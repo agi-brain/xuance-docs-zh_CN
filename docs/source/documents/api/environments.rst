@@ -1,9 +1,9 @@
 Environments
 ======================
 
-本软件包含的单智能体任务仿真环境有gym下的Atari，Mujoco，Classic Control，Box2D。
-包含的多智能体任务仿真环境有PettingZoo开源环境下的MPE和SISL，StarCraft2，MAgent2，Google Football环境等。
-每个仿真环境下包含丰富的任务场景，如下表所示。
+The software includes single agent task simulation environments such as Atari, Mujoco, Classic Control, and Box2D under gym.
+It also includes multi-agent task simulation environments such as MPE and SISL under the open-source environment PettingZoo, StarCraft2, MAgent2, Google Football, etc.
+Each simulation environment contains a rich variety of task scenarios, as shown in the table below.
 
 
 .. toctree::

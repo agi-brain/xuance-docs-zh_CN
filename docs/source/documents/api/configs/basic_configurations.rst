@@ -1,7 +1,7 @@
 Basic Configurations
 --------------------------
 
-基础参数配置存于xuance/config/basic.yaml文件中，示例如下：
+The basic parameter configuration is stored in the "xuance/config/basic.yaml" file, as shown below:
 
 .. code-block:: yaml
 
@@ -21,7 +21,7 @@ Basic Configurations
     device: "cpu"
 
 
-需要注意的是， `basic.yaml` 文件中的 ``device`` 变量取值根据不同的深度学习框架有所差异，分别如下：
+It should be noted that the value of the `device` variable in the `basic.yaml` file varies depending on the specific deep learning framework, as outlined below:
 
 | - PyTorch: "cpu", "cuda:0";
 | - TensorFlow: "cpu"/"CPU", "gpu"/"GPU";

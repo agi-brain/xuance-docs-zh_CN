@@ -1,13 +1,16 @@
 Configuration Examples
 ------------------------------------------------------
 
-以DQN算法在Atari环境中的参数配置为例，除了基础参数配置外，其算法参数配置存放于 xuance/configs/dqn/atari.yaml
-文件中。
+As an example, taking the parameter configuration for the DQN algorithm in the Atari environment,
+in addition to the basic parameter configuration, the algorithm-specific parameters are stored in the "xuance/configs/dqn/atari.yaml" file.
 
-由于Atari环境中一共超过60个不同场景，场景比较统一，只是任务不同，因此只需要一个默认的参数配置文件即可。
+Due to the presence of over 60 different scenarios in the Atari environment,
+where the scenarios are relatively consistent with variations only in tasks,
+a single default parameter configuration file is sufficient.
 
-针对场景差异较大的环境，如 ``Box2D`` 环境中的 ``CarRacing-v2`` 和 ``LunarLander`` 场景，
-前者的状态输入是96*96*3的RGB图像，后者则是一个8维向量。因此，针对这两个场景的DQN算法参数配置分别存于以下两个文件中：
+For environments with significant scene variations, such as the "CarRacing-v2" and "LunarLander" scenarios in the "Box2D" environment,
+the former has a state input of a 96x96x3 RGB image, while the latter consists of an 8-dimensional vector.
+Therefore, the DQN algorithm parameter configurations for these two scenarios are stored in the following two files:
 
     * xuance/configs/dqn/box2d/CarRacing-v2.yaml
     * xuance/configs/dqn/box2d/LunarLander-v2.yaml

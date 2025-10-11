@@ -1,4 +1,4 @@
-MuJoCo测试结果
+MuJoCo benchmarks
 ==========================
 
 Scenarios

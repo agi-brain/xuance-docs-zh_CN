@@ -1,8 +1,9 @@
 Customized Configurations
 --------------------------
+Users can also choose not to use the default parameters provided by XuanCe,
+or in cases where XuanCe does not include the user's specific task, they can customize their own .yaml parameter configuration file in the same manner.
 
-用户也可以选择不适用玄策提供的默认参数，或者玄策中不包含用户的任务时，可用同样的方式自定义.yaml参数配置文件。
-但是在获取runner的过程中，需指定参数文件的存放位置，示例如下：
+However, during the process of obtaining the runner, it is necessary to specify the location where the parameter file is stored, as shown below:
 
 .. code-block:: python
 

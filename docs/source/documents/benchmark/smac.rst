@@ -1,4 +1,4 @@
-SMAC测试结果
+SMAC benchmarks
 ==========================
 
 Scenarios
