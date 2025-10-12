@@ -227,25 +227,25 @@ Box2D
 MuJoCo
 ^^^^^^^^
 
-`MuJoCo environment <../api/environments/single_agent_env/gym.html#mujoco>`_ is a physics engine for facilitating research and development in robotics, biomechanics, graphics and animation,
-and other areas where fast and accurate simulation is needed.
+`MuJoCo 环境 <../api/environments/single_agent_env/gym.html#mujoco>`_ 是一个物理引擎，用于促进机器人学、生物力学、图形与动画等领域的研究与开发，
+以及其他需要快速且精确模拟的应用场景。
 
-**Step 1: Install MuJoCo**
+**Step 1: 安装 MuJoCo**
 
-* Download the MuJoCo version 2.1 binaries for `Linux <https://mujoco.org/download/mujoco210-linux-x86_64.tar.gz>`_ or `OSX <https://mujoco.org/download/mujoco210-macos-x86_64.tar.gz>`_.
-* Extract the downloaded ``mujoco210`` directory into ``~/.mujoco/mujoco210``.
+* 下载适用于 `Linux <https://mujoco.org/download/mujoco210-linux-x86_64.tar.gz>`_ 或 `OSX <https://mujoco.org/download/mujoco210-macos-x86_64.tar.gz>`_ 的 MuJoCo 2.1 二进制文件.
+* 解压所下载的 ``mujoco210`` 文件夹并复制到 ``~/.mujoco/mujoco210`` 文件夹中.
 
-**Step 2: Install mujoco-py**
+**Step 2: 安装 mujoco-py**
 
 .. tabs::
 
-    .. tab:: From PyPI
+    .. tab:: 通过 PyPI 安装
 
         .. code-block:: bash
 
             pip install gymnasium[mujoco]
 
-    .. tab:: From XuanCe
+    .. tab:: 通过 XuanCe 安装
 
         .. code-block:: bash
 
@@ -254,13 +254,13 @@ and other areas where fast and accurate simulation is needed.
 Atari
 ^^^^^^^^
 
-`Atari environment <../api/environments/single_agent_env/gym.html#atari>`_ is simulated via the
-`Arcade Learning Environment (ALE) <https://www.jair.org/index.php/jair/article/view/10819>`_,
-which contains 62 different tasks.
+`Atari 环境 <../api/environments/single_agent_env/gym.html#atari>`_ 是通过
+`Arcade Learning Environment (ALE) <https://www.jair.org/index.php/jair/article/view/10819>`_ 模拟实现的，
+其中包含 62 种不同的任务。
 
 .. tabs::
 
-    .. tab:: From PyPI
+    .. tab:: 通过 PyPI 安装
 
         .. code-block:: bash
 
@@ -268,7 +268,7 @@ which contains 62 different tasks.
             pip install gymnasium[atari]==0.28.1
             pip install ale-py==0.8.1
 
-    .. tab:: From XuanCe
+    .. tab:: 通过 XuanCe 安装
 
         .. code-block:: bash
 
@@ -277,19 +277,18 @@ which contains 62 different tasks.
 MiniGrid
 ^^^^^^^^^
 
-`MiniGrid environment <../api/environments/single_agent_env/minigrid.html>`_ is a lightweight, grid-based environment designed for research in DRL.
-It is highly customizable, supporting a variety of tasks and challenges for training agents
-with partial observability, sparse rewards, and symbolic inputs.
+`MiniGrid 环境 <../api/environments/single_agent_env/minigrid.html>`_ 是一个轻量级的基于网格的环境，专为深度强化学习研究设计。
+它具有高度的可定制性，支持多种任务与挑战，可用于训练在部分可观测、稀疏奖励以及符号输入条件下的智能体。
 
 .. tabs::
 
-    .. tab:: From PyPI
+    .. tab:: 通过 PyPI 安装
 
         .. code-block::
 
             pip install minigrid
 
-    .. tab:: From GitHub Repository
+    .. tab:: 通过 GitHub 仓库安装
 
         .. code-block::
 
@@ -297,7 +296,7 @@ with partial observability, sparse rewards, and symbolic inputs.
             cd Minigrid
             pip install -e .
 
-    .. tab:: From XuanCe
+    .. tab:: 通过 XuanCe 安装
 
         .. code-block::
 
@@ -307,17 +306,18 @@ with partial observability, sparse rewards, and symbolic inputs.
 MetaDrive
 ^^^^^^^^^^^
 
-`MetaDrive <../api/environments/single_agent_env/metadrive.html>`_ is an autonomous driving simulator that supports generating infinite scenes with various road maps and traffic settings for research of generalizable RL.
+`MetaDrive <../api/environments/single_agent_env/metadrive.html>`_ 是一个自动驾驶模拟器，支持基于不同的道路地图和交通设置生成无限场景，
+可用于研究并验证强化学习的可泛化性。
 
 .. tabs::
 
-    .. tab:: From PyPI
+    .. tab:: 通过 PyPI 安装
 
         .. code-block::
 
             pip install metadrive
 
-    .. tab:: From GitHub Repository
+    .. tab:: 通过 GitHub 仓库安装
 
         .. code-block::
 
@@ -325,7 +325,7 @@ MetaDrive
             cd metadrive
             pip install -e .
 
-    .. tab:: From XuanCe
+    .. tab:: 通过 XuanCe 安装
 
         .. code-block::
 
@@ -335,26 +335,26 @@ MetaDrive
 StarCraft2
 ^^^^^^^^^^^^
 
-The `StarCraft multi-agent challenge (SMAC) <../api/environments/multi_agent_env/smac.html>`_ is `WhiRL's <https://whirl.cs.ox.ac.uk/>`_ environment for research of cooperative MARL algorithms.
-SMAC uses StarCraft II, a real-time strategy game developed by Blizzard Entertainment, as its underlying environment.
+`StarCraft multi-agent challenge (SMAC) <../api/environments/multi_agent_env/smac.html>`_ 是由 `WhiRL's <https://whirl.cs.ox.ac.uk/>`_ 团队开发的多智能体协作强化学习（MARL）研究环境。
+SMAC 基于 《星际争霸 II》（由暴雪娱乐公司开发的实时战略游戏）构建，作为其底层仿真环境。
 
 .. note::
 
-    Before installing the ``smac`` package, make sure your Python version is 3.8 or lower; otherwise, you may encounter errors when rendering the environment.
+    在安装``smac``包之前，请确保你的 Python 版本为 3.8 或更低；否则，在渲染环境时可能会遇到错误。
 
-**Step 1: Install the smac python package**
+**Step 1: 安装 ``smac`` python 包**
 
-You can install the SMAC package directly from the GitHub:
+您可以直接从GitHub安装 SMAC 软件包:
 
 .. tabs::
 
-    .. tab:: Method 1
+    .. tab:: 方法 1
 
         .. code-block:: bash
 
             pip install git+https://github.com/oxwhirl/smac.git
 
-    .. tab:: Method 2
+    .. tab:: 方法 2
 
         .. code-block:: bash
 
@@ -363,45 +363,45 @@ You can install the SMAC package directly from the GitHub:
             pip install -e .
 
 
-**Step 2: Install StarCraft II**
+**Step 2: 安装 StarCraft II 游戏引擎**
 
 .. tabs::
 
-    .. tab:: Linux
+    .. tab:: Linux 系统
 
-        Please use the `Blizzard's repository <https://github.com/Blizzard/s2client-proto?tab=readme-ov-file#downloads>`_
-        to download the Linux version of StarCraft II.
+        请使用 `暴雪（Blizzard）官方仓库 <https://github.com/Blizzard/s2client-proto?tab=readme-ov-file#downloads>`_
+        下载**星际争霸 II（StarCraft II）**的 **Linux 版本**。
 
-    .. tab:: Windows/MacOS
+    .. tab:: Windows/MacOS 系统
 
-        You need to first install StarCraft II from `BATTAL.NET <https://battle.net/>`_
-        or `https://starcraft2.blizzard.com <http://battle.net/sc2/en/legacy-of-the-void/>`_.
+        你需要先从 `BATTAL.NET <https://battle.net/>`_
+        或 `https://starcraft2.blizzard.com <http://battle.net/sc2/en/legacy-of-the-void/>`_ 安装**星际争霸 II（StarCraft II）**。
 
 .. note::
 
-    You would need to set the SC2PATH environment variable with the correct location of the game.
-    By default, the game is expected to be in ~/StarCraftII/ directory.
-    This can be changed by setting the environment variable SC2PATH.
+    你需要设置环境变量**SC2PATH**，并指定**星际争霸 II（StarCraft II）**的正确安装路径。
+    默认情况下，游戏路径应为 ~/StarCraftII/ 目录。
+    你也可以通过设置环境变量**SC2PATH**来修改该路径。
 
-**Step 3: SMAC Maps**
+**Step 3: 配置 SMAC 场景地图**
 
-Once you have installed ``smac`` and StarCraft II, you need to download the
-`SMAC Maps <https://github.com/oxwhirl/smac/releases/download/v0.1-beta1/SMAC_Maps.zip>`_,
-and extract it to the ``$SC2PATH/Maps$`` directory.
-If you installed ``smac`` via git, simply copy the ``SMAC_Maps`` directory
-from ``smac/env/starcraft2/maps/`` into ``$SC2PATH/Maps`` directory.
+在你安装好``smac``和**StarCraft II**之后，需要下载 `SMAC 地图（SMAC Maps） <https://github.com/oxwhirl/smac/releases/download/v0.1-beta1/SMAC_Maps.zip>`_,
+并将其解压到目录 ``$SC2PATH/Maps$`` 下。
+
+如果你是通过 git 安装的``smac``，只需将
+``smac/env/starcraft2/maps/`` 目录中的``SMAC_Maps``文件夹复制到 ``$SC2PATH/Maps$`` 目录中即可。
 
 Google Research Football
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`Google Research Football Environment (GRF) <../api/environments/multi_agent_env/football.html>`_ is an MARL environment developed by the Google Brain team.
-It is specifically designed for RL research, particularly for MARL scenarios.
+`Google Research Football 环境 (GRF) <../api/environments/multi_agent_env/football.html>`_ 是由 Google Brain 团队 开发的多智能体强化学习（MARL）环境。
+它专为强化学习研究设计，特别适用于多智能体强化学习场景。
 
-**Step 1: Install required packages**
+**Step 1: 安装所需的依赖包**
 
 .. tabs::
 
-    .. tab:: Linux
+    .. tab:: Linux系统
 
         .. code-block:: bash
 
@@ -419,23 +419,23 @@ It is specifically designed for RL research, particularly for MARL scenarios.
 
             python3 -m pip install --upgrade pip setuptools psutil wheel
 
-    .. tab:: Windows
+    .. tab:: Windows系统
 
         .. code-block::
 
             python -m pip install --upgrade pip setuptools psutil wheel
 
-**Step 2: Install gfootball**
+**Step 2: 安装 gfootball 依赖包**
 
 .. tabs::
 
-    .. tab:: From PyPI
+    .. tab:: 通过 PyPI 安装
 
         .. code-block:: bash
 
             python3 -m pip install gfootball
 
-    .. tab:: From GitHub repository
+    .. tab:: 通过 GitHub 仓库安装
 
         .. code-block:: bash
 
@@ -446,27 +446,26 @@ It is specifically designed for RL research, particularly for MARL scenarios.
 
 .. attention::
 
-    All python packages including ``gfootball`` environment should be installed in a same conda environment.
-    See `https://xuance.readthedocs.io/en/latest/documents/usage/installation.html#install-xuance <https://xuance.readthedocs.io/en/latest/documents/usage/installation.html#install-xuance>`_.
+    包括 ``gfootball`` 在内的所有 Python 依赖包，都应安装在同一个 Conda 环境 中。
+    具体步骤可参考：`https://xuance.readthedocs.io/en/latest/documents/usage/installation.html#install-xuance <https://xuance.readthedocs.io/en/latest/documents/usage/installation.html#install-xuance>`_.
 
 
 Robotic Warehouse
 ^^^^^^^^^^^^^^^^^^^
 
-`Robotic Warehouse <../api/environments/multi_agent_env/robotic_warehouse.html>`_ is an MARL environment often used to simulate warehouse automation scenarios.
-It serves as a testbed for studying cooperative, competitive, and mixed interaction among multiple agents, such as robots.
-The environment is designed to model tasks commonly found in real-world warehouses,
-such as navigation, item retrieval, obstacle avoidance, and task allocation.
+`Robotic Warehouse <../api/environments/multi_agent_env/robotic_warehouse.html>`_ 是一个多智能体强化学习（MARL）环境，常用于模拟仓库自动化场景。
+它作为研究平台，用于探讨多个智能体（如机器人）之间的协作、竞争及混合交互。
+该环境旨在重现现实仓库中的典型任务，例如导航、物品取放、避障以及任务分配等。
 
 .. tabs::
 
-    .. tab:: From PyPI
+    .. tab:: 通过 PyPI 安装
 
         .. code-block::
 
             pip install rware
 
-    .. tab:: From GitHub Repository
+    .. tab:: 通过 GitHub 仓库安装
 
         .. code-block::
 
@@ -474,7 +473,7 @@ such as navigation, item retrieval, obstacle avoidance, and task allocation.
             cd robotic-warehouse
             pip install -e .
 
-    .. tab:: From XuanCe
+    .. tab:: 通过 XuanCe 安装
 
         .. code-block::
 
@@ -486,9 +485,9 @@ gym-pybullet-drones
 
 .. tip::
 
-    Before preparing the software packages for this simulator, it is recommended to create a new conda environment with **Python 3.10**.
+    在准备该模拟器所需的软件包之前，建议先创建一个包含**Python 3.10**的新的 Conda 环境。
 
-Open terminal and type the following commands, then a new conda environment for xuance with drones could be built:
+打开终端（Terminal），并输入以下命令，即可创建一个用于 XuanCe 无人机环境 的新的 Conda 环境：
 
 .. code-block:: bash
 
@@ -501,14 +500,14 @@ Open terminal and type the following commands, then a new conda environment for 
     pip install --upgrade pip
     pip install -e .  # if needed, `sudo apt install build-essential` to install `gcc` and build `pybullet`
 
-During the installation of gym-pybullet-drones, you might encounter the errors like:
+在安装 gym-pybullet-drones 的过程中，你可能会遇到如下错误：
 
 .. error::
 
     | gym-pybullet-drones 2.0.0 requires numpy<2.0,>1.24, but you have numpy 1.22.4 which is incompatible.
     | gym-pybullet-drones 2.0.0 requires scipy<2.0,>1.10, but you have scipy 1.7.3 which is incompatible.
 
-**Solution**: Upgrade the above incompatible packages.
+**解决办法**: 将上述不兼容的软件包升级到兼容版本。
 
 .. code-block:: bash
 
@@ -518,57 +517,59 @@ During the installation of gym-pybullet-drones, you might encounter the errors l
 DCG algorithm dependency (torch-scatter)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The DCG algorithm in the XuanCe project relies on the torch-scatter library.
-In most cases, you can install it directly using the following command:
+在 XuanCe 项目中，DCG 算法 依赖于 torch-scatter 库。
+在大多数情况下，你可以直接使用以下命令来安装该库：
 
 .. code-block:: bash
 
     pip install torch-scatter
 
-However, on certain systems (e.g., specific operating systems or hardware environments),
-this command may result in installation errors.
-To ensure compatibility, follow the steps below to correctly install torch-scatter:
+然而，在某些系统（例如特定的操作系统或硬件环境）上，上述命令可能会导致安装错误。
 
-**1. Check Your PyTorch and CUDA Versions**
+为确保兼容性，请按照以下步骤正确安装 torch-scatter：
 
-Use the following command to check the installed version of PyTorch and CUDA in your environment:
+**1. 检查你的 PyTorch 和 CUDA 版本**
+
+使用以下命令查看当前环境中安装的 PyTorch 和 CUDA 版本：
 
 .. code-block:: bash
 
     python -c "import torch; print(torch.__version__, torch.version.cuda)"
 
-Take note of the PyTorch version (e.g., 2.0.1) and the CUDA version (e.g., 11.8) as they will be needed to select the appropriate version of torch-scatter.
+请记下你的 PyTorch 版本（例如：2.0.1）和 CUDA 版本（例如：11.8），因为它们将在选择合适的 torch-scatter 版本时用到。
 
-**2. Refer to the Official torch-scatter Installation Guide**
+**2. 参考官方的 torch-scatter 安装指南**
 
-Visit the `official torch-scatter installation page <https://pypi.org/project/torch-scatter/>`_ (internet connection required).
-Find the installation command that matches your PyTorch and CUDA versions. For example:
+访问 `官方 torch-scatter 安装页面 <https://pypi.org/project/torch-scatter/>`_ (需要联网).
+找到与你的 PyTorch 和 CUDA 版本匹配的安装命令。
 
-- If your PyTorch version is 2.0.1 and CUDA version is 11.8, run:
+例如：
+
+- 如果你的 PyTorch 版本是 2.0.1，CUDA 版本是 11.8，则运行以下命令：
 
 .. code-block:: bash
 
     pip install torch-scatter -f https://data.pyg.org/whl/torch-2.0.1+cu118.html
 
-- If you are using the CPU-only version of PyTorch, choose the +cpu installation link, such as:
+- 如果你使用的是 仅支持 CPU 的 PyTorch 版本，请选择带有 +cpu 的安装链接，例如：
 
 .. code-block:: bash
 
     pip install torch-scatter -f https://data.pyg.org/whl/torch-2.0.1+cpu.html
 
-**3. Troubleshooting Compatibility Issues**
+**3. 兼容性问题排查**
 
-If you encounter issues during installation, ensure the following:
-- PyTorch is correctly installed and the version matches the selected torch-scatter wheel.
-- Your Python and pip versions are up to date. You can update pip using:
+如果在安装过程中遇到问题，请确保以下几点：
+- PyTorch 已正确安装，并且其版本与你选择的 torch-scatter 轮子文件版本匹配。
+- Python 和 pip 的版本是最新的。你可以使用以下命令更新 pip：
 
 .. code-block:: bash
 
     python -m pip install --upgrade pip
 
-**4. Verify Installation**
+**4. 验证安装是否成功**
 
-After installation, verify that torch-scatter is installed successfully by running:
+安装完成后，可以通过运行以下命令验证 torch-scatter 是否成功安装：
 
 .. code-block:: bash
 
