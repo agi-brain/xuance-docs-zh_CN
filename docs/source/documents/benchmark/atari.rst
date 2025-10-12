@@ -1,8 +1,7 @@
-Atari benchmarks
+Atari 基准测试
 ==========================
 
-We have tested DQN and PPO of XuanCe in Atari environments.
-The benchmark results are listed as follows.
+我们在 Atari 环境 中对 XuanCe 的 DQN 和 PPO 算法 进行了测试，其基准测试结果如下所示。
 
 +------------------+--------------------+-----------------------+-----------------+-------------------+--------------------+----------------------+--------------------+
 |                  | DQN                                                                              | PPO                                                            |

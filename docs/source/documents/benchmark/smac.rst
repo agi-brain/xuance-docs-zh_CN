@@ -1,13 +1,13 @@
-SMAC benchmarks
+SMAC 基准测试
 ==========================
 
-Scenarios
+场景
 --------------------------
 
 .. image:: ../../_static/figures/smac/smac.png
     :height: 150px
 
-The evaulated maps are listed as follows:
+所测试的地图情况如下表所列：
 
 +----------------+------------+----+-----+--------+------+-----+------------+------------+------+
 | **Map**        | 2m_vs_1z   | 3m | 8m  | 1c3s5z | 2s3z | 25m | 5m_vs_6m   | 8m_vs_9m   | MMM2 |
@@ -22,7 +22,7 @@ The evaulated maps are listed as follows:
 +----------------+------------+----+-----+--------+------+-----+------------+------------+------+
 
     
-Results
+测试结果
 --------------------------
 
 .. image:: smac/fig_0_2m_vs_1z.png

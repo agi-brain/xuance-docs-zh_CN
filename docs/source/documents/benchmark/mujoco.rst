@@ -1,7 +1,7 @@
-MuJoCo benchmarks
+MuJoCo 基准测试
 ==========================
 
-Scenarios
+场景
 --------------------------
 
 .. image:: ../../_static/figures/mujoco/ant.gif
@@ -17,7 +17,7 @@ Scenarios
 
 
 
-Results
+测试结果
 --------------------------
 
 .. image:: mujoco/fig_0_Ant.png
