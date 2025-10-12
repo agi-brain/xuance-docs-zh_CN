@@ -5,9 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2bf839e-3bd2-450d-bf76-14e7e97dce85" name="Changes" comment="update: figures">
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/further_usage.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/usage/further_usage.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/new_drl_envs.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/usage/new_drl_envs.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/new_marl_envs.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/usage/new_marl_envs.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/crl/curl_agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/crl/curl_agent.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/a2c_agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/a2c_agent.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/c51_agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/c51_agent.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/ddpg_agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/ddpg_agent.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/ddqn_agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/ddqn_agent.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/dqn_agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/dqn_agent.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/drqn_agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/drqn_agent.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/dueldqn_agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/dueldqn_agent.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/noisydqn_agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/noisydqn_agent.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/npg_agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/npg_agent.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/pdqn_agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/pdqn_agent.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/perdqn_agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/perdqn_agent.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/pg_agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/pg_agent.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/ppg_agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/ppg_agent.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/qrdqn_agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/qrdqn_agent.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/sac_agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/sac_agent.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/td3_agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/agents/drl/td3_agent.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/configs.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/configs.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/configs/customized_configurations.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/configs/customized_configurations.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/new_algorithm.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/usage/custom_algorithm.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/new_callback.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/usage/custom_callback.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/new_drl_envs.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/usage/custom_drl_env.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/new_envs.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/new_marl_envs.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/usage/new_marl_env.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/notebook-colab/new_algorithm.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/notebook-colab/new_algorithm.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/notebook-colab/new_drl_envs.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/notebook-colab/new_drl_envs.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/notebook-colab/new_marl_envs.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/notebook-colab/new_marl_envs.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +94,7 @@
       <workItem from="1735109991373" duration="12935000" />
       <workItem from="1753456589428" duration="83000" />
       <workItem from="1760156824940" duration="3257000" />
-      <workItem from="1760167960307" duration="12489000" />
+      <workItem from="1760167960307" duration="13679000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />

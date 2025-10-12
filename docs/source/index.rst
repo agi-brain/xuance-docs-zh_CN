@@ -165,8 +165,10 @@ XuanCe 旨在简化深度强化学习算法的实现与开发流程，帮助研�
    documents/usage/installation
    documents/usage/basic_usage
    documents/usage/further_usage
-   documents/usage/new_envs
-   documents/usage/new_algorithm
+   documents/usage/custom_drl_envs
+   documents/usage/custom_marl_envs
+   documents/usage/custom_algorithm
+   documents/usage/custom_callback
 
 .. toctree::
    :hidden:
