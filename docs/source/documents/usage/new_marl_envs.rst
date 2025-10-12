@@ -1,7 +1,8 @@
-自定义环境-多智能体
+多智能体环境构建
 ---------------------------------
 
-In XuanCe, users also have the flexibility to create and run their own customized environments with multiple agents in addition to utilizing the provided ones.
+在 XuanCe 中，用户同样可以灵活地创建并运行自己定制的多智能体（multi-agent）环境，
+除了使用内置的环境之外，还可以在此基础上扩展出包含多个智能体的复杂交互场景。
 
 .. raw:: html
 
@@ -13,18 +14,18 @@ In XuanCe, users also have the flexibility to create and run their own customize
    </a>
    <br>
 
-Step 1: Create a New Multi-Agent Environment
+步骤 1：创建新的多智能体环境类
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-First, you need to prepare an original environment, i.e., an Partial Observed Markov decision process (POMDP).
-Then define a new environment based on the basic class ``RawMultiAgentEnv`` of XuanCe.
+首先，你需要准备一个原始环境，即“部分可观测马尔可夫决策过程”（POMDP）。
+然后，基于 XuanCe 的基础类 ``RawMultiAgentEnv`` 定义一个新的环境。
 
-Here is an example:
+以下是一个示例：
 
 .. code-block:: python
 
     import numpy as np
-    from gym.spaces import Box
+    from gymnasium.spaces import Box
     from xuance.environment import RawMultiAgentEnv
 
     class MyNewMultiAgentEnv(RawMultiAgentEnv):
@@ -80,12 +81,12 @@ Here is an example:
             return
 
 
-Step 2: Create the Config File and Read the Configurations
+步骤 2：创建配置文件并读取配置
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Then, you need to create a YAML file by following the step 1 in :doc:`Further Usage <further_usage>`.
+接下来，你需要按照 :doc:`“专业教程” <further_usage>` 中的步骤 1 创建一个 YAML 配置文件。
 
-Here is an example of configurations for DDPG algorithm, named "ippo_new_configs.yaml".
+以下是一个为 DDPG 算法准备的配置示例，文件名为：``ippo_new_configs.yaml``。
 
 .. code-block:: python
 
@@ -95,14 +96,18 @@ Here is an example of configurations for DDPG algorithm, named "ippo_new_configs
     wandb_user_name: "your_user_name"
     render: True
     render_mode: 'rgb_array' # Choices: 'human', 'rgb_array'.
+    fps: 15
     test_mode: False
-    device: "cuda:0"
+    device: "cpu"  # Choose an calculating device. PyTorch: "cpu", "cuda:0"; TensorFlow: "cpu"/"CPU", "gpu"/"GPU"; MindSpore: "CPU", "GPU", "Ascend", "Davinci".
+    distributed_training: False  # Whether to use multi-GPU for distributed training.
+    master_port: '12355'  # The master port for current experiment when use distributed training.
 
     agent: "IPPO"
     env_name: "MyNewMultiAgentEnv"
     env_id: "new_env_id"
-    fps: 50
-    continuous_action: True
+    env_seed: 1
+    continuous_action: True  # Continuous action space or not.
+    learner: "IPPO_Learner"  # The learner name.
     policy: "Gaussian_MAAC_Policy"
     representation: "Basic_MLP"
     vectorize: "DummyVecMultiAgentEnv"
@@ -157,15 +162,15 @@ Here is an example of configurations for DDPG algorithm, named "ippo_new_configs
     grad_clip_norm: 10.0  # The max norm of the gradient.
     clip_type: 1  # Gradient clip for Mindspore: 0: ms.ops.clip_by_value; 1: ms.nn.ClipByNorm().
 
-    running_steps: 10000000  # The total running steps.
-    eval_interval: 100000  # The interval between every two trainings.
+    running_steps: 100000  # The total running steps.
+    eval_interval: 10000  # The interval between every two trainings.
     test_episode: 5  # The episodes to test in each test period.
 
     log_dir: "./logs/ippo/"
     model_dir: "./models/ippo/"
 
 
-Then, read the configurations:
+然后，读取该配置文件:
 
 .. code-block:: python
 
@@ -175,10 +180,10 @@ Then, read the configurations:
     configs = argparse.Namespace(**configs_dict)
 
 
-Step 3: Add the Environment to the Registry
+步骤 3：将环境添加到注册表中
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-After defining a new class of environment, you need to add it to the ``REGISTRY_MULTI_AGENT_ENV``.
+在定义完一个新的环境类之后，需要将其添加到 ``REGISTRY_MULTI_AGENT_ENV`` 中进行注册。
 
 .. code-block:: python
 
@@ -186,12 +191,12 @@ After defining a new class of environment, you need to add it to the ``REGISTRY_
     REGISTRY_MULTI_AGENT_ENV[configs.env_name] = MyNewMultiAgentEnv
 
 
-Step 4: Make Your Environment and Run it with XuanCe
+步骤 4：创建你的环境并在 XuanCe 中运行
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can now make your environment and run it directly with XuanCe's algorithms.
+现在，你可以创建自己的环境，并直接使用 XuanCe 提供的算法运行它。
 
-Here is the example of IPPO algorithm:
+以下是使用 IPPO 算法 的示例：
 
 .. code-block:: python
 
@@ -203,3 +208,9 @@ Here is the example of IPPO algorithm:
     Agent.train(configs.running_steps // configs.parallels)  # Train the model for numerous steps.
     Agent.save_model("final_train_model.pth")  # Save the model to model_dir.
     Agent.finish()  # Finish the training.
+
+
+完整代码
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+上述步骤的完整代码可在以下链接查看： `https://github.com/agi-brain/xuance/blob/master/examples/new_environments/ippo_new_env.py <https://github.com/agi-brain/xuance/blob/master/examples/new_environments/ippo_new_env.py>`_

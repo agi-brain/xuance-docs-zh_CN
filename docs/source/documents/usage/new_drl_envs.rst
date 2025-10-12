@@ -1,7 +1,7 @@
-自定义环境教程-单智能体
+单智能体环境构建教程
 ---------------------------------
 
-In XuanCe, users have the flexibility to create and run their own customized environments in addition to utilizing the provided ones.
+在 XuanCe 中，用户不仅可以使用内置的环境，还可以灵活地创建并运行自己定制的环境。
 
 .. raw:: html
 
@@ -13,18 +13,18 @@ In XuanCe, users have the flexibility to create and run their own customized env
    </a>
    <br>
 
-Step 1: Create a New Environment
+步骤 1：创建一个新环境类
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-First, you need to prepare an original environment, i.e., an Markov decision process.
-Then define a new environment based on the basic class ``RawEnvironment`` of XuanCe.
+首先，你需要准备一个原始环境，也就是一个马尔可夫决策过程（Markov Decision Process, MDP）。
+然后，基于 XuanCe 的基础类 ``RawEnvironment`` 来定义一个新的环境。
 
-Here is an example:
+以下是一个示例：
 
 .. code-block:: python
 
     import numpy as np
-    from gym.spaces import Box
+    from gymnasium.spaces import Box
     from xuance.environment import RawEnvironment
 
     class MyNewEnv(RawEnvironment):
@@ -56,12 +56,12 @@ Here is an example:
             return
 
 
-Step 2: Create the Config File and Read the Configurations
+步骤 2：创建配置文件并读取配置
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Then, you need to create a YAML file by following the step 1 in :doc:`Further Usage <further_usage>`.
+接下来，你需要按照 :doc:`“专业教程” <further_usage>` 中步骤 1 的说明，创建一个 YAML 文件。
 
-Here is an example of configurations for DDPG algorithm, named "ddpg_new_env.yaml".
+下面是一个为 DDPG 算法编写的配置文件示例，文件名为 “ddpg_new_env.yaml”。
 
 .. code-block:: python
 
@@ -73,14 +73,18 @@ Here is an example of configurations for DDPG algorithm, named "ddpg_new_env.yam
     render_mode: 'rgb_array' # Choices: 'human', 'rgb_array'.
     fps: 50
     test_mode: False
-    device: "cuda:0"
+    device: "cpu"
+    distributed_training: False
+    master_port: '12355'
 
     agent: "DDPG"
     env_name: "MyNewEnv"
     env_id: "new-v1"
+    env_seed: 1
     vectorize: "DummyVecEnv"
     policy: "DDPG_Policy"
     representation: "Basic_Identical"
+    learner: "DDPG_Learner"
     runner: "DRL"
 
     representation_hidden_size:  # If you choose Basic_Identical representation, then ignore this value
@@ -101,8 +105,8 @@ Here is an example of configurations for DDPG algorithm, named "ddpg_new_env.yam
     start_noise: 0.5
     end_noise: 0.1
     training_frequency: 1
-    running_steps: 1000000  # 1M
-    start_training: 10000
+    running_steps: 100000
+    start_training: 1000
 
     use_grad_clip: False  # gradient normalization
     grad_clip_norm: 0.5
@@ -118,7 +122,7 @@ Here is an example of configurations for DDPG algorithm, named "ddpg_new_env.yam
     log_dir: "./logs/ddpg/"
     model_dir: "./models/ddpg/"
 
-Then, read the configurations:
+然后，读取该配置文件:
 
 .. code-block:: python
 
@@ -128,10 +132,10 @@ Then, read the configurations:
     configs = argparse.Namespace(**configs_dict)
 
 
-Step 3: Add the Environment to the Registry
+步骤 3：将环境添加到注册表中
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-After defining a new class of environment, you need to add it to the ``REGISTRY_ENV``.
+在定义了新的环境类之后，你需要将其添加到 ``REGISTRY_ENV`` 中。
 
 .. code-block:: python
 
@@ -139,12 +143,12 @@ After defining a new class of environment, you need to add it to the ``REGISTRY_
     REGISTRY_ENV[configs.env_name] = MyNewEnv
 
 
-Step 4: Make Your Environment and Run it with XuanCe
+步骤 4：创建你的环境并在 XuanCe 中运行
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can now make your environment and run it directly with XuanCe's algorithms.
+现在，你可以创建自己的环境，并直接使用 XuanCe 的算法运行它。
 
-Here is the example of DDPG algorithm:
+以下是使用 DDPG 算法的示例：
 
 .. code-block:: python
 
@@ -156,3 +160,9 @@ Here is the example of DDPG algorithm:
     Agent.train(configs.running_steps // configs.parallels)  # Train the model for numerous steps.
     Agent.save_model("final_train_model.pth")  # Save the model to model_dir.
     Agent.finish()  # Finish the training.
+
+
+完整代码
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+上述步骤的完整代码可在以下链接查看： `https://github.com/agi-brain/xuance/blob/master/examples/new_environments/ddpg_new_env.py <https://github.com/agi-brain/xuance/blob/master/examples/new_environments/ddpg_new_env.py>`_
