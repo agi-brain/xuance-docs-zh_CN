@@ -514,10 +514,10 @@ gym-pybullet-drones
     pip install numpy==1.24.0
     pip install scipy==1.12.0
 
-DCG algorithm dependency (torch-scatter)
+DCG 算法依赖 (torch-scatter)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-在 XuanCe 项目中，DCG 算法 依赖于 torch-scatter 库。
+在 XuanCe 项目中，DCG 算法依赖于 torch-scatter 库。
 在大多数情况下，你可以直接使用以下命令来安装该库：
 
 .. code-block:: bash
