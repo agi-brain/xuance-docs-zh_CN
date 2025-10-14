@@ -8,6 +8,7 @@ dependencies:
   - pip:
     - black==20.8b1
     - sphinx_github_changelog
+    - git+https://github.com/agi-brain/xuance.git
   - furo
   - sphinx-tabs
   - sphinx-autobuild
