@@ -6,11 +6,26 @@
   <component name="ChangeListManager">
     <list default="true" id="d2bf839e-3bd2-450d-bf76-14e7e97dce85" name="Changes" comment="update: figures">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/mindspore.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/mindspore.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/api/tensorflow.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/api/tensorflow.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/custom_env/custom_drl_env.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/usage/custom_env/custom_drl_env.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/usage/custom_env/custom_marl_env.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/usage/custom_env/custom_marl_env.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/CONTRIBUTING.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/crl.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/crl.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/crl/curl.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/crl/curl.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/crl/drq.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/crl/drq.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/crl/spr.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/crl/spr.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/a2c.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/a2c.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/c51.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/c51.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/ddpg.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/ddpg.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/ddqn.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/ddqn.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/dqn.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/dqn.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/drqn.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/drqn.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/dueldqn.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/dueldqn.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/noisydqn.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/noisydqn.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/npg.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/npg.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/perdqn.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/perdqn.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/pg.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/pg.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/ppg.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/ppg.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/qrdqn.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/qrdqn.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/sac.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/sac.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/td3.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/algorithms/drl/td3.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +89,7 @@
       <workItem from="1735109991373" duration="12935000" />
       <workItem from="1753456589428" duration="83000" />
       <workItem from="1760156824940" duration="3257000" />
-      <workItem from="1760167960307" duration="25154000" />
+      <workItem from="1760167960307" duration="31513000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
