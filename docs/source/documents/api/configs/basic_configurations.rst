@@ -1,14 +1,15 @@
 Basic Configurations
 --------------------------
 
-The basic parameter configuration is stored in the "xuance/config/basic.yaml" file, as shown below:
+基本参数配置保存在 “xuance/config/basic.yaml” 文件中，示例如下：
+
 
 .. code-block:: yaml
 
-    dl_toolbox: "torch"  # The deep learning toolbox. Choices: "torch", "mindspore", "tensorflow"
+    dl_toolbox: "torch"  # 选择深度学习框架: "torch", "mindspore", "tensorflow"
 
     project_name: "XuanCe_Benchmark"
-    logger: "tensorboard"  # Choices: "tensorboard", "wandb".
+    logger: "tensorboard"  # 选项: "tensorboard", "wandb".
     wandb_user_name: "your_user_name"
 
     parallels: 10
@@ -21,7 +22,8 @@ The basic parameter configuration is stored in the "xuance/config/basic.yaml" fi
     device: "cpu"
 
 
-It should be noted that the value of the `device` variable in the `basic.yaml` file varies depending on the specific deep learning framework, as outlined below:
+需要注意的是，`basic.yaml` 文件中 `device` 变量的取值会根据所使用的深度学习框架而有所不同，具体说明如下：
+
 
 | - PyTorch: "cpu", "cuda:0";
 | - TensorFlow: "cpu"/"CPU", "gpu"/"GPU";
