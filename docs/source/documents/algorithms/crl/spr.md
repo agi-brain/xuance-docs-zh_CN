@@ -1,62 +1,60 @@
 # SPR: Self-Predictive Representations for Reinforcement Learning
 
-**Paper Link:** [**ArXiv**](https://arxiv.org/abs/2007.05929)
+**论文链接:** [**ArXiv**](https://arxiv.org/abs/2007.05929)
 
-Self-Predictive Representations (SPR) is an off-policy deep reinforcement learning algorithm that learns 
-representations by predicting future states in latent space. SPR combines the benefits of contrastive 
-methods like CURL with predictive methods, enabling more efficient learning from high-dimensional visual inputs. 
-It addresses the issue of sample inefficiency that commonly occurs when applying reinforcement learning to 
-pixel-based control tasks by learning rich state representations that capture temporal dependencies.
+Self-Predictive Representations（简称 **SPR**）是一种**离策略深度强化学习（off-policy deep reinforcement learning）算法**，  
+通过在潜空间（latent space）中预测未来状态来学习表示。  
+SPR 结合了对比学习方法（如 CURL）的优点与预测模型的思想，使其能够更高效地从高维视觉输入中学习。  
+它解决了传统强化学习在像素级控制任务中样本效率低下的问题，通过学习能够捕捉时间依赖关系的丰富状态表示，提高了训练效率。
 
-This table lists some general features about SPR algorithm:
+---
 
-| Features of SPR     | Values | Description                                              |
-|---------------------|--------|----------------------------------------------------------|
-| On-policy           | ❌      | The evaluate policy is the same as the target policy.    |
-| Off-policy          | ✅      | The evaluate policy is different from the target policy. | 
-| Model-free          | ✅      | No need to prepare an environment dynamics model.        | 
-| Model-based         | ❌      | Need an environment model to train the policy.           | 
-| Discrete Action     | ✅      | Deal with discrete action space.                         |   
-| Continuous Action   | ❌      | Deal with continuous action space.                       |
+| SPR 算法特征 | 值 | 描述 |
+|---------------|----|------|
+| On-policy | ❌ | 评估策略与目标策略相同 |
+| Off-policy | ✅ | 评估策略与目标策略不同 |
+| Model-free | ✅ | 无需环境动态模型 |
+| Model-based | ❌ | 需要环境模型来训练策略 |
+| Discrete Action | ✅ | 处理离散动作空间 |
+| Continuous Action | ❌ | 不支持连续动作空间 |
 
-## Algorithm Description
+---
 
-SPR addresses the challenge of sample inefficiency in reinforcement learning from pixels by learning 
-temporally predictive representations. The main idea is to train a convolutional encoder to predict its 
-own latent state representations multiple steps into the future. This approach encourages the encoder 
-to learn representations that capture the essential features of the environment dynamics while being 
-invariant to task-irrelevant details.
+## 算法描述（Algorithm Description）
 
-The key insight is that by predicting future states in latent space, SPR learns representations that are 
-both predictive and stable. This enables more efficient learning of the policy since the agent can make 
-better use of past experiences by understanding how the environment evolves over time.
+SPR 针对强化学习从像素学习时的样本效率问题，通过学习**时间预测表示（temporally predictive representations）**来改进。  
+其主要思想是训练卷积编码器（CNN encoder），使其能够预测自身潜在表示的未来若干步。  
+这种方法促使编码器学习到能够反映环境动态的核心特征，同时对任务无关的细节保持不敏感。
 
-## Network Architecture
+核心洞见在于：通过在潜空间中预测未来状态，SPR 能够学习到既**具有预测性又稳定**的表示。  
+这使得智能体能够更高效地利用过往经验，从而提升策略学习的样本效率。
 
-The SPR agent uses a convolutional neural network (CNN) as the backbone of the representation network. 
-The architecture typically consists of several convolutional layers followed by fully connected layers. 
-The encoder network maps observations to latent representations, which are then used by the Q-network 
-to estimate Q-values.
+---
 
-SPR extends the encoder with a transition model that predicts future latent states. This transition 
-model takes the current latent state and a sequence of actions as input, and outputs predictions of 
-future latent states.
+## 网络结构（Network Architecture）
 
-## Implementation Details
+SPR 智能体采用卷积神经网络（CNN）作为表示网络的骨干结构。  
+该结构通常包含多个卷积层与全连接层，编码器将观测值映射到潜在表示空间（latent representations），  
+随后这些表示被 Q 网络用于估计 Q 值。
 
-### Agent Implementation
+SPR 在编码器的基础上引入了**状态转移模型（transition model）**，  
+该模型输入当前潜在状态与动作序列，预测未来潜在状态序列，从而在潜空间中建模环境动态。
+
+---
+
+## 实现细节（Implementation Details）
+
+### 智能体实现（Agent Implementation）
 
 ```python
 class SPR_Agent(OffPolicyAgent):
-    def __init__(self, 
-                 config: Namespace,
-                 envs: Union[DummyVecEnv, SubprocVecEnv]):
+    def __init__(self, config: Namespace, envs: Union[DummyVecEnv, SubprocVecEnv]):
         super(SPR_Agent, self).__init__(config, envs)
         self._init_exploration_params(config)
         
-        self.policy = self._build_policy()  # build policy
-        self.memory = self._build_memory()  # build memory
-        self.learner = self._build_learner(config, self.policy)  # build learner
+        self.policy = self._build_policy()  # 构建策略
+        self.memory = self._build_memory()  # 构建经验池
+        self.learner = self._build_learner(config, self.policy)  # 构建学习器
         self.transform = SPR_Augmentations.get_transform(self.observation_space.shape[-1])
 
     def _init_exploration_params(self, config: Namespace):
@@ -64,15 +62,16 @@ class SPR_Agent(OffPolicyAgent):
         self.e_greedy_decay = (config.start_greedy - config.end_greedy) / (config.decay_step_greedy / self.n_envs)
 ```
 
-### Encoder and Transition Model
+---
 
-The SPR encoder maps observations to latent representations. A transition model predicts future 
-representations based on current representations and actions:
+### 编码器与状态转移模型（Encoder and Transition Model）
+
+SPR 的编码器将观测映射到潜在表示空间，  
+而转移模型（transition model）则根据当前表示与动作预测未来潜在表示。
 
 ```python
 class SPR_Encoder(nn.Module):
-    """SPR encoder (CNN architecture)"""
-    
+    # SPR 编码器（基于 CNN 的结构）
     def __init__(self, observation_space: Space, config: Namespace, device: str):
         super().__init__()
         self.device = device
@@ -92,128 +91,173 @@ class SPR_Encoder(nn.Module):
         return self.net(x)
 ```
 
-### Training Process
+---
 
-The training process of SPR involves the following steps:
-1. Collect experiences from the environment
-2. Apply data augmentations to observations
-3. Update the representation network using both contrastive and predictive losses
-4. Update the Q-network using the learned representations
-5. Periodically update the target networks
+### 训练流程（Training Process）
 
-The SPR loss combines a contrastive loss (similar to CURL) and a predictive loss:
+SPR 的训练步骤如下：
+
+1. 从环境中采集交互经验；  
+2. 对观测数据进行数据增强（data augmentations）；  
+3. 使用**对比损失（contrastive loss）**与**预测损失（predictive loss）**共同更新表示网络；  
+4. 使用学得的表示更新 Q 网络；  
+5. 定期更新目标网络参数。
+
+SPR 的总损失函数由对比项与预测项组成：
 
 $$
 \mathcal{L}_{\text{SPR}} = \mathcal{L}_{\text{contrastive}} + \lambda \mathcal{L}_{\text{predictive}}
 $$
 
-where $\lambda$ is a weighting factor that balances the two losses.
+其中，$\lambda$ 为平衡两种损失的权重因子。
 
-The predictive loss encourages the transition model to accurately predict future representations:
+预测损失（predictive loss）用于约束转移模型准确预测未来潜在状态：
 
 $$
 \mathcal{L}_{\text{predictive}} = \sum_{k=1}^{K} \| \hat{z}_{t+k} - z_{t+k} \|_2^2
 $$
 
-where $\hat{z}_{t+k}$ is the predicted representation at time $t+k$, $z_{t+k}$ is the actual representation, 
-and $K$ is the number of prediction steps.
+其中 $\hat{z}_{t+k}$ 为时间步 $t+k$ 的预测潜在表示，$z_{t+k}$ 为真实潜在表示，$K$ 为预测步数。
 
-## Key Features
+---
 
-### Temporal Predictive Learning
+## 关键特性（Key Features）
 
-SPR learns representations by predicting future states in latent space. This temporal predictive learning 
-encourages the encoder to capture the essential dynamics of the environment, leading to more informative 
-representations.
+### 时间预测学习（Temporal Predictive Learning）
 
-### Data Efficiency
+SPR 通过预测未来潜在状态进行学习，  
+促使编码器捕捉环境的时间动态特征，从而获得更具表达力的表示。
 
-By learning rich representations that capture temporal dependencies, SPR significantly improves sample 
-efficiency compared to standard Q-learning methods. The agent can make better use of past experiences 
-by understanding how the environment evolves over time.
+### 样本效率（Data Efficiency）
 
-### Robustness
+通过学习捕捉时间依赖的丰富表示，SPR 在样本利用率上显著优于传统 Q-learning。  
+智能体能够更好地理解环境随时间的变化，从而高效使用已有经验。
 
-The combination of contrastive and predictive learning makes the learned representations more robust 
-to variations in the input observations. This robustness is particularly important in real-world 
-applications where the visual input may vary due to lighting conditions, camera angles, or other factors.
+### 鲁棒性（Robustness）
 
-## Advantages
+对比学习与预测学习的结合使得 SPR 学到的表示在视觉扰动下更稳定。  
+这对于实际应用中存在光照、角度、噪声变化的视觉任务尤为重要。
 
-1. **Improved Sample Efficiency**: SPR significantly improves sample efficiency by learning predictive representations.
-2. **Temporal Understanding**: The predictive component enables the agent to understand temporal dynamics.
-3. **Robust Representations**: Combining contrastive and predictive learning leads to more robust representations.
+---
 
-## Application Scenarios
+## 优势（Advantages）
 
-SPR is particularly well-suited for:
-- Pixel-based control tasks where the agent must learn from high-dimensional visual inputs
-- Environments where sample efficiency is critical
-- Applications where understanding temporal dynamics is important
+1. **高样本效率**：SPR 通过预测性表示显著提升了样本利用效率；  
+2. **时间理解能力**：预测组件使智能体具备对时间动态的理解；  
+3. **鲁棒表示**：对比与预测结合使得表示更加稳健。
 
-## Algorithm
+---
 
-The full algorithm for training SPR is presented in Algorithm 1:
+## 应用场景（Application Scenarios）
+
+SPR 特别适用于以下场景：
+- 基于像素输入的控制任务；  
+- 对样本效率要求高的环境；  
+- 需要理解时间动态的强化学习应用。
+
+---
+
+## 算法（Algorithm）
+
+SPR 的完整训练流程如下所示：
 
 ```{eval-rst}
-.. image:: ./../../../_static/figures/pseucodes/pseucode-SPR.png
+.. image:: ./../../../../_static/figures/pseucodes/pseucode-SPR.png
     :width: 80%
     :align: center
 ```
 
-## Framework
+---
 
-The overall agent-environment interaction of SPR, as implemented in XuanCe, is illustrated in the figure below.
+## 框架（Framework）
+
+SPR 在 XuanCe 框架中的智能体–环境交互如下图所示：
 
 ```{eval-rst}
-.. image:: ./../../../_static/figures/algo_framework/spr_framework.png
+.. image:: ./../../../../_static/figures/algo_framework/spr_framework.png
     :width: 100%
     :align: center
 ```
 
-## Run SPR in XuanCe
+---
 
-Before running SPR in XuanCe, you need to prepare a conda environment and install ``xuance`` following 
-the [**installation steps**](./../../usage/installation.rst#install-xuance).
+## 在 XuanCe 中运行 SPR（Run SPR in XuanCe）
 
-### Run Build-in Demos
+在运行 SPR 之前，需要准备 Conda 环境并按照  
+[**安装步骤**](./../../../usage/installation.rst#install-xuance) 安装 ``xuance``。
 
-After completing the installation, you can open a Python console and run SPR directly using the following commands:
+### 运行内置示例（Run Built-in Demos）
+
+安装完成后，可直接运行以下命令：
 
 ```python3
 import xuance
 runner = xuance.get_runner(method='spr',
-                           env='atari',  # Currently only atari environments are supported.
-                           env_id='ALE/Breakout-v5',  # Choices: ALE/Breakout-v5, ALE/Pong-v5, etc.
+                           env='atari',
+                           env_id='ALE/Breakout-v5',
                            is_test=False)
-runner.run()  # Or runner.benchmark()
+runner.run()  # 或 runner.benchmark()
 ```
 
-### Run With Self-defined Configs
+---
 
-If you want to run SPR with different configurations, you can build a new ``.yaml`` file, e.g., ``my_config.yaml``.
-Then, run the SPR by the following code block:
+### 使用自定义配置文件（Run With Self-defined Configs）
+
+若需自定义配置，可新建 ``my_config.yaml`` 文件，然后执行：
 
 ```python3
 import xuance as xp
 runner = xp.get_runner(method='spr',
-                       env='atari',  # Currently only atari environments are supported.
-                       env_id='ALE/Breakout-v5',  # Choices: ALE/Breakout-v5, ALE/Pong-v5, etc.
-                       config_path="my_config.yaml",  # The path of my_config.yaml file should be correct.
+                       env='atari',
+                       env_id='ALE/Breakout-v5',
+                       config_path="my_config.yaml",
                        is_test=False)
-runner.run()  # Or runner.benchmark()
+runner.run()  # 或 runner.benchmark()
 ```
 
-To learn more about the configurations, please visit the 
-[**tutorial of configs**](./../../api/configs/configuration_examples.rst).
+更多内容请参考  
+[**配置教程**](./../../configs/configuration_examples.rst)。
 
-## Citations
+---
 
-```{code-block} bash
+## 参考文献（Citations）
+
+```bash
 @inproceedings{raileanu2021spr,
   title={Self-predictive representation learning},
   author={Raileanu, Robert and Fergus, Rob},
   booktitle={International Conference on Learning Representations},
   year={2021}
 }
+```
+
+---
+
+## API 接口（APIs）
+
+### PyTorch
+
+```{eval-rst}
+.. automodule:: xuance.torch.agents.contrastive_unsupervised_rl.spr_agent
+    :members:
+    :undoc-members:
+    :show-inheritance:
+```
+
+### TensorFlow2
+
+```{eval-rst}
+.. automodule:: xuance.tensorflow.agents.contrastive_unsupervised_rl.spr_agent
+    :members:
+    :undoc-members:
+    :show-inheritance:
+```
+
+### MindSpore
+
+```{eval-rst}
+.. automodule:: xuance.mindspore.agents.contrastive_unsupervised_rl.spr_agent
+    :members:
+    :undoc-members:
+    :show-inheritance:
 ```

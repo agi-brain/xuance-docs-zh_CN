@@ -1,140 +1,206 @@
 # DrQ: Data-Regularized Q-Learning
 
-**Paper Link:** [**ArXiv**](https://arxiv.org/abs/2004.13649)
+**论文链接:** [**ArXiv**](https://arxiv.org/abs/2004.13649)
 
-Data-Regularized Q-learning (DrQ) is an off-policy deep reinforcement learning algorithm that applies data augmentation techniques to improve sample efficiency and generalization in pixel-based control tasks. It addresses the issue of overfitting and poor generalization that commonly occurs when applying Q-learning to high-dimensional visual inputs by applying multiple random transformations to input observations during training.
+Data-Regularized Q-learning（简称 **DrQ**）是一种基于数据增强（data augmentation）的**离策略深度强化学习算法**，用于提升在基于像素的控制任务中的样本效率与泛化能力。  
+它通过在训练过程中对输入观测应用多种随机变换，来解决传统 Q-learning 在高维视觉输入下容易出现的**过拟合与泛化不良**问题。
 
-This table lists some general features about DrQ algorithm:
+下表总结了 DrQ 算法的主要特征：
 
-| Features of DrQ     | Values | Description                                              |
-|---------------------|--------|----------------------------------------------------------|
-| On-policy           | ❌      | The evaluate policy is the same as the target policy.    |
-| Off-policy          | ✅      | The evaluate policy is different from the target policy. | 
-| Model-free          | ✅      | No need to prepare an environment dynamics model.        | 
-| Model-based         | ❌      | Need an environment model to train the policy.           | 
-| Discrete Action     | ✅      | Deal with discrete action space.                         |   
-| Continuous Action   | ❌      | Deal with continuous action space.                       |
+| 特征类别 | 值 | 描述 |
+|-----------|----|------|
+| On-policy | ❌ | 评估策略与目标策略相同 |
+| Off-policy | ✅ | 评估策略与目标策略不同 |
+| Model-free | ✅ | 无需环境动力学模型 |
+| Model-based | ❌ | 需构建环境模型以训练策略 |
+| Discrete Action | ✅ | 处理离散动作空间 |
+| Continuous Action | ❌ | 不适用于连续动作空间 |
 
-## Algorithm Description
+---
 
-DrQ addresses the challenge of applying Q-learning to high-dimensional visual inputs by leveraging data augmentation. The main idea is to apply multiple random transformations to input observations during training to regularize the learning process and improve generalization. This approach helps reduce overfitting to specific visual patterns and makes the learned policy more robust to variations in the input observations.
+## 算法描述（Algorithm Description）
 
-The key insight is that by applying data augmentation, the Q-network learns to produce consistent Q-values for different augmented versions of the same observation. This consistency encourages the network to focus on the underlying semantic content of the observation rather than superficial visual features that may not be relevant to the task.
+DrQ 针对高维视觉输入下 Q-learning 的困难问题，提出了利用**数据增强**的解决思路。  
+核心思想是在训练阶段对输入观测施加多种随机变换，以正则化学习过程并提升泛化能力。  
+这种方法能够有效降低模型对特定视觉模式的过拟合，使学习到的策略对输入变化更加稳健。
 
-## Network Architecture
+其主要洞见在于：通过数据增强，Q 网络被迫在同一观测的不同增强版本上输出一致的 Q 值，从而学习到**与任务相关的语义信息**，而非表面的像素细节。
 
-The DrQ agent uses a convolutional neural network (CNN) as the backbone of the Q-network. The architecture typically consists of several convolutional layers followed by fully connected layers. The specific architecture can vary depending on the environment and task, but the core idea remains the same: to learn Q-values from pixel inputs using data augmentation as a regularizer.
+---
 
-## Implementation Details
+## 网络结构（Network Architecture）
 
-### Data Augmentation
+DrQ 智能体使用卷积神经网络（CNN）作为 Q 网络的骨干结构。  
+该结构通常包含多个卷积层与全连接层。虽然具体架构会随环境与任务而异，但核心目标一致——  
+**通过数据增强作为正则项，从像素输入中学习 Q 值函数。**
 
-DrQ applies various data augmentation techniques to input observations during training. The specific augmentations used can vary, but common techniques include:
-- Random cropping
-- Color jittering
-- Random grayscale conversion
-- Horizontal flipping
+---
 
-The augmented observations are generated on-the-fly during training, and the Q-network is trained on these augmented samples.
+## 实现细节（Implementation Details）
 
-### Training Process
+### 数据增强（Data Augmentation）
 
-The training process of DrQ involves the following steps:
-1. Collect experiences from the environment
-2. Apply multiple random augmentations to observations
-3. Update the Q-network using augmented observations
-4. Periodically update the target network
+DrQ 在训练过程中对输入观测进行多种随机数据增强。常见的增强方式包括：
+- 随机裁剪（Random cropping）  
+- 颜色扰动（Color jittering）  
+- 随机灰度化（Random grayscale conversion）  
+- 水平翻转（Horizontal flipping）  
 
-The Q-network is trained using the standard TD-error loss with augmented observations:
+这些增强样本在训练时动态生成，并用于更新 Q 网络。
+
+---
+
+### 训练流程（Training Process）
+
+DrQ 的训练步骤如下：
+1. 从环境中收集经验数据；
+2. 对观测施加多种随机增强；
+3. 使用增强后的观测更新 Q 网络；
+4. 定期同步目标网络。
+
+Q 网络使用带有增强观测的标准时间差（TD）误差损失进行训练：
+
 $$
 \mathcal{L}_{\text{Q}} = \mathbb{E}[(Q(s,a) - (r + \gamma \max_{a'} Q'(s',a')))^2]
 $$
-where $ Q' $ is the target network, $ \gamma $ is the discount factor, and $ r $ is the reward.
 
-Multiple augmented versions of each observation are generated and used for training to improve robustness:
+其中，$Q'$ 为目标网络，$\gamma$ 为折扣因子，$r$ 为即时奖励。
+
+为了增强鲁棒性，DrQ 对每个观测生成多种增强版本，并将其平均：
+
 $$
 \bar{Q}(s,a) = \frac{1}{K} \sum_{k=1}^{K} Q(s_k,a)
 $$
-where $ K $ is the number of augmentations and $ s_k $ is the k-th augmented version of observation $ s $.
 
-## Key Features
+其中，$K$ 为增强次数，$s_k$ 为第 $k$ 个增强观测版本。
 
-### Improved Generalization
+---
 
-By applying data augmentation, DrQ improves the generalization capability of the Q-network. The network learns to produce consistent Q-values for different augmented versions of the same observation, which encourages it to focus on the underlying semantic content of the observation rather than superficial visual features.
+## 关键特性（Key Features）
 
-### Sample Efficiency
+### 提升泛化能力（Improved Generalization）
 
-DrQ improves sample efficiency by making better use of the available training data. By generating multiple augmented versions of each observation, the algorithm effectively increases the size of the training dataset without requiring additional environment interactions.
+通过数据增强，DrQ 显著提高了 Q 网络的泛化能力。  
+模型被迫在不同增强版本上输出一致的 Q 值，从而专注于观测的语义内容而非低级视觉特征。
 
-### Robustness
+### 样本效率（Sample Efficiency）
 
-The use of data augmentation makes the learned policy more robust to variations in the input observations. This robustness can be particularly important in real-world applications where the visual input may vary due to lighting conditions, camera angles, or other factors.
+DrQ 通过更高效地利用已有样本提升了样本效率。  
+由于每个观测可生成多个增强样本，训练数据集在不增加环境交互次数的前提下得到有效扩展。
 
-## Advantages
+### 鲁棒性（Robustness）
 
-1. **Simple Implementation**: DrQ is relatively simple to implement and can be easily integrated into existing Q-learning frameworks.
-2. **Effective Regularization**: Data augmentation provides effective regularization that helps prevent overfitting.
-3. **Improved Performance**: DrQ has been shown to significantly improve performance on pixel-based control tasks compared to standard Q-learning methods.
+数据增强使得学习到的策略对输入变化更加稳健，特别适用于视觉输入随光照、角度、噪声等因素变化的实际环境。
 
-## Application Scenarios
+---
 
-DrQ is particularly well-suited for:
-- Pixel-based control tasks where the agent must learn from high-dimensional visual inputs
-- Environments where sample efficiency is important
-- Applications where robustness to visual variations is desired
+## 优势（Advantages）
 
-## Algorithm
-The full algorithm for training DQN is presented in Algorithm 1:
+1. **实现简单**：DrQ 结构清晰，可轻松嵌入现有 Q-learning 框架中；  
+2. **有效正则化**：数据增强提供了天然的正则项，有助于防止过拟合；  
+3. **性能显著提升**：在基于像素的控制任务中，DrQ 明显优于传统 Q-learning 方法。
+
+---
+
+## 应用场景（Application Scenarios）
+
+DrQ 尤其适用于以下任务类型：
+- 基于像素输入的控制任务（如 Atari 游戏环境）；
+- 对样本效率要求高的场景；
+- 需要对视觉扰动具备鲁棒性的应用。
+
+---
+
+## 算法流程（Algorithm）
+
+DrQ 的完整训练流程如下图所示：
+
 ```{eval-rst}
-.. image:: ./../../../_static/figures/pseucodes/pseucode-DrQ.png
+.. image:: ./../../../../_static/figures/pseucodes/pseucode-DrQ.png
     :width: 80%
     :align: center
 ```
 
-## Run DrQ in XuanCe
+---
 
-Before running DrQ in XuanCe, you need to prepare a conda environment and install ``xuance`` following 
-the [**installation steps**](./../../usage/installation.rst#install-xuance).
+## 在 XuanCe 中运行 DrQ（Run DrQ in XuanCe）
 
-### Run Build-in Demos
+在运行 DrQ 之前，需要准备 Conda 环境并按照  
+[**安装步骤**](./../../../usage/installation.rst#install-xuance) 安装 ``xuance``。
 
-After completing the installation, you can open a Python console and run DrQ directly using the following commands:
+### 运行内置示例（Run Built-in Demos）
+
+安装完成后，可在 Python 控制台中直接运行：
 
 ```python3
 import xuance
 runner = xuance.get_runner(method='drq',
-                           env='atari',  # Choices: atari.
-                           env_id='ALE/Breakout-v5',  # Choices: ALE/Breakout-v5, ALE/Pong-v5, etc.
+                           env='atari',
+                           env_id='ALE/Breakout-v5',
                            is_test=False)
-runner.run()  # Or runner.benchmark()
+runner.run()  # 或 runner.benchmark()
 ```
 
-### Run With Self-defined Configs
+---
 
-If you want to run DrQ with different configurations, you can build a new ``.yaml`` file, e.g., ``my_config.yaml``.
-Then, run the DrQ by the following code block:
+### 使用自定义配置文件（Run With Self-defined Configs）
+
+若希望使用自定义配置运行 DrQ，可新建 ``.yaml`` 文件（例如 ``my_config.yaml``），  
+然后执行以下代码：
 
 ```python3
 import xuance as xp
 runner = xp.get_runner(method='drq',
-                       env='atari',  # Choices: atari.
-                       env_id='ALE/Breakout-v5',  # Choices: ALE/Breakout-v5, ALE/Pong-v5, etc.
-                       config_path="my_config.yaml",  # The path of my_config.yaml file should be correct.
+                       env='atari',
+                       env_id='ALE/Breakout-v5',
+                       config_path="my_config.yaml",
                        is_test=False)
-runner.run()  # Or runner.benchmark()
+runner.run()  # 或 runner.benchmark()
 ```
 
-To learn more about the configurations, please visit the 
-[**tutorial of configs**](./../../api/configs/configuration_examples.rst).
+更多关于配置文件的内容可参见  
+[**配置教程**](./../../configs/configuration_examples.rst)。
 
-## Citations
+---
 
-```{code-block} bash
+## 参考文献（Citations）
+
+```bash
 @article{yarats2021image,
   title={Image augmentation is all you need: Regularizing deep reinforcement learning from pixels},
   author={Yarats, Denis and Kostrikov, Ilya and Fergus, Rob},
   journal={arXiv preprint arXiv:2004.13649},
   year={2021}
 }
+```
+
+---
+
+## API 接口（APIs）
+
+### PyTorch
+
+```{eval-rst}
+.. automodule:: xuance.torch.agents.contrastive_unsupervised_rl.drq_agent
+    :members:
+    :undoc-members:
+    :show-inheritance:
+```
+
+### TensorFlow2
+
+```{eval-rst}
+.. automodule:: xuance.tensorflow.agents.contrastive_unsupervised_rl.drq_agent
+    :members:
+    :undoc-members:
+    :show-inheritance:
+```
+
+### MindSpore
+
+```{eval-rst}
+.. automodule:: xuance.mindspore.agents.contrastive_unsupervised_rl.drq_agent
+    :members:
+    :undoc-members:
+    :show-inheritance:
 ```
