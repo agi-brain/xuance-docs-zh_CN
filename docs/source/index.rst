@@ -50,6 +50,10 @@
         <img alt="Python" src="https://img.shields.io/pypi/pyversions/xuance">
    </a>
 
+   <a href="https://xuance.org">
+        <img alt="docs:english" src="https://img.shields.io/badge/Docs-English-blue?logo=readthedocs">
+   </a>
+
 .. raw:: html
 
    <br>
