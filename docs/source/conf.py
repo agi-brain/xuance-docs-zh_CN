@@ -15,7 +15,7 @@ print("[DOCS] xuance library path: {}".format(sys.path[0]))
 project = 'XuanCe'
 copyright = '2023, XuanCe Contributors.'
 author = 'Wenzhang Liu, etc.'
-release = "1.3.2"
+release = "1.4.0"
 
 # The master toctree document.
 master_doc = 'index'
@@ -130,10 +130,10 @@ html_theme_options = {
     "light_logo": "figures/logo_2.png",
     "dark_logo": "figures/logo_2.png",
     #
-    "source_repository": "https://github.com/agi-brain/xuance",
+    "source_repository": "https://github.com/agi-brain/xuance-docs-zh_CN.git",
     "source_branch": "../tree/master",
     "source_directory": "docs/source",
-    "top_of_page_buttons": ["view", "edit"],
+    "top_of_page_buttons": ["view"],
     # color
     # "light_css_variables": {
     #     "color-brand-primary": "#7C4DFF",
