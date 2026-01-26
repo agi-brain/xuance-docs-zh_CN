@@ -5,36 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2bf839e-3bd2-450d-bf76-14e7e97dce85" name="Changes" comment="update: docs">
-      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/add_new_benchmark.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/benchmark_results.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/start_benchmark.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/atari.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/atari/atari.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/mujoco.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_0_Ant.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/figures/fig_0_Ant.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_1_HalfCheetah.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/figures/fig_1_HalfCheetah.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_2_Hopper.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/figures/fig_2_Hopper.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_3_HumanoidStandup.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/figures/fig_3_HumanoidStandup.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_4_Humanoid.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/figures/fig_4_Humanoid.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_5_InvertedDoublePendulum.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/figures/fig_5_InvertedDoublePendulum.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_6_InvertedPendulum.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/figures/fig_6_InvertedPendulum.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_7_Reacher.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/figures/fig_7_Reacher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_8_Swimmer.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/figures/fig_8_Swimmer.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/fig_9_Walker2d.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/mujoco/figures/fig_9_Walker2d.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/smac.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/smac.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/fig_0_2m_vs_1z.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/figures/fig_0_2m_vs_1z.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/fig_1_3m.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/figures/fig_1_3m.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/fig_2_8m.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/figures/fig_2_8m.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/fig_3_1c3s5z.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/figures/fig_3_1c3s5z.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/fig_4_2s3z.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/figures/fig_4_2s3z.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/fig_5_25m.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/figures/fig_5_25m.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/fig_6_5m_vs_6m.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/figures/fig_6_5m_vs_6m.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/fig_7_8m_vs_9m.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/figures/fig_7_8m_vs_9m.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/fig_8_MMM2.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/smac/figures/fig_8_MMM2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/add_new_benchmark.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/add_new_benchmark.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/benchmark_results.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/benchmark_results.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/start_benchmark.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/start_benchmark.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/notebook-colab/further_usage.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/notebook-colab/further_usage.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/notebook-colab/new_algorithm.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/notebook-colab/new_algorithm.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/notebook-colab/quick_start.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/notebook-colab/quick_start.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +84,7 @@
       <workItem from="1760691353302" duration="3050000" />
       <workItem from="1761559203094" duration="598000" />
       <workItem from="1769271720690" duration="417000" />
-      <workItem from="1769429520076" duration="1112000" />
+      <workItem from="1769429520076" duration="3252000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -151,7 +126,23 @@
       <option name="project" value="LOCAL" />
       <updated>1769272059026</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update: docs">
+      <option name="closed" value="true" />
+      <created>1769430775467</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1769430775467</updated>
+    </task>
+    <task id="LOCAL-00007" summary="update: docs">
+      <option name="closed" value="true" />
+      <created>1769431023192</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1769431023192</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,74 +1,75 @@
 How to Add a New Benchmark
 ======================================
 
-This section describes how to add a new benchmark to XuanCe.
-A benchmark in XuanCe is defined by one algorithm, one environment scenario, and multiple random seeds.
+本节介绍如何在 XuanCe 中添加一个新的基准测试。
+在 XuanCe 中，一个基准测试由 **一种算法、一个环境场景以及多个随机种子** 共同定义。
 
-Step 1: Choose the Benchmark Task
+Step 1: 选择基准测试任务
 ---------------------------------------
 
-Determine the target environment and scenario.
-For example:
+确定基准测试环境及场景任务。例如:
+
 - Environment: Atari
 - Scenario: Breakout-v5
 
-Create the corresponding directory if it does not exist:
+如果对应的目录不存在，请创建该目录：
 
 .. code-block::text
 
     benchmarks/Atari/Breakout-v5/
 
-Step 2: Create an Algorithm-Specific Directory
+Step 2: 创建对应算法目录
 ---------------------------------------
 
-Under the scenario directory, create a subdirectory for the algorithm:
+在场景目录下，为该算法创建一个子目录:
 
 .. code-block::text
 
      benchmarks/Atari/Breakout-v5/<algorithm>/
 
 
-For example, for PPO:
+例如，针对 **PPO**算法:
 
 .. code-block::text
 
     benchmarks/Atari/Breakout-v5/ppo/
 
 
-Step 3: Prepare the Algorithm Configuration (Optional)
+Step 3: 准备算法配置（可选）
 ---------------------------------------
 
-If the algorithm requires a specific configuration file, place it in the algorithm directory:
+如果该算法需要特定的配置文件，请将其放置在算法目录中:
 
 .. code-block::
 
     benchmarks/Atari/Breakout-v5/ppo/ppo_atari.yaml
 
 
-This configuration file defines hyperparameters and environment-specific settings used by the benchmark.
+该配置文件用于定义基准测试中使用的超参数以及与环境相关的设置。
 
-Step 4: Write the Benchmark Script
+Step 4: 编写基准测试脚本
 ---------------------------------------
 
-Create a benchmark script named:
+创建基准测试脚本，文件命名如下:
 
 .. code-block::text
 
     run_<algorithm>_<scenario>.sh
 
-For example:
+例如:
 
 .. code-block::text
 
     run_iql_simple_spread_v3.sh
 
-Each benchmark script should:
-- Call the shared train.py script
-- Run multiple random seeds (default: 5)
-- Clearly indicate the start and end of each seed
-- Not duplicate algorithm or environment information already printed by XuanCe
+每个基准测试脚本应该:
 
-Example structure:
+- 调用共享的 train.py 脚本
+- 运行多个随机种子（默认：5 个）
+- 清晰标明每个随机种子的开始与结束
+- 不重复输出 XuanCe 已经打印的算法或环境信息
+
+结构示例:
 
 .. code-block::bash
 
@@ -109,17 +110,17 @@ Example structure:
       echo "========== [Benchmark END] seed=${SEED} | status=${STATUS} | time=${ELAPSED}s =========="
     done
 
-Step 5: (Optional) Add the Benchmark to a Suite Script
+Step 5: 将该基准测试添加到套件脚本中（可选）
 ---------------------------------------
 
-If you want the new benchmark to be included in a benchmark suite, edit the suite script under the scenario directory:
+如果希望将新的基准测试纳入某个基准测试套件，请编辑场景目录下的套件脚本:
 
 .. code-block::text
 
     benchmarks/Atai/Breakout-v5/run_simple_spread_all.sh
 
 
-Add the new benchmark script to the list:
+将新的基准测试脚本添加到列表中:
 
 .. code-block::bash
 
@@ -129,29 +130,28 @@ Add the new benchmark script to the list:
       "${ROOT_DIR}/<new_algo>/run_<new_algo>_Breakout-v5.sh"
     )
 
-Step 6: Run and Verify
+Step 6: 运行并验证
 ---------------------------------------
 
-Run the benchmark script:
+运行基准测试脚本:
 
 .. code-block::bash
 
     bash benchmarks/Atari/Breakout-v5/iql/run_ppo_Breakout-v5.sh
 
 
-Verify that:
-- All seeds run sequentially
-- Each seed prints clear START / END markers
-- Results are saved under the correct directory structure
-- The benchmark can be reproduced by re-running the script
+验证如下信息:
+- 所有随机种子按顺序依次运行
+- 每个随机种子均清晰打印 START / END 标记
+- 实验结果保存在正确的目录结构下
+- 重新运行脚本可以复现实验结果
 
-Design Principles
+设计原则
 ---------------------------------------
 
-When adding a new benchmark, please follow these principles:
-
-- One script = one benchmark
-- Benchmark scripts are the source of truth
-- Do not hard-code absolute paths
-- Do not duplicate logging already handled by XuanCe
-- Prefer clarity and reproducibility over convenience
+在添加新的基准测试时，建议遵循以下原则：
+- 一个脚本 = 一个基准测试
+- 基准测试脚本是唯一的权威来源
+- 避免硬编码绝对路径
+- 避免重复输出 XuanCe 已经处理的日志信息
+- 优先保证清晰性与可复现性

@@ -1,4 +1,4 @@
-Benchmark Results
+基准测试结果
 ======================================
 
 - :doc:`Benchmark: MuJoCo Environments <mujoco/mujoco>`

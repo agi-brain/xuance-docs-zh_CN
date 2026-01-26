@@ -219,9 +219,9 @@ XuanCe 旨在简化深度强化学习算法的实现与开发流程，帮助研�
    :maxdepth: 2
    :caption: 基准
 
-   Start Benchmark <documents/benchmark/start_benchmark>
-   Benchmark Results <documents/benchmark/benchmark_results>
-   Add New Benchmark <documents/benchmark/add_new_benchmark>
+   启动基准测试 <documents/benchmark/start_benchmark>
+   基准测试结果 <documents/benchmark/benchmark_results>
+   添加新的基准 <documents/benchmark/add_new_benchmark>
 
 .. toctree::
    :maxdepth: 5
@@ -241,5 +241,5 @@ XuanCe 旨在简化深度强化学习算法的实现与开发流程，帮助研�
    Github <https://github.com/agi-brain/xuance.git>
    documents/release_log
    documents/CONTRIBUTING
-   Contribute to the Docs (EN) <https://github.com/agi-brain/xuance/tree/master/docs>
-   Contribute to the Docs (CN) <https://github.com/agi-brain/xuance-docs-zh_CN/tree/master/docs>
+   文档贡献（英文） <https://github.com/agi-brain/xuance/tree/master/docs>
+   文档贡献（中文） <https://github.com/agi-brain/xuance-docs-zh_CN/tree/master/docs>

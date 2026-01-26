@@ -1,18 +1,16 @@
-Benchmark
+基准测试
 ======================================
 
-XuanCe provides standardized and reproducible benchmark scripts for evaluating deep reinforcement learning (DRL) and
-multi-agent reinforcement learning (MARL) algorithms. Benchmarks are designed with the following principles:
+XuanCe 提供了标准化且可复现的基准测试脚本，用于评估**深度强化学习（DRL）和多智能体强化学习（MARL）**算法。基准测试的设计遵循以下原则：
+- 清晰性：一个脚本对应一个算法–任务基准
+- 可复现性：固定的评测流程并使用多个随机种子
+- 可比性：统一的目录结构和结果格式
+- 可扩展性：便于添加新的算法、环境或基准测试套件
 
-- Clarity: one script corresponds to one algorithm-task benchmark
-- Reproducibility: fixed evaluation protocol and multiple random seeds
-- Comparability: consistent directory layout and result format
-- Extensibility: easy to add new algorithms, environments, or suites
-
-Directory Structure
+目录结构
 ---------------------------------------
 
-Benchmarks are organized by environment->scenario->algorithm:
+基准测试按照 **环境 → 场景 → 算法** 的层级结构进行组织:
 
 .. code-block:: text
 
@@ -31,71 +29,68 @@ Benchmarks are organized by environment->scenario->algorithm:
     │ └── run_simple_spread_all.sh
 
 
-- Each algorithm-specific script (run_*.sh) defines an atomic benchmark.
-- Suite scripts (e.g. run_simple_spread_all.sh) run multiple algorithms sequentially on the same task.
+- 每个算法专用脚本（run_*.sh）定义一个基准测试。
+- 套件脚本（例如 run_simple_spread_all.sh）用于在同一任务上依次运行多个算法。
 
-Running a Single Benchmark
+运行单个基准测试
 ---------------------------------------
 
-Each benchmark script runs the same task with multiple random seeds (default: 5).
+每个基准测试脚本都会使用多个随机种子（默认：5 个）来运行同一任务。
 
-Example: run MADDPG on MPE simple_spread_v3
+示例：在MPE环境的simple_spread_v3场景下，运行MADDPG基准测试脚本
 
 .. code-block:: bash
 
     bash benchmarks/MPE/simple_spread_v3/iql/run_iql_simple_spread_v3.sh
 
 
-During execution, XuanCe prints algorith, environment, and evaluation information, while the benchmark script prints
-clear START / END boundaries for each seed.
+在执行过程中，XuanCe 会输出算法、环境以及评测相关的信息，而基准测试脚本则负责为每个随机种子打印清晰的 START / END 边界标识。
 
-Running a Benchmark Suite
+运行基准测试套件
 ---------------------------------------
 
-To evaluate all supported algorithms on a given task, use the suite script:
+要在指定任务上评估所有已支持的算法，请使用对应的套件脚本：
 
 .. code-block:: bash
 
     bash benchmarks/MPE/simple_spread_v3/run_simple_spread_all.sh
 
-This will sequentially run Algorithm_1, Algorithm_2, ..., Algorithm_N on the same environment with identical evaluation
-settings.
+该脚本会在相同的环境和一致的评测设置下，按顺序依次运行 Algorithm_1、Algorithm_2、...、Algorithm_N。
 
-Evaluation Protocol
+评测规则
 ---------------------------------------
 
-All benchmarks follow a unified evaluation protocol:
+所有基准测试均遵循统一的评测规则：
+- 使用不同随机种子进行多次独立运行
+- 在训练过程中进行周期性评测（约每完成总步数的 1% 评测一次）
+- 每次评测包含多个测试回合
+- 报告的性能指标为回合回报的平均值
+- 最终的基准测试结果在不同随机种子之间进行汇总
 
-- Multiple independent runs with different random seeds
-- Periodic evaluation during training (≈ every 1% of total steps)
-- Each evaluation consists of multiple test episodes
-- Reported performance is the mean episode return
-- Final benchmark scores are aggregated across seeds
+该设计确保了算法比较的公平性以及性能评估的稳健性。
 
-This design ensures fair comparison and robust performance estimation.
-
-Benchmark Results
+基准测试结果
 ---------------------------------------
 
-Benchmark results are stored in a structured directory layout:
+基准测试结果以结构化的目录布局进行存储：
 
 .. code-block:: text
 
     (To be stored)
 
-- Each learning_curve.csv contains the learning curve for one seed
-- Aggregated results (mean ± std across seeds) can be generated using analysis scripts
+- 每个 learning_curve.csv 文件包含一个随机种子的学习曲线
+- 可使用分析脚本生成汇总结果（不同随机种子上的均值 ± 标准差）
 
-    TensorBoard logs are used for visualization and debugging, while CSV files are treated as the official benchmark artifacts.
+    TensorBoard 日志主要用于可视化和调试，而 CSV 文件被视为 **官方的基准测试结果产物**。
 
-Reproducibility
+可复现性
 ---------------------------------------
 
-To ensure reproducibility, benchmark scripts explicitly specify:
+为确保结果的可复现性，基准测试脚本会明确指定以下内容：
 
-- Algorithm name
-- Environment and scenario ID
-- Random seed
-- Training and evaluation settings
+- 算法名称
+- 环境与场景 ID
+- 随机种子
+- 训练与评测设置
 
-Benchmark scripts are the source of truth for all reported results.
+基准测试脚本是所有已报告结果的唯一权威来源。
