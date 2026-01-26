@@ -4,7 +4,7 @@ SMAC 基准测试
 场景
 --------------------------
 
-.. image:: ../../_static/figures/smac/smac.png
+.. image:: ../../../_static/figures/smac/smac.png
     :height: 150px
 
 所测试的地图情况如下表所列：
@@ -25,21 +25,21 @@ SMAC 基准测试
 测试结果
 --------------------------
 
-.. image:: smac/fig_0_2m_vs_1z.png
+.. image:: figures/fig_0_2m_vs_1z.png
     :height: 130px
-.. image:: smac/fig_1_3m.png
+.. image:: figures/fig_1_3m.png
     :height: 130px
-.. image:: smac/fig_2_8m.png
+.. image:: figures/fig_2_8m.png
     :height: 130px
-.. image:: smac/fig_3_1c3s5z.png
+.. image:: figures/fig_3_1c3s5z.png
     :height: 130px
-.. image:: smac/fig_4_2s3z.png
+.. image:: figures/fig_4_2s3z.png
     :height: 130px
-.. image:: smac/fig_5_25m.png
+.. image:: figures/fig_5_25m.png
     :height: 130px
-.. image:: smac/fig_6_5m_vs_6m.png
+.. image:: figures/fig_6_5m_vs_6m.png
     :height: 130px
-.. image:: smac/fig_7_8m_vs_9m.png
+.. image:: figures/fig_7_8m_vs_9m.png
     :height: 130px
-.. image:: smac/fig_8_MMM2.png
+.. image:: figures/fig_8_MMM2.png
     :height: 130px

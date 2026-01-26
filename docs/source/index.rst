@@ -215,6 +215,15 @@ XuanCe 旨在简化深度强化学习算法的实现与开发流程，帮助研�
    离线强化学习 <documents/algorithms/offline_rl>
 
 .. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: 基准
+
+   Start Benchmark <documents/benchmark/start_benchmark>
+   Benchmark Results <documents/benchmark/benchmark_results>
+   Add New Benchmark <documents/benchmark/add_new_benchmark>
+
+.. toctree::
    :maxdepth: 5
    :caption: 接口：
 
@@ -224,15 +233,6 @@ XuanCe 旨在简化深度强化学习算法的实现与开发流程，帮助研�
    documents/api/torch
    documents/api/tensorflow
    documents/api/mindspore
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: 参考基准
-
-   documents/benchmark/mujoco
-   documents/benchmark/atari
-   documents/benchmark/smac
 
 .. toctree::
    :hidden:
