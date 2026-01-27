@@ -51,7 +51,7 @@
    </a>
 
    <a href="https://github.com/agi-brain/xuance-benchmarks.git">
-        <img alt="Benchmarks" src="https://img.shields.io/badge/Benchmarks-Results-blue">
+        <img alt="Benchmarks" src="https://img.shields.io/badge/Benchmarks-结果-blue">
    </a>
 
    <a href="https://xuance.org">
