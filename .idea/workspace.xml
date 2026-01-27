@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2bf839e-3bd2-450d-bf76-14e7e97dce85" name="Changes" comment="update: benchmarks">
+    <list default="true" id="d2bf839e-3bd2-450d-bf76-14e7e97dce85" name="Changes" comment="update: docs links">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +80,7 @@
       <workItem from="1760691353302" duration="3050000" />
       <workItem from="1761559203094" duration="598000" />
       <workItem from="1769271720690" duration="417000" />
-      <workItem from="1769429520076" duration="4647000" />
+      <workItem from="1769429520076" duration="5324000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -146,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769432807030</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update: docs links">
+      <option name="closed" value="true" />
+      <created>1769528153032</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1769528153032</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +177,7 @@
     <MESSAGE value="update: index" />
     <MESSAGE value="update: docs" />
     <MESSAGE value="update: benchmarks" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: benchmarks" />
+    <MESSAGE value="update: docs links" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: docs links" />
   </component>
 </project>
