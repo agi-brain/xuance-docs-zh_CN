@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2bf839e-3bd2-450d-bf76-14e7e97dce85" name="Changes" comment="update: docs">
+    <list default="true" id="d2bf839e-3bd2-450d-bf76-14e7e97dce85" name="Changes" comment="update: benchmarks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/add_new_benchmark.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/add_new_benchmark.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/benchmark_results.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/benchmark_results.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/documents/benchmark/start_benchmark.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/documents/benchmark/start_benchmark.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +80,7 @@
       <workItem from="1760691353302" duration="3050000" />
       <workItem from="1761559203094" duration="598000" />
       <workItem from="1769271720690" duration="417000" />
-      <workItem from="1769429520076" duration="3252000" />
+      <workItem from="1769429520076" duration="4647000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -142,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769431023192</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update: benchmarks">
+      <option name="closed" value="true" />
+      <created>1769432807030</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1769432807030</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +168,7 @@
     <MESSAGE value="update: figures" />
     <MESSAGE value="update: index" />
     <MESSAGE value="update: docs" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: docs" />
+    <MESSAGE value="update: benchmarks" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: benchmarks" />
   </component>
 </project>
