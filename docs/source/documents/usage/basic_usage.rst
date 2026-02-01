@@ -17,17 +17,16 @@
 安装完玄策后，用户只需要三行代码即可运行一个深度强化学习算法。
 首先，你需要通过指定 ``method`` 、 ``env`` 和 ``env_id`` 等信息创建一个 *runner* 对象，
 在 *runner* 的创建过程中，玄策已经创建好了 ``agent``, ``policy``, ``envs`` 等强化学习关键要素。
-接下来，只需要执行 ``runner.run()`` 就能实现算法的训练了。
+接下来，只需要执行 ``runner.run(mode='train')`` 就能实现算法的训练了。
 一个DQN算法的实例如下：
 
 .. code-block:: python3
 
     import xuance
-    runner = xuance.get_runner(method='dqn',
+    runner = xuance.get_runner(algo='ppo',
                                env='classic_control',
-                               env_id='CartPole-v1',
-                               is_test=False)
-    runner.run()
+                               env_id='CartPole-v1')
+    runner.run(mode='train')
 
 .. tip::
 
@@ -40,22 +39,20 @@
 
         def parse_args():
             parser = argparse.ArgumentParser("Run a demo.")
-            parser.add_argument("--method", type=str, default="dqn")
+            parser.add_argument("--algo", type=str, default="ppo")
             parser.add_argument("--env", type=str, default="classic_control")
             parser.add_argument("--env-id", type=str, default="CartPole-v1")
-            parser.add_argument("--test", type=int, default=0)
             parser.add_argument("--device", type=str, default="cuda:0")
 
             return parser.parse_args()
 
         if __name__ == '__main__':
             parser = parse_args()
-            runner = xuance.get_runner(method=parser.method,
+            runner = xuance.get_runner(algo=parser.algo,
                                        env=parser.env,
                                        env_id=parser.env_id,
-                                       parser_args=parser,
-                                       is_test=parser.test)
-            runner.run()
+                                       parser_args=parser)
+            runner.run(mode='train')
 
     然后，在终端运行 Python 文件:
 
@@ -72,11 +69,10 @@
 .. code-block:: python3
 
     import xuance
-    runner = xuance.get_runner(method='maddpg',
+    runner = xuance.get_runner(algo='maddpg',
                                env='mpe',
-                               env_id='simple_spread_v3',
-                               is_test=False)
-    runner.run()
+                               env_id='simple_spread_v3')
+    runner.run(mode='train')
 
 当环境中包含竞争型任务时，由于智能体的优化目标不同，玄策根据原始环境中的任务说明，将智能体进行分组，每组运行一个MARL算法。
 例如，对于 `mpe/adversary <https://pettingzoo.farama.org/environments/mpe/simple_adversary/>`_ 环境，
@@ -86,11 +82,10 @@
 .. code-block:: python3
 
     import xuance
-    runner = xuance.get_runner(method=["maddpg", "iddpg"],
+    runner = xuance.get_runner(algo=["maddpg", "iddpg"],
                                env='mpe',
-                               env_id='simple_push_v3',
-                               is_test=False)
-    runner.run()
+                               env_id='simple_push_v3')
+    runner.run(mode='train')
 
 在该示例中，第一组智能体使用IDDPG算法，而第二组使用MADDPG算法。
 执行以上命令后，终端将输出实验的基本信息和训练过程进度条，当进度条满格时表示训练结束，模型保存。
@@ -98,18 +93,17 @@
 测试
 -----------------------
 完成算法训练后，玄策会在指定目录中保存模型文件和训练日志信息。
-用户可以通过指定 ``is_test=True`` 来实现测试：
+用户可以通过指定 ``mode='test'`` 来实现测试：
 
 .. code-block:: python3
 
     import xuance
-    runner = xuance.get_runner(method='dqn',
+    runner = xuance.get_runner(algo='ppo',
                                env='classic_control',
-                               env_id='CartPole-v1',
-                               is_test=True)
-    runner.run()
+                               env_id='CartPole-v1')
+    runner.run(mode='test')
 
-以上代码中，还可用 ``runner.benchmark()`` 代替 ``runner.run()`` ，用于训练基准模型和基准测试结果。
+以上代码中，还可用 ``runner.run(mode='benchmark')`` 代替 ``runner.run(mode='train')`` ，用于训练基准模型和基准测试结果。
    
 训练可视化
 -----------------------

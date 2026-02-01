@@ -14,33 +14,21 @@
 安装玄策
 ---------------------------
 
-**Step 1**: 创建并激活一个新的 Conda 环境（建议使用 Python 3.8 或更高版本）。
+**步骤 1**: 创建并激活一个新的 Conda 环境（建议使用 Python 3.8 或更高版本）。
 
 .. code-block:: bash
 
     conda create -n xuance_env python=3.8 && conda activate xuance_env
 
-**Step 2**: 安装 ``mpi4py`` 依赖.
-
-.. code-block:: bash
-
-    conda install mpi4py
-
-**Step 3**: 安装 ``xuance``.
+**步骤 2**: 安装 ``xuance``.
 
 .. tabs::
 
-    .. tab:: 默认（torch）
+    .. tab:: |_3| |torch| |_3| (默认)
 
         .. code-block:: bash
 
             pip install xuance
-
-    .. tab:: |_3| |torch| |_3|
-
-        .. code-block:: bash
-
-            pip install xuance[torch]
 
     .. tab:: |_3| |tensorflow| |_3|
 
@@ -64,15 +52,7 @@
 
 .. tabs::
 
-    .. tab:: 默认（torch）
-
-        .. code-block:: bash
-
-            git clone https://github.com/agi-brain/xuance.git
-            cd xuance
-            pip install -e .
-
-    .. tab:: |_4| |torch| |_4|
+    .. tab:: |_3| |torch| |_3| (默认)
 
         .. code-block:: bash
 
@@ -80,7 +60,7 @@
             cd xuance
             pip install -e .[torch]
 
-    .. tab:: |tensorflow|
+    .. tab:: |_3| |tensorflow| |_3|
 
         .. code-block:: bash
 
@@ -88,7 +68,7 @@
             cd xuance
             pip install -e .[tensorflow]
 
-    .. tab:: |mindspore|
+    .. tab:: |_3| |mindspore| |_3|
 
         .. code-block:: bash
 
@@ -136,6 +116,14 @@
     .. code-block:: bash
 
         pip install mpi4py
+
+.. note::
+
+    该问题仅影响 v1.4.0 之前的 XuanCe 版本。
+    从 v1.4.0 开始，mpi4py 不再是 XuanCe 的必需依赖。
+
+    如果你正在使用较旧版本的 XuanCe 并遇到该错误，
+    可以按照上述方法进行解决。
 
 .. tip::
 
