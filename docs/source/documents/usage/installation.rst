@@ -24,7 +24,7 @@
 
 .. tabs::
 
-    .. tab:: |_3| |torch| |_3| (默认)
+    .. tab:: |_3| |torch| |_3|
 
         .. code-block:: bash
 
@@ -52,7 +52,7 @@
 
 .. tabs::
 
-    .. tab:: |_3| |torch| |_3| (默认)
+    .. tab:: |_3| |torch| |_3|
 
         .. code-block:: bash
 
