@@ -1,7 +1,7 @@
 agent: "MADDPG"  # the learning algorithms_marl
 env_name: "NewEnv_MAS"
 env_id: "scenarios_0"
-env_seed: 1
+env_seed: 1  # The random seed of the environment.
 max_episode_steps: 200
 render: False
 sleep: 0.01
@@ -40,5 +40,5 @@ grad_clip_norm: 0.5
 
 eval_interval: 10000
 test_episode: 5
-log_dir: "./logs/maddpg/"
-model_dir: "./models/maddpg/"
+log_dir: "logs/maddpg/"
+model_dir: "models/maddpg/"

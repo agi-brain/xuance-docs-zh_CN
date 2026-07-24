@@ -1,9 +1,9 @@
 agent: "MAPPO"
-env_name: "StarCraft2"
+env_name: "StarCraft2"  # Name of the environment.
 env_id: "corridor"
-env_seed: 1
-fps: 15
-learner: "MAPPO_Clip_Learner"
+env_seed: 1  # The random seed of the environment.
+fps: 15  # Frames per second.
+learner: "MAPPO_Learner"
 policy: "Categorical_MAAC_Policy"
 representation: "Basic_RNN"
 vectorize: "Subproc_StarCraft2"
@@ -60,5 +60,5 @@ running_steps: 10000000  # 10M
 eval_interval: 100000
 test_episode: 16
 
-log_dir: "./logs/mappo/"
-model_dir: "./models/mappo/"
+log_dir: "logs/mappo/"
+model_dir: "models/mappo/"

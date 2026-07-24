@@ -1,8 +1,8 @@
 agent: "IAC"
-env_name: "StarCraft2"
+env_name: "StarCraft2"  # Name of the environment.
 env_id: "2m_vs_1z"
-env_seed: 1
-fps: 15
+env_seed: 1  # The random seed of the environment.
+fps: 15  # Frames per second.
 learner: "IAC_Learner"
 policy: "Categorical_MAAC_Policy_Share"
 representation: "Basic_RNN"
@@ -58,5 +58,5 @@ running_steps: 1000000
 eval_interval: 10000
 test_episode: 16
 
-log_dir: "./logs/iac/"
-model_dir: "./models/iac/"
+log_dir: "logs/iac/"
+model_dir: "models/iac/"

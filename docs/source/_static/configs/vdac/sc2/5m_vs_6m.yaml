@@ -1,8 +1,8 @@
 agent: "VDAC"
-env_name: "StarCraft2"
+env_name: "StarCraft2"  # Name of the environment.
 env_id: "5m_vs_6m"
-env_seed: 1
-fps: 15
+env_seed: 1  # The random seed of the environment.
+fps: 15  # Frames per second.
 learner: "VDAC_Learner"
 policy: "Categorical_MAAC_Policy"
 representation: "Basic_RNN"
@@ -63,5 +63,5 @@ running_steps: 10000000  # 10M
 eval_interval: 50000
 test_episode: 16
 
-log_dir: "./logs/vdac/"
-model_dir: "./models/vdac/"
+log_dir: "logs/vdac/"
+model_dir: "models/vdac/"

@@ -1,7 +1,7 @@
 agent: "OWQMIX"  # choice: CWQMIX, OWQMIX
 env_name: "mpe"  # Name of the environment.
 env_id: "simple_spread_v3"
-env_seed: 1
+env_seed: 1  # The random seed of the environment.
 continuous_action: False  # Continuous action space or not.
 learner: "WQMIX_Learner"
 policy: "Weighted_Mixing_Q_network"
@@ -49,5 +49,5 @@ use_actions_mask: False
 
 eval_interval: 100000
 test_episode: 5
-log_dir: "./logs/wqmix/"
-model_dir: "./models/wqmix/"
+log_dir: "logs/wqmix/"
+model_dir: "models/wqmix/"
