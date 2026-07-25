@@ -1,69 +1,69 @@
 # DQN with Prioritized Experience Replay (PerDQN)
 
-**Paper Link:** [**https://arxiv.org/pdf/1511.05952**](https://arxiv.org/pdf/1511.05952)
+**论文链接：** [**https://arxiv.org/pdf/1511.05952**](https://arxiv.org/pdf/1511.05952)
 
-DQN with Prioritized Experience Replay (PER DQN) is a variant of the traditional DQN 
-that incorporates Prioritized Experience Replay to improve the agent's learning efficiency 
-by prioritizing certain experiences during training.
+基于优先经验回放的 DQN（PER DQN）是传统 DQN 的一种变体。
+该算法引入优先经验回放机制，通过在训练过程中优先使用某些经验，
+提升智能体的学习效率。
 
-This table lists some general features about PER DQN algorithm:
+下表列出了 PER DQN 算法的一些基本特征：
 
-| Features of PER DQN | Values | Description                                              |
-|---------------------|--------|----------------------------------------------------------|
-| On-policy           | ❌      | The evaluate policy is the same as the target policy.    |
-| Off-policy          | ✅      | The evaluate policy is different from the target policy. | 
-| Model-free          | ✅      | No need to prepare an environment dynamics model.        | 
-| Model-based         | ❌      | Need an environment model to train the policy.           | 
-| Discrete Action     | ✅      | Deal with discrete action space.                         |   
-| Continuous Action   | ❌      | Deal with continuous action space.                       |
+| PER DQN 的特征 | 是否具备 | 说明 |
+|----------------|----------|------|
+| 同策略（On-policy） | ❌ | 评估策略与目标策略相同。 |
+| 异策略（Off-policy） | ✅ | 评估策略与目标策略不同。 |
+| 无模型（Model-free） | ✅ | 无须预先构建环境动力学模型。 |
+| 基于模型（Model-based） | ❌ | 需要使用环境模型训练策略。 |
+| 离散动作 | ✅ | 可处理离散动作空间。 |
+| 连续动作 | ❌ | 可处理连续动作空间。 |
 
-## Method
+## 方法
 
-In standard [**DQN**](./dqn.md#deep-q-netowrk), experiences are stored in a replay buffer, 
-and the agent samples uniformly from this buffer to train its Q-network. 
-However, this uniform sampling can be inefficient, especially when certain experiences are more important for learning than others. 
-PER DQN addresses this by prioritizing experiences that are expected to provide more useful information for improving the agent's policy.
+在标准的 [**DQN**](./dqn.md#deep-q-netowrk) 中，经验被存储在经验回放缓冲区中，
+智能体从缓冲区中均匀采样经验，以训练其 Q 网络。
+然而，均匀采样的效率可能较低，尤其是当某些经验对学习比其他经验更加重要时。
+PER DQN 通过优先采样那些预计能够为策略改进提供更多有效信息的经验，解决这一问题。
 
-### Prioritized Experience Replay
+### 优先经验回放
 
-- In Prioritized Experience Replay (PER), instead of sampling uniformly from the buffer, experiences are prioritized based on their temporal-difference (TD) error.
-- The TD error is the difference between the expected Q-value (from the Bellman equation) and the current Q-value predicted by the agent's Q-network.
-- High TD error means that the experience has high learning potential because it indicates that the agent’s current Q-function is not accurately predicting the future reward for that experience.
+- 在优先经验回放（Prioritized Experience Replay，PER）中，经验不再从缓冲区中被均匀采样，而是根据其时序差分（Temporal-Difference，TD）误差确定优先级。
+- TD 误差是期望 Q 值（由 Bellman 方程得到）与智能体 Q 网络当前预测的 Q 值之间的差异。
+- 较大的 TD 误差意味着该经验具有较高的学习潜力，因为它表明智能体当前的 Q 函数未能准确预测该经验对应的未来回报。
 
-### How PER DQN Works
+### PER DQN 的工作原理
 
-- In PER DQN, the replay buffer is augmented with priority sampling. The priority of an experience is proportional to its TD error.
-- When the agent samples experiences for training, those with higher TD errors are more likely to be selected.
-- This focuses the agent’s learning on experiences that are more surprising or difficult, accelerating the learning process by revisiting important experiences more frequently.
+- 在 PER DQN 中，经验回放缓冲区增加了优先采样机制。某条经验的优先级与其 TD 误差成正比。
+- 当智能体为训练采样经验时，TD 误差较大的经验更有可能被选中。
+- 这种方式使智能体将学习重点放在更出乎预期或更困难的经验上，并通过更加频繁地重新使用重要经验来加快学习过程。
 
-### Importance Sampling
+### 重要性采样
 
-To avoid biasing the training process due to preferential sampling of experiences, importance sampling is used.
-Each experience is assigned a weight that compensates for the non-uniform sampling. 
-This ensures that the agent learns correctly even when the experiences are not uniformly sampled.
+为了避免因优先采样经验而使训练过程产生偏差，PER DQN 使用了重要性采样。
+每条经验都会被赋予一个用于补偿非均匀采样的权重。
+这可以确保即使经验不是均匀采样的，智能体仍然能够进行正确学习。
 
-### Mathematical Details
+### 数学细节
 
-The priority $p_i$ of experience $i$ is calculated using the TD error $\delta_i$, typically in the form:
+经验 $i$ 的优先级 $p_i$ 使用 TD 误差 $\delta_i$ 计算，通常表示为：
 
 $$
 p_i = |\delta_i| + \epsilon,
 $$
 
-where $\delta_i$ is the absolute value of the TD error, 
-$\epsilon$ is a small constant added to ensure that experiences with zero TD error are still included in the buffer.
+其中，$|\delta_i|$ 是 TD 误差的绝对值；
+$\epsilon$ 是一个较小的常数，用于确保 TD 误差为零的经验仍然能够被保留在缓冲区中并参与采样。
 
-The probability of sampling experience $i$ is given by:
+经验 $i$ 被采样的概率为：
 
 $$
 P(i) = \frac{p^{\alpha}_i}{\sum_{k}{p^{\alpha}_{k}}},
 $$
 
-where $\alpha$ controls how much prioritization is used (i.e., how much the TD error affects the sampling probability).
+其中，$\alpha$ 用于控制优先采样的程度，即 TD 误差对采样概率的影响程度。
 
-## Algorithm
+## 算法
 
-The full algorithm for training PER DQN is presented in Algorithm 1:
+用于训练 PER DQN 的完整算法如算法 1 所示：
 
 ```{eval-rst}
 .. image:: ./../../../_static/figures/pseucodes/pseucode-PERDQN.png
@@ -71,51 +71,51 @@ The full algorithm for training PER DQN is presented in Algorithm 1:
     :align: center
 ```
 
-## Run PER DQN in XuanCe
+## 在 XuanCe 中运行 PER DQN
 
-Before running PER DQN in XuanCe, you need to prepare a conda environment and install ``xuance`` following 
-the [**installation steps**](./../../usage/installation.rst#install-xuance).
+在 XuanCe 中运行 PER DQN 之前，需要先准备一个 conda 环境，并按照
+[**安装步骤**](./../../usage/installation.rst)安装 ``xuance``。
 
-### Run Build-in Demos
+### 运行内置示例
 
-After completing the installation, you can open a Python console and run PER DQN directly using the following commands:
+完成安装后，可以打开 Python 控制台，并使用以下命令直接运行 PER DQN：
 
 ```python3
 import xuance
 runner = xuance.get_runner(method='perdqn',
-                           env='classic_control',  # Choices: claasi_control, box2d, atari.
-                           env_id='CartPole-v1',  # Choices: CartPole-v1, LunarLander-v2, ALE/Breakout-v5, etc.
+                           env='classic_control',  # 可选项：claasi_control、box2d、atari。
+                           env_id='CartPole-v1',  # 可选项：CartPole-v1、LunarLander-v2、ALE/Breakout-v5 等。
                            is_test=False)
-runner.run()  # Or runner.benchmark()
+runner.run()  # 也可以使用 runner.benchmark()
 ```
 
-### Run With Self-defined Configs
+### 使用自定义配置运行
 
-If you want to run PER DQN with different configurations, you can build a new ``.yaml`` file, e.g., ``my_config.yaml``.
-Then, run the PER DQN by the following code block:
+如需使用不同配置运行 PER DQN，可以新建一个 ``.yaml`` 文件，例如 ``my_config.yaml``。
+然后使用以下代码运行 PER DQN：
 
 ```python3
 import xuance as xp
 runner = xp.get_runner(method='perdqn',
-                       env='classic_control',  # Choices: claasi_control, box2d, atari.
-                       env_id='CartPole-v1',  # Choices: CartPole-v1, LunarLander-v2, ALE/Breakout-v5, etc.
-                       config_path="my_config.yaml",  # The path of my_config.yaml file should be correct.
+                       env='classic_control',  # 可选项：claasi_control、box2d、atari。
+                       env_id='CartPole-v1',  # 可选项：CartPole-v1、LunarLander-v2、ALE/Breakout-v5 等。
+                       config_path="my_config.yaml",  # 请确保 my_config.yaml 文件的路径正确。
                        is_test=False)
-runner.run()  # Or runner.benchmark()
+runner.run()  # 也可以使用 runner.benchmark()
 ```
 
-To learn more about the configurations, please visit the 
-[**tutorial of configs**](./../../api/configs/configuration_examples.rst).
+如需进一步了解配置方法，请参阅
+[**配置教程**](./../../api/configs/configuration_examples.rst)。
 
-### Run With Custom Environment
+### 在自定义环境中运行
 
-If you would like to run XuanCe's PER DQN in your own environment that was not included in XuanCe, 
-you need to define the new environment following the steps in 
-[**New Environment Tutorial**](./../../usage/custom_env/custom_drl_env.rst).
-Then, [**prepapre the configuration file**](./../../usage/custom_env/custom_drl_env.rst#step-2-create-the-config-file-and-read-the-configurations) 
- ``perdqn_myenv.yaml``.
+如需在 XuanCe 尚未包含的自定义环境中运行 PER DQN，
+需要按照 [**新环境教程**](./../../usage/custom_env/custom_drl_env.rst)
+中的步骤定义新环境。
+然后，[**准备配置文件**](./../../usage/custom_env/custom_drl_env.rst#step-2-create-the-config-file-and-read-the-configurations)
+``perdqn_myenv.yaml``。
 
-After that, you can run PER DQN in your own environment with the following code:
+完成上述操作后，可以使用以下代码在自定义环境中运行 PER DQN：
 
 ```python3
 import argparse
@@ -128,14 +128,14 @@ configs_dict = get_configs(file_dir="perdqn_myenv.yaml")
 configs = argparse.Namespace(**configs_dict)
 REGISTRY_ENV[configs.env_name] = MyNewEnv
 
-envs = make_envs(configs)  # Make parallel environments.
-Agent = PerDQN_Agent(config=configs, envs=envs)  # Create a DDPG agent from XuanCe.
-Agent.train(configs.running_steps // configs.parallels)  # Train the model for numerous steps.
-Agent.save_model("final_train_model.pth")  # Save the model to model_dir.
-Agent.finish()  # Finish the training.
+envs = make_envs(configs)  # 创建并行环境。
+Agent = PerDQN_Agent(config=configs, envs=envs)  # 创建一个来自 XuanCe 的 DDPG 智能体。
+Agent.train(configs.running_steps // configs.parallels)  # 对模型进行多个步骤的训练。
+Agent.save_model("final_train_model.pth")  # 将模型保存到 model_dir。
+Agent.finish()  # 结束训练。
 ```
 
-## Citations
+## 参考文献
 
 ```{code-block} bash
 @inproceedings{DBLP:journals/corr/SchaulQAS15,
