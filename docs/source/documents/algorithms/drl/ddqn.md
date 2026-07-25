@@ -1,88 +1,89 @@
 # Double Deep Q-Network (Double DQN)
 
-**Paper Link:** 
-[**AAAI**](https://ojs.aaai.org/index.php/AAAI/article/view/10295), 
-[**ArXiv**](https://arxiv.org/pdf/1509.06461),
-[**Double Q-learnig**](https://proceedings.neurips.cc/paper_files/paper/2010/file/091d584fced301b442654dd8c23b3fc9-Paper.pdf)
+**论文链接：**  
+[**AAAI**](https://ojs.aaai.org/index.php/AAAI/article/view/10295)，
+[**ArXiv**](https://arxiv.org/pdf/1509.06461)，
+[**Double Q-learning**](https://proceedings.neurips.cc/paper_files/paper/2010/file/091d584fced301b442654dd8c23b3fc9-Paper.pdf)
 
-Double Deep Q-Network (Double DQN) is an enhancement of the original Deep Q-Network (DQN) algorithm, 
-designed to address the issue of overestimation of Q-values, which is a common problem in Q-learning-based methods. 
-Overestimation occurs when the Q-learning algorithm selects actions based on 
-a maximum Q-value that might be overestimated due to noise or approximation errors. 
-This can lead to suboptimal policies and unstable training.
+双重深度 Q 网络（Double Deep Q-Network，Double DQN）是对原始深度 Q 网络（Deep Q-Network，DQN）算法的改进，
+旨在解决基于 Q-learning 的方法中常见的 Q 值高估问题。
+当 Q-learning 算法根据最大 Q 值选择动作时，由于噪声或近似误差，该最大 Q 值可能被高估，从而产生高估问题。
+这可能导致次优策略以及训练过程不稳定。
 
-This table lists some general features about Double DQN algorithm:
+下表列出了 Double DQN 算法的一些基本特征：
 
-| Features of Double DQN | Values | Description                                              |
-|------------------------|--------|----------------------------------------------------------|
-| On-policy              | ❌      | The evaluate policy is the same as the target policy.    |
-| Off-policy             | ✅      | The evaluate policy is different from the target policy. | 
-| Model-free             | ✅      | No need to prepare an environment dynamics model.        | 
-| Model-based            | ❌      | Need an environment model to train the policy.           | 
-| Discrete Action        | ✅      | Deal with discrete action space.                         |   
-| Continuous Action      | ❌      | Deal with continuous action space.                       |
+| Double DQN 的特征 | 是否支持 | 说明 |
+|------------------|----------|------|
+| 同策略（On-policy） | ❌ | 评估策略与目标策略相同。 |
+| 异策略（Off-policy） | ✅ | 评估策略与目标策略不同。 |
+| 无模型（Model-free） | ✅ | 无需预先构建环境动力学模型。 |
+| 基于模型（Model-based） | ❌ | 需要环境模型来训练策略。 |
+| 离散动作 | ✅ | 可处理离散动作空间。 |
+| 连续动作 | ❌ | 可处理连续动作空间。 |
 
-## The Risk of Overestimating
+## 高估的风险
 
-In standard DQN, overestimation occurs due to the use of a single Q-network for both selecting and evaluating actions. 
+在标准 DQN 中，由于动作选择和动作评估均使用同一个 Q 网络，因此会产生高估问题。
 
-As introduced before, [**DQN**](dqn.md#deep-q-netowrk) updates the Q-value for a state-action pair $Q(s, a)$ 
-by using the maximum of Q-value of the next state $\max_{a'}Q(s', a')$ as part of the target. 
+如前文所述，[**DQN**](dqn.md) 使用下一状态的最大 Q 值
+$\max_{a'}Q(s', a')$ 作为目标值的一部分，从而更新状态—动作对的 Q 值 $Q(s, a)$。
 
-If the Q-network overestimates one or more state-action values, the overestimation propagates and accumulates over time.
-This will result in overly optimistic Q-values which can lead to unstable training and cause policy to favor suboptimal actions.
+当 Q 网络高估了一个或多个状态—动作对的价值时，这种高估会随着时间传播并不断累积。
+其结果是 Q 值变得过于乐观，不仅可能造成训练不稳定，还会使策略倾向于选择次优动作。
 
-Overestimating biases the agent toward actions that appear better than they are, 
-potentially leading to poor decision-making and performance degradation in complex environments.
+高估会使智能体偏向那些看起来比实际情况更优的动作，
+进而可能在复杂环境中导致错误决策和性能下降。
 
-Besides, if overestimation becomes severe, it can destablize training, causing the Q-values to diverge.
+此外，如果高估现象过于严重，还可能破坏训练过程的稳定性，导致 Q 值发散。
 
-## Main Idea
+## 核心思想
 
-The main idea of Double DQN is to decouple the action selection and action evaluation processes, 
-reducing the risk of overestimating Q-values. 
-This is achieved by maintaining two separate Q-value estimation steps:
-- **Action Selection**: Use the current Q-network to select the best action for a given state.
+Double DQN 的核心思想是将动作选择与动作评估过程解耦，
+从而降低 Q 值被高估的风险。
+具体而言，它通过两个相互分离的 Q 值估计步骤实现这一目标：
+
+- **动作选择**：使用当前 Q 网络为给定状态选择最优动作。
 
 $$
 a^* = \arg\max_{a}Q(s', s; \theta).
 $$
 
-- **Action Evaluation**: Use the target Q-network to evaluate the value of the selected action.
+- **动作评估**：使用目标 Q 网络评估所选动作的价值。
 
 $$
 y = r + \gamma Q(s', a*;\theta^{-}).
 $$
 
-Then, update the Q-network by minizing the loss:
+随后，通过最小化以下损失函数来更新 Q 网络：
 
 $$
 L(\theta) = \mathbb{E}_{(s, a, s', r) \sim \mathcal{D}}[(y-Q(s, a; \theta))^2].
 $$
 
-Finally, don't forget to update the target networks: $\theta^{-} \leftarrow \theta$.
+最后，不要忘记更新目标网络：$\theta^{-} \leftarrow \theta$。
 
-## Compare with DQN
+## 与 DQN 的比较
 
-To figure out the difference between DQN and Double DQN more clearly, 
-we can rewrite the 
-[calculating of target value](dqn.md#deep-q-netowrk) 
-in DQN and compare them from the formulae listed as following:
+为了更清楚地说明 DQN 与 Double DQN 之间的区别，
+可以分别改写二者在 DQN 中的
+[目标值计算方式](dqn.md)，
+并对比以下公式：
 
 $$
-\begin{align}
-    & y = r + \gamma Q(s', \arg\max_{a'}Q(s', a'; \theta^{-}); \theta^{-}) & \hspace{1cm} \text{(DQN)}\\
-    & y = r + \gamma Q(s', \arg\max_{a'}Q(s', a'; \theta); \theta^{-}) & \hspace{1cm} \text{(Double DQN)}
-\end{align}
+\mathrm{DQN}: y = r + \gamma Q(s', \arg\max_{a'}Q(s', a'; \theta^{-}); \theta^{-})
 $$
 
-It can be found that the main difference between DQN and Double DQN is the greedy action that is evaluated by the target Q-network.
-DQN evaluates the greedy action according to the target Q-network itself, 
-while Double DQN evaluates the greedy action according to the online Q-network.
+$$
+\mathrm{Double\ DQN}: y = r + \gamma Q(s', \arg\max_{a'}Q(s', a'; \theta); \theta^{-})
+$$
 
-## Framework
+可以看出，DQN 与 Double DQN 的主要区别，在于由目标 Q 网络负责评估的贪心动作是如何确定的。
+DQN 根据目标 Q 网络本身选择贪心动作，
+而 Double DQN 则根据在线 Q 网络选择贪心动作，再由目标 Q 网络对其进行评估。
 
-The overall agent-environment interaction of Double DQN, as implemented in XuanCe, is illustrated in the figure below.
+## 框架
+
+XuanCe 中实现的 Double DQN，其智能体与环境之间的整体交互过程如下图所示。
 
 ```{eval-rst}
 .. image:: ./../../../_static/figures/algo_framework/dqn_framework.png
@@ -90,71 +91,71 @@ The overall agent-environment interaction of Double DQN, as implemented in XuanC
     :align: center
 ```
 
-## Run Double DQN in XuanCe
+## 在 XuanCe 中运行 Double DQN
 
-Before running Double DQN in XuanCe, you need to prepare a conda environment and install ``xuance`` following 
-the [**installation steps**](./../../usage/installation.rst#install-xuance).
+在 XuanCe 中运行 Double DQN 之前，需要先准备 conda 环境，并按照
+[**安装步骤**](./../../usage/installation.rst)安装 ``xuance``。
 
-### Run Build-in Demos
+### 运行内置示例
 
-After completing the installation, you can open a Python console and run Double DQN directly using the following commands:
+完成安装后，可以打开 Python 控制台，并使用以下命令直接运行 Double DQN：
 
 ```python3
 import xuance
-runner = xuance.get_runner(method='ddqn',
-                           env='classic_control',  # Choices: claasi_control, box2d, atari.
-                           env_id='CartPole-v1',  # Choices: CartPole-v1, LunarLander-v2, ALE/Breakout-v5, etc.
-                           is_test=False)
-runner.run()  # Or runner.benchmark()
+runner = xuance.get_runner(algo='ddqn',
+                           env='classic_control',  # 可选项：classic_control、box2d、atari。
+                           env_id='CartPole-v1',  # 可选项：CartPole-v1、LunarLander-v3、ALE/Breakout-v5 等。
+                           )
+runner.run()  # 也可以使用 runner.benchmark()
 ```
 
-### Run With Self-defined Configs
+### 使用自定义配置运行
 
-If you want to run Double DQN with different configurations, you can build a new ``.yaml`` file, e.g., ``my_config.yaml``.
-Then, run the Double DQN by the following code block:
+如果希望使用不同的配置运行 Double DQN，可以新建一个 ``.yaml`` 文件，例如 ``my_config.yaml``。
+然后，通过以下代码运行 Double DQN：
 
 ```python3
-import xuance as xp
-runner = xp.get_runner(method='ddqn',
-                       env='classic_control',  # Choices: claasi_control, box2d, atari.
-                       env_id='CartPole-v1',  # Choices: CartPole-v1, LunarLander-v2, ALE/Breakout-v5, etc.
-                       config_path="my_config.yaml",  # The path of my_config.yaml file should be correct.
-                       is_test=False)
-runner.run()  # Or runner.benchmark()
+import xuance
+runner = xuance.get_runner(algo='ddqn',
+                       env='classic_control',  # 可选项：classic_control、box2d、atari。
+                       env_id='CartPole-v1',  # 可选项：CartPole-v1、LunarLander-v3、ALE/Breakout-v5 等。
+                       config_path="my_config.yaml",  # 请确保 my_config.yaml 文件的路径正确。
+                       )
+runner.run()  # 也可以使用 runner.benchmark()
 ```
 
-To learn more about the configurations, please visit the 
-[**tutorial of configs**](./../../api/configs/configuration_examples.rst).
+要进一步了解配置方法，请参阅
+[**配置教程**](./../../api/configs/configuration_examples.rst)。
 
-### Run With Custom Environment
+### 在自定义环境中运行
 
-If you would like to run XuanCe's Double DQN in your own environment that was not included in XuanCe, 
-you need to define the new environment following the steps in 
-[**New Environment Tutorial**](./../../usage/custom_env/custom_drl_env.rst).
-Then, [**prepapre the configuration file**](./../../usage/custom_env/custom_drl_env.rst#step-2-create-the-config-file-and-read-the-configurations) 
-``ddqn_myenv.yaml``.
+如果希望在 XuanCe 尚未内置的自定义环境中运行 Double DQN，
+需要按照
+[**新环境教程**](./../../usage/custom_env/custom_drl_env.rst)中的步骤定义新环境。
+随后，[**准备配置文件**](./../../usage/custom_env/custom_drl_env.rst#step-2-create-the-config-file-and-read-the-configurations)
+``ddqn_myenv.yaml``。
 
-After that, you can run Double DQN in your own environment with the following code:
+完成上述操作后，可以使用以下代码在自定义环境中运行 Double DQN：
 
 ```python3
 import argparse
-from xuance.common import get_configs
+from xuance.common import load_yaml
 from xuance.environment import REGISTRY_ENV
 from xuance.environment import make_envs
 from xuance.torch.agents import DDQN_Agent
 
-configs_dict = get_configs(file_dir="dqn_myenv.yaml")
+configs_dict = load_yaml(file_dir="dqn_myenv.yaml")
 configs = argparse.Namespace(**configs_dict)
 REGISTRY_ENV[configs.env_name] = MyNewEnv
 
-envs = make_envs(configs)  # Make parallel environments.
-Agent = DDQN_Agent(config=configs, envs=envs)  # Create a DDPG agent from XuanCe.
-Agent.train(configs.running_steps // configs.parallels)  # Train the model for numerous steps.
-Agent.save_model("final_train_model.pth")  # Save the model to model_dir.
-Agent.finish()  # Finish the training.
+envs = make_envs(configs)  # 创建并行环境。
+Agent = DDQN_Agent(config=configs, envs=envs)  # 创建 XuanCe 的 DDQN 智能体。
+Agent.train(configs.running_steps // configs.parallels)  # 训练模型若干步。
+Agent.save_model("final_train_model.pth")  # 将模型保存至 model_dir。
+Agent.finish()  # 结束训练并释放相关资源。
 ```
 
-## Citations
+## 引用文献
 
 ```{code-block} bash
 @article{hasselt2010double,
