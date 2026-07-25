@@ -1,85 +1,85 @@
 # Quantile Regression Deep Q-Network (QR-DQN)
 
-**Paper Link:** [**https://ojs.aaai.org/index.php/AAAI/article/view/11791**](https://ojs.aaai.org/index.php/AAAI/article/view/11791).
+**论文链接：** [**https://ojs.aaai.org/index.php/AAAI/article/view/11791**](https://ojs.aaai.org/index.php/AAAI/article/view/11791)。
 
-Quantile Regression Deep Q-Network (QR-DQN) is an extension of the traditional DQN 
-designed to improve the handling of uncertainty and variance in reinforcement learning, 
-especially in environments where the rewards can be highly variable or noisy. 
-QR-DQN combines elements of quantile regression with DQN, 
-allowing it to learn a distribution over Q-values rather than just a single point estimate. 
-This helps improve the stability and robustness of the learning process.
+分位数回归深度 Q 网络（Quantile Regression Deep Q-Network，QR-DQN）是传统 DQN 的一种扩展，
+旨在提升强化学习算法对不确定性和方差的处理能力，
+尤其适用于奖励具有较大波动或包含较强噪声的环境。
+QR-DQN 将分位数回归与 DQN 相结合，
+使其能够学习 Q 值的概率分布，而不仅仅是单个点估计。
+这有助于提高学习过程的稳定性和鲁棒性。
 
-This table lists some general features about QR-DQN algorithm:
+下表列出了 QR-DQN 算法的一些基本特征：
 
-| Features of QR-DQN | Values | Description                                              |
-|--------------------|--------|----------------------------------------------------------|
-| On-policy          | ❌      | The evaluate policy is the same as the target policy.    |
-| Off-policy         | ✅      | The evaluate policy is different from the target policy. | 
-| Model-free         | ✅      | No need to prepare an environment dynamics model.        | 
-| Model-based        | ❌      | Need an environment model to train the policy.           | 
-| Discrete Action    | ✅      | Deal with discrete action space.                         |   
-| Continuous Action  | ❌      | Deal with continuous action space.                       |
+| QR-DQN 的特征 | 是否具备 | 说明 |
+|----------------|----------|------|
+| 同策略（On-policy） | ❌ | 评估策略与目标策略相同。 |
+| 异策略（Off-policy） | ✅ | 评估策略与目标策略不同。 |
+| 无模型（Model-free） | ✅ | 无须预先构建环境动力学模型。 |
+| 基于模型（Model-based） | ❌ | 需要使用环境模型训练策略。 |
+| 离散动作 | ✅ | 可处理离散动作空间。 |
+| 连续动作 | ❌ | 可处理连续动作空间。 |
 
-## Method
+## 方法
 
-### Distributional Reinforcement Learning
+### 分布式强化学习
 
-Traditional Q-learning estimates the expected return (mean) for each state-action pair. 
-However, in many cases, the returns can be uncertain or variable, 
-and just focusing on the mean may not capture the full picture of this uncertainty.
+传统 Q-learning 为每个状态—动作对估计期望回报，即回报分布的均值。
+然而，在许多情况下，回报具有不确定性或较大的波动性，
+仅关注均值可能无法完整描述这种不确定性。
 
-Distributional reinforcement learning seeks to model the distribution of possible returns for each state-action pair, 
-not just the expected value.
+分布式强化学习不仅估计期望值，
+还尝试对每个状态—动作对可能产生的完整回报分布进行建模。
 
-### Quantile Regression
+### 分位数回归
 
-Quantile regression is a technique that estimates specific quantiles 
-(e.g., the 50th percentile, 90th percentile) of a distribution, rather than the mean. 
-This allows the model to capture the entire distribution of the possible returns, 
-providing richer information about the variability in future rewards.
+分位数回归是一种估计概率分布中特定分位数
+（例如第 50 百分位数或第 90 百分位数）而非均值的技术。
+通过估计多个分位数，模型可以刻画可能回报的整体分布，
+从而提供有关未来奖励波动性的更丰富信息。
 
-In QR-DQN, instead of learning a single Q-value, 
-the agent learns multiple quantiles of the distribution over the Q-values.
+在 QR-DQN 中，智能体不再只学习单个 Q 值，
+而是学习 Q 值分布中的多个分位数。
 
-### Architecture of QR-DQN
+### QR-DQN 的结构
 
-In QR-DQN, the Q-value function is represented by a distribution over possible returns. 
-Specifically, the agent approximates the quantile function of the return distribution using a set of quantile values.
+在 QR-DQN 中，Q 值函数由可能回报的概率分布表示。
+具体而言，智能体使用一组分位数值近似回报分布的分位数函数。
 
-The quantiles $\tau_i$ (where $\tau_i \in [0, 1]$) correspond to different points in the return distribution 
-(e.g., the 10th, 50th, and 90th percentiles). 
-The algorithm learns a quantile regression loss to estimate the quantiles of the Q-value distribution, 
-rather than learning a single expected Q-value.
+分位数 $\tau_i$（其中 $\tau_i \in [0, 1]$）对应回报分布中的不同位置，
+例如第 10、第 50 和第 90 百分位数。
+该算法通过优化分位数回归损失来估计 Q 值分布的各个分位数，
+而不是只学习单个期望 Q 值。
 
-### Loss function
+### 损失函数
 
-QR-DQN uses the quantile Huber loss, 
-which is a combination of the Huber loss function (which is less sensitive to outliers) and the quantile loss. 
-The quantile loss penalizes the model based on how well it predicts the desired quantiles of the Q-value distribution.
+QR-DQN 使用分位数 Huber 损失。
+该损失将对异常值不太敏感的 Huber 损失函数与分位数损失结合起来。
+分位数损失根据模型对目标 Q 值分布中指定分位数的预测准确程度进行惩罚。
 
-The quantile loss for a given quantile $\tau$ is defined as:
+对于给定分位数 $\tau$，其分位数损失定义为：
 
 $$
 L_{\tau}(Q, \hat{Q}) = \rho_{\tau}(r - Q),
 $$
 
-where $r$ is the target return (the actual reward or the next state's predicted value), 
-$Q$ is the predicted quantile value for a given state-action pair,
-$\hat{Q}$ is the corresponding target quantile (from Bellman backup), 
-and $\rho_{\tau}(z)$ is the check function defined as:
+其中，$r$ 是目标回报，即实际奖励或下一状态的预测价值；
+$Q$ 是给定状态—动作对对应的预测分位数值；
+$\hat{Q}$ 是通过 Bellman 备份得到的相应目标分位数；
+$\rho_{\tau}(z)$ 是如下定义的检验函数（check function）：
 
 $$
 \rho_{\tau}(z) = z(\tau - \mathbb{I}[z<0]),
 $$
 
-where $\mathbb{I}[z<0]$ is the indicator function that equals 1 when $z < 0$ and 0 otherwise.
+其中，$\mathbb{I}[z<0]$ 是指示函数：当 $z<0$ 时取值为 1，否则取值为 0。
 
-The quantile regression loss encourages the model to learn quantile values 
-that minimize the discrepancy between the predicted quantiles and the true return distributions.
+分位数回归损失促使模型学习合适的分位数值，
+从而尽可能减小预测分位数与真实回报分布之间的差异。
 
-## Algorithm
+## 算法
 
-The full algorithm for training QR-DQN is presented in Algorithm 1:
+训练 QR-DQN 的完整算法如算法 1 所示：
 
 ```{eval-rst}
 .. image:: ./../../../_static/figures/pseucodes/pseucode-QRDQN.png
@@ -87,51 +87,51 @@ The full algorithm for training QR-DQN is presented in Algorithm 1:
     :align: center
 ```
 
-## Run QR-DQN in XuanCe
+## 在 XuanCe 中运行 QR-DQN
 
-Before running QR-DQN in XuanCe, you need to prepare a conda environment and install ``xuance`` following 
-the [**installation steps**](./../../usage/installation.rst#install-xuance).
+在 XuanCe 中运行 QR-DQN 之前，需要先准备一个 conda 环境，并按照
+[**安装步骤**](./../../usage/installation.rst)安装 ``xuance``。
 
-### Run Build-in Demos
+### 运行内置示例
 
-After completing the installation, you can open a Python console and run QR-DQN directly using the following commands:
+完成安装后，可以打开 Python 控制台，并使用以下命令直接运行 QR-DQN：
 
 ```python3
 import xuance
 runner = xuance.get_runner(method='qrdqn',
-                           env='classic_control',  # Choices: claasi_control, box2d, atari.
-                           env_id='CartPole-v1',  # Choices: CartPole-v1, LunarLander-v2, ALE/Breakout-v5, etc.
+                           env='classic_control',  # 可选项：claasi_control、box2d、atari。
+                           env_id='CartPole-v1',  # 可选项：CartPole-v1、LunarLander-v2、ALE/Breakout-v5 等。
                            is_test=False)
-runner.run()  # Or runner.benchmark()
+runner.run()  # 也可以使用 runner.benchmark()
 ```
 
-### Run With Self-defined Configs
+### 使用自定义配置运行
 
-If you want to run QR-DQN with different configurations, you can build a new ``.yaml`` file, e.g., ``my_config.yaml``.
-Then, run the QR-DQN by the following code block:
+如需使用不同配置运行 QR-DQN，可以新建一个 ``.yaml`` 文件，例如 ``my_config.yaml``。
+然后使用以下代码运行 QR-DQN：
 
 ```python3
 import xuance as xp
 runner = xp.get_runner(method='qrdqn',
-                       env='classic_control',  # Choices: claasi_control, box2d, atari.
-                       env_id='CartPole-v1',  # Choices: CartPole-v1, LunarLander-v2, ALE/Breakout-v5, etc.
-                       config_path="my_config.yaml",  # The path of my_config.yaml file should be correct.
+                       env='classic_control',  # 可选项：claasi_control、box2d、atari。
+                       env_id='CartPole-v1',  # 可选项：CartPole-v1、LunarLander-v2、ALE/Breakout-v5 等。
+                       config_path="my_config.yaml",  # 请确保 my_config.yaml 文件的路径正确。
                        is_test=False)
-runner.run()  # Or runner.benchmark()
+runner.run()  # 也可以使用 runner.benchmark()
 ```
 
-To learn more about the configurations, please visit the 
-[**tutorial of configs**](./../../api/configs/configuration_examples.rst).
+如需进一步了解配置方法，请参阅
+[**配置教程**](./../../api/configs/configuration_examples.rst)。
 
-### Run With Custom Environment
+### 在自定义环境中运行
 
-If you would like to run XuanCe's QR-DQN in your own environment that was not included in XuanCe, 
-you need to define the new environment following the steps in 
-[**New Environment Tutorial**](./../../usage/custom_env/custom_drl_env.rst).
-Then, [**prepapre the configuration file**](./../../usage/custom_env/custom_drl_env.rst#step-2-create-the-config-file-and-read-the-configurations) 
- ``qrdqn_myenv.yaml``.
+如需在 XuanCe 尚未包含的自定义环境中运行 QR-DQN，
+需要按照 [**新环境教程**](./../../usage/custom_env/custom_drl_env.rst)
+中的步骤定义新环境。
+然后，[**准备配置文件**](./../../usage/custom_env/custom_drl_env.rst#step-2-create-the-config-file-and-read-the-configurations)
+``qrdqn_myenv.yaml``。
 
-After that, you can run QR-DQN in your own environment with the following code:
+完成上述操作后，可以使用以下代码在自定义环境中运行 QR-DQN：
 
 ```python3
 import argparse
@@ -144,14 +144,14 @@ configs_dict = get_configs(file_dir="qrdqn_myenv.yaml")
 configs = argparse.Namespace(**configs_dict)
 REGISTRY_ENV[configs.env_name] = MyNewEnv
 
-envs = make_envs(configs)  # Make parallel environments.
-Agent = QRDQN_Agent(config=configs, envs=envs)  # Create a DDPG agent from XuanCe.
-Agent.train(configs.running_steps // configs.parallels)  # Train the model for numerous steps.
-Agent.save_model("final_train_model.pth")  # Save the model to model_dir.
-Agent.finish()  # Finish the training.
+envs = make_envs(configs)  # 创建并行环境。
+Agent = QRDQN_Agent(config=configs, envs=envs)  # 创建一个来自 XuanCe 的 QR-DQN 智能体。
+Agent.train(configs.running_steps // configs.parallels)  # 对模型进行多个步骤的训练。
+Agent.save_model("final_train_model.pth")  # 将模型保存到 model_dir。
+Agent.finish()  # 结束训练。
 ```
 
-## Citations
+## 参考文献
 
 ```{code-block} bash
 @inproceedings{dabney2018distributional,
