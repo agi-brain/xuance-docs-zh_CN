@@ -1,69 +1,66 @@
 # DQN with Noisy Layers (Noisy DQN)
 
-**Paper Link:** [**https://arxiv.org/pdf/1706.01905**](https://arxiv.org/pdf/1706.01905).
+**论文链接:** [**https://arxiv.org/pdf/1706.01905**](https://arxiv.org/pdf/1706.01905).
 
-Noisy DQN is a variant of the traditional Deep Q-Network (DQN) 
-that introduces noise into the weights of the Q-network to improve exploration during the learning process. 
-This is aimed at addressing one of the key challenges in reinforcement learning: balancing exploration and exploitation.
+Noisy DQN 是传统深度Q网络（DQN）的一种变体，它在Q网络的权重中引入了噪声，以改善学习过程中的探索能力。
+此举旨在解决强化学习中的关键挑战之一：平衡探索（exploration）与利用（exploitation）。
 
-This table lists some general features about Noisy DQN algorithm:
+下表列出了 Noisy DQN 算法的一些一般特性:
 
-| Features of Noisy DQN | Values | Description                                              |
-|-----------------------|--------|----------------------------------------------------------|
-| On-policy             | ❌      | The evaluate policy is the same as the target policy.    |
-| Off-policy            | ✅      | The evaluate policy is different from the target policy. | 
-| Model-free            | ✅      | No need to prepare an environment dynamics model.        | 
-| Model-based           | ❌      | Need an environment model to train the policy.           | 
-| Discrete Action       | ✅      | Deal with discrete action space.                         |   
-| Continuous Action     | ❌      | Deal with continuous action space.                       |
+| Noisy DQN 特性            | 值 | 描述            |
+|-------------------------|---|---------------|
+| 同轨策略（On-policy）         | ❌ | 评估策略与目标策略相同。  |
+| 离轨策略（Off-policy）        | ✅ | 评估策略与目标策略不同。  | 
+| 无模型（Model-free）         | ✅ | 不需要准备环境动态模型。  | 
+| 有模型（Model-based）        | ❌ | 需要环境模型来训练策略。  | 
+| 离散动作（Discrete Action）   | ✅ | 处理离散动作空间。     |   
+| 连续动作（Continuous Action） | ❌ | 处理连续动作空间。     |
 
-## Key Ideas of Noisy DQN
+## Noisy DQN 的核心理念
 
-**Exploration vs. Exploitation**: In standard DQN, exploration is often controlled by an $\epsilon$-greedy policy, 
-where the agent randomly selects actions with a certain probability (epsilon), 
-and exploits the best-known action the rest of the time. Noisy DQN attempts to address the challenge of exploration by introducing noise directly into the network's parameters, 
-rather than relying solely on random action selection.
+**探索与利用 (Exploration vs. Exploitation)**：
+在标准的 DQN 中，探索通常由 $\epsilon$-贪婪策略控制，其中智能体以一定的概率（epsilon）随机选择动作，并在其余时间利用已知最优的动作。
+Noisy DQN 试图通过直接将噪声引入网络参数中来解决探索难题，而不是仅仅依赖随机的动作选择。
 
-**Noisy Networks**: Instead of using a fixed epsilon for exploration, Noisy DQN introduces noise into the parameters of the Q-network itself. 
-This is done by adding parameter noise to the Q-network’s weights, which modifies the output Q-values, 
-encouraging exploration of different actions and states. 
+**噪声网络 (Noisy Networks)**：
+Noisy DQN 并没有使用固定的 epsilon 进行探索，而是将噪声引入到了Q网络本身的参数中。
+这是通过向Q网络的权重添加参数噪声来实现的，这会改变输出的Q值，从而鼓励去探索不同的动作和状态。
 
-**Noisy Linear Layers**: In the Noisy DQN architecture, the traditional fully connected layers of the neural network are replaced with "noisy" layers. 
-These noisy layers add noise to the weights of the layers during training, making the agent’s decision-making process inherently more exploratory. 
+**噪声线性层 (Noisy Linear Layers)**：
+在 Noisy DQN 架构中，神经网络传统的全连接层被替换为“噪声”层。
+这些噪声层在训练期间向层的权重添加噪声，使得智能体的决策过程在本质上更具探索性。
 
-**The Noisy Network Formula**: For each layer in the network, the weights are parameterized as:
+**噪声网络公式 (The Noisy Network Formula)**：对于网络中的每一层，权重被参数化为：
 
 $$
 w = \mu + \sigma \cdot \epsilon,
 $$
 
-where:
-- $\mu$ is the mean or the base weight;
-- $\sigma$ is the standard deviation that controls the level of noise;
-- $\epsilon$ is a sample from a noise distribution (usually Gaussian). 
-The noise $\epsilon$ is sampled at the beginning of each episode or iteration, ensuring the noise is dynamic during training.
+其中:
+- $\mu$ 是均值或基础权重;
+- $\sigma$ 是控制噪声水平的标准差;
+- $\epsilon$ 是从噪声分布（通常为高斯分布）中提取的样本. 
+噪声 $\epsilon$ 在每个回合（episode）或每次迭代开始时进行采样，以确保噪声在训练期间是动态的。
 
-The Noisy DQN has the three main benefits:
+Noisy DQN 具有三个主要优点:
 
-- **Improved Exploration**: By introducing noise in the Q-values, the agent is encouraged to explore a broader range of actions, rather than exploiting the current best-known action.
-- **Adaptive Exploration**: The level of exploration can be adjusted automatically as part of the training, eliminating the need to manually tune exploration parameters like epsilon.
-- **Efficient Training**: Noisy DQN can improve sample efficiency because it uses the exploration to visit less frequently encountered states, potentially leading to better performance in complex environments.
+- **改善探索能力**: 通过在Q值中引入噪声，智能体被鼓励去探索更广泛的动作，而不是仅仅利用当前已知的最佳动作.
+- **自适应探索**: 探索水平可以作为训练的一部分自动调整，从而消除了手动调整探索参数（如 epsilon）的需要.
+- **高效训练**: Noisy DQN 可以提高样本效率，因为它利用探索去访问较少遇到的状态，从而有可能在复杂环境中获得更好的性能.
 
-## Framework
+## 框架
 
-Noisy DQN retains the same overall structure as 
+Noisy DQN 保留了与 
 [**DQN**](dqn.md#framework) 
-(i.e., experience replay, target networks, etc.), 
-but replaces the exploration mechanism with the noisy layers in the Q-network.
+相同的整体结构（即经验回放、目标网络等），但用Q网络中的噪声层取代了原有的探索机制。
 
-## Run Noisy DQN in XuanCe
+## 在 XuanCe 中运行 Noisy DQN
 
-Before running Noisy DQN in XuanCe, you need to prepare a conda environment and install ``xuance`` following 
-the [**installation steps**](./../../usage/installation.rst#install-xuance).
+在 XuanCe 中运行 Noisy DQN 之前，您需要准备一个 conda 环境并按照[**安装步骤**](./../../usage/installation.rst).
 
-### Run Build-in Demos
+### 运行内置案例
 
-After completing the installation, you can open a Python console and run Noisy DQN directly using the following commands:
+完成安装后，您可以打开 Python 控制台并使用以下命令直接运行 Noisy DQN:
 
 ```python3
 import xuance
@@ -74,10 +71,10 @@ runner = xuance.get_runner(method='noisydqn',
 runner.run()  # Or runner.benchmark()
 ```
 
-### Run With Self-defined Configs
+### 使用自定义配置运行
 
-If you want to run Noisy DQN with different configurations, you can build a new ``.yaml`` file, e.g., ``my_config.yaml``.
-Then, run the Noisy DQN by the following code block:
+如果您想使用不同的配置运行 Noisy DQN，您可以创建一个新的 ``.yaml`` 文件，例如 ``my_config.yaml``。
+然后，通过以下代码块运行 Noisy DQN：
 
 ```python3
 import xuance as xp
@@ -89,18 +86,17 @@ runner = xp.get_runner(method='noisydqn',
 runner.run()  # Or runner.benchmark()
 ```
 
-To learn more about the configurations, please visit the 
-[**tutorial of configs**](./../../api/configs/configuration_examples.rst).
+要了解有关配置的更多信息，请访问
+[**配置教程**](./../../api/configs/configuration_examples.rst).
 
-### Run With Custom Environment
+### 使用自定义环境运行
 
-If you would like to run XuanCe's Noisy DQN in your own environment that was not included in XuanCe, 
-you need to define the new environment following the steps in 
-[**New Environment Tutorial**](./../../usage/custom_env/custom_drl_env.rst).
-Then, [**prepapre the configuration file**](./../../usage/custom_env/custom_drl_env.rst#step-2-create-the-config-file-and-read-the-configurations) 
+如果您想在未包含于 XuanCe 的自有环境中运行 XuanCe 的 Noisy DQN，您需要按照 
+[**新环境教程**](./../../usage/custom_env/custom_drl_env.rst)。
+然后，[**准备配置文件**](./../../usage/custom_env/custom_drl_env.rst#step-2-create-the-config-file-and-read-the-configurations) 
 ``noisydqn_myenv.yaml``.
 
-After that, you can run Noisy DQN in your own environment with the following code:
+之后，您可以使用以下代码在自己的环境中运行 Noisy DQN:
 
 ```python3
 import argparse
@@ -120,7 +116,7 @@ Agent.save_model("final_train_model.pth")  # Save the model to model_dir.
 Agent.finish()  # Finish the training.
 ```
 
-## Citations
+## 引用
 
 ```{code-block} bash
 @inproceedings{
