@@ -1,94 +1,94 @@
 # Deep Recurrent Q-Network (DRQN)
 
-**Paper Link:** [**https://cdn.aaai.org/ocs/11673/11673-51288-1-PB.pdf**](https://cdn.aaai.org/ocs/11673/11673-51288-1-PB.pdf)
+**论文链接：** [**https://cdn.aaai.org/ocs/11673/11673-51288-1-PB.pdf**](https://cdn.aaai.org/ocs/11673/11673-51288-1-PB.pdf)
 
-The Deep Recurrent Q-Network (DRQN) is an extension of the 
-[**DQN**](dqn.md) designed to handle partially observable environments. 
-Unlike DQN, which relies on fully observable 
-[Markov Decision Processes (MDPs)](https://en.wikipedia.org/wiki/Markov_decision_process), 
-DRQN incorporates recurrent neural networks (RNNs) to manage 
-[Partially Observable Markov Decision Processes (POMDPs)](https://en.wikipedia.org/wiki/Partially_observable_Markov_decision_process), 
-where the agent does not have access to the full state of the environment.
+深度循环 Q 网络（Deep Recurrent Q-Network，DRQN）是
+[**DQN**](dqn.md) 的一种扩展，旨在处理部分可观测环境。
+DQN 通常依赖完全可观测的
+[马尔可夫决策过程（Markov Decision Process，MDP）](https://en.wikipedia.org/wiki/Markov_decision_process)，
+而 DRQN 引入循环神经网络（Recurrent Neural Network，RNN），
+用于处理[部分可观测马尔可夫决策过程（Partially Observable Markov Decision Process，POMDP）](https://en.wikipedia.org/wiki/Partially_observable_Markov_decision_process)。
+在此类环境中，智能体无法直接获得环境的完整状态。
 
-This table lists some general features about DRQN algorithm:
+下表列出了 DRQN 算法的一些基本特征：
 
-| Features of DRQN  | Values | Description                                              |
-|-------------------|--------|----------------------------------------------------------|
-| On-policy         | ❌      | The evaluate policy is the same as the target policy.    |
-| Off-policy        | ✅      | The evaluate policy is different from the target policy. | 
-| Model-free        | ✅      | No need to prepare an environment dynamics model.        | 
-| Model-based       | ❌      | Need an environment model to train the policy.           | 
-| Discrete Action   | ✅      | Deal with discrete action space.                         |   
-| Continuous Action | ❌      | Deal with continuous action space.                       |
+| DRQN 的特征          | 是否具备 | 说明 |
+|-------------------|----------|------|
+| 同策略（On-policy）    | ❌ | 评估策略与目标策略相同。 |
+| 异策略（Off-policy）   | ✅ | 评估策略与目标策略不同。 |
+| 无模型（Model-free）   | ✅ | 无须预先构建环境动力学模型。 |
+| 基于模型（Model-based） | ❌ | 需要使用环境模型训练策略。 |
+| 离散动作              | ✅ | 可处理离散动作空间。 |
+| 连续动作              | ❌ | 可处理连续动作空间。 |
 
-## Architecture
+## 网络结构
 
-DRQN replaces the fully connected layers of DQN with an RNN (commonly an LSTM or GRU layer).
+DRQN 使用 RNN 替换 DQN 中的全连接层，通常采用 LSTM 或 GRU。
 
-| Gated Recurrent Units (GRUs)                                                         | Long Short-Term Memory (LSTM)                                                          |
+| 门控循环单元（GRU） | 长短期记忆网络（LSTM） |
 |--------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | <img src="../../../../_static/figures/algo_framework/GRU.png" alt="GRU" width="300"> | <img src="../../../../_static/figures/algo_framework/LSTM.png" alt="LSTM" width="300"> |
 
-This allows the network to maintain a memory of past observations, enabling it to infer the hidden state of the environment.
+这种结构使网络能够保留过去观测的信息，从而推断环境中不可直接观测的隐状态。
 
-Instead of relying solely on the current observation, 
-DRQN uses a sequence of observations (a history) to predict Q-values.
-The RNN processes the observation sequence and outputs Q-values for each action, as in standard DQN.
+DRQN 不再仅依赖当前时刻的观测，
+而是使用一段观测序列，即历史信息，预测 Q 值。
+RNN 对观测序列进行处理，并与标准 DQN 一样，为每个动作输出相应的 Q 值。
 
-Differences between DQN and DRQN:
+DQN 与 DRQN 的主要区别如下：
 
-| Feature           | DQN                       | DRQN                           |
-|-------------------|---------------------------|--------------------------------|
-| Network Type      | Feedforward CNN/FC layers | Recurrent (LSTM/GRU)           |
-| Observation Input | Single observation        | Sequence of observations       |
-| Use Case          | Fully observable MDPs     | Partially observable POMDPs    |
-| Memory Mechanism  | No memory                 | Captures temporal dependencies |
+| 特征     | DQN           | DRQN |
+|--------|---------------|------|
+| 网络类型   | 前馈 CNN 或全连接层  | 循环网络（LSTM/GRU） |
+| 观测输入   | 单个观测          | 观测序列 |
+| 适用场景   | 完全可观测的 MDP    | 部分可观测的 POMDP |
+| 记忆机制   | 无记忆机制         | 能够捕获时间依赖关系 |
 
-## Run DRQN in XuanCe
+## 在 XuanCe 中运行 DRQN
 
-Before running DRQN in XuanCe, you need to prepare a conda environment and install ``xuance`` following 
-the [**installation steps**](./../../usage/installation.rst#install-xuance).
+在 XuanCe 中运行 DRQN 之前，需要先准备一个 conda 环境，并按照
+[**安装步骤**](./../../usage/installation.rst)安装 ``xuance``。
 
-### Run Build-in Demos
+### 运行内置示例
 
-After completing the installation, you can open a Python console and run DRQN directly using the following commands:
+完成安装后，可以打开 Python 控制台，并使用以下命令直接运行 DRQN：
 
 ```python3
 import xuance
 runner = xuance.get_runner(method='drqn',
-                           env='classic_control',  # Choices: claasi_control, box2d, atari.
-                           env_id='CartPole-v1',  # Choices: CartPole-v1, LunarLander-v2, ALE/Breakout-v5, etc.
+                           env='classic_control',  # 可选项：claasi_control、box2d、atari。
+                           env_id='CartPole-v1',  # 可选项：CartPole-v1、LunarLander-v2、ALE/Breakout-v5 等。
                            is_test=False)
-runner.run()  # Or runner.benchmark()
+runner.run()  # 也可以使用 runner.benchmark()
 ```
 
-### Run With Self-defined Configs
+### 使用自定义配置运行
 
-If you want to run DRQN with different configurations, you can build a new ``.yaml`` file, e.g., ``my_config.yaml``.
-Then, run the DRQN by the following code block:
+如需使用不同配置运行 DRQN，可以新建一个 ``.yaml`` 文件，例如 ``my_config.yaml``。
+然后使用以下代码运行 DRQN：
 
 ```python3
 import xuance as xp
 runner = xp.get_runner(method='drqn',
-                       env='classic_control',  # Choices: claasi_control, box2d, atari.
-                       env_id='CartPole-v1',  # Choices: CartPole-v1, LunarLander-v2, ALE/Breakout-v5, etc.
-                       config_path="my_config.yaml",  # The path of my_config.yaml file should be correct.
+                       env='classic_control',  # 可选项：claasi_control、box2d、atari。
+                       env_id='CartPole-v1',  # 可选项：CartPole-v1、LunarLander-v2、ALE/Breakout-v5 等。
+                       config_path="my_config.yaml",  # 请确保 my_config.yaml 文件的路径正确。
                        is_test=False)
-runner.run()  # Or runner.benchmark()
+runner.run()  # 也可以使用 runner.benchmark()
 ```
 
-To learn more about the configurations, please visit the 
-[**tutorial of configs**](./../../api/configs/configuration_examples.rst).
+如需进一步了解配置方法，请参阅
+[**配置教程**](./../../api/configs/configuration_examples.rst)。
 
-### Run With Custom Environment
+### 在自定义环境中运行
 
-If you would like to run XuanCe's DRQN in your own environment that was not included in XuanCe, 
-you need to define the new environment following the steps in 
-[**New Environment Tutorial**](./../../usage/custom_env/custom_drl_env.rst).
-Then, [**prepapre the configuration file**](./../../usage/custom_env/custom_drl_env.rst#step-2-create-the-config-file-and-read-the-configurations) 
- ``drqn_myenv.yaml``.
+如需在 XuanCe 尚未包含的自定义环境中运行 DRQN，
+需要按照[**新环境教程**](./../../usage/custom_env/custom_drl_env.rst)
+中的步骤定义新环境。
+然后，[**准备配置文件**](./../../usage/custom_env/custom_drl_env.rst#step-2-create-the-config-file-and-read-the-configurations)
+``drqn_myenv.yaml``。
 
-After that, you can run DRQN in your own environment with the following code:
+完成上述操作后，可以使用以下代码在自定义环境中运行 DRQN：
 
 ```python3
 import argparse
@@ -101,14 +101,14 @@ configs_dict = get_configs(file_dir="drqn_myenv.yaml")
 configs = argparse.Namespace(**configs_dict)
 REGISTRY_ENV[configs.env_name] = MyNewEnv
 
-envs = make_envs(configs)  # Make parallel environments.
-Agent = DRQN_Agent(config=configs, envs=envs)  # Create a DDPG agent from XuanCe.
-Agent.train(configs.running_steps // configs.parallels)  # Train the model for numerous steps.
-Agent.save_model("final_train_model.pth")  # Save the model to model_dir.
-Agent.finish()  # Finish the training.
+envs = make_envs(configs)  # 创建并行环境。
+Agent = DRQN_Agent(config=configs, envs=envs)  # 创建一个来自 XuanCe 的 DRQN 智能体。
+Agent.train(configs.running_steps // configs.parallels)  # 对模型进行多个步骤的训练。
+Agent.save_model("final_train_model.pth")  # 将模型保存到 model_dir。
+Agent.finish()  # 结束训练。
 ```
 
-## Citation
+## 参考文献
 
 ```{code-block} bash
 @inproceedings{hausknecht2015deep,
