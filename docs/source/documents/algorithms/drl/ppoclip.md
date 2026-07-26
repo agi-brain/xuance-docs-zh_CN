@@ -1,4 +1,4 @@
-# Proximal Policy Optimization with Clipped Objective（PPO-Clip）
+# 近端策略优化（PPO）
 **论文链接：** [**arxiv**](https://arxiv.org/pdf/1707.06347)
 
 **近端策略优化（Proximal Policy Optimization，PPO）** 算法由 **John Schulman** 于 2017 年在 OpenAI 提出。他也是 **信赖域策略优化（Trust Region Policy Optimization，TRPO）** 的第一作者，此前于加州大学伯克利分校获得博士学位。  
