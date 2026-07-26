@@ -1,111 +1,115 @@
-# Phasic Policy Gradient (PPG)
+# 分阶段策略梯度（PPG）
 
-**Paper Link:** [**https://proceedings.mlr.press/v139/cobbe21a**](https://proceedings.mlr.press/v139/cobbe21a)
+**论文链接：** [**https://proceedings.mlr.press/v139/cobbe21a**](https://proceedings.mlr.press/v139/cobbe21a)
 
-The Phasic Policy Gradient (PPG) algorithm is an advanced reinforcement learning method designed to improve the efficiency of policy optimization. 
-It builds upon the 
-[**PPO**](ppoclip.md) 
-framework by introducing a two-phase training approach, 
-which decouples the policy optimization from auxiliary value function learning.
+分阶段策略梯度（Phasic Policy Gradient，PPG）是一种先进的强化学习算法，旨在提高策略优化的效率。
+该算法建立在
+[**PPO**](ppoclip.md)
+框架之上，通过引入两阶段训练机制，
+将策略优化与辅助价值函数学习解耦。
 
-| Features of PG    | Values | Description                                              |
-|-------------------|--------|----------------------------------------------------------|
-| On-policy         | ✅      | The evaluate policy is the same as the target policy.    |
-| Off-policy        | ❌      | The evaluate policy is different from the target policy. | 
-| Model-free        | ✅      | No need to prepare an environment dynamics model.        | 
-| Model-based       | ❌      | Need an environment model to train the policy.           | 
-| Discrete Action   | ✅      | Deal with discrete action space.                         |   
-| Continuous Action | ✅      | Deal with continuous action space.                       |
+| PPG 的特征 | 是否具备 | 说明 |
+|-------------|----------|------|
+| 同策略（On-policy） | ✅ | 评估策略与目标策略相同。 |
+| 异策略（Off-policy） | ❌ | 评估策略与目标策略不同。 |
+| 无模型（Model-free） | ✅ | 无须预先构建环境动力学模型。 |
+| 基于模型（Model-based） | ❌ | 需要使用环境模型训练策略。 |
+| 离散动作 | ✅ | 可处理离散动作空间。 |
+| 连续动作 | ✅ | 可处理连续动作空间。 |
 
-## Method
+## 方法
 
-In traditional PPO, the value function is used as a baseline for the policy gradient and is trained jointly with the policy. 
-However, this entanglement can limit the effectiveness of the learning process, 
-as the policy optimization might interfere with the value function's learning and vice versa.
+在传统 PPO 中，价值函数被用作策略梯度的基线，并与策略共同训练。
+然而，这种耦合可能会限制学习过程的有效性，
+因为策略优化可能干扰价值函数的学习，反之亦然。
 
-PPG addresses this limitation by introducing phased learning, 
-separating policy optimization and value function learning into distinct stages.
+PPG 通过引入分阶段学习机制解决这一问题，
+将策略优化和价值函数学习划分为两个相互独立的阶段。
 
-PPG works in two phases:
+PPG 包含以下两个阶段：
 
-**Policy Phase**:
-- Optimize the policy using PPO, focusing on maximizing the reward.
-- The value function acts as a baseline for policy optimization but isn't trained during this phase.
+**策略阶段：**
 
-During the policy phase, the policy $\pi_{\theta}$ is optimized using the standard PPO objective:
+- 使用 PPO 优化策略，重点是最大化回报。
+- 价值函数在策略优化过程中充当基线，但在该阶段不进行训练。
+
+在策略阶段，使用标准 PPO 目标函数优化策略 $\pi_{\theta}$：
 
 $$
 L_{PPO}(\theta) = \mathbb{E}[\min{r_t(\theta)A_t, clip(r_t(\theta), 1-\epsilon, 1+\epsilon)A_t}],
 $$
 
-where:
-- $r_t(\theta) = \frac{\pi_{\theta}(a_t|s_t)}{\pi_{\theta_{old}}(a_t|s_t)}$ is the probability ratio; 
-- $A_t$ is the advantage estimate;
-- $\epsilon$ is a clipping parameter.
+其中：
 
-**Auxiliary Phase**:
-- Train the value function using auxiliary loss terms.
-- This phase ensures that the value function accurately predicts returns, improving its utility as a baseline.
+- $r_t(\theta) = \frac{\pi_{\theta}(a_t|s_t)}{\pi_{\theta_{old}}(a_t|s_t)}$ 为新旧策略的概率比；
+- $A_t$ 为优势估计；
+- $\epsilon$ 为裁剪参数。
 
-In the auxiliary phase, the value function $V_{\phi}$ is updated to minimize the auxiliary loss:
+**辅助阶段：**
+
+- 使用辅助损失项训练价值函数。
+- 该阶段使价值函数能够更加准确地预测回报，从而提高其作为基线的有效性。
+
+在辅助阶段，通过最小化辅助损失更新价值函数 $V_{\phi}$：
 
 $$
 L_{aux}(\phi) = \mathbb{E}[(V_{\phi}(s_t) - R_t)^2 + \beta \cdot L_{consistency}],
 $$
 
-where:
-- $R_t$ is the target return;
-- $L_{consistency}$ enforces consistency between the policy's actions and value predictions.
-- $\beta$ is weight for the consistency term.
+其中：
 
-These phases alternate, 
-enabling the value function and policy to learn more effectively without directly interfering with each other.
+- $R_t$ 为目标回报；
+- $L_{consistency}$ 用于约束策略动作与价值预测之间的一致性；
+- $\beta$ 为一致性损失项的权重。
 
-## Run PPG in XuanCe
+上述两个阶段交替进行，
+使价值函数和策略能够在不直接相互干扰的情况下更加有效地学习。
 
-Before running PPG in XuanCe, you need to prepare a conda environment and install ``xuance`` following 
-the [**installation steps**](./../../usage/installation.rst#install-xuance).
+## 在 XuanCe 中运行 PPG
 
-### Run Build-in Demos
+在 XuanCe 中运行 PPG 之前，需要先准备一个 conda 环境，并按照
+[**安装步骤**](./../../usage/installation.rst)安装 ``xuance``。
 
-After completing the installation, you can open a Python console and run PPG directly using the following commands:
+### 运行内置示例
+
+完成安装后，可以打开 Python 控制台，并使用以下命令直接运行 PPG：
 
 ```python3
 import xuance
 runner = xuance.get_runner(method='ppg',
-                           env='classic_control',  # Choices: claasi_control, box2d, atari.
-                           env_id='CartPole-v1',  # Choices: CartPole-v1, LunarLander-v2, ALE/Breakout-v5, etc.
+                           env='classic_control',  # 可选项：classic_control、box2d、atari。
+                           env_id='CartPole-v1',  # 可选项：CartPole-v1、LunarLander-v2、ALE/Breakout-v5 等。
                            is_test=False)
-runner.run()  # Or runner.benchmark()
+runner.run()  # 也可以使用 runner.benchmark()
 ```
 
-### Run With Self-defined Configs
+### 使用自定义配置运行
 
-If you want to run PPG with different configurations, you can build a new ``.yaml`` file, e.g., ``my_config.yaml``.
-Then, run the PPG by the following code block:
+如需使用不同配置运行 PPG，可以新建一个 ``.yaml`` 文件，例如 ``my_config.yaml``。
+然后使用以下代码运行 PPG：
 
 ```python3
 import xuance as xp
 runner = xp.get_runner(method='ppg',
-                       env='classic_control',  # Choices: claasi_control, box2d, atari.
-                       env_id='CartPole-v1',  # Choices: CartPole-v1, LunarLander-v2, ALE/Breakout-v5, etc.
-                       config_path="my_config.yaml",  # The path of my_config.yaml file should be correct.
+                       env='classic_control',  # 可选项：classic_control、box2d、atari。
+                       env_id='CartPole-v1',  # 可选项：CartPole-v1、LunarLander-v2、ALE/Breakout-v5 等。
+                       config_path="my_config.yaml",  # 请确保 my_config.yaml 文件的路径正确。
                        is_test=False)
-runner.run()  # Or runner.benchmark()
+runner.run()  # 也可以使用 runner.benchmark()
 ```
 
-To learn more about the configurations, please visit the 
-[**tutorial of configs**](./../../api/configs/configuration_examples.rst).
+如需进一步了解配置方法，请参阅
+[**配置教程**](./../../api/configs/configuration_examples.rst)。
 
-### Run With Custom Environment
+### 在自定义环境中运行
 
-If you would like to run XuanCe's PPG in your own environment that was not included in XuanCe, 
-you need to define the new environment following the steps in 
-[**New Environment Tutorial**](./../../usage/custom_env/custom_drl_env.rst).
-Then, [**prepapre the configuration file**](./../../usage/custom_env/custom_drl_env.rst#step-2-create-the-config-file-and-read-the-configurations) 
- ``ppg_myenv.yaml``.
+如需在 XuanCe 尚未包含的自定义环境中运行 PPG，
+需要按照[**新环境教程**](./../../usage/custom_env/custom_drl_env.rst)
+中的步骤定义新环境。
+然后，[**准备配置文件**](./../../usage/custom_env/custom_drl_env.rst#step-2-create-the-config-file-and-read-the-configurations)
+``ppg_myenv.yaml``。
 
-After that, you can run PPG in your own environment with the following code:
+完成上述操作后，可以使用以下代码在自定义环境中运行 PPG：
 
 ```python3
 import argparse
@@ -118,14 +122,14 @@ configs_dict = get_configs(file_dir="ppg_myenv.yaml")
 configs = argparse.Namespace(**configs_dict)
 REGISTRY_ENV[configs.env_name] = MyNewEnv
 
-envs = make_envs(configs)  # Make parallel environments.
-Agent = PPG_Agent(config=configs, envs=envs)  # Create a DDPG agent from XuanCe.
-Agent.train(configs.running_steps // configs.parallels)  # Train the model for numerous steps.
-Agent.save_model("final_train_model.pth")  # Save the model to model_dir.
-Agent.finish()  # Finish the training.
+envs = make_envs(configs)  # 创建并行环境。
+Agent = PPG_Agent(config=configs, envs=envs)  # 创建一个来自 XuanCe 的 PPG 智能体。
+Agent.train(configs.running_steps // configs.parallels)  # 对模型进行多个步骤的训练。
+Agent.save_model("final_train_model.pth")  # 将模型保存到 model_dir。
+Agent.finish()  # 结束训练。
 ```
 
-## Citation
+## 参考文献
 
 ```{code-block} bash
 @inproceedings{cobbe2021phasic,
