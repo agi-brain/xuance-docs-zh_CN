@@ -1,84 +1,94 @@
-# Natural Policy Gradient (NPG)
+# 自然策略梯度（NPG）
 
-**Paper Link:** [**https://proceedings.neurips.cc/paper_files/paper/2001/file/4b86abe48d358ecf194c56c69108433e-Paper.pdf**](https://proceedings.neurips.cc/paper_files/paper/2001/file/4b86abe48d358ecf194c56c69108433e-Paper.pdf)
+**论文链接：** [**https://proceedings.neurips.cc/paper_files/paper/2001/file/4b86abe48d358ecf194c56c69108433e-Paper.pdf**](https://proceedings.neurips.cc/paper_files/paper/2001/file/4b86abe48d358ecf194c56c69108433e-Paper.pdf)
 
-Natural Policy Gradient (NPG) is an algorithm in DRL that aims to optimize the policy 
-by using Fisher Information Matrix (FIM) and directly maximizing the expected return. 
-It was developed by Sham Kakade in 2001. 
-NPG has been widely used in various RL problems, including robotics, finance, and game theory.
+自然策略梯度（Natural Policy Gradient，NPG）是一种深度强化学习算法，
+其目标是利用 Fisher 信息矩阵（Fisher Information Matrix，FIM）优化策略，
+并直接最大化期望回报。该算法由 Sham Kakade 于 2001 年提出。
+NPG 已被广泛应用于机器人、金融和博弈论等多种强化学习问题。
 
-This table lists some general features about NPG algorithm:
+下表列出了 NPG 算法的一些基本特征：
 
-| Features of NPG   | Values | Description                                              |
-|-------------------|--------|----------------------------------------------------------|
-| On-policy         | ✅      | The evaluate policy is the same as the target policy.    |
-| Off-policy        | ❌      | The evaluate policy is different from the target policy. | 
-| Model-free        | ✅      | No need to prepare an environment dynamics model.        | 
-| Model-based       | ❌      | Need an environment model to train the policy.           | 
-| Discrete Action   | ✅      | Deal with discrete action space.                         |   
-| Continuous Action | ✅      | Deal with continuous action space.                       |    
+| NPG 的特征 | 是否具备 | 说明 |
+|-------------|----------|------|
+| 同策略（On-policy） | ✅ | 评估策略与目标策略相同。 |
+| 异策略（Off-policy） | ❌ | 评估策略与目标策略不同。 |
+| 无模型（Model-free） | ✅ | 无须预先构建环境动力学模型。 |
+| 基于模型（Model-based） | ❌ | 需要使用环境模型训练策略。 |
+| 离散动作 | ✅ | 可处理离散动作空间。 |
+| 连续动作 | ✅ | 可处理连续动作空间。 |
 
-## Policy Optimization
-The key idea of NPG is to optimize the policy by computing the gradient of the expected return with respect to the policy parameters. Let's denote the policy as $\pi(\theta)$ where $\theta$  is the parameter vector. The expected return $J(\theta)$ is given by:
+## 策略优化
+
+NPG 的核心思想是计算期望回报关于策略参数的梯度，以优化策略。
+将策略记为 $\pi(\theta)$，其中 $\theta$ 为参数向量，则期望回报 $J(\theta)$ 表示为：
 
 $$
 J(\theta) = \mathbb{E}_{\pi(\theta)}[R] = \sum_s \rho^\pi(s) \sum_a \pi(a; s, \theta) R(s, a)
 $$
 
-where $\rho^\pi(s)$ is the stationary distribution of the policy $\pi$. The gradient of the expected return with respect to $\theta$ is: 
+其中，$\rho^\pi(s)$ 是策略 $\pi$ 对应的平稳分布。
+期望回报关于 $\theta$ 的梯度为：
 
 $$
 \nabla_{\theta} J(\theta) = \sum_s \rho^\pi(s) \sum_a \nabla_{\theta} \pi(a; s, \theta) R(s, a)
 $$
 
-The update rule for the policy parameters $\theta$ is given by:
+策略参数 $\theta$ 的更新规则为：
 
 $$
 \theta_{t+1} = \theta_t + \alpha \nabla_{\theta} J(\theta_t)
 $$
 
-where $\alpha$ is the learning rate.
+其中，$\alpha$ 为学习率。
 
-## Fisher Information Matrix
-In the context of NPG, the Fisher Information Matrix (FIM) plays a crucial role. The FIM is a matrix that measures the amount of information that a random variable contains about an unknown parameter. In the case of policy optimization, the FIM is defined based the probability distribution of the actions under the policy.
+## Fisher 信息矩阵
 
-For a stochastic policy $\pi(a;s,\theta)$, the FIM is given by:
+在 NPG 中，Fisher 信息矩阵（FIM）发挥着关键作用。
+FIM 用于衡量随机变量中包含的关于未知参数的信息量。
+在策略优化问题中，FIM 根据策略所产生的动作概率分布定义。
+
+对于随机策略 $\pi(a;s,\theta)$，FIM 定义为：
 
 $$
 F_s(\theta) \equiv E_{\pi(a; s, \theta)} \left[ \frac{\partial \log \pi(a; s, \theta)}{\partial \theta_i} \frac{\partial \log \pi(a; s, \theta)}{\partial \theta_j} \right]
 $$
 
-Here are some important properties of the FIM:
-- **Positive Definiteness**
-  - The FIM is typically positive definite. This property ensures that the natural gradient, which is based on the inverse of the FIM, is well-defined and points in the direction of the steepest descent of the expected return.
+FIM 具有以下重要性质：
 
-- **Information Content**
-  - The elements of FIM measure the mutual information between the parameters $\theta$ and the actions $a$. A large value of $F_s(\theta)$ indicates that the action distribution contains a lot of information about the parameters, and vice versa.
+- **正定性**
+  - FIM 通常是正定矩阵。该性质保证基于 FIM 逆矩阵定义的自然梯度是良定义的，并指向期望回报变化最快的方向。
 
-- **Invariance**
-  - The FIM is invariant under reparameterization of the policy. This means that the choice of the parameterization of the policy does not affect the value of FIM, as long as the underlying probability distribution of the actions remains the same. 
+- **信息量**
+  - FIM 中的元素用于衡量参数 $\theta$ 与动作 $a$ 之间的信息关联。$F_s(\theta)$ 的值越大，表明动作分布中包含的关于参数的信息越多；反之亦然。
 
-The FIM is used to define the metric for the natural gradient. The steepest descent direction of the expected return is given by:
+- **不变性**
+  - FIM 对策略的重新参数化具有不变性。这意味着，只要动作的底层概率分布保持不变，策略所采用的参数化方式就不会影响 FIM 的取值。
+
+FIM 用于定义自然梯度的度量。期望回报对应的自然梯度方向表示为：
 
 $$
 \tilde{\nabla}_\eta(\theta) \equiv F(\theta)^{-1} \nabla_\eta(\theta)
 $$
 
-where $F(\theta) = E_{\rho^{\pi}(s)} \left[ F_s(\theta) \right]$ is the average Fisher Information Matrix over the stationary distribution of the policy.
+其中，$F(\theta) = E_{\rho^{\pi}(s)} \left[ F_s(\theta) \right]$ 是在策略平稳分布下求得的平均 Fisher 信息矩阵。
 
-## Actor-Critic Framework
-NPG can be implemented in an actor-critic framework. In this framework, the actor network is responsible for generating actions based on the current state, and the critic network is responsible for estimating the value of the state-action pairs. The actor and critic networks are trained jointly to optimize the policy.
+## Actor-Critic 框架
 
+NPG 可以在 Actor-Critic 框架下实现。
+在该框架中，Actor 网络负责根据当前状态生成动作，
+Critic 网络负责估计状态—动作对的价值。
+Actor 和 Critic 网络通过联合训练来优化策略。
 
+NPG 的优点包括：
 
-Strengths of NPG:
-- Simple and intuitive: NPG has a simple and intuitive update rule that directly maximizes the expected return.
-- Can handle discrete and continuous actions: NPG can be applied to both discrete and continuous action spaces, making it suitable for a wide range of RL problems.
-- Efficient use of data: NPG only requires sampling trajectories from the environment, which can be done efficiently, especially in high-dimensional spaces.
+- 简单且直观：NPG 具有简单、直观的更新规则，能够直接最大化期望回报。
+- 可处理离散和连续动作：NPG 同时适用于离散动作空间和连续动作空间，因此能够用于多种强化学习问题。
+- 数据利用效率较高：NPG 只需要从环境中采样轨迹，尤其在高维空间中，这一过程可以较为高效地完成。
 
-## Algorithm
+## 算法
 
-The full algorithm for training NPG is presented in Algorithm 1:
+训练 NPG 的完整算法如算法 1 所示：
 
 ```{eval-rst}
 .. image:: ./../../../_static/figures/pseucodes/pseucode-NPG.png
@@ -86,51 +96,51 @@ The full algorithm for training NPG is presented in Algorithm 1:
     :align: center
 ```
 
-## Run NPG in XuanCe
+## 在 XuanCe 中运行 NPG
 
-Before running NPG in XuanCe, you need to prepare a conda environment and install ``xuance`` following 
-the [**installation steps**](./../../usage/installation.rst#install-xuance).
+在 XuanCe 中运行 NPG 之前，需要先准备一个 conda 环境，并按照
+[**安装步骤**](./../../usage/installation.rst)安装 ``xuance``。
 
-### Run Build-in Demos
+### 运行内置示例
 
-After completing the installation, you can open a Python console and run NPG directly using the following commands:
+完成安装后，可以打开 Python 控制台，并使用以下命令直接运行 NPG：
 
 ```python3
 import xuance
 runner = xuance.get_runner(method='npg',
-                           env='classic_control',  # Choices: classic_control, box2d, atari.
-                           env_id='CartPole-v1',  # Choices: CartPole-v1, LunarLander-v2, ALE/Breakout-v5, etc.
+                           env='classic_control',  # 可选项：classic_control、box2d、atari。
+                           env_id='CartPole-v1',  # 可选项：CartPole-v1、LunarLander-v2、ALE/Breakout-v5 等。
                            is_test=False)
-runner.run()  # Or runner.benchmark()
+runner.run()  # 也可以使用 runner.benchmark()
 ```
 
-### Run With Self-defined Configs
+### 使用自定义配置运行
 
-If you want to run NPG with different configurations, you can build a new ``.yaml`` file, e.g., ``my_config.yaml``.
-Then, run the NPG by the following code block:
+如需使用不同配置运行 NPG，可以新建一个 ``.yaml`` 文件，例如 ``my_config.yaml``。
+然后使用以下代码运行 NPG：
 
 ```python3
 import xuance as xp
 runner = xp.get_runner(method='npg',
-                       env='classic_control',  # Choices: classic_control, box2d, atari.
-                       env_id='CartPole-v1',  # Choices: CartPole-v1, LunarLander-v2, ALE/Breakout-v5, etc.
-                       config_path="my_config.yaml",  # The path of my_config.yaml file should be correct.
+                       env='classic_control',  # 可选项：classic_control、box2d、atari。
+                       env_id='CartPole-v1',  # 可选项：CartPole-v1、LunarLander-v2、ALE/Breakout-v5 等。
+                       config_path="my_config.yaml",  # 请确保 my_config.yaml 文件的路径正确。
                        is_test=False)
-runner.run()  # Or runner.benchmark()
+runner.run()  # 也可以使用 runner.benchmark()
 ```
 
-To learn more about the configurations, please visit the 
-[**tutorial of configs**](./../../api/configs/configuration_examples.rst).
+如需进一步了解配置方法，请参阅
+[**配置教程**](./../../api/configs/configuration_examples.rst)。
 
-### Run With Custom Environment
+### 在自定义环境中运行
 
-If you would like to run XuanCe's NPG in your own environment that was not included in XuanCe, 
-you need to define the new environment following the steps in 
-[**New Environment Tutorial**](./../../usage/custom_env/custom_drl_env.rst).
-Then, [**prepare the configuration file**](./../../usage/custom_env/custom_drl_env.rst#step-2-create-the-config-file-and-read-the-configurations) 
- ``npg_myenv.yaml``.
+如需在 XuanCe 尚未包含的自定义环境中运行 NPG，
+需要按照[**新环境教程**](./../../usage/custom_env/custom_drl_env.rst)
+中的步骤定义新环境。
+然后，[**准备配置文件**](./../../usage/custom_env/custom_drl_env.rst#step-2-create-the-config-file-and-read-the-configurations)
+``npg_myenv.yaml``。
 
-After that, you can run NPG in your own environment with the following code:
+完成上述操作后，可以使用以下代码在自定义环境中运行 NPG：
 
 ```python3
 import argparse
@@ -143,14 +153,14 @@ configs_dict = get_configs(file_dir="npg_myenv.yaml")
 configs = argparse.Namespace(**configs_dict)
 REGISTRY_ENV[configs.env_name] = MyNewEnv
 
-envs = make_envs(configs)  # Make parallel environments.
-Agent = NPG_Agent(config=configs, envs=envs)  # Create a NPG agent from XuanCe.
-Agent.train(configs.running_steps // configs.parallels)  # Train the model for numerous steps.
-Agent.save_model("final_train_model.pth")  # Save the model to model_dir.
-Agent.finish()  # Finish the training.
+envs = make_envs(configs)  # 创建并行环境。
+Agent = NPG_Agent(config=configs, envs=envs)  # 创建一个来自 XuanCe 的 NPG 智能体。
+Agent.train(configs.running_steps // configs.parallels)  # 对模型进行多个步骤的训练。
+Agent.save_model("final_train_model.pth")  # 将模型保存到 model_dir。
+Agent.finish()  # 结束训练。
 ```
 
-## Citation
+## 参考文献
 
 ```{code-block} bash
 @article{kakade2001natural,
