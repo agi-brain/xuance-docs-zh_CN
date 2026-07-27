@@ -1,78 +1,85 @@
-# Deep Deterministic Policy Gradient (DDPG)
+# 深度确定性策略梯度（DDPG）
 
-**Paper Link:** [**https://arxiv.org/abs/1509.02971**](https://arxiv.org/abs/1509.02971).
+**论文链接：** [**https://arxiv.org/abs/1509.02971**](https://arxiv.org/abs/1509.02971)。
 
-Deep Deterministic Policy Gradient (DDPG) is a model-free algorithm in Deep Reinforcement Learning (DRL) that combines elements of policy gradient and deep neural networks. It was developed by Timothy P. Lillicrap et al. in 2015. DDPG has been widely applied in continuous control tasks, achieving notable results in scenarios such as robotic control and simulated environments.
+深度确定性策略梯度（Deep Deterministic Policy Gradient，DDPG）是一种无模型深度强化学习算法，它将策略梯度方法与深度神经网络相结合。该算法由 Timothy P. Lillicrap 等人于 2015 年提出。DDPG 已被广泛应用于连续控制任务，并在机器人控制和仿真环境等场景中取得了显著成果。
 
-This table lists some general features about DDPG algorithm:
+下表列出了 DDPG 算法的一些基本特征：
 
-| Features of DDPG   | Values | Description                                              |
-|-------------------|--------|----------------------------------------------------------|
-| On-policy         | ❌      | The evaluate policy is the same as the target policy.    |
-| Off-policy        | ✅      | The evaluate policy is different from the target policy. | 
-| Model-free        | ✅      | No need to prepare an environment dynamics model.        | 
-| Model-based       | ❌      | Need an environment model to train the policy.           | 
-| Discrete Action   | ✅      | Deal with discrete action space.                         |   
-| Continuous Action | ✅      | Deal with continuous action space.                       |    
+| DDPG 的特征 | 是否具备 | 说明 |
+|--------------|----------|------|
+| 同策略（On-policy） | ❌ | 评估策略与目标策略相同。 |
+| 异策略（Off-policy） | ✅ | 评估策略与目标策略不同。 |
+| 无模型（Model-free） | ✅ | 无须预先构建环境动力学模型。 |
+| 基于模型（Model-based） | ❌ | 需要使用环境模型训练策略。 |
+| 离散动作 | ❌ | 不直接处理离散动作空间。 |
+| 连续动作 | ✅ | 可处理连续动作空间。 |
 
-## Actor-Critic Framework
+## 演员—评论家框架
 
-DDPG builds upon the Actor-Critic framework. The actor network is responsible for generating actions based on the current state. It outputs a deterministic action directly, parameterized by a deep neural network. The critic network, on the other hand, estimates the Q-value of a state-action pair. The critic network takes both the state and the action as inputs and outputs the estimated Q-value, which indicates the long-term expected reward of taking a particular action in a given state.
+DDPG 建立在演员—评论家（Actor-Critic）框架之上。演员网络负责根据当前状态生成动作，并通过深度神经网络直接输出确定性动作。评论家网络则用于估计状态—动作对的 Q 值。评论家网络同时接收状态和动作作为输入，并输出相应的 Q 值估计，该值表示在给定状态下执行特定动作所能获得的长期期望回报。
 
+## 策略梯度
 
-## Policy Gradient
+DDPG 中的演员网络使用策略梯度方法进行更新。策略梯度通过计算期望回报关于演员网络参数的梯度得到，其目标是寻找能够最大化期望回报的策略。演员网络的更新规则基于 Q 值关于演员参数的梯度，并通过链式法则计算。
 
-The actor in DDPG is updated using the policy gradient method. The policy gradient is calculated by taking the gradient of the expected return with respect to the actor's parameters. The goal is to find the policy that maximizes the expected return. The update rule for the actor network is based on the gradient of the Q-value with respect to the actor's parameters, which is calculated using the chain rule of calculus.
-The update for the actor network parameters $\theta^\mu$ is given by:
+演员网络参数 $\theta^\mu$ 的梯度为：
 
 $$
 \nabla_{\theta^\mu} J \approx \frac{1}{N} \sum_{i=1}^{N} \nabla_a Q(s, a \mid \theta^Q) \bigg|_{s=s^i, a=\mu(s^i \mid \theta^\mu)} \nabla_{\theta^\mu} \mu(s \mid \theta^\mu) \bigg|_{s^i}
 $$
 
-where $J$ is the expected return, $N$ is the number of samples in a mini-batch,$\theta^Q$  are the parameters of the critic network, and $\mu(s \mid \theta^\mu)$  is the actor network.
+其中，$J$ 表示期望回报，$N$ 表示一个小批量中的样本数量，$\theta^Q$ 表示评论家网络的参数，$\mu(s \mid \theta^\mu)$ 表示演员网络。
 
-## Critic Network Update
-The critic network in DDPG is updated using the temporal difference (TD) error. The TD error is calculated as the difference between the target Q-value and the predicted Q-value. The target Q-value is calculated using the Bellman equation, similar to Q-learning. The update rule for the critic network is based on minimizing the mean-squared error (MSE) between the predicted Q-value and the target Q-value.
-The target Q-value $y^i$ for a sample $(s^i, a^i, r^i, s^{i+1})$ is given by:
+## 评论家网络更新
+
+DDPG 中的评论家网络使用时序差分（Temporal-Difference，TD）误差进行更新。TD 误差是目标 Q 值与预测 Q 值之间的差。目标 Q 值使用与 Q-learning 类似的 Bellman 方程计算。评论家网络通过最小化预测 Q 值和目标 Q 值之间的均方误差（Mean-Squared Error，MSE）进行更新。
+
+对于样本 $(s^i, a^i, r^i, s^{i+1})$，其目标 Q 值 $y^i$ 为：
 
 $$
 y^i = r^i + \gamma Q'(s^{i+1}, \mu'(s^{i+1} \mid \theta^{\mu'}) \mid \theta^{Q'})
 $$
 
-where $\mu'$ and $\theta^{Q'}$ are the target actor network and the parameters of target critic network  respectively, $Q'$ is the target critic network and $\gamma$ is the discount factor.
-The critic network parameters $\theta^Q$ are updated by minimizing the loss function:
+其中，$\mu'$ 和 $Q'$ 分别表示目标演员网络和目标评论家网络，$\theta^{\mu'}$ 和 $\theta^{Q'}$ 分别表示二者的参数，$\gamma$ 表示折扣因子。
+
+评论家网络参数 $\theta^Q$ 通过最小化以下损失函数进行更新：
 
 $$
 L = \frac{1}{N} \sum_{i=1}^{N} (y^i - Q(s^i, a^i \mid \theta^Q))^2
 $$
 
-## Target Networks and Experience Replay
-Similar to DQN, DDPG uses target networks to stabilize the learning process. Separate target actor and target critic networks are maintained. The parameters of the target networks are updated slowly from the main networks using a soft update rule:
+## 目标网络与经验回放
+
+与 DQN 类似，DDPG 使用目标网络稳定学习过程。算法分别维护目标演员网络和目标评论家网络，并采用软更新规则，根据主网络的参数缓慢更新目标网络：
 
 $$
 \theta' \leftarrow \tau \theta + (1 - \tau) \theta'
 $$
 
-where $\tau$ is a small positive number, typically close to 1, controlling the rate of update.
-DDPG also employs experience replay. An experience replay buffer stores the agent's experiences $(s^i, a^i, r^i, s^{i+1})$ .Mini-batches of experiences are randomly sampled from the buffer to train the actor and critic networks. This helps to break the correlation between consecutive samples and improves the stability and generalization of the learning algorithm.
+其中，$\tau$ 是一个较小的正数，通常取 0.005 左右，用于控制目标网络的更新速度。
 
-## Exploration
-DDPG uses an exploration strategy to encourage the agent to explore the environment. Typically, a noise process is added to the actions generated by the actor network:
+DDPG 还使用经验回放机制。经验回放缓冲区用于存储智能体的交互经验 $(s^i, a^i, r^i, s^{i+1})$。训练演员网络和评论家网络时，从缓冲区中随机采样小批量经验。这有助于减弱连续样本之间的相关性，并提高学习算法的稳定性和泛化能力。
+
+## 探索机制
+
+DDPG 使用探索策略鼓励智能体探索环境。通常会在演员网络生成的动作上添加噪声过程：
 
 $$
 \mu'(s_t) = \mu(s_t \mid \theta^{\mu}_t) + \mathcal{N}
 $$
 
-This noise $\mathcal{N}$ can be, for example, Gaussian noise. The exploration noise helps the agent to explore different parts of the action space and discover better policies. As the training progresses, the amount of exploration noise can be gradually reduced.
+噪声 $\mathcal{N}$ 可以采用高斯噪声等形式。探索噪声能够帮助智能体探索动作空间中的不同区域，并发现更优的策略。随着训练过程推进，探索噪声的幅度可以逐渐减小。
 
-Strengths of DDPG:
-- Can handle continuous action spaces, making it suitable for a wide range of control tasks in robotics and other fields.
-- Stabilizes the learning process through the use of target networks and experience replay, enabling more reliable training.
-- Demonstrated effectiveness in various continuous control scenarios, achieving good performance in tasks like robotic manipulation and locomotion.
+DDPG 的主要优点包括：
 
-## Algorithm
+- 能够处理连续动作空间，适用于机器人控制等多种连续控制任务。
+- 通过目标网络和经验回放机制稳定学习过程，提高训练的可靠性。
+- 已在机器人操作和运动控制等多种连续控制场景中展现出良好性能。
 
-The full algorithm for training DDPG is presented in Algorithm 1:
+## 算法
+
+训练 DDPG 的完整算法如算法 1 所示：
 
 ```{eval-rst}
 .. image:: ./../../../_static/figures/pseucodes/pseucode-DDPG.png
@@ -80,51 +87,51 @@ The full algorithm for training DDPG is presented in Algorithm 1:
     :align: center
 ```
 
-## Run DDPG in XuanCe
+## 在 XuanCe 中运行 DDPG
 
-Before running DDPG in XuanCe, you need to prepare a conda environment and install ``xuance`` following 
-the [**installation steps**](./../../usage/installation.rst#install-xuance).
+在 XuanCe 中运行 DDPG 之前，需要先准备一个 conda 环境，并按照
+[**安装步骤**](./../../usage/installation.rst)安装 ``xuance``。
 
-### Run Build-in Demos
+### 运行内置示例
 
-After completing the installation, you can open a Python console and run DDPG directly using the following commands:
+完成安装后，可以打开 Python 控制台，并使用以下命令直接运行 DDPG：
 
 ```python3
 import xuance
 runner = xuance.get_runner(method='ddpg',
-                           env='classic_control',  # Choices: claasi_control, box2d, atari.
-                           env_id='CartPole-v1',  # Choices: CartPole-v1, LunarLander-v2, ALE/Breakout-v5, etc.
+                           env='classic_control',  # 可选项：classic_control、box2d 等。
+                           env_id='Pendulum-v1',  # 选择具有连续动作空间的环境。
                            is_test=False)
-runner.run()  # Or runner.benchmark()
+runner.run()  # 也可以使用 runner.benchmark()
 ```
 
-### Run With Self-defined Configs
+### 使用自定义配置运行
 
-If you want to run DDPG with different configurations, you can build a new ``.yaml`` file, e.g., ``my_config.yaml``.
-Then, run the DDPG by the following code block:
+如需使用不同配置运行 DDPG，可以新建一个 ``.yaml`` 文件，例如 ``my_config.yaml``。
+然后使用以下代码运行 DDPG：
 
 ```python3
 import xuance as xp
 runner = xp.get_runner(method='ddpg',
-                       env='classic_control',  # Choices: claasi_control, box2d, atari.
-                       env_id='CartPole-v1',  # Choices: CartPole-v1, LunarLander-v2, ALE/Breakout-v5, etc.
-                       config_path="my_config.yaml",  # The path of my_config.yaml file should be correct.
+                       env='classic_control',  # 可选项：classic_control、box2d 等。
+                       env_id='Pendulum-v1',  # 选择具有连续动作空间的环境。
+                       config_path="my_config.yaml",  # 请确保 my_config.yaml 文件的路径正确。
                        is_test=False)
-runner.run()  # Or runner.benchmark()
+runner.run()  # 也可以使用 runner.benchmark()
 ```
 
-To learn more about the configurations, please visit the 
-[**tutorial of configs**](./../../api/configs/configuration_examples.rst).
+如需进一步了解配置方法，请参阅
+[**配置教程**](./../../api/configs/configuration_examples.rst)。
 
-### Run With Custom Environment
+### 在自定义环境中运行
 
-If you would like to run XuanCe's DDPG in your own environment that was not included in XuanCe, 
-you need to define the new environment following the steps in 
-[**New Environment Tutorial**](./../../usage/custom_env/custom_drl_env.rst).
-Then, [**prepapre the configuration file**](./../../usage/custom_env/custom_drl_env.rst#step-2-create-the-config-file-and-read-the-configurations) 
- ``ddpg_myenv.yaml``.
+如需在 XuanCe 尚未包含的自定义环境中运行 DDPG，
+需要按照[**新环境教程**](./../../usage/custom_env/custom_drl_env.rst)
+中的步骤定义新环境。
+然后，[**准备配置文件**](./../../usage/custom_env/custom_drl_env.rst#step-2-create-the-config-file-and-read-the-configurations)
+``ddpg_myenv.yaml``。
 
-After that, you can run DDPG in your own environment with the following code:
+完成上述操作后，可以使用以下代码在自定义环境中运行 DDPG：
 
 ```python3
 import argparse
@@ -137,14 +144,14 @@ configs_dict = get_configs(file_dir="ddpg_myenv.yaml")
 configs = argparse.Namespace(**configs_dict)
 REGISTRY_ENV[configs.env_name] = MyNewEnv
 
-envs = make_envs(configs)  # Make parallel environments.
-Agent = DDPG_Agent(config=configs, envs=envs)  # Create a DDPG agent from XuanCe.
-Agent.train(configs.running_steps // configs.parallels)  # Train the model for numerous steps.
-Agent.save_model("final_train_model.pth")  # Save the model to model_dir.
-Agent.finish()  # Finish the training.
+envs = make_envs(configs)  # 创建并行环境。
+Agent = DDPG_Agent(config=configs, envs=envs)  # 创建一个来自 XuanCe 的 DDPG 智能体。
+Agent.train(configs.running_steps // configs.parallels)  # 对模型进行多个步骤的训练。
+Agent.save_model("final_train_model.pth")  # 将模型保存到 model_dir。
+Agent.finish()  # 结束训练。
 ```
 
-## Citation
+## 参考文献
 
 ```{code-block} bash
 @article{lillicrap2015continuous,
