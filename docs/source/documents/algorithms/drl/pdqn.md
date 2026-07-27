@@ -1,67 +1,124 @@
-# Parametrized Deep Q-Network(P-DQN)
+# 参数化深度 Q 网络（P-DQN）
 
-**Paper Link:**[**https://arxiv.org/pdf/1810.06394**](https://arxiv.org/pdf/1810.06394)
+**算法全称**：**Parameterized Deep Q-Network (P-DQN)**
 
-Parameterized Deep Q-Network(P-DQN) is a framework for the hybrid action space without approximation or relaxation,combining the spirits of both DQN (dealing with discrete action space) and DDPG (dealing with continuous action space) by seamlessly integrating them.
+**论文链接：** [**https://arxiv.org/pdf/1810.06394**](https://arxiv.org/pdf/1810.06394)
 
-This table lists some general features about P-DQN algorithm:
+参数化深度 Q 网络（Parameterized Deep Q-Network，P-DQN）是一种面向混合动作空间的强化学习框架。该方法无须对混合动作空间进行近似或松弛，而是将用于处理离散动作空间的 DQN 与用于处理连续动作空间的 DDPG 有机结合起来。
 
+下表列出了 P-DQN 算法的一些基本特征：
 
-| Features of P-DQN | Values | Description                                            |
-| ----------------- | ------ | ------------------------------------------------------ |
-| On-policy         | ❌     | The evaluate policy is the same as the target policy.  |
-| Off-Policy        | ✅     | The evaluate policy is different as the target policy. |
-| Model-free        | ✅     | No need to prepare an environment dynamics model.      |
-| Model-based       | ❌     | Need an environment model to train the policy.         |
-| Discrete Action   | ✅     | Deal with discrete action space.                       |
-| Continuous Action | ✅     | Deal with continuous action space.                     |
-| Hybrid Action     | ✅     | Deal with hybrid action space.                         |
+| P-DQN 的特征         | 是否具备 | 说明              |
+|-------------------|------|-----------------|
+| 同策略（On-policy）    | ❌    | 评估策略与目标策略相同。    |
+| 异策略（Off-policy）   | ✅    | 评估策略与目标策略不同。    |
+| 无模型（Model-free）   | ✅    | 无须预先构建环境动力学模型。  |
+| 基于模型（Model-based） | ❌    | 需要使用环境模型训练策略。   |
+| 离散动作              | ✅    | 可处理离散动作空间。      |
+| 连续动作              | ✅    | 可处理连续动作空间。      |
+| 混合动作              | ✅    | 可处理离散—连续混合动作空间。 |
 
-## Discrete-Continuous Hybrid Action Space
+## 离散—连续混合动作空间
 
-The hybrid action is defiend by the following hierarchical structure. Firstly we choose a high level action $\mathcal{k}$ from a discrete set $[K]$; upon choosing $\mathcal{k}$, we further choose a low level parameter $\mathcal{x_k}\in\mathcal{\mathcal{X}_k}$ which is associated with the $k$-th high level action.Here $\mathcal{X}_k$ is a continuous set for all $k\in[K]$.
-
-$$
-\mathcal{A}=\{ (k,x_k)|x_k \in \mathcal{X}_k \quad for\; all\;k\in[K] \}
-$$
-
-## Key Idea of P-DQN
-
-In hybrid action space, we denote the action value function by $Q(s,a)=Q(s,k,x_k)$ where $s\in S$, $k\in[K]$, and $x_k\in\mathcal{X}_k$. Let $k_t$ be the discrete action selected at time $t$ and let $x_t$ be the associated continuous parameter. Then the Bellman equation becomes:
+混合动作可由如下分层结构定义。首先，从离散集合 $[K]$ 中选择一个高层动作 $k$；选定 $k$ 后，再选择与第 $k$ 个高层动作关联的低层连续参数 $x_k\in\mathcal{X}_k$。对于任意 $k\in[K]$，$\mathcal{X}_k$ 均为连续集合。
 
 $$
-Q(s_t,k_t,x_{k_t})=\underset{r_t,s_{t+1}}{\mathbb{E}}[r_t+\gamma\underset{k\in[K]}{max}\underset{x_k\in\mathcal{X}_k}{sup}Q(s_{t+1},k,x_k)|s_t=s,a_t=(k_t,x_{k_t})].
+\mathcal{A}=\{(k,x_k)\mid x_k\in\mathcal{X}_k,\ \forall k\in[K]\}
 $$
 
-When the function $Q$ is fixed, for any $s\in S$ and $k\in[K]$, we can view $argsup_{x_k\in\mathcal{X}_k}Q(s,k,x_k)$ as a function $x_k^Q$: $S→ \mathcal{X}_k$. Then Bellman equation can be rewrite as:
+## P-DQN 的核心思想
+
+在混合动作空间中，将动作价值函数表示为 $Q(s,a)=Q(s,k,x_k)$，其中 $s\in S$、$k\in[K]$，且 $x_k\in\mathcal{X}_k$。设 $k_t$ 为时刻 $t$ 选择的离散动作，$x_{k_t}$ 为与其关联的连续参数，则 Bellman 方程为：
 
 $$
-Q(s_t,k_t,x_{k_t})=\underset{r_t,s_{t+1}}{\mathbb{E}}[r_t+\gamma\underset{k\in[K]}{max}Q(s_{t+1},k,x_k^Q)|s_t=s].
+Q(s_t,k_t,x_{k_t})
+=
+\underset{r_t,s_{t+1}}{\mathbb{E}}
+\left[
+r_t+
+\gamma
+\underset{k\in[K]}{\max}
+\underset{x_k\in\mathcal{X}_k}{\sup}
+Q(s_{t+1},k,x_k)
+\mid
+s_t=s,\ a_t=(k_t,x_{k_t})
+\right].
 $$
 
-Similar to the deep Q-Network, we use a deep neural network $Q(s,k,x_k,\omega)$ to approximate $Q(s,k,x_k)$ where $\omega$ denotes the network weights. For such a $Q(s,k,x_k,\omega)$ we approximate $x_k^Q$ with a deterministic policy network $x_k(·;\theta):S→ \mathcal{X}_k$ where θ denotes the network weights of the policy network. When $\omega$ is fixed, we want to find $\theta$ such that:
+当函数 $Q$ 固定时，对于任意 $s\in S$ 和 $k\in[K]$，可以将
 
 $$
-Q(s,k,x_k(s;\theta);\omega)\approx \underset{x_k\in\mathcal{X_k}}{sup}Q(s,k,x_k;\omega) \quad for \; each \; k\in[K].
+\underset{x_k\in\mathcal{X}_k}{\operatorname{argsup}}Q(s,k,x_k)
 $$
 
-Then similar to DQN, we could estimate $\omega$ by minimizing the mean-squared Bellman error via gradient descent.
+视为一个函数 $x_k^Q:S\rightarrow\mathcal{X}_k$。因此，Bellman 方程可以改写为：
 
 $$
-y_t={\sum_{i=0}^{n-1} }{\gamma^ir_{t+i}+\gamma^n \underset{k\in[K]}{max} Q(s_{t+n},k,x_k(s_{t+n};\theta);\omega)}.
+Q(s_t,k_t,x_{k_t})
+=
+\underset{r_t,s_{t+1}}{\mathbb{E}}
+\left[
+r_t+
+\gamma
+\underset{k\in[K]}{\max}
+Q(s_{t+1},k,x_k^Q(s_{t+1}))
+\mid
+s_t=s
+\right].
 $$
 
-We use the least squares loss function for $\omega$ like DQN, since we aim to find $\theta$ that maximize $Q(s,k,x_k(s;\theta);\omega)$ with $\omega$ fixed, we use the loss function for $\omega$ as following:
+与深度 Q 网络类似，P-DQN 使用深度神经网络 $Q(s,k,x_k;\omega)$ 近似 $Q(s,k,x_k)$，其中 $\omega$ 表示网络参数。对于该动作价值网络，使用确定性策略网络
 
 $$
-\ell^Q(\omega)=\frac{1}{2}[Q(s_t,k,x_k;\omega)-y_t]^2 \quad and \quad \ell^\Theta (\theta)=-\sum_{k=1}^{K}Q(s_t,k,x_k(s_t;\theta);\omega_t).
+x_k(\cdot;\theta):S\rightarrow\mathcal{X}_k
 $$
 
-Then update the weights using stochastic gradient methods, we would minimize the loss function $\ell^\Theta (\theta)$ when $\omega_t$ is fixed.
+近似 $x_k^Q$，其中 $\theta$ 表示策略网络参数。当 $\omega$ 固定时，希望找到参数 $\theta$，使得：
 
-## Algorithm
+$$
+Q(s,k,x_k(s;\theta);\omega)
+\approx
+\underset{x_k\in\mathcal{X}_k}{\sup}
+Q(s,k,x_k;\omega),
+\qquad \forall k\in[K].
+$$
 
-The full algorithm for training P-DQN is presented in Algorithm 1:
+随后，与 DQN 类似，可以通过梯度下降最小化均方 Bellman 误差，从而估计参数 $\omega$。其 $n$ 步目标值可写为：
+
+$$
+y_t=
+\sum_{i=0}^{n-1}\gamma^i r_{t+i}
++
+\gamma^n
+\underset{k\in[K]}{\max}
+Q(s_{t+n},k,x_k(s_{t+n};\theta);\omega).
+$$
+
+对于动作价值网络参数 $\omega$，使用与 DQN 类似的最小二乘损失。由于在固定 $\omega$ 时，需要寻找使 $Q(s,k,x_k(s;\theta);\omega)$ 最大化的 $\theta$，因此两个损失函数分别为：
+
+$$
+\ell^Q(\omega)
+=
+\frac{1}{2}
+\left[
+Q(s_t,k_t,x_{k_t};\omega)-y_t
+\right]^2,
+$$
+
+以及
+
+$$
+\ell^\Theta(\theta)
+=
+-\sum_{k=1}^{K}
+Q(s_t,k,x_k(s_t;\theta);\omega_t).
+$$
+
+随后使用随机梯度方法更新网络参数。当 $\omega_t$ 固定时，通过最小化损失函数 $\ell^\Theta(\theta)$ 更新连续动作参数网络。
+
+## 算法
+
+训练 P-DQN 的完整算法如算法 1 所示：
 
 ```{eval-rst}
 .. image:: ./../../../_static/figures/pseucodes/pseucode-PDQN.png
@@ -69,36 +126,40 @@ The full algorithm for training P-DQN is presented in Algorithm 1:
     :align: center
 ```
 
-## Run P-DQN in XuanCe
+## 在 XuanCe 中运行 P-DQN
 
-Before running P-DQN in XuanCe, you need to prepare a conda environment and install ``xuance`` following
-the [**installation steps**](./../../usage/installation.rst#install-via-pypi).
+在 XuanCe 中运行 P-DQN 之前，需要先准备一个 conda 环境，并按照
+[**安装步骤**](./../../usage/installation.rst)安装 ``xuance``。
 
-### Run With Custom Demos
+### 使用自定义环境运行
 
-If you would like to run XuanCe's P-DQN in your own environment that was not included in XuanCe, you need to define the new environment following the steps in [**New Environment Tutorial**](./../../usage/custom_env/custom_drl_env.rst). Then, [**prepapre the configuration file**](./../../usage/custom_env/custom_drl_env.rst#step-2-create-the-config-file-and-read-the-configurations)``pdqn_myenv.yaml``.
+如需在 XuanCe 尚未包含的自定义环境中运行 P-DQN，需要按照
+[**新环境教程**](./../../usage/custom_env/custom_drl_env.rst)
+中的步骤定义新环境。然后，
+[**准备配置文件**](./../../usage/custom_env/custom_drl_env.rst#step-2-create-the-config-file-and-read-the-configurations)
+``pdqn_myenv.yaml``。
 
-After that, you can run P-DQN in your own environment with the following code:
+完成上述操作后，可以使用以下代码在自定义环境中运行 P-DQN：
 
 ```python3
 import argparse
 from xuance.common import get_configs
-from xuance.environment import REGISTER_ENV
+from xuance.environment import REGISTRY_ENV
 from xuance.environment import make_envs
 from xuance.torch.agents import PDQN_Agent
 
-config_dict = get_configs(file_dir="pdqn_myenv.yaml")
+configs_dict = get_configs(file_dir="pdqn_myenv.yaml")
 configs = argparse.Namespace(**configs_dict)
 REGISTRY_ENV[configs.env_name] = MyNewEnv
 
-envs = make_envs(configs)  # Make parallel environments.
-Agent = PDQN_Agent(config=configs, envs=envs)  # Create a PDQN agent from XuanCe.
-Agent.train(configs.running_steps // configs.parallels)  # Train the model for numerous steps.
-Agent.save_model("final_train_model.pth")  # Save the model to model_dir.
-Agent.finish()  # Finish the training.
+envs = make_envs(configs)  # 创建并行环境。
+Agent = PDQN_Agent(config=configs, envs=envs)  # 创建一个来自 XuanCe 的 P-DQN 智能体。
+Agent.train(configs.running_steps // configs.parallels)  # 对模型进行多个步骤的训练。
+Agent.save_model("final_train_model.pth")  # 将模型保存到 model_dir。
+Agent.finish()  # 结束训练。
 ```
 
-## Citation
+## 参考文献
 
 ```{code-block}
 @article{xiong2018parametrized,
